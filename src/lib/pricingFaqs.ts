@@ -1,0 +1,3 @@
+// pricingFaqs
+
+export {};
