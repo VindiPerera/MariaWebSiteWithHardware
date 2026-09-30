@@ -1,3 +1,272 @@
-/* AboutSystem */
-.root {
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 110px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.95fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.copy strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.body {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #555555;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15.5px;
+  color: var(--red);
+  margin-top: 6px;
+  width: fit-content;
+  transition: transform 0.2s ease;
+}
+
+.link:hover {
+  transform: translateX(4px);
+  color: var(--red-dark);
+}
+
+.flow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px;
+  border-radius: 26px;
+  background: #111827;
+  color: #ffffff;
+  box-shadow: 0 30px 60px -25px rgba(17, 24, 39, 0.6);
+  border: 1px solid #1f2937;
+}
+
+.flowTopHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.ecosystemBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-code);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ff8a80;
+  background: rgba(255, 138, 128, 0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.flowStageCounter {
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.flowStepList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flowStep {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flowStep:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.flowStepActive {
+  background: rgba(198, 40, 40, 0.15);
+  border-color: rgba(198, 40, 40, 0.4);
+  box-shadow: 0 8px 24px -6px rgba(198, 40, 40, 0.35);
+  transform: translateX(6px);
+}
+
+.flowIcon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.4);
+}
+
+.flowStepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.flowMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flowIndex {
+  font-family: var(--font-code);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff8a80;
+  font-weight: 700;
+}
+
+.flowStatus {
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #1faa55;
+  background: rgba(31, 170, 85, 0.15);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.flowTitle {
+  margin: 4px 0 2px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  color: #ffffff;
+}
+
+.flowBody {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.purposeHead {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.purposeTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.purposes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.purpose {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px;
+  border-radius: 22px;
+  border: 1px solid #ebebeb;
+  background: linear-gradient(170deg, #ffffff 55%, #fbf4f4);
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.purpose:hover {
+  transform: translateY(-4px);
+  border-color: rgba(198, 40, 40, 0.3);
+  box-shadow: 0 16px 36px -12px rgba(139, 0, 0, 0.12);
+}
+
+.purposeTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.purposeMetric {
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #1faa55;
+  background: rgba(31, 170, 85, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.purposeName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .purposes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 16px 32px;
+  }
+
+  .purposes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .flow {
+    padding: 20px;
+  }
 }

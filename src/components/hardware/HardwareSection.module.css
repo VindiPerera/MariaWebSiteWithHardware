@@ -1,3 +1,151 @@
-/* HardwareSection */
-.root {
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 150px 24px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.intro {
+  max-width: 560px;
+}
+
+.banner {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 1408 / 640;
+  min-height: 300px;
+  background: #eeeeee;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.35);
+}
+
+.badge {
+  position: absolute;
+  bottom: 12%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.45);
+}
+
+.badgeLeft {
+  left: 4%;
+}
+
+.badgeRight {
+  right: 4%;
+}
+
+.badgeIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgba(198, 40, 40, 0.1);
+  display: grid;
+  place-items: center;
+}
+
+.devices {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px 32px;
+}
+
+.device {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ink);
+}
+
+.deviceIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #e53935, var(--red-dark));
+  box-shadow:
+    0 10px 20px -10px rgba(139, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  display: grid;
+  place-items: center;
+}
+
+.deviceTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.deviceBody {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 20px;
+}
+
+.figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.figureMedia {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.figureImage {
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.figureImage:hover {
+  transform: scale(1.04);
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.captionTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.captionText {
+  font-size: 14.5px;
+  color: #555555;
+}
+
+@media (max-width: 999px) {
+  .devices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 559px) {
+  .devices {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

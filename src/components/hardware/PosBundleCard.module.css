@@ -1,0 +1,219 @@
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.06);
+  position: relative;
+  transition: all 0.25s var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12);
+}
+
+.featured {
+  border: 2px solid var(--red);
+  background: radial-gradient(circle at top right, rgba(198, 40, 40, 0.04) 0%, #ffffff 70%);
+  box-shadow: 0 12px 32px -8px rgba(198, 40, 40, 0.2);
+}
+
+.badgeWrapper {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.4);
+}
+
+.header {
+  margin-top: 6px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.tagline {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  margin-top: 4px;
+}
+
+.priceBox {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.totalPrice {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--red-dark);
+}
+
+.regularPrice {
+  font-size: 14px;
+  color: var(--ink-muted);
+  text-decoration: line-through;
+}
+
+.savingsTag {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #047857;
+}
+
+.softwareIncluded {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.itemsTitle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  margin-bottom: 2px;
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-secondary);
+}
+
+.itemQty {
+  font-weight: 700;
+  color: var(--red);
+  min-width: 22px;
+}
+
+.itemCode {
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.itemName {
+  flex: 1;
+}
+
+.targetAudience {
+  font-size: 12px;
+  color: var(--ink-muted);
+  line-height: 1.4;
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+  color: #ffffff;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(198, 40, 40, 0.4);
+  transition: all 0.18s var(--ease-out);
+}
+
+.addBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(198, 40, 40, 0.55);
+}
+
+.addBtnActive {
+  background: #15803d;
+  box-shadow: 0 4px 14px rgba(21, 128, 61, 0.4);
+}
+
+.whatsappBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--whatsapp);
+  color: var(--whatsapp-dark) !important;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.whatsappBtn:hover {
+  background: #f0fdf4;
+}

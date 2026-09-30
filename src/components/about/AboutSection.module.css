@@ -1,3 +1,142 @@
-/* AboutSection */
-.root {
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: 130px 24px 80px;
+  background: #ffffff;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26, 26, 26, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.intro {
+  margin-bottom: 56px;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.storyCard {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.storyTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.storyText {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #4a4a4a;
+}
+
+.peopleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.personCard {
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #111827;
+  color: #ffffff;
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.35);
+}
+
+.personCardLight {
+  background: #ffffff;
+  color: var(--ink);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.04);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, var(--red-light), var(--red) 45%, var(--red-dark));
+  box-shadow:
+    0 12px 24px -12px rgba(139, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.personName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.personRole {
+  font-family: var(--font-code);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ff8a80;
+}
+
+.personRoleLight {
+  font-family: var(--font-code);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.personText {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #d1d5db;
+}
+
+.personTextLight {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #4a4a4a;
+}
+
+@media (max-width: 960px) {
+  .storyGrid {
+    grid-template-columns: 1fr;
+  }
+  .peopleGrid {
+    grid-template-columns: 1fr;
+  }
 }

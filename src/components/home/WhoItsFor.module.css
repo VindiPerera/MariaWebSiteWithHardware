@@ -1,3 +1,129 @@
-/* WhoItsFor */
-.root {
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 100px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.industries {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.industry {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 20px;
+  border-radius: 20px;
+  border: 1px solid #ebebeb;
+  background: #ffffff;
+  color: var(--ink);
+  transition:
+    transform 0.3s var(--ease-out),
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.industry:hover {
+  color: var(--ink);
+  transform: translateY(-4px);
+  border-color: rgba(198, 40, 40, 0.35);
+  box-shadow: 0 24px 44px -28px rgba(139, 0, 0, 0.4);
+}
+
+.industryIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--red);
+  background: rgba(198, 40, 40, 0.08);
+}
+
+.industryName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.industryIntro {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #6b7280;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.arrow {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  color: #c4c4c4;
+  transition: color 0.2s;
+}
+
+.industry:hover .arrow {
+  color: var(--red);
+}
+
+.sizes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.size {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #fbf5f5;
+  border: 1px solid #f3e4e4;
+}
+
+.sizeTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.sizeBody {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+@media (max-width: 1099px) {
+  .industries {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 799px) {
+  .industries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sizes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 499px) {
+  .section {
+    padding: 72px 16px 24px;
+  }
+
+  .industries {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

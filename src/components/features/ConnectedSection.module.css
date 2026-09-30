@@ -1,3 +1,370 @@
-/* ConnectedSection */
-.root {
+.section {
+  position: relative;
+  overflow: hidden;
+  background: #111111;
+  color: #ffffff;
+}
+
+.dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000, transparent 80%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000, transparent 80%);
+}
+
+.glow {
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  left: 50%;
+  top: -240px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(198, 40, 40, 0.35), transparent 65%);
+  filter: blur(30px);
+}
+
+.inner {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 120px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.eyebrow {
+  font-family: var(--font-code);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tab {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+}
+
+.tab:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+.tabActive,
+.tabActive:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 138, 128, 0.45);
+}
+
+.tabTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.tabIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.tabActive .tabIcon {
+  background: var(--red);
+}
+
+.tabBody {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #c9c9c9;
+}
+
+.stage {
+  position: relative;
+  min-height: 420px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
+  padding: 32px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.mono {
+  font-family: var(--font-code);
+}
+
+/* ---------- SMS demo ---------- */
+
+.sms {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.checkout {
+  background: #ffffff;
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 16px;
+  width: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.checkoutTitle {
+  font-weight: 600;
+}
+
+.checkoutTotal {
+  display: flex;
+  justify-content: space-between;
+  color: #555555;
+}
+
+.checkoutPhone {
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-family: var(--font-code);
+  font-size: 12px;
+}
+
+.checkoutButton {
+  background: var(--red);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 7px;
+  font-weight: 600;
+}
+
+.checkoutCredits {
+  font-size: 11px;
+  color: #777777;
+  text-align: center;
+}
+
+.phone {
+  width: 230px;
+  height: 420px;
+  border-radius: 36px;
+  background: #1f1f1f;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 9px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+.phoneScreen {
+  position: relative;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #1c1c1e;
+}
+
+.notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 16px;
+  border-radius: 99px;
+  background: #000000;
+  z-index: 1;
+}
+
+/* ---------- Telegram demo ---------- */
+
+.telegram {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.telegramStatus {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #bbbbbb;
+  font-size: 13px;
+  font-family: var(--font-code);
+}
+
+.onlineDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4caf50;
+}
+
+.message {
+  background: #ffffff;
+  color: var(--ink);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+}
+
+.messageIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--red);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.messageText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.messageTitle {
+  font-weight: 600;
+}
+
+.messageItems {
+  color: #555555;
+}
+
+.messageTotal {
+  font-family: var(--font-code);
+  font-size: 12px;
+}
+
+/* ---------- Cloud demo ---------- */
+
+.cloud {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 340px;
+}
+
+.cloudLines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.till {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 12px;
+  width: 120px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nodeName {
+  font-weight: 600;
+}
+
+.tillState {
+  color: #777777;
+}
+
+.cloudHub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 92px;
+  height: 92px;
+  border-radius: 24px;
+  background: var(--red);
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 0 0 10px rgba(198, 40, 40, 0.18),
+    0 0 60px rgba(198, 40, 40, 0.6);
+}
+
+.branch {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 10px 12px;
+  width: 128px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.branchState {
+  color: #9fe0a3;
 }

@@ -1,11 +1,10 @@
-import path from "node:path";
 import type { NextConfig } from "next";
 
-const projectRoot = path.resolve(__dirname);
-
 const nextConfig: NextConfig = {
-  turbopack: { root: projectRoot },
-  outputFileTracingRoot: projectRoot,
+  allowedDevOrigins: ["169.254.198.95"],
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

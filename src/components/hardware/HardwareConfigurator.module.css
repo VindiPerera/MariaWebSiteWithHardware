@@ -1,0 +1,358 @@
+.section {
+  padding: 96px 24px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  position: relative;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.stepsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.stepCard {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.04);
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stepNumber {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--red);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stepSubtitle {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.optionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-alt);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.optionItem:hover {
+  border-color: #cbd5e1;
+  background: #ffffff;
+}
+
+.optionSelected {
+  border-color: var(--red);
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(198, 40, 40, 0.08);
+}
+
+.optionRadio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: border-color 0.18s ease;
+}
+
+.optionSelected .optionRadio {
+  border-color: var(--red);
+}
+
+.radioDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+.optionContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.optionName {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.softwareBadge {
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--red-soft);
+  color: var(--red-dark);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.optionNote {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.optionPrice {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--red-dark);
+  white-space: nowrap;
+}
+
+/* Checkbox Grid */
+.checkboxGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-alt);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.checkItem:hover {
+  border-color: #cbd5e1;
+  background: #ffffff;
+}
+
+.checkItemActive {
+  border-color: var(--red);
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(198, 40, 40, 0.08);
+}
+
+.hiddenCheckbox {
+  display: none;
+}
+
+.checkboxBox {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid #cbd5e1;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #ffffff;
+  transition: all 0.18s ease;
+}
+
+.checkItemActive .checkboxBox {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.checkContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checkContent strong {
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.checkContent span {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.checkPrice {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--red-dark);
+  white-space: nowrap;
+}
+
+/* Sticky Summary Column */
+.summaryCol {
+  position: sticky;
+  top: 90px;
+}
+
+.summaryCard {
+  background: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.summaryHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summaryEyebrow {
+  font-family: var(--font-code);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--red);
+}
+
+.summaryTitle {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.summaryBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  gap: 8px;
+}
+
+.sumLabel {
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.sumVal {
+  color: var(--ink);
+  text-align: right;
+  font-size: 12.5px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.grandTotalRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.totalPrompt {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.warrantyNote {
+  display: block;
+  font-size: 11px;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.grandPrice {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--red-dark);
+}
+
+.summaryActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commitments {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px dashed var(--border);
+  padding-top: 12px;
+}
+
+.commitItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-secondary);
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .summaryCol {
+    position: static;
+  }
+}

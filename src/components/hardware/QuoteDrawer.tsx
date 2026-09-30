@@ -1,0 +1,203 @@
+"use client";
+
+import React, { useState } from "react";
+import { X, Trash2, Plus, Minus, ShoppingBag, Phone, CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
+import { useCart } from "@/lib/cartContext";
+import { formatLkr } from "@/lib/hardwareCatalog";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { site } from "@/lib/site";
+import styles from "./QuoteDrawer.module.css";
+
+export function QuoteDrawer() {
+  const {
+    items,
+    isDrawerOpen,
+    closeDrawer,
+    removeItem,
+    updateQty,
+    clearCart,
+    totalAmount,
+    totalCount,
+    getWhatsAppOrderUrl,
+  } = useCart();
+
+  const [customerName, setCustomerName] = useState("");
+  const [customerCity, setCustomerCity] = useState("");
+
+  if (!isDrawerOpen) return null;
+
+  const whatsappHref = getWhatsAppOrderUrl(customerName, customerCity);
+
+  return (
+    <div className={styles.overlay} onClick={closeDrawer}>
+      <aside className={styles.drawer} onClick={(e) => e.stopPropagation()}>
+        {/* Header */}
+        <div className={styles.header}>
+          <div className={styles.headerTitleRow}>
+            <span className={styles.headerIcon}>
+              <ShoppingBag size={20} color="var(--red)" />
+            </span>
+            <div>
+              <h3 className={styles.title}>Hardware Quote &amp; Order</h3>
+              <p className={styles.subtitle}>
+                {totalCount} {totalCount === 1 ? "device" : "devices"} selected
+              </p>
+            </div>
+          </div>
+          <button type="button" className={styles.closeBtn} onClick={closeDrawer} aria-label="Close cart">
+            <X size={20} />
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className={styles.body}>
+          {items.length === 0 ? (
+            <div className={styles.emptyState}>
+              <div className={styles.emptyIcon}>
+                <ShoppingBag size={48} color="#94a3b8" />
+              </div>
+              <h4 className={styles.emptyTitle}>Your hardware quote is empty</h4>
+              <p className={styles.emptyText}>
+                Browse our certified POS terminals, receipt printers, barcode scanners, and cash drawers to build your
+                custom counter setup.
+              </p>
+              <button type="button" className="btn-primary" onClick={closeDrawer}>
+                <span>Explore Hardware Store</span>
+                <ArrowRight size={15} />
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* Item List */}
+              <div className={styles.itemList}>
+                {items.map((item) => (
+                  <div key={item.code} className={styles.itemRow}>
+                    <div className={styles.itemMain}>
+                      <div className={styles.itemMeta}>
+                        <span className={styles.itemCode}>{item.code}</span>
+                        {item.inStock ? (
+                          <span className={styles.stockBadge}>In Stock</span>
+                        ) : (
+                          <span className={styles.preorderBadge}>Pre-Order</span>
+                        )}
+                      </div>
+                      <h4 className={styles.itemName}>{item.name}</h4>
+                      <div className={styles.itemPriceRow}>
+                        <span className={styles.unitPrice}>{formatLkr(item.price)} each</span>
+                        <strong className={styles.rowTotal}>{formatLkr(item.price * item.qty)}</strong>
+                      </div>
+                    </div>
+
+                    <div className={styles.itemActions}>
+                      <div className={styles.qtyControl}>
+                        <button
+                          type="button"
+                          className={styles.qtyBtn}
+                          onClick={() => updateQty(item.code, -1)}
+                          aria-label="Decrease quantity"
+                        >
+                          <Minus size={14} />
+                        </button>
+                        <span className={styles.qtyValue}>{item.qty}</span>
+                        <button
+                          type="button"
+                          className={styles.qtyBtn}
+                          onClick={() => updateQty(item.code, 1)}
+                          aria-label="Increase quantity"
+                        >
+                          <Plus size={14} />
+                        </button>
+                      </div>
+                      <button
+                        type="button"
+                        className={styles.removeBtn}
+                        onClick={() => removeItem(item.code)}
+                        aria-label="Remove item"
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Customer Details for Quote */}
+              <div className={styles.customerForm}>
+                <h5 className={styles.formTitle}>Quotation / Dispatch Info (Optional)</h5>
+                <div className={styles.formGrid}>
+                  <input
+                    type="text"
+                    placeholder="Your Name / Shop Name"
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
+                    className={styles.input}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Town / City (e.g. Colombo, Kandy)"
+                    value={customerCity}
+                    onChange={(e) => setCustomerCity(e.target.value)}
+                    className={styles.input}
+                  />
+                </div>
+              </div>
+
+              {/* Guarantees */}
+              <div className={styles.perks}>
+                <div className={styles.perk}>
+                  <ShieldCheck size={16} color="var(--red)" />
+                  <span>1-Year JAAN Commercial Warranty</span>
+                </div>
+                <div className={styles.perk}>
+                  <CheckCircle2 size={16} color="#16a34a" />
+                  <span>Tested &amp; Driver-Configured for MariaPoS</span>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Footer */}
+        {items.length > 0 && (
+          <div className={styles.footer}>
+            <div className={styles.totalRow}>
+              <div>
+                <span className={styles.totalLabel}>Estimated Total</span>
+                <span className={styles.taxNote}>Includes Driver Setup &amp; VAT</span>
+              </div>
+              <strong className={styles.totalValue}>{formatLkr(totalAmount)}</strong>
+            </div>
+
+            <div className={styles.actionButtons}>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp"
+                style={{ width: "100%", justifyContent: "center" }}
+              >
+                <WhatsAppIcon size={18} />
+                <span>Confirm Order via WhatsApp</span>
+              </a>
+
+              <div className={styles.secondaryActions}>
+                <a href={site.phoneHref} className="btn-secondary" style={{ flex: 1, padding: "10px 14px", fontSize: "14px" }}>
+                  <Phone size={15} color="var(--red)" />
+                  <span>Call Hotline</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={clearCart}
+                  className={styles.clearBtn}
+                  aria-label="Clear quote"
+                >
+                  Clear All
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </aside>
+    </div>
+  );
+}

@@ -1,3 +1,513 @@
-/* FeatureVisualPreview */
-.root {
+.previewBox {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* 1. Barcode scan with animated sweep laser */
+.barcodeScan {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.laserLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+  animation: laserSweep 2s ease-in-out infinite alternate;
+}
+
+@keyframes laserSweep {
+  0% {
+    left: 2px;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 4px);
+    opacity: 0.2;
+  }
+}
+
+.monoTag {
+  font-family: var(--font-code);
+  font-size: 11px;
+  font-weight: 700;
+  color: #166534;
+}
+
+/* 2. Keycaps */
+.keycaps {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.keycap {
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 600;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-bottom: 2px solid #9ca3af;
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: #374151;
+}
+
+.keycapActive {
+  background: var(--red);
+  color: #ffffff;
+  border-color: var(--red-dark);
+  border-bottom-color: #5f0f0f;
+}
+
+/* 3. Mini keypad */
+.miniKeypad {
+  display: grid;
+  grid-template-columns: repeat(3, 16px);
+  gap: 3px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 3px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 9px;
+  font-weight: 600;
+  text-align: center;
+  color: #4b5563;
+}
+
+.miniKeyActive {
+  background: var(--red);
+  color: #ffffff;
+  border-radius: 2px;
+}
+
+/* 4. Dual price */
+.dualPrice {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.priceRetail {
+  color: #4b5563;
+}
+
+.priceWholesale {
+  color: var(--red);
+  background: rgba(198, 40, 40, 0.08);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+/* 5. Weight scale */
+.weightBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* 6. Discount */
+.discountBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
+}
+
+/* 7. Promo code */
+.promoTicket {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fef2f2;
+  border: 1px dashed var(--red);
+  padding: 3px 7px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--red);
+}
+
+/* 8. Price check */
+.priceCheck {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #166534;
+}
+
+/* 9. Receipt */
+.receiptReprint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* 10. Split meter */
+.splitMeter {
+  display: inline-flex;
+  gap: 4px;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.splitCash {
+  background: #dcfce7;
+  color: #166534;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.splitCard {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 11. Payment pills */
+.paymentPills {
+  display: inline-flex;
+  gap: 3px;
+  font-family: var(--font-code);
+  font-size: 9.5px;
+  font-weight: 700;
+}
+
+.payCash {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.payCard {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.payBank {
+  background: #fef3c7;
+  color: #b45309;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.payCheque {
+  background: #f3e8ff;
+  color: #7e22ce;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* 12. Change calc */
+.changeCalc {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: var(--font-code);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.changeResult {
+  color: #1faa55;
+  font-weight: 700;
+}
+
+/* 13. Credit due */
+.creditDue {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #b45309;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* 14. Loyalty star */
+.loyaltyStar {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  color: #a16207;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* 15. FIFO pipeline */
+.fifoPipeline {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.fifoBatchOld {
+  background: #fef2f2;
+  color: var(--red);
+  padding: 2px 5px;
+  border-radius: 4px;
+  border: 1px solid #fee2e2;
+}
+
+.fifoArrow {
+  color: #9ca3af;
+}
+
+.fifoDeductTag {
+  background: #ecfdf5;
+  color: #047857;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* 16. Alert pulse */
+.alertPulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #b45309;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.pulseDotAmber {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d97706;
+  animation: pingDot 1.6s infinite;
+}
+
+@keyframes pingDot {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+}
+
+/* 17. Label sticker */
+.labelSticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ffffff;
+  border: 1px dashed #d1d5db;
+  color: #374151;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* 18. Cheque due */
+.chequeDue {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* 19. Shift balance */
+.shiftBalance {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* 20. SMS sent */
+.smsSent {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* 21. Telegram alert */
+.tgAlert {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* 22. Cloud sync */
+.cloudSync {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+/* 23. Security PIN */
+.securityPin {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--red);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* 24. Report gross */
+.reportGross {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* 25. Printer roll */
+.printerRoll {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: var(--ink);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+/* Generic tag fallback */
+.genericTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(198, 40, 40, 0.05);
+  border: 1px solid rgba(198, 40, 40, 0.12);
+  color: var(--red);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 700;
 }
