@@ -8,11 +8,8 @@ import {
   Barcode,
   CheckCircle2,
   Copy,
-  FileCheck2,
   Printer,
   Receipt,
-  RotateCcw,
-  Sparkles,
   Store,
   Wallet,
 } from "lucide-react";
@@ -133,7 +130,7 @@ Total Balance:                    $ 1.00
           </div>
 
           <div className={styles.actionRow}>
-            <Link href="/product#hardware-ready" className={styles.ctaBtn}>
+            <Link href="/hardware?cat=printers" className={styles.ctaBtn}>
               <Printer size={16} />
               <span>Explore Hardware Support</span>
               <ArrowRight size={14} />

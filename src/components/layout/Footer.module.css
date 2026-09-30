@@ -40,17 +40,11 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-@media (min-width: 992px) {
-  .showcaseSection {
-    grid-template-columns: 1.25fr 0.95fr;
-    gap: 60px;
-  }
-}
-
 .showcaseLeft {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 900px;
 }
 
 .brandBadge {

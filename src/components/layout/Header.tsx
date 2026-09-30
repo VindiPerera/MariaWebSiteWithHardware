@@ -284,9 +284,9 @@ export function Header() {
 
             <div className={styles.modalBody}>
               <p className={styles.modalLead}>
-                Every MariaPoS setup is configured to print clear, formatted
-                receipts in English &amp; Sinhala with your shop name, tax
-                number, and barcode.
+                Every MariaPoS setup is configured to print crisp, formatted
+                receipts with your custom shop logo, item breakdown, and
+                scannable return barcodes on standard 58mm and 80mm thermal printers.
               </p>
               <ThermalReceiptBill showControls={true} />
             </div>

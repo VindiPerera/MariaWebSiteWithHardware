@@ -59,7 +59,7 @@
   margin: 0;
   font-size: 16px;
   line-height: 1.6;
-  color: var(--ink-light);
+  color: #4b5563;
 }
 
 /* Features checklist grid */
@@ -115,7 +115,7 @@
 
 .featureDesc {
   font-size: 13px;
-  color: var(--ink-light);
+  color: #6b7280;
   line-height: 1.45;
 }
 
@@ -147,6 +147,7 @@
   background: #a92020;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px -4px rgba(198, 40, 40, 0.5);
+  color: #ffffff;
 }
 
 .specsBadge {

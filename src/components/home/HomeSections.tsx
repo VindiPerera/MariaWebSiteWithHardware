@@ -24,7 +24,6 @@ import {
 import posBilling from "@/assets/images/pos-billing.png";
 import { featuredHero, featuredProducts, formatLkr, hardwareProductCount, industryChips, waGeneral } from "@/lib/shop";
 import { site } from "@/lib/site";
-import { ThermalReceiptBill } from "@/components/common/ThermalReceiptBill";
 import { ProductCard } from "./ProductCard";
 import styles from "./Home.module.css";
 
@@ -136,13 +135,13 @@ export function BuyingPaths() {
           </p>
         </div>
         <div className={styles.pathGrid}>
-          <Link href="/pricing#software" className={styles.pathCard}>
+          <Link href="/pricing" className={styles.pathCard}>
             <Laptop size={28} color="var(--red)" />
             <div className={styles.pathNum}>01</div>
             <div className={styles.pathTitle}>Software only</div>
             <p className={styles.body}>MariaPoS licence for your Windows PC. 1, 2 or 3 years.</p>
             <span className={styles.pathLink}>
-              See plan
+              See plans
               <ArrowRight size={16} />
             </span>
           </Link>
@@ -152,22 +151,22 @@ export function BuyingPaths() {
             <div className={styles.pathTitle}>Hardware only</div>
             <p className={styles.body}>Printers, scanners, cash drawers and touch POS systems. From Rs. 210.</p>
             <span className={styles.pathLink}>
-              See plan
+              Explore catalog
               <ArrowRight size={16} />
             </span>
           </Link>
-          <Link href="/pricing#fullset" className={styles.pathCardDark}>
+          <Link href="/contact" className={styles.pathCardDark}>
             <div className={styles.pathTop}>
               <PackageCheck size={28} color="#ff8a80" />
-              <span className={styles.pathBadge}>Best value</span>
+              <span className={styles.pathBadge}>Expert Setup</span>
             </div>
             <div className={styles.pathNum}>03</div>
-            <div className={styles.pathTitle}>Software + Hardware</div>
+            <div className={styles.pathTitle}>Counter Demo &amp; Setup</div>
             <p className={styles.body}>
-              The full counter set: touch POS, printer, scanner, cash drawer, licence and setup.
+              Visit our Colombo Experience Center or request a tailored counter walkthrough.
             </p>
             <span className={styles.pathLink}>
-              See full set
+              Contact team
               <ArrowRight size={16} />
             </span>
           </Link>
@@ -267,85 +266,6 @@ export function SoftwareBento() {
     </section>
   );
 }
-
-export function ThermalBillEngineSection() {
-  return (
-    <section className={`${styles.section} ${styles.band}`}>
-      <div className={styles.container}>
-        <div className={styles.billEngineGrid}>
-          <div className={styles.billEngineCopy}>
-            <span className="eyebrow">
-              <Printer size={14} color="var(--red)" />
-              Thermal Print Engine
-            </span>
-            <h2 className={styles.h2}>
-              Lightning-fast 80mm bills, tailored for Sri Lankan counters.
-            </h2>
-            <p className={styles.lead}>
-              Formatted for high-speed 80mm and 58mm thermal printers with automatic cash drawer kick.
-              Prints Sinhala &amp; English shop headers, itemized discounts, and scannable barcodes in under 1.2 seconds.
-            </p>
-
-            <div className={styles.billFeatureCards}>
-              <div className={styles.billFeatureItem}>
-                <div className={styles.billFeatureIcon}>
-                  <Sparkles size={18} color="var(--red)" />
-                </div>
-                <div>
-                  <strong>Sinhala &amp; English bilingual receipts</strong>
-                  <span>Supports &quot;ස්තූතියි නැවත එන්න&quot; and custom store policy headers.</span>
-                </div>
-              </div>
-
-              <div className={styles.billFeatureItem}>
-                <div className={styles.billFeatureIcon}>
-                  <Zap size={18} color="#1faa55" />
-                </div>
-                <div>
-                  <strong>Instant cash drawer pulse</strong>
-                  <span>Kicks the heavy-duty cash drawer open the exact instant the bill completes.</span>
-                </div>
-              </div>
-
-              <div className={styles.billFeatureItem}>
-                <div className={styles.billFeatureIcon}>
-                  <PackageCheck size={18} color="#0284c7" />
-                </div>
-                <div>
-                  <strong>Offline instant reprint</strong>
-                  <span>Power cut or paper jam? Reprint any past receipt in one keystroke without data loss.</span>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.billActionRow}>
-              <Link href="/pricing#fullset" className={styles.primaryRedButton}>
-                <span>Get Full Setup with Printer</span>
-                <ArrowRight size={16} />
-              </Link>
-              <a
-                href={waGeneral}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.waButton}
-              >
-                <MessageCircle size={18} />
-                <span>Ask on WhatsApp</span>
-              </a>
-            </div>
-          </div>
-
-          <div className={styles.billEngineVisual}>
-            <div className={styles.billWrapperCard}>
-              <ThermalReceiptBill showControls={true} compact={false} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 
 export function IndustriesRow() {
   return (

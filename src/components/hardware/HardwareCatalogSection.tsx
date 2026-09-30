@@ -72,14 +72,14 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
               Complete Solution Bundles
             </span>
             <strong className={styles.nudgeTitle}>
-              Looking for a Complete Hardware + Software Pack?
+              Looking for MariaPoS Software Licenses?
             </strong>
             <span className={styles.nudgeDesc}>
-              Starter Retail Pack (Rs. 169,900), Supermarket Dual-Screen Pack (Rs. 279,500), and Van Sales Pack with full licenses are available in Plans.
+              Activate full 1-Year, 2-Year or 3-Year MariaPoS software licenses with offline billing, FIFO inventory, Telegram alerts &amp; cloud sync.
             </span>
           </div>
-          <Link href="/pricing#bundles" className={styles.nudgeBtn}>
-            <span>View Bundle Plans &amp; Pricing</span>
+          <Link href="/pricing" className={styles.nudgeBtn}>
+            <span>View Software Plans &amp; Pricing</span>
             <ArrowRight size={16} />
           </Link>
         </div>
