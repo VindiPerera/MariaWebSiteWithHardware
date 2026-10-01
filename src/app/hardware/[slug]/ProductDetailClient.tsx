@@ -22,7 +22,6 @@ import {
   Copy,
   Zap,
   RotateCw,
-  Box,
   MapPin,
 } from "lucide-react";
 import { HardwareItem, formatLkr, hardwareCatalog } from "@/lib/hardwareCatalog";
@@ -30,7 +29,7 @@ import { HardwareDeviceVisual } from "@/components/hardware/HardwareDeviceVisual
 import { HardwareCard } from "@/components/hardware/HardwareCard";
 import { useCart } from "@/lib/cartContext";
 import { waLink } from "@/lib/shop";
-import { getProductPhoto } from "@/lib/productImages";
+import { getProductPhotos } from "@/lib/productImages";
 import styles from "./ProductDetail.module.css";
 
 const sriLankaDistricts = [
@@ -60,8 +59,28 @@ export function ProductDetailClient({ product }: Props) {
 
   const { addItem, items } = useCart();
 
-  const photo = getProductPhoto(product.code);
-  const hasRealPhoto = Boolean(photo);
+  const photos = getProductPhotos(product.code);
+
+  type GalleryTab =
+    | { type: "photo"; label: string; src: (typeof photos)[number] }
+    | { type: "schematic"; label: string }
+    | { type: "ports"; label: string };
+
+  // Real product photos take priority; the schematic/ports fallback tabs only
+  // appear when a product has no real photos to show.
+  const galleryTabs: GalleryTab[] =
+    photos.length > 0
+      ? photos.map((src, i) => ({
+          type: "photo" as const,
+          label: photos.length > 1 ? `Photo ${i + 1}` : "Photo",
+          src,
+        }))
+      : [
+          { type: "schematic" as const, label: "Schematic" },
+          { type: "ports" as const, label: "Ports" },
+        ];
+
+  const activeGalleryTab = galleryTabs[activeTab] ?? galleryTabs[0];
 
   const isInCart = items.some((i) => i.code === product.code);
 
@@ -168,17 +187,17 @@ export function ProductDetailClient({ product }: Props) {
                 </div>
 
                 {/* Main Visual Display */}
-                {activeTab === 0 && hasRealPhoto ? (
+                {activeGalleryTab.type === "photo" ? (
                   <div className={styles.photoContainer}>
                     <Image
-                      src={photo}
+                      src={activeGalleryTab.src}
                       alt={product.name}
                       className={styles.productPhoto}
                       priority
                       sizes="(max-width: 768px) 90vw, 520px"
                     />
                   </div>
-                ) : activeTab === 1 || !hasRealPhoto ? (
+                ) : activeGalleryTab.type === "schematic" ? (
                   <div className={styles.visualMockupWrap}>
                     <HardwareDeviceVisual
                       code={product.code}
@@ -186,7 +205,7 @@ export function ProductDetailClient({ product }: Props) {
                       name={product.name}
                     />
                   </div>
-                ) : activeTab === 2 ? (
+                ) : (
                   <div className={styles.portsInspectionCard}>
                     <Cable size={36} color="var(--red)" />
                     <h4>Hardware Interface &amp; Connectivity</h4>
@@ -200,18 +219,6 @@ export function ProductDetailClient({ product }: Props) {
                       <span>12V/24V Power Support</span>
                     </div>
                   </div>
-                ) : (
-                  <div className={styles.unboxingInspectionCard}>
-                    <Box size={36} color="#1faa55" />
-                    <h4>Standard Retail Package Contents</h4>
-                    <ul className={styles.unboxingList}>
-                      <li>1× {product.name} ({product.code})</li>
-                      <li>1× Interface Cable (RJ11 or USB High-Grade)</li>
-                      <li>2× Physical Cabinet Keys (Key Lock units)</li>
-                      <li>1× Quick Installation &amp; Driver Setup Guide</li>
-                      <li>1× JAAN 1-Year Warranty Certificate</li>
-                    </ul>
-                  </div>
                 )}
 
                 {/* Driver Compatibility Stamp */}
@@ -223,55 +230,31 @@ export function ProductDetailClient({ product }: Props) {
 
               {/* Interactive Visualizer Tabs */}
               <div className={styles.thumbnailRow}>
-                {hasRealPhoto && (
+                {galleryTabs.map((tab, i) => (
                   <button
+                    key={`${tab.type}-${i}`}
                     type="button"
-                    className={`${styles.thumbBtn} ${activeTab === 0 ? styles.thumbBtnActive : ""}`}
-                    onClick={() => setActiveTab(0)}
+                    className={`${styles.thumbBtn} ${activeTab === i ? styles.thumbBtnActive : ""}`}
+                    onClick={() => setActiveTab(i)}
                   >
-                    <Image src={photo} alt="" className={styles.thumbImg} sizes="80px" />
-                    <span className={styles.thumbName}>Photo</span>
+                    {tab.type === "photo" ? (
+                      <>
+                        <Image src={tab.src} alt="" className={styles.thumbImg} sizes="80px" />
+                        <span className={styles.thumbName}>{tab.label}</span>
+                      </>
+                    ) : tab.type === "schematic" ? (
+                      <div className={styles.thumbLabel}>
+                        <Layers size={17} color="var(--red)" />
+                        <span>Schematic</span>
+                      </div>
+                    ) : (
+                      <div className={styles.thumbLabel}>
+                        <Cable size={17} color="#0284c7" />
+                        <span>Ports</span>
+                      </div>
+                    )}
                   </button>
-                )}
-
-                <button
-                  type="button"
-                  className={`${styles.thumbBtn} ${
-                    activeTab === (hasRealPhoto ? 1 : 0) ? styles.thumbBtnActive : ""
-                  }`}
-                  onClick={() => setActiveTab(hasRealPhoto ? 1 : 0)}
-                >
-                  <div className={styles.thumbLabel}>
-                    <Layers size={17} color="var(--red)" />
-                    <span>Schematic</span>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  className={`${styles.thumbBtn} ${
-                    activeTab === (hasRealPhoto ? 2 : 1) ? styles.thumbBtnActive : ""
-                  }`}
-                  onClick={() => setActiveTab(hasRealPhoto ? 2 : 1)}
-                >
-                  <div className={styles.thumbLabel}>
-                    <Cable size={17} color="#0284c7" />
-                    <span>Ports</span>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  className={`${styles.thumbBtn} ${
-                    activeTab === (hasRealPhoto ? 3 : 2) ? styles.thumbBtnActive : ""
-                  }`}
-                  onClick={() => setActiveTab(hasRealPhoto ? 3 : 2)}
-                >
-                  <div className={styles.thumbLabel}>
-                    <Package size={17} color="#1faa55" />
-                    <span>In The Box</span>
-                  </div>
-                </button>
+                ))}
               </div>
             </div>
 
@@ -281,8 +264,6 @@ export function ProductDetailClient({ product }: Props) {
               <div className={styles.eyebrowRow}>
                 <span className={styles.itemCodeTag}>{product.code}</span>
                 <span>{product.categoryLabel}</span>
-                <span>·</span>
-                <span className={styles.certifiedTag}>JAAN Certified Hardware</span>
               </div>
 
               <h1 className={styles.title}>{product.name}</h1>

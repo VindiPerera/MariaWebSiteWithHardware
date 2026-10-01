@@ -37,6 +37,72 @@ export const hardwareCategories: { id: HardwareCategory; label: string; count?: 
   { id: "bundles", label: "Complete POS Bundles" },
 ];
 
+export const categoryIntros: Record<HardwareCategory, { title: string; paragraphs: string[] }> = {
+  all: {
+    title: "Complete POS Hardware, Curated for Sri Lankan Retail",
+    paragraphs: [
+      "At JAAN Network (PVT) Ltd, we supply the full hardware backbone behind every MariaPoS counter — touch terminals, thermal printers, barcode scanners, cash drawers and bill counters, sourced and quality-checked for daily commercial use.",
+      "Every device listed here is driver-tested with MariaPoS before it leaves our Colombo warehouse, so installation on your counter is genuinely plug-and-play.",
+      "Browse by category below, or speak to our hardware desk on WhatsApp for a tailored recommendation based on your shop size and transaction volume.",
+    ],
+  },
+  "touch-pos": {
+    title: "Touch POS Terminals",
+    paragraphs: [
+      "At JAAN Network (PVT) Ltd, our Touch POS Terminals are built to be the command centre of your counter — fast capacitive touchscreens, industrial-grade processors and all-day reliability for busy checkout lines.",
+      "We offer single-screen and dual-display configurations, so cashiers get a responsive touch interface while customers see a live, transparent itemized bill as they shop.",
+      "Every Touch POS Terminal from JAAN Network (PVT) Ltd ships pre-loaded and tested with MariaPoS, giving supermarkets, restaurants and boutique retailers a counter that boots fast and never slows down during peak hours.",
+    ],
+  },
+  printers: {
+    title: "POS Printers",
+    paragraphs: [
+      "At JAAN Network (PVT) Ltd, our POS Printers deliver crisp, clear receipts and labels with maximum reliability. Designed for continuous operation, these printers handle high-volume transactions effortlessly.",
+      "We offer thermal receipt printers, barcode label printers, and Bluetooth or WiFi-connected models compatible with MariaPoS and other leading POS software.",
+      "Every POS Printer from JAAN Network (PVT) Ltd is built for speed and precision, ensuring your customers get accurate billing and professional receipts every time. Perfect for retail stores, restaurants, and supermarkets.",
+    ],
+  },
+  scanners: {
+    title: "Barcode Scanners",
+    paragraphs: [
+      "At JAAN Network (PVT) Ltd, our Barcode Scanners are engineered for split-second recognition — reading printed 1D barcodes, 2D QR codes and even damaged or screen-displayed codes without a second attempt.",
+      "From compact wired scanners to long-range wireless models with offline memory, we have an option suited to grocery counters, warehouse stock counts and fast-moving supermarket lanes alike.",
+      "Every scanner is HID plug-and-play tested with MariaPoS, so items ring up instantly with zero configuration on installation day.",
+    ],
+  },
+  "cash-drawers": {
+    title: "Cash Drawers",
+    paragraphs: [
+      "At JAAN Network (PVT) Ltd, our Cash Drawers combine heavy-gauge steel construction with a reliable printer-triggered kick mechanism, so the till pops open automatically the moment a receipt is printed in MariaPoS.",
+      "Adjustable bill compartments and individual coin cups keep every denomination organised, while a 3-position key lock gives staff and management full control over access.",
+      "Built for the wear and tear of daily retail use, these cash drawers are a dependable, no-fuss addition to any checkout counter.",
+    ],
+  },
+  "bill-counters": {
+    title: "Bill Counters",
+    paragraphs: [
+      "At JAAN Network (PVT) Ltd, our Bill Counters take the guesswork and risk out of handling cash, counting hundreds of notes per minute while screening for counterfeits using UV, magnetic and infrared detection.",
+      "From compact daily-use counters to banking-grade machines with high-capacity hoppers, we supply the right level of accuracy and speed for supermarkets, wholesale desks and finance offices.",
+      "Clear digital displays and automatic error alerts mean discrepancies are caught before they ever leave the counter.",
+    ],
+  },
+  consumables: {
+    title: "Paper & Sticker Rolls",
+    paragraphs: [
+      "At JAAN Network (PVT) Ltd, our thermal paper and barcode sticker rolls are manufactured to a consistent, high-density standard so every receipt and price tag prints dark, sharp and scan-ready.",
+      "We stock BPA-free receipt rolls and strong self-adhesive label stock in the standard sizes used by Sri Lankan retail printers, so reordering is fast and hassle-free.",
+      "Kept in stock for immediate islandwide dispatch, these consumables are the everyday essentials that keep every counter running without interruption.",
+    ],
+  },
+  bundles: {
+    title: "Complete POS Bundles",
+    paragraphs: [
+      "At JAAN Network (PVT) Ltd, our Complete POS Bundles pair matched hardware with a MariaPoS software licence, so your counter arrives ready to bill on day one.",
+      "Each bundle is assembled from devices we already know work well together, saving you the guesswork of matching a terminal, printer, scanner and cash drawer individually.",
+    ],
+  },
+};
+
 export const hardwareCatalog: HardwareItem[] = [
   // Page 1
   {

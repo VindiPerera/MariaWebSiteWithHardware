@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { Search, ShoppingBag, Sparkles, ArrowRight, PackageCheck } from "lucide-react";
-import { hardwareCatalog, hardwareCategories, HardwareCategory } from "@/lib/hardwareCatalog";
+import { hardwareCatalog, hardwareCategories, categoryIntros, HardwareCategory } from "@/lib/hardwareCatalog";
 import { HardwareCard } from "./HardwareCard";
 import { useCart } from "@/lib/cartContext";
 import styles from "./HardwareCatalogSection.module.css";
@@ -142,6 +142,20 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
               <span>Quote Cart</span>
               {totalCount > 0 && <span className={styles.cartCountBadge}>{totalCount}</span>}
             </button>
+          </div>
+        </div>
+
+        {/* Category description panel */}
+        <div key={activeCategory} data-reveal="up" className={styles.categoryIntro}>
+          <span className={styles.categoryIntroEyebrow}>
+            <Sparkles size={13} />
+            {hardwareCategories.find((c) => c.id === activeCategory)?.label ?? "All Hardware"}
+          </span>
+          <h3 className={styles.categoryIntroTitle}>{categoryIntros[activeCategory].title}</h3>
+          <div className={styles.categoryIntroBody}>
+            {categoryIntros[activeCategory].paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
         </div>
 
