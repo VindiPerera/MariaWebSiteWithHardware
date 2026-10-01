@@ -4,8 +4,9 @@ import { HardwareConfigurator } from "@/components/hardware/HardwareConfigurator
 import { FaqBlock } from "@/components/sections/FaqBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
-import { ShieldCheck, Truck, Wrench, CheckCircle2, Phone, Award } from "lucide-react";
+import { ShieldCheck, Truck, Wrench, CheckCircle2, Phone } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { AuthorizedXprinterBadge } from "@/components/common/AuthorizedXprinterBadge";
 import { site } from "@/lib/site";
 import styles from "./HardwarePage.module.css";
 
@@ -62,10 +63,11 @@ export default function HardwarePage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <div data-reveal="up" className={styles.heroContent}>
-            <span className="eyebrow">
-              <ShieldCheck size={14} />
-              JAAN Certified POS Hardware
-            </span>
+            {/* Featured Official Authorized Seller Trust Pill */}
+            <div style={{ marginBottom: "4px" }}>
+              <AuthorizedXprinterBadge href="#hardware-catalog" />
+            </div>
+
             <h1 className={styles.heroTitle}>Official POS Hardware Store for Sri Lankan Retail Counters</h1>
             <p className={styles.heroLead}>
               Elevate your checkout counter with commercial-grade touch terminals, high-speed thermal printers, 1D/2D
@@ -73,9 +75,9 @@ export default function HardwarePage() {
             </p>
 
             <div className={styles.heroBadges}>
-              <div className={styles.heroBadge} style={{ borderColor: "rgba(245, 158, 11, 0.4)", background: "rgba(254, 243, 199, 0.6)", color: "#92400e" }}>
-                <Award size={16} color="#d97706" />
-                <span style={{ fontWeight: 600 }}>Authorized Xprinter Seller</span>
+              <div className={styles.heroBadge}>
+                <ShieldCheck size={16} color="var(--red)" />
+                <span>JAAN Certified Hardware</span>
               </div>
               <div className={styles.heroBadge}>
                 <Truck size={16} color="var(--red)" />
