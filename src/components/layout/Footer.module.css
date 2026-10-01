@@ -259,6 +259,7 @@
   font-size: 12.5px;
   padding: 6px 12px;
   border-radius: 999px;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.18s ease;
 }
@@ -267,12 +268,6 @@
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
-}
-
-.districtPillActive {
-  background: rgba(31, 170, 85, 0.15) !important;
-  border-color: #1faa55 !important;
-  color: #86efac !important;
 }
 
 /* Navigation Grid */

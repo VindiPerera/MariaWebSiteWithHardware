@@ -1,5 +1,7 @@
 import { Coins, Package, Receipt, Send, Wallet, WifiOff, type LucideIcon } from "lucide-react";
 import type { Country, Region } from "./geo";
+import { hardwareCatalog } from "./hardwareCatalog";
+import type { Location } from "./locations";
 import { site } from "./site";
 
 export type Reason = { title: string; body: string; icon: LucideIcon };
@@ -92,6 +94,36 @@ export function regionFaqs(country: Country, region: Region) {
     {
       q: `How much does POS software cost in ${region.name}?`,
       a: "MariaPoS is a single payment for a 1, 2 or 3-year licence with every feature included and no monthly subscription. See the pricing page for current prices.",
+    },
+  ];
+}
+
+/** One device per hardware category for local landing pages, preferring popular in-stock items. */
+export function featuredHardware() {
+  const categories = ["touch-pos", "printers", "scanners", "cash-drawers", "bill-counters"] as const;
+  return categories
+    .map((cat) => {
+      const items = hardwareCatalog.filter((i) => i.category === cat);
+      return items.find((i) => i.popular && i.inStock) ?? items.find((i) => i.inStock) ?? items[0];
+    })
+    .filter((i) => i !== undefined);
+}
+
+/** Extra questions for Sri Lankan city pages: hardware delivery, languages and local support. */
+export function sriLankaCityFaqs(location: Location) {
+  const n = location.name;
+  return [
+    {
+      q: `Where can I buy a POS machine in ${n}?`,
+      a: `Order touch screen POS machines, receipt printers, barcode scanners and cash drawers from the MariaPoS hardware store and we deliver to ${n}, ${cityList(location.nearby, 3)} and across ${location.district} District with cash on delivery. Call or WhatsApp ${site.phone} for a quotation.`,
+    },
+    {
+      q: `Can MariaPoS print bills in Tamil and Sinhala in ${n}?`,
+      a: "Yes. MariaPoS prints bill headers, item names and footer notes in Tamil, Sinhala and English on 80mm thermal receipt printers.",
+    },
+    {
+      q: `Do you install and support POS systems in ${n}?`,
+      a: `Yes. Setup and training are done remotely, and our team supports ${n} customers in Tamil, Sinhala and English by phone and WhatsApp on ${site.phone}.`,
     },
   ];
 }

@@ -63,6 +63,13 @@
   text-wrap: balance;
 }
 
+.localTitle {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #6b6b6b;
+}
+
 .intro {
   max-width: 740px;
   font-size: 18px;

@@ -10,9 +10,13 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700", "800
 const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-figtree" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-jetbrains" });
 
-const defaultTitle = "MariaPoS & Hardware — Certified Touch Terminals, Receipt Printers & Windows POS Software";
+const defaultTitle = "POS System Sri Lanka — POS Machines, Billing Software & Hardware | MariaPoS";
 const defaultDescription =
-  "Official Sri Lanka POS hardware and software store. Buy certified touch screen POS terminals, thermal receipt printers, 1D/2D barcode scanners, cash drawers and bill counters with offline-first MariaPoS billing software. Islandwide delivery & warranty.";
+  "POS system for shops across Sri Lanka: touch screen POS machines, receipt printers, barcode scanners, cash drawers and offline-first MariaPoS billing software. Colombo, Kandy, Jaffna, Galle, Kurunegala, Batticaloa and all 25 districts. Cash on delivery & warranty.";
+
+// Search engine ownership tokens from Google Search Console and Bing Webmaster Tools.
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const bingVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -26,6 +30,11 @@ export const metadata: Metadata = {
   category: "Business Software & Hardware",
   alternates: { canonical: "/" },
   formatDetection: { telephone: true, email: true, address: true },
+  verification: {
+    google: googleVerification,
+    other: bingVerification ? { "msvalidate.01": bingVerification } : undefined,
+  },
+  other: { "geo.region": "LK", "geo.placename": "Sri Lanka" },
   openGraph: {
     type: "website",
     siteName: site.name,

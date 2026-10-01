@@ -25,8 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/contact", 0.7),
     page("/about", 0.6),
     ...industries.map((i) => page(`/industries/${i.slug}`, 0.7)),
-    ...countries.map((c) => page(`/pos-system/${c.slug}`, 0.7)),
-    ...countries.flatMap((c) => (c.regions ?? []).map((reg) => page(`/pos-system/${c.slug}/${reg.slug}`, 0.6))),
+    // Sri Lanka is the home market (hardware delivery + local support), so its pages rank above other countries.
+    ...countries.map((c) => page(`/pos-system/${c.slug}`, c.code === "LK" ? 0.9 : 0.7)),
+    ...countries.flatMap((c) =>
+      (c.regions ?? []).map((reg) => page(`/pos-system/${c.slug}/${reg.slug}`, c.code === "LK" ? 0.85 : 0.6)),
+    ),
     page("/terms-and-conditions", 0.3, "yearly"),
     page("/privacy-policy", 0.3, "yearly"),
     page("/refund-policy", 0.3, "yearly"),
