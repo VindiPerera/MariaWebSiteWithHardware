@@ -1,17 +1,24 @@
 import type { StaticImageData } from "next/image";
 import type { LucideIcon } from "lucide-react";
-import { BookOpen, Car, Croissant, Hammer, Pill, Shirt, ShoppingCart, Smartphone, Sparkles, Warehouse } from "lucide-react";
-import pri2915 from "@/assets/images/products/PRI2915.jpg";
-import pri2124 from "@/assets/images/products/PRI2124.jpg";
-import sca2127 from "@/assets/images/products/SCA2127.jpg";
-import acc1639 from "@/assets/images/products/ACC1639.jpg";
-import pri2178 from "@/assets/images/products/PRI2178.jpg";
-import pri2352 from "@/assets/images/products/PRI2352.jpg";
+import {
+  BookOpen,
+  Car,
+  Croissant,
+  Hammer,
+  Pill,
+  Shirt,
+  ShoppingCart,
+  Smartphone,
+  Sparkles,
+  Warehouse,
+} from "lucide-react";
 import { hardwareCatalog } from "@/lib/hardwareCatalog";
+import { getProductPhoto } from "@/lib/productImages";
 import { site } from "@/lib/site";
 
-/** Formats an LKR amount as `Rs. 45,000`, or a marked placeholder when the price is unknown. */
-export const formatLkr = (n: number | null | undefined) => (n == null ? "Rs. —" : `Rs. ${n.toLocaleString("en-LK")}`);
+/** Formats an LKR amount as clean integer e.g. `Rs. 110,000`, or placeholder when unknown. */
+export const formatLkr = (n: number | null | undefined) =>
+  n == null ? "Rs. —" : `Rs. ${Math.round(n).toLocaleString("en-LK")}`;
 
 /** Buying happens on WhatsApp, so every order button opens a chat with a pre-filled message. */
 export const waLink = (message: string) => `${site.whatsappHref}?text=${encodeURIComponent(message)}`;
@@ -30,40 +37,65 @@ export type ShopProduct = {
   waOrder: string;
 };
 
-// Names and key specs follow the KM IT POS product list; prices and stock come from the hardware catalogue.
-const featuredRaw: [code: string, catName: string, name: string, keySpecs: string[], img: StaticImageData][] = [
-  ["PRI2915", "POS systems", 'POS Touch 15.6" Display System', ['15.6" touch', "Intel Core i5 (4th Gen)", "8 GB RAM"], pri2915],
-  ["PRI2124", "Receipt printers", "Xprinter XP-80T Thermal Receipt Printer (USB + LAN)", ["XP-80T", "Thermal receipt", "80 mm"], pri2124],
-  ["SCA2127", "Barcode scanners", "AQ6180 1D & 2D Desktop Barcode Scanner", ["AQ6180", "1D + 2D", "Desktop"], sca2127],
-  ["ACC1639", "Cash drawers", "Cash Drawer 5-Pin 8-Coin", ["5-pin", "8"], acc1639],
-  ["PRI2178", "Label printers", "Xprinter XP-246B Dual Mode Barcode & Receipt Printer (USB + Bluetooth)", ["XP-246B", "Dual mode: label + receipt", "USB + Bluetooth"], pri2178],
-  ["PRI2352", "Portable printers", "Xprinter XP-P801A Portable Printer", ["XP-P801A", "Portable"], pri2352],
+// Selected featured hardware products from the official hardware catalogue (all properly linked with real images & specs)
+const featuredItemConfig: { code: string; customSpecs?: string }[] = [
+  { code: "PRI2915", customSpecs: '15.6" touch · Intel Core i5 (4th Gen) · 8 GB RAM' },
+  { code: "PRI2914", customSpecs: '15.6" touch + 11.6" customer display · Intel i5 · 8 GB RAM' },
+  { code: "PRI2448", customSpecs: "80T WiFi · 200 mm/s high-speed · 80 mm thermal · Auto-cutter" },
+  { code: "PRI2124", customSpecs: "80T LAN · 200 mm/s high-speed · 80 mm thermal · USB + LAN" },
+  { code: "PRI2178", customSpecs: "XP-246B · Dual mode sticker + receipt · USB + Bluetooth" },
+  { code: "TON2290", customSpecs: "XP-T361U · 80 mm wide label & receipt · High-speed USB" },
+  { code: "TON2291", customSpecs: "XP-T361U · 80 mm wide label & receipt · USB + Bluetooth" },
+  { code: "PRI3055", customSpecs: "XP-365B · 127 mm/s clamshell barcode printer · Bluetooth" },
+  { code: "PRI2716", customSpecs: "T451B · Industrial thermal transfer + direct thermal · Weatherproof" },
+  { code: "TON2287", customSpecs: "XP-P301A · 58 mm mobile receipt · OLED display · Bluetooth" },
+  { code: "PRI2352", customSpecs: "XP-P801A · 80 mm portable · 2600 mAh battery · Bluetooth" },
+  { code: "ACC1639", customSpecs: "5-pin auto-kick · 5-bill / 8-coin · Heavy-gauge steel" },
+  { code: "SCA3064", customSpecs: "AQ2210 · 1D laser · 300 scans/sec · Auto-sensing stand" },
+  { code: "SCA2125", customSpecs: "A7 · 2D QR + 1D barcode optical CMOS scanner · USB wired" },
+  { code: "SCA2126", customSpecs: "A9 · 1D + 2D QR · CMOS barcode optical scanner · USB wired" },
+  { code: "SCA2128", customSpecs: "A8 wireless 2.4G + USB wired · 1D + 2D QR · Offline memory" },
+  { code: "SCA2127", customSpecs: "AQ6180 · Hands-free desktop omnidirectional · 1D + 2D QR" },
+  { code: "CAS2131", customSpecs: "2108 cash counter · 1,000 notes/min · UV counterfeit detection" },
+  { code: "CAS2449", customSpecs: "P80 heavy duty · 1,200 notes/min · UV + MG + IR multi-sensor" },
+  { code: "PAP2259", customSpecs: "Paper 80*80 (76) · 55 GSM high-density · 100% BPA free" },
 ];
 
-export const featuredProducts: ShopProduct[] = featuredRaw.map(([code, catName, name, keySpecs, img]) => {
-  const item = hardwareCatalog.find((h) => h.code === code);
-  const price = item?.price ?? 0;
-  return {
-    code,
-    name,
-    catName,
-    price,
-    inStock: item?.inStock ?? false,
-    keySpecText: keySpecs.join(" · "),
-    img,
-    // Links directly to the individual product page
-    href: `/hardware/${item ? item.slug : code.toLowerCase()}`,
-    waOrder: waLink(`Hi MariaPoS, I'd like to order: ${name} (${formatLkr(price)}). Delivery to: ___`),
-  };
-});
+export const featuredProducts: ShopProduct[] = featuredItemConfig
+  .map(({ code, customSpecs }) => {
+    const item = hardwareCatalog.find((h) => h.code.toUpperCase() === code.toUpperCase());
+    if (!item) return null;
+    const photo = getProductPhoto(item.code);
+    if (!photo) return null;
+
+    const specsText =
+      customSpecs ||
+      item.specs
+        .slice(0, 3)
+        .map((s) => s.value)
+        .join(" · ");
+
+    return {
+      code: item.code,
+      name: item.name,
+      catName: item.categoryLabel,
+      price: item.price,
+      inStock: item.inStock,
+      keySpecText: specsText,
+      img: photo,
+      href: `/hardware/${item.slug}`,
+      waOrder: waLink(`Hi MariaPoS, I'd like to order: ${item.name} (${formatLkr(item.price)}). Delivery to: ___`),
+    };
+  })
+  .filter((p): p is ShopProduct => p !== null);
 
 export const hardwareProductCount = hardwareCatalog.length;
 
 export const featuredHero = {
-  terminal: featuredProducts[0],
-  printer: featuredProducts[1],
-  scanner: featuredProducts[2],
-  drawer: featuredProducts[3],
+  terminal: featuredProducts.find((p) => p.code === "PRI2915") || featuredProducts[0],
+  printer: featuredProducts.find((p) => p.code === "PRI2124") || featuredProducts[1],
+  scanner: featuredProducts.find((p) => p.code === "SCA2127") || featuredProducts[2],
+  drawer: featuredProducts.find((p) => p.code === "ACC1639") || featuredProducts[3],
 };
 
 export const industryChips: { name: string; icon: LucideIcon; href: string }[] = [
@@ -78,3 +110,4 @@ export const industryChips: { name: string; icon: LucideIcon; href: string }[] =
   { name: "Wholesale & distribution", icon: Warehouse, href: "/industries/wholesale-distribution" },
   { name: "Auto parts", icon: Car, href: "/industries/auto-parts" },
 ];
+

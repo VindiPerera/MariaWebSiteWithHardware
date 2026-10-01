@@ -128,7 +128,7 @@ export function ConnectedSection() {
       <div className={styles.inner}>
         <div data-reveal="up" className={styles.heading}>
           <span className={styles.eyebrow}>Connected beyond the counter</span>
-          <h2 className="section-title">
+          <h2 className={styles.title}>
             Your receipt, your owner&apos;s phone and your cloud panel, all updated at checkout.
           </h2>
         </div>

@@ -1,62 +1,127 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Banknote,
   Check,
   CheckCircle2,
   Headset,
   Laptop,
   MessageCircle,
-  Package,
   PackageCheck,
-  Percent,
-  PiggyBank,
-  Printer,
+  Send,
   ShieldCheck,
   Sparkles,
   Truck,
-  Wrench,
   Zap,
 } from "lucide-react";
-import { posBundles, formatLkr } from "@/lib/hardwareCatalog";
-import { waLink } from "@/lib/shop";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { posBundles } from "@/lib/hardwareCatalog";
 import { PosBundleCard } from "@/components/hardware/PosBundleCard";
+import { waLink } from "@/lib/shop";
+import ownerMobileAlerts from "@/assets/images/owner-mobile-alerts.jpg";
 import styles from "./PricingPlans.module.css";
 
-type SoftwareTerm = 1 | 2 | 3;
+const includedSoftware = [
+  "Every billing, inventory & report feature",
+  "Cloud sync & Telegram sales alerts",
+  "SMS receipts (prepaid credits)",
+  "Free software updates for full term",
+  "Priority technical & WhatsApp support",
+];
 
-const softwarePrices: Record<SoftwareTerm, { lkr: string; usd: string; note: string }> = {
-  1: { lkr: "Rs. 44,000", usd: "$147.00", note: "12 months full license · Single payment" },
-  2: { lkr: "Rs. 70,500", usd: "$235.20", note: "24 months full license · Save 20%" },
-  3: { lkr: "Rs. 86,000", usd: "$286.65", note: "36 months full license · Save 35% (Best value)" },
+type SoftwarePlan = {
+  id: string;
+  name: string;
+  priceLkr: string;
+  priceUsd: string;
+  pricePerYear: string;
+  wasLkr?: string;
+  note: string;
+  badge?: string;
+  badgeType?: "red" | "dark" | "green";
+  variant: "trial" | "basic" | "popular" | "best";
+  popular?: boolean;
+  recommended?: boolean;
+  ctaText?: string;
+  waText?: string;
 };
 
-export function PricingPlans() {
-  const [activeView, setActiveView] = useState<"bundles" | "software" | "tracks">("bundles");
-  const [softwareTerm, setSoftwareTerm] = useState<SoftwareTerm>(3);
+const softwarePlans: SoftwarePlan[] = [
+  {
+    id: "trial",
+    name: "7-Day Free Trial",
+    priceLkr: "Free",
+    priceUsd: "$0.00",
+    pricePerYear: "Rs. 0 · No card needed",
+    note: "Instant activation. Full feature suite for all your counters.",
+    badge: "Risk-Free Trial",
+    badgeType: "green",
+    variant: "trial",
+    ctaText: "Start 7-Day Free Trial",
+  },
+  {
+    id: "1y",
+    name: "1-Year License",
+    priceLkr: "Rs. 44,000",
+    priceUsd: "$147.00",
+    pricePerYear: "Rs. 44,000 / year ($147.00)",
+    note: "Single payment. Full features for 12 months.",
+    variant: "basic",
+    ctaText: "Select 1-Year License",
+    waText: "Hi MariaPoS, I'd like to order: 1-Year Software License (Rs. 44,000). Shop name: ___",
+  },
+  {
+    id: "2y",
+    name: "2-Year License",
+    priceLkr: "Rs. 70,500",
+    priceUsd: "$235.20",
+    pricePerYear: "Rs. 35,250 / year ($117.60/yr)",
+    wasLkr: "Rs. 88,000",
+    note: "Save 20% compared to yearly renewal.",
+    badge: "Save 20%",
+    badgeType: "red",
+    variant: "popular",
+    popular: true,
+    ctaText: "Select 2-Year License",
+    waText: "Hi MariaPoS, I'd like to order: 2-Year Software License (Rs. 70,500 - Save 20%). Shop name: ___",
+  },
+  {
+    id: "3y",
+    name: "3-Year License",
+    priceLkr: "Rs. 86,000",
+    priceUsd: "$286.65",
+    pricePerYear: "Rs. 28,667 / year ($95.55/yr)",
+    wasLkr: "Rs. 132,000",
+    note: "Best value. Only Rs. 2,388/mo ($7.96). Our best-selling plan.",
+    badge: "Best Seller · Recommended",
+    badgeType: "dark",
+    variant: "best",
+    recommended: true,
+    ctaText: "Select 3-Year License",
+    waText: "Hi MariaPoS, I'd like to order: 3-Year Software License (Rs. 86,000 - Best Value). Shop name: ___",
+  },
+];
 
-  // Check URL hash on mount
-  React.useEffect(() => {
+export function PricingPlans() {
+  const [activeTab, setActiveTab] = useState<"both" | "bundles" | "software">("both");
+  const [selectedSoftPlan, setSelectedSoftPlan] = useState<string>("3y");
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes("software")) {
-        setActiveView("software");
-      } else if (hash.includes("tracks") || hash.includes("fullset")) {
-        setActiveView("tracks");
-      } else if (hash.includes("bundle")) {
-        setActiveView("bundles");
+      if (hash.includes("software") || hash.includes("license")) {
+        setActiveTab("software");
+      } else if (hash.includes("bundle") || hash.includes("hardware") || hash.includes("fullset")) {
+        setActiveTab("bundles");
       }
     }
   }, []);
 
-  const currentSoftware = softwarePrices[softwareTerm];
-
-  const waSoftwareText = `Hi MariaPoS, I'd like to order: MariaPoS Software License (${softwareTerm}-Year, ${currentSoftware.lkr}). Shop name: ___`;
-  const waFullSetText = `Hi MariaPoS, I'd like to order: Complete Software + Hardware Full Set (Starter Pack Rs. 169,900). Delivery to: ___`;
-  const waHardwareText = `Hi MariaPoS, I'd like to ask about hardware products for my counter. Shop name: ___`;
+  const showBundles = activeTab === "both" || activeTab === "bundles";
+  const showSoftware = activeTab === "both" || activeTab === "software";
 
   return (
     <section id="pricing" className={styles.section}>
@@ -66,304 +131,70 @@ export function PricingPlans() {
         <div data-reveal="up" className={`section-intro ${styles.intro}`}>
           <div className={styles.pillBadge}>
             <Sparkles size={14} color="var(--red)" />
-            <span>Sri Lanka Pricing &amp; Hardware Bundles</span>
+            <span>Sri Lanka Pricing &amp; Solutions</span>
           </div>
           <h1 className="section-title">Pick the setup that fits your shop.</h1>
           <p className="lead">
-            Transparent pricing in Sri Lankan Rupees. Order on WhatsApp and pay cash on delivery across all 25 districts.
-            No hidden activation charges or credit card required.
+            Choose between turnkey <strong>hardware bundles with software included</strong>, or activate a{" "}
+            <strong>software-only license</strong> for your existing Windows PC. Both options available below.
           </p>
 
-          {/* View Mode Switcher */}
-          <div className={styles.viewToggleGroup}>
+          {/* Segmented Switcher */}
+          <div className={styles.tabSwitcher}>
             <button
               type="button"
-              className={`${styles.viewToggleBtn} ${activeView === "bundles" ? styles.viewToggleBtnActive : ""}`}
-              onClick={() => setActiveView("bundles")}
+              className={`${styles.switcherBtn} ${activeTab === "both" ? styles.switcherBtnActive : ""}`}
+              onClick={() => setActiveTab("both")}
             >
-              <Package size={16} />
-              <span>Complete Hardware Bundles (3)</span>
+              <Sparkles size={16} />
+              <span>All Plans (Both)</span>
+              <span className={styles.miniPill}>Full Overview</span>
             </button>
 
             <button
               type="button"
-              className={`${styles.viewToggleBtn} ${activeView === "software" ? styles.viewToggleBtnActive : ""}`}
-              onClick={() => setActiveView("software")}
-            >
-              <Laptop size={16} />
-              <span>Software-Only Licenses</span>
-            </button>
-
-            <button
-              type="button"
-              className={`${styles.viewToggleBtn} ${activeView === "tracks" ? styles.viewToggleBtnActive : ""}`}
-              onClick={() => setActiveView("tracks")}
+              className={`${styles.switcherBtn} ${activeTab === "bundles" ? styles.switcherBtnActive : ""}`}
+              onClick={() => setActiveTab("bundles")}
             >
               <PackageCheck size={16} />
-              <span>Buying Tracks Overview</span>
+              <span>Hardware Bundles with Software</span>
+              <span className={styles.miniPill}>Turnkey Setup</span>
+            </button>
+
+            <button
+              type="button"
+              className={`${styles.switcherBtn} ${activeTab === "software" ? styles.switcherBtnActive : ""}`}
+              onClick={() => setActiveTab("software")}
+            >
+              <Laptop size={16} />
+              <span>Software-Only Plans</span>
+              <span className={styles.miniPill}>For Existing PC</span>
             </button>
           </div>
         </div>
 
-
-        {/* View 1: 3 Ways to Buy (Software / Hardware / Full Set) */}
-        {activeView === "tracks" && (
-          <div className={styles.tracksGrid}>
-            {/* Card 1: Software Only */}
-            <div id="software" className={styles.trackCard}>
-              <div className={styles.cardHeaderRow}>
-                <Laptop size={28} color="var(--red)" />
-                <span className={styles.trackNumber}>01</span>
-              </div>
-
-              <div>
-                <h2 className={styles.trackTitle}>Software only</h2>
-                <p className={styles.trackLead}>MariaPoS licence for your existing Windows PC or laptop.</p>
-              </div>
-
-              {/* Term Selector */}
-              <div className={styles.termToggle}>
-                {([1, 2, 3] as SoftwareTerm[]).map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    className={`${styles.termBtn} ${softwareTerm === t ? styles.termBtnActive : ""}`}
-                    onClick={() => setSoftwareTerm(t)}
-                  >
-                    {t}-Year{t === 3 ? " ★" : ""}
-                  </button>
-                ))}
-              </div>
-
-              <div className={styles.priceRow}>
-                <div className={styles.priceAmount}>{currentSoftware.lkr}</div>
-                <div className={styles.priceNote}>
-                  {currentSoftware.note} ({currentSoftware.usd})
-                </div>
-              </div>
-
-              <div className={styles.checklist}>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>Full MariaPoS Windows software</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>FIFO inventory &amp; real-time stock ledger</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>Cloud web back-office, SMS &amp; Telegram</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>Free updates throughout licence term</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>Local support on WhatsApp</span>
-                </div>
-              </div>
-
-              <div className={styles.cardFooterArea}>
-                <div className={styles.miniTrustRow}>
-                  <span className={styles.miniTrustBadge}>
-                    <Banknote size={13} color="var(--red)" />
-                    COD Accepted
-                  </span>
-                  <span className={styles.miniTrustBadge}>
-                    <Headset size={13} color="var(--red)" />
-                    Colombo Support
-                  </span>
-                </div>
-
-                <a
-                  href={waLink(waSoftwareText)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.waPlanBtn}
-                >
-                  <MessageCircle size={18} />
-                  <span>Buy on WhatsApp</span>
-                </a>
-
-                <Link href="/sign-up" className={styles.trialSubLink}>
-                  Or start the 7-day free trial (no card needed) →
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2: Hardware Only */}
-            <div id="hardware" className={styles.trackCard}>
-              <div className={styles.cardHeaderRow}>
-                <Printer size={28} color="var(--red)" />
-                <span className={styles.trackNumber}>02</span>
-              </div>
-
-              <div>
-                <h2 className={styles.trackTitle}>Hardware only</h2>
-                <p className={styles.trackLead}>
-                  Choose individual devices. Already using MariaPoS or another billing system.
+        {/* Section 1: Hardware Bundles with Software */}
+        {showBundles && (
+          <div id="bundles" className={styles.tabSection}>
+            <div className={styles.sectionSubHeader}>
+              <div className={styles.subHeaderLeft}>
+                <span className={styles.subHeaderEyebrow}>Turnkey Solution Packs</span>
+                <h2 className={styles.subHeaderTitle}>Complete Hardware Bundles (Software Included)</h2>
+                <p className={styles.subHeaderDesc}>
+                  Everything you need to start cashier billing on day one. Includes touch terminal, receipt printer,
+                  barcode scanner, heavy-duty cash drawer, thermal paper rolls + official MariaPoS full license.
                 </p>
               </div>
-
-              <div style={{ height: 44 }} />
-
-              <div className={styles.priceRow}>
-                <div className={styles.priceAmount}>
-                  <span style={{ fontSize: 16, fontWeight: 500, color: "#71717a" }}>from </span>Rs. 9,450
-                </div>
-                <div className={styles.priceNote}>21+ hardware items · Paper rolls from Rs. 210</div>
-              </div>
-
-              <div className={styles.checklist}>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>Touch POS terminals (Intel Core i5)</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>High-speed thermal receipt &amp; label printers</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>1D &amp; 2D barcode scanners &amp; steel cash drawers</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>1-Year JAAN commercial replacement warranty</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="var(--red)" />
-                  <span>Tested &amp; driver pre-configured for MariaPoS</span>
-                </div>
-              </div>
-
-              <div className={styles.cardFooterArea}>
-                <div className={styles.miniTrustRow}>
-                  <span className={styles.miniTrustBadge}>
-                    <Banknote size={13} color="var(--red)" />
-                    COD Accepted
-                  </span>
-                  <span className={styles.miniTrustBadge}>
-                    <Truck size={13} color="var(--red)" />
-                    Island-Wide Delivery
-                  </span>
-                </div>
-
-                <a
-                  href={waLink(waHardwareText)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.waPlanBtn}
+              {activeTab === "both" && (
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("bundles")}
+                  className={styles.filterOnlyBtn}
+                  title="Filter to show only bundles"
                 >
-                  <MessageCircle size={18} />
-                  <span>Buy on WhatsApp</span>
-                </a>
-
-                <Link href="/hardware" className={styles.trialSubLink}>
-                  Browse all 21+ hardware products →
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 3: Software + Hardware (Full Set Combo) */}
-            <div id="fullset" className={`${styles.trackCard} ${styles.trackCardFullSet}`}>
-              <div className={styles.cardHeaderRow}>
-                <PackageCheck size={28} color="#ff8a80" />
-                <span className={styles.bestValueBadge}>Best value · Recommended</span>
-              </div>
-
-              <div>
-                <h2 className={styles.trackTitle} style={{ color: "#ffffff" }}>
-                  Software + Hardware
-                </h2>
-                <p className={styles.trackLead} style={{ color: "#d4d4d8" }}>
-                  The full set. Complete counter setup, pre-installed and ready to bill on day one.
-                </p>
-              </div>
-
-              <div className={styles.savingsCallout}>
-                <PiggyBank size={18} color="#ff8a80" />
-                <span>Save Rs. 15,100+ compared to separate purchase</span>
-              </div>
-
-              <div className={styles.priceRow}>
-                <div className={styles.priceAmount} style={{ color: "#ffffff" }}>
-                  Rs. 169,900
-                </div>
-                <div className={styles.priceNote} style={{ color: "#a1a1aa" }}>
-                  Complete Starter Pack · <span style={{ textDecoration: "line-through" }}>Rs. 185,000</span>
-                </div>
-              </div>
-
-              <div className={styles.checklist}>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="#ff8a80" />
-                  <span style={{ color: "#f4f4f5" }}>POS Touch 15.6&quot; i5 8GB 256GB Terminal</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="#ff8a80" />
-                  <span style={{ color: "#f4f4f5" }}>Xprinter 80T High-Speed Receipt Printer (USB+LAN)</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="#ff8a80" />
-                  <span style={{ color: "#f4f4f5" }}>AQ2210 1D Barcode Scanner + Stand</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="#ff8a80" />
-                  <span style={{ color: "#f4f4f5" }}>Heavy-Duty 5-Pin Steel Cash Drawer</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="#ff8a80" />
-                  <span style={{ color: "#f4f4f5" }}>1-Year MariaPoS Software License ($147 included)</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={18} color="#ff8a80" />
-                  <span style={{ color: "#f4f4f5" }}>Free On-Site or Remote Installation &amp; Training</span>
-                </div>
-              </div>
-
-              <div className={styles.cardFooterArea}>
-                <div className={styles.miniTrustRow}>
-                  <span className={styles.miniTrustBadgeDark}>
-                    <Banknote size={13} color="#ff8a80" />
-                    COD Accepted
-                  </span>
-                  <span className={styles.miniTrustBadgeDark}>
-                    <Truck size={13} color="#ff8a80" />
-                    All 25 Districts
-                  </span>
-                </div>
-
-                <a
-                  href={waLink(waFullSetText)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.waPlanBtn}
-                >
-                  <MessageCircle size={18} />
-                  <span>Buy on WhatsApp</span>
-                </a>
-
-                <span style={{ textAlign: "center", fontSize: 13, color: "#a1a1aa" }}>
-                  Need different items? Message us and we will customize the set.
-                </span>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* View 2: Complete Hardware Bundles (Starter, Supermarket, Van Sales) */}
-        {activeView === "bundles" && (
-          <div id="bundles" className={styles.bundlesWrapper}>
-            <div className={styles.bundlesIntroHeader}>
-              <span className={styles.bundlesEyebrow}>Value Solution Packages</span>
-              <h2 className={styles.bundlesMainTitle}>Complete Software + Hardware Packs</h2>
-              <p className={styles.bundlesSubText}>
-                Everything you need to start cashier billing on day one. Includes official MariaPoS full software license,
-                touch terminal, printer, scanner, cash drawer and paper rolls.
-              </p>
+                  Focus Bundles Only
+                </button>
+              )}
             </div>
 
             <div className={styles.posBundlesGrid}>
@@ -395,206 +226,217 @@ export function PricingPlans() {
                 <span>Cash on Delivery (All 25 Districts)</span>
               </div>
             </div>
+
+            {/* Nudge to Software Only when in bundles-only mode */}
+            {activeTab === "bundles" && (
+              <div className={styles.tabNudge}>
+                <span>Already have a Windows PC, laptop, or tablet?</span>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("software")}
+                  className={styles.tabNudgeLink}
+                >
+                  <span>View Software-Only License Plans (from Rs. 44,000)</span>
+                  <ArrowRight size={15} />
+                </button>
+              </div>
+            )}
           </div>
         )}
 
+        {/* Section Divider if showing both */}
+        {activeTab === "both" && <div className={styles.majorSectionDivider} />}
 
-        {/* View 3: Software-Only Licenses (1y / 2y / 3y + Trial) */}
-        {activeView === "software" && (
-          <div className={styles.softwareGrid}>
-            {/* Free Trial */}
-            <div className={styles.softCard}>
-              <span className={styles.softBadge}>Risk-Free Trial</span>
-              <h3 className={styles.softTitle}>7-Day Free Trial</h3>
-              <div className={styles.softPrice}>Free</div>
-              <p className={styles.softLead}>Instant cloud activation. Full feature suite for all your counters.</p>
-
-              <div className={styles.checklist}>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>Full offline billing screen</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>FIFO inventory &amp; reports</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>No credit card required</span>
-                </div>
+        {/* Section 2: Software-Only Plans */}
+        {showSoftware && (
+          <div id="software" className={styles.tabSection}>
+            <div className={styles.sectionSubHeader}>
+              <div className={styles.subHeaderLeft}>
+                <span className={styles.subHeaderEyebrow}>Independent Software Licenses</span>
+                <h2 className={styles.subHeaderTitle}>Software-Only Plans: One Simple License. Every Feature.</h2>
+                <p className={styles.subHeaderDesc}>
+                  Install on any Windows 10 or 11 PC or laptop. Full offline POS billing, FIFO inventory ledger,
+                  Telegram sales alerts, SMS e-receipts, and cloud sync. Longer terms save up to 35%.
+                </p>
               </div>
-
-              <Link href="/sign-up" className={styles.softCta}>
-                Start 7-Day Free Trial
-                <ArrowRight size={16} />
-              </Link>
+              {activeTab === "both" && (
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("software")}
+                  className={styles.filterOnlyBtn}
+                  title="Filter to show only software"
+                >
+                  Focus Software Only
+                </button>
+              )}
             </div>
 
-            {/* 1 Year */}
-            <div className={styles.softCard}>
-              <span className={styles.softBadge}>Annual Plan</span>
-              <h3 className={styles.softTitle}>1-Year License</h3>
-              <div className={styles.softPrice}>Rs. 44,000</div>
-              <p className={styles.softLead}>Single payment. Full features for 12 months ($147.00).</p>
+            <div className={styles.plans}>
+              {softwarePlans.map((plan, i) => {
+                const isDark = plan.variant === "best";
+                const isTrial = plan.variant === "trial";
+                const isSelected = selectedSoftPlan === plan.id;
 
-              <div className={styles.checklist}>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>Every billing &amp; inventory feature</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>Cloud sync &amp; Telegram alerts</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>Free software updates for 1 year</span>
-                </div>
-              </div>
+                return (
+                  <div
+                    key={plan.id}
+                    data-reveal="up"
+                    data-delay={i * 80}
+                    onClick={() => setSelectedSoftPlan(plan.id)}
+                    className={`${styles.card} ${
+                      isDark ? styles.cardDark : isTrial ? styles.cardTrial : styles.cardLight
+                    } ${plan.popular ? styles.cardPopular : ""} ${isSelected ? styles.cardSelected : ""}`}
+                  >
+                    {plan.recommended && <div className={styles.recommendedRibbon}>Recommended</div>}
 
-              <a
-                href={waLink("Hi MariaPoS, I want to activate the 1-Year Software License (Rs. 44,000).")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.waPlanBtn}
-              >
-                <MessageCircle size={18} />
-                <span>Buy on WhatsApp</span>
-              </a>
+                    {plan.badge && (
+                      <div className={styles.badgeWrapper}>
+                        <span
+                          className={
+                            plan.badgeType === "green"
+                              ? styles.badgeGreen
+                              : plan.badgeType === "dark"
+                              ? styles.badgeDark
+                              : styles.badgeRed
+                          }
+                        >
+                          {plan.badge}
+                        </span>
+                      </div>
+                    )}
+
+                    <div className={styles.cardTop}>
+                      <h3 className={isDark ? styles.planNameDark : styles.planName}>{plan.name}</h3>
+                      <div className={styles.priceRow}>
+                        <span className={isDark ? styles.priceDark : styles.price}>{plan.priceLkr}</span>
+                        {plan.wasLkr && <span className={isDark ? styles.wasDark : styles.was}>{plan.wasLkr}</span>}
+                      </div>
+                      <span
+                        className={
+                          isDark ? styles.rateDark : isTrial ? styles.rateGreen : styles.rate
+                        }
+                      >
+                        {plan.pricePerYear}
+                      </span>
+                      <p className={isDark ? styles.noteDark : styles.note}>{plan.note}</p>
+                    </div>
+
+                    <div className={isDark ? styles.dividerDark : styles.divider} />
+
+                    <div className={styles.featureList}>
+                      {includedSoftware.map((item) => (
+                        <div key={item} className={styles.featureRow}>
+                          <Check size={16} color={isDark ? "#ff8a80" : "var(--red)"} />
+                          <span className={isDark ? styles.featureTextDark : styles.featureText}>
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className={styles.cardCtaWrapper}>
+                      {isTrial ? (
+                        <a
+                          href={waLink("Hi MariaPoS, I'd like to activate a free 7-day software trial for my shop.")}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.ctaTrial}
+                        >
+                          <Zap size={16} />
+                          <span>{plan.ctaText}</span>
+                        </a>
+                      ) : (
+                        <a
+                          href={waLink(plan.waText ?? `Hi MariaPoS, I'd like to buy the ${plan.name}.`)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={isDark ? styles.ctaDark : styles.ctaRed}
+                        >
+                          <WhatsAppIcon size={16} />
+                          <span>Buy on WhatsApp</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* 2 Year */}
-            <div className={styles.softCard}>
-              <span className={styles.softBadge}>Save 20%</span>
-              <h3 className={styles.softTitle}>2-Year License</h3>
-              <div className={styles.softPrice}>Rs. 70,500</div>
-              <p className={styles.softLead}>Save 20% compared to yearly renewal ($235.20).</p>
-
-              <div className={styles.checklist}>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>All 63+ features included</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>Cloud sync &amp; Telegram alerts</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="var(--red)" />
-                  <span>Priority technical &amp; phone support</span>
-                </div>
+            {/* Nudge to Bundles when in software-only mode */}
+            {activeTab === "software" && (
+              <div className={styles.tabNudge}>
+                <span>Need the physical touch POS terminal, receipt printer &amp; barcode scanner too?</span>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("bundles")}
+                  className={styles.tabNudgeLink}
+                >
+                  <span>View Complete Hardware Bundles with Software (from Rs. 72,500)</span>
+                  <ArrowRight size={15} />
+                </button>
               </div>
-
-              <a
-                href={waLink("Hi MariaPoS, I want to activate the 2-Year Software License (Rs. 70,500).")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.waPlanBtn}
-              >
-                <MessageCircle size={18} />
-                <span>Buy on WhatsApp</span>
-              </a>
-            </div>
-
-            {/* 3 Year Recommended */}
-            <div className={`${styles.softCard} ${styles.softCardRecommended}`}>
-              <span className={styles.softBadgeRecommended}>Best Value · Recommended</span>
-              <h3 className={styles.softTitle} style={{ color: "#fff" }}>
-                3-Year License
-              </h3>
-              <div className={styles.softPrice} style={{ color: "#fff" }}>
-                Rs. 86,000
-              </div>
-              <p className={styles.softLead} style={{ color: "#d4d4d8" }}>
-                Save 35%. Best value for established shops ($286.65).
-              </p>
-
-              <div className={styles.checklist}>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="#ff8a80" />
-                  <span style={{ color: "#fff" }}>Every billing, inventory &amp; report feature</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="#ff8a80" />
-                  <span style={{ color: "#fff" }}>Cloud sync &amp; Telegram alerts</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="#ff8a80" />
-                  <span style={{ color: "#fff" }}>3 full years of free software updates</span>
-                </div>
-                <div className={styles.checkItem}>
-                  <Check size={16} color="#ff8a80" />
-                  <span style={{ color: "#fff" }}>Priority 24/7 technical hotline support</span>
-                </div>
-              </div>
-
-              <a
-                href={waLink("Hi MariaPoS, I want to activate the 3-Year Software License (Rs. 86,000).")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.waPlanBtn}
-              >
-                <MessageCircle size={18} />
-                <span>Buy on WhatsApp</span>
-              </a>
-            </div>
+            )}
           </div>
         )}
 
-        {/* Plan Comparison Matrix Table */}
-        <div className={styles.compareSection}>
-          <h2 className={styles.compareTitle}>Compare What&apos;s Included</h2>
-          <div className={styles.compareTableCard}>
-            <div className={styles.tableHeaderRow}>
-              <span>Included Feature / Equipment</span>
-              <span className={styles.tableColCenter}>Software Only</span>
-              <span className={styles.tableColCenter}>Hardware Only</span>
-              <span className={styles.tableColCenter} style={{ color: "var(--red)" }}>
-                Full Set Pack
-              </span>
+        {/* Visual Included Value Card */}
+        <div data-reveal="up" className={styles.ownerFreedomCard}>
+          <div className={styles.ownerImgCol}>
+            <Image
+              src={ownerMobileAlerts}
+              alt="Store owner receiving Telegram sales notification anywhere"
+              fill
+              sizes="(max-width: 768px) 100vw, 420px"
+              className={styles.ownerImg}
+            />
+            <div className={styles.ownerPill}>
+              <Send size={12} color="#ffffff" />
+              <span>Instant Telegram Push</span>
             </div>
-
-            {[
-              { name: "MariaPoS Software Full Licence", soft: true, hw: false, full: true },
-              { name: "7-Day Free Software Trial", soft: true, hw: false, full: true },
-              { name: "Touch Screen POS Terminal", soft: "Use your PC", hw: "Optional", full: "Included" },
-              { name: "High-Speed Thermal Receipt Printer", soft: "Use existing", hw: "Optional", full: "Included" },
-              { name: "Barcode Scanner & Stand", soft: "Use existing", hw: "Optional", full: "Included" },
-              { name: "Heavy Duty Cash Drawer", soft: "Use existing", hw: "Optional", full: "Included" },
-              { name: "Free Remote / On-Site Installation", soft: "Guidance", hw: "Drivers only", full: "Full Setup Included" },
-              { name: "1-Year JAAN Equipment Warranty", soft: "—", hw: true, full: true },
-              { name: "Cash on Delivery Accepted", soft: true, hw: true, full: true },
-              { name: "Island-Wide Courier Delivery (25 districts)", soft: "Digital", hw: true, full: true },
-            ].map((row, idx) => (
-              <div key={idx} className={styles.tableRow}>
-                <span className={styles.rowName}>{row.name}</span>
-                <span className={styles.tableColCenter}>
-                  {row.soft === true ? (
-                    <Check size={18} color="var(--red)" />
-                    ) : row.soft === false ? (
-                    <span style={{ color: "#a1a1aa" }}>—</span>
-                  ) : (
-                    <span style={{ fontSize: 13, color: "#52525b" }}>{row.soft}</span>
-                  )}
-                </span>
-                <span className={styles.tableColCenter}>
-                  {row.hw === true ? (
-                    <Check size={18} color="var(--red)" />
-                  ) : row.hw === false ? (
-                    <span style={{ color: "#a1a1aa" }}>—</span>
-                  ) : (
-                    <span style={{ fontSize: 13, color: "#52525b" }}>{row.hw}</span>
-                  )}
-                </span>
-                <span className={styles.tableColCenter}>
-                  {row.full === true ? (
-                    <Check size={18} color="#1faa55" />
-                  ) : (
-                    <strong style={{ fontSize: 13, color: "var(--red)" }}>{row.full}</strong>
-                  )}
-                </span>
+          </div>
+          <div className={styles.ownerTextCol}>
+            <span className={styles.ownerEyebrow}>Included in Every Plan</span>
+            <h3 className={styles.ownerHeading}>Run your store from your pocket, wherever you are</h3>
+            <p className={styles.ownerDesc}>
+              No monthly cloud fees or server maintenance charges. Every trial and multi-year license includes automated
+              cloud backup, multi-device web reports, and instant Telegram sales alerts pushed directly to your phone.
+            </p>
+            <div className={styles.ownerPerks}>
+              <div className={styles.ownerPerk}>
+                <CheckCircle2 size={15} color="#16a34a" />
+                <span>Unlimited Telegram sale alerts</span>
               </div>
-            ))}
+              <div className={styles.ownerPerk}>
+                <CheckCircle2 size={15} color="#16a34a" />
+                <span>Multi-branch comparison in browser</span>
+              </div>
+              <div className={styles.ownerPerk}>
+                <CheckCircle2 size={15} color="#16a34a" />
+                <span>Zero surprise cloud surcharges</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Security / Guarantee Banner */}
+        <div data-reveal="up" className={styles.securityBanner}>
+          <div className={styles.securityLeft}>
+            <ShieldCheck size={20} color="#1faa55" />
+            <span>Processed securely · Cash on Delivery across all 25 districts &amp; 1-Year JAAN hardware warranty</span>
+          </div>
+          <div className={styles.linksRow}>
+            <a
+              href={waLink("Hi MariaPoS, I would like to request a 7-day free trial activation.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footLink}
+            >
+              Try 7 days free first →
+            </a>
+            <span className={styles.dotSep}>•</span>
+            <Link href="/contact" className={styles.footLink}>
+              Multi-till / Multi-branch pricing
+            </Link>
           </div>
         </div>
       </div>

@@ -5,10 +5,10 @@ import {
   HowOrdering,
   IndustriesRow,
   SoftwareBento,
-  ThermalBillEngineSection,
   TrustStrip,
 } from "@/components/home/HomeSections";
 import { InteractiveCounterHero } from "@/components/home/InteractiveCounterHero";
+import { ReceiptShowcase } from "@/components/home/ReceiptShowcase";
 import { HomeFaq } from "@/components/home/HomeFaq";
 
 export default function HomePage() {
@@ -18,7 +18,7 @@ export default function HomePage() {
       <TrustStrip />
       <BuyingPaths />
       <FeaturedHardware />
-      <ThermalBillEngineSection />
+      <ReceiptShowcase />
       <SoftwareBento />
       <IndustriesRow />
       <HowOrdering />

@@ -535,15 +535,15 @@ export function ProductDetailClient({ product }: Props) {
               <HardwareCard key={rel.code} item={rel} />
             ))}
 
-            {/* Full Set Bundle Card */}
-            <Link href="/pricing#fullset" className={styles.bundleNudgeCard}>
-              <span className={styles.bundleBadge}>Best Value Combo</span>
-              <div className={styles.bundleTitle}>Get everything as a Full Set Pack</div>
+            {/* Software License Nudge Card */}
+            <Link href="/pricing" className={styles.bundleNudgeCard}>
+              <span className={styles.bundleBadge}>MariaPoS Software</span>
+              <div className={styles.bundleTitle}>Pair with MariaPoS Software License</div>
               <p className={styles.bundleLead}>
-                Touch POS, printer, scanner, cash drawer, MariaPoS 1-year licence and complete counter setup with up to Rs. 28,500 savings.
+                Offline billing, FIFO batch stock, SMS e-bills, and Telegram sales alerts ready to run on this device.
               </p>
               <span className={styles.bundleLinkText}>
-                See Full Set Bundles in Plans
+                View Software Plans
                 <ArrowRight size={16} />
               </span>
             </Link>

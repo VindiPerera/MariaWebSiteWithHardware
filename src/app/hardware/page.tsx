@@ -4,7 +4,7 @@ import { HardwareConfigurator } from "@/components/hardware/HardwareConfigurator
 import { FaqBlock } from "@/components/sections/FaqBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
-import { ShieldCheck, Truck, Wrench, CheckCircle2, Phone } from "lucide-react";
+import { ShieldCheck, Truck, Wrench, CheckCircle2, Phone, Award } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { site } from "@/lib/site";
 import styles from "./HardwarePage.module.css";
@@ -73,6 +73,10 @@ export default function HardwarePage() {
             </p>
 
             <div className={styles.heroBadges}>
+              <div className={styles.heroBadge} style={{ borderColor: "rgba(245, 158, 11, 0.4)", background: "rgba(254, 243, 199, 0.6)", color: "#92400e" }}>
+                <Award size={16} color="#d97706" />
+                <span style={{ fontWeight: 600 }}>Authorized Xprinter Seller</span>
+              </div>
               <div className={styles.heroBadge}>
                 <Truck size={16} color="var(--red)" />
                 <span>Fast Islandwide Delivery</span>

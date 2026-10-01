@@ -12,7 +12,6 @@ import {
   MapPin,
   MessageCircle,
   Phone,
-  Receipt,
   ShieldCheck,
   Sparkles,
   Truck,
@@ -21,7 +20,6 @@ import {
 import { FacebookIcon } from "@/components/ui/FacebookIcon";
 import { waGeneral, waLink } from "@/lib/shop";
 import { legalLinks, site } from "@/lib/site";
-import { ThermalReceiptBill } from "@/components/common/ThermalReceiptBill";
 import logo from "@/assets/images/logo-cropped.jpg";
 import styles from "./Footer.module.css";
 
@@ -59,7 +57,7 @@ const hardwareColumns = [
   { label: "Barcode Scanners (1D/2D)", href: "/hardware?cat=scanners" },
   { label: "Heavy Duty Cash Drawers", href: "/hardware?cat=cash-drawers" },
   { label: "Thermal Paper & Label Rolls", href: "/hardware?cat=consumables" },
-  { label: "Complete Counter Bundles", href: "/pricing#fullset" },
+  { label: "All Certified Hardware", href: "/hardware" },
 ];
 
 const softwareColumns = [
@@ -156,19 +154,6 @@ export function Footer() {
                   <MessageCircle size={17} />
                   <span>Chat on WhatsApp</span>
                 </a>
-              </div>
-            </div>
-
-            {/* Right Side: The Authentic 80mm Sri Lankan POS Thermal Bill */}
-            <div className={styles.showcaseRight}>
-              <div className={styles.billCardContainer}>
-                <div className={styles.billHeaderPill}>
-                  <Receipt size={14} color="var(--red)" />
-                  <span>Real 80mm Thermal Receipt Output</span>
-                </div>
-                <div className={styles.billWrapper}>
-                  <ThermalReceiptBill showControls={true} compact={false} />
-                </div>
               </div>
             </div>
           </div>

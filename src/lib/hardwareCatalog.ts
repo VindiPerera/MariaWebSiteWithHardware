@@ -542,6 +542,34 @@ export const hardwareCatalog: HardwareItem[] = [
 
   // Page 5
   {
+    code: "SCA2125",
+    name: "A7 2D Wired USB Barcode Scanner",
+    subtitle: "High-speed 1D & 2D QR CMOS optical barcode scanner with USB cable",
+    category: "scanners",
+    categoryLabel: "Barcode Scanners",
+    price: 4850,
+    inStock: true,
+    badge: "In Stock · Popular",
+    warranty: "1 Year Commercial Warranty",
+    specs: [
+      { label: "Scan Types", value: "1D Barcodes + 2D QR Codes + DataMatrix" },
+      { label: "Optical Sensor", value: "High-Speed CMOS Image Sensor" },
+      { label: "Interface", value: "USB Plug and Play (2.0m Cable)" },
+      { label: "Screen Reading", value: "Reads from mobile screens & printed labels" },
+    ],
+    description:
+      "Reliable and responsive 2D wired optical barcode scanner designed for retail counters, pharmacies, and supermarket cashier lanes. Instantly decodes all standard 1D product barcodes as well as 2D QR codes directly from packaging or smartphone displays.",
+    features: [
+      "IN STOCK for immediate islandwide delivery",
+      "Fast 2D CMOS sensor reads QR codes and 1D barcodes in any orientation",
+      "Reads barcodes directly off phone screens (e-vouchers, member passes)",
+      "Plug-and-play USB connection with no drivers needed for MariaPoS",
+      "Ergonomic shock-resistant body withstands repeated daily counter use",
+    ],
+    recommendedFor: ["Retail Shops", "Pharmacies", "Supermarkets", "Fashion Outlets"],
+    slug: "a7-2d-wired-barcode-scanner",
+  },
+  {
     code: "SCA2126",
     name: "A9 1D and 2D USB Barcode Scanner",
     subtitle: "CMOS 2D QR code & barcode optical scanner with USB cable",

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Hardware — MariaPoS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.460.0/font/lucide.css">
+<script src="data.js"></script>
+<style>body{margin:0;background:#fff;color:#1a1a1a;-webkit-font-smoothing:antialiased}a{color:#c62828}a:hover{color:#8b0000}*{box-sizing:border-box}</style>
+</helmet>
+<dc-import name="Header" active="Hardware" hint-size="100%,72px"></dc-import>
+<main data-screen-label="Hardware">
+  <section style="background:#fff;padding:clamp(104px,13vw,140px) 0 32px">
+    <div style="max-width:1240px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#c62828">Hardware · {{ total }} products</div>
+        <h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(36px,5vw,56px);line-height:1.05;letter-spacing:-.03em">POS hardware</h1>
+        <p style="margin:0;font-family:Figtree,sans-serif;font-size:17px;line-height:1.55;color:#52525b;text-wrap:pretty">Printers, scanners, cash drawers and touch POS systems that work with MariaPoS. Order any item on WhatsApp and pay cash on delivery.</p>
+      </div>
+      <label style="display:flex;align-items:center;gap:10px;height:48px;padding:0 16px;border-radius:999px;background:#f4f4f5;width:min(100%,320px)">
+        <i class="icon-search" style="font-size:18px;color:#71717a"></i>
+        <input value="{{ q }}" onInput="{{ onQ }}" placeholder="Search hardware" style="flex:1;min-width:0;border:none;background:none;outline:none;font-family:Figtree,sans-serif;font-size:16px;color:#1a1a1a">
+      </label>
+    </div>
+  </section>
+  <div style="position:sticky;top:72px;z-index:40;background:rgba(255,255,255,.96);box-shadow:0 1px 0 #f0f0f1">
+    <div style="max-width:1240px;margin:0 auto;padding:12px 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none">
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="9">
+        <button onClick="{{ c.pick }}" style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;border:none;cursor:pointer;background:{{ c.bg }};color:{{ c.fg }};font-family:Figtree,sans-serif;font-weight:500;font-size:14px;white-space:nowrap;transition:background .15s">{{ c.name }}<span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.7">{{ c.count }}</span></button>
+      </sc-for>
+    </div>
+  </div>
+  <section style="background:#fafafa;padding:32px 0 clamp(64px,9vw,112px);min-height:60vh">
+    <div style="max-width:1240px;margin:0 auto;padding:0 20px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#71717a">{{ resultText }}</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;font-family:Figtree,sans-serif;font-size:13px;font-weight:500;color:#3f3f46"><i class="icon-banknote" style="font-size:14px;color:#c62828"></i>Cash on Delivery</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;font-family:Figtree,sans-serif;font-size:13px;font-weight:500;color:#3f3f46"><i class="icon-truck" style="font-size:14px;color:#c62828"></i>Island-wide delivery</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;font-family:Figtree,sans-serif;font-size:13px;font-weight:500;color:#3f3f46"><i class="icon-shield-check" style="font-size:14px;color:#c62828"></i>Warranty</span>
+        </div>
+      </div>
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="1">
+        <div style="padding-top:32px">
+          <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:16px">
+            <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:600;font-size:22px;letter-spacing:-.01em">{{ g.name }}</h2>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#71717a">{{ g.count }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:16px">
+            <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="4">
+              <dc-import name="ProductCard" p="{{ p }}" hint-size="100%,470px"></dc-import>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+      <sc-if value="{{ empty }}">
+        <div style="margin-top:32px;padding:56px 24px;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+          <i class="icon-search-x" style="font-size:32px;color:#a1a1aa"></i>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:20px">No products match “{{ q }}”</div>
+          <p style="margin:0;max-width:420px;font-family:Figtree,sans-serif;font-size:16px;line-height:1.5;color:#52525b">Try another word, or ask us. We can often source items that aren't listed here.</p>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:6px">
+            <button onClick="{{ reset }}" style="height:48px;padding:0 20px;border-radius:999px;border:none;background:#f4f4f5;color:#1a1a1a;font-family:Figtree,sans-serif;font-weight:600;font-size:15px;cursor:pointer">Clear search</button>
+            <a href="{{ waAsk }}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px;border-radius:999px;background:#1faa55;color:#fff;font-family:Figtree,sans-serif;font-weight:600;font-size:15px;text-decoration:none" style-hover="background:#178f47"><i class="icon-message-circle" style="font-size:18px"></i>Ask on WhatsApp</a>
+          </div>
+        </div>
+      </sc-if>
+      <div style="margin-top:56px;border-radius:24px;background:#1a1a1a;padding:clamp(28px,5vw,48px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px">
+        <div style="display:flex;flex-direction:column;gap:8px;max-width:560px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#ff8a80">Full set</div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,3vw,30px);line-height:1.2;color:#fff">Need the whole counter? Get software, hardware and setup together.</div>
+        </div>
+        <a href="Plans.dc.html#fullset" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 22px;border-radius:999px;background:#fff;color:#1a1a1a;font-family:Figtree,sans-serif;font-weight:600;font-size:16px;text-decoration:none" style-hover="background:#f4f4f5">See the full set<i class="icon-arrow-right" style="font-size:18px"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+<dc-import name="Footer" hint-size="100%,480px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cat: (window.__routeParams || new URLSearchParams(location.search)).get('cat') || 'all', q: '' };
+  componentDidMount() { const t = () => (window.MP ? this.forceUpdate() : setTimeout(t, 40)); t(); }
+  renderVals() {
+    const MP = window.MP;
+    if (!MP) return { chips: [], groups: [], total: '', resultText: '', q: '', onQ: () => {} };
+    const { cat } = this.state;
+    const q = this.state.q.trim().toLowerCase();
+    const match = p => !q || (p.name + ' ' + p.code + ' ' + p.catName).toLowerCase().includes(q);
+    const all = [{ id: 'all', name: 'All', count: MP.products.length }].concat(MP.cats);
+    const chips = all.map(c => ({ ...c, bg: c.id === cat ? '#1a1a1a' : '#f4f4f5', fg: c.id === cat ? '#fff' : '#1a1a1a', pick: () => this.setState({ cat: c.id }) }));
+    const groups = MP.cats.filter(c => cat === 'all' || c.id === cat)
+      .map(c => ({ name: c.name, items: MP.products.filter(p => p.cat === c.id && match(p)) }))
+      .filter(g => g.items.length).map(g => ({ ...g, count: g.items.length }));
+    const n = groups.reduce((s, g) => s + g.count, 0);
+    const catName = cat === 'all' ? 'all categories' : MP.cats.find(c => c.id === cat).name.toLowerCase();
+    return {
+      chips, groups, total: MP.products.length, q: this.state.q, empty: n === 0,
+      resultText: `${n} product${n === 1 ? '' : 's'} · ${catName} · prices in LKR`,
+      onQ: e => this.setState({ q: e.target.value }),
+      reset: () => this.setState({ q: '', cat: 'all' }),
+      waAsk: MP.wa(`Hi MariaPoS, I'm looking for: ${this.state.q}. Do you have it?`)
+    };
+  }
+}
+</script>
+</body>
+</html>
