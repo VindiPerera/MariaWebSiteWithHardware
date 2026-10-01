@@ -37,6 +37,7 @@ export const realProductImages: Record<string, StaticImageData> = {
   PRI2914: pri2914,
   PRI2915: pri2915,
   PRI3055: pri3055,
+  SCA2125: sca2126, // A7 2D Wired USB Barcode Scanner
   SCA2126: sca2126,
   SCA2127: sca2127,
   SCA2128: sca2128,

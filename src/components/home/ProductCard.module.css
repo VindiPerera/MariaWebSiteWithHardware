@@ -95,6 +95,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-wrap: pretty;
+  min-height: 42px;
 }
 
 .name:hover {
@@ -106,6 +107,11 @@
   font-size: 12px;
   line-height: 1.5;
   color: #52525b;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 36px;
 }
 
 .tags {

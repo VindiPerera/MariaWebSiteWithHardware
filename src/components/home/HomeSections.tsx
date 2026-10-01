@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  Award,
   Banknote,
   CalendarCheck,
   ChartColumn,
@@ -25,6 +26,7 @@ import posBilling from "@/assets/images/pos-billing.png";
 import { featuredHero, featuredProducts, formatLkr, hardwareProductCount, industryChips, waGeneral } from "@/lib/shop";
 import { site } from "@/lib/site";
 import { ProductCard } from "./ProductCard";
+import { AuthorizedXprinterBanner } from "./AuthorizedXprinterBanner";
 import styles from "./Home.module.css";
 
 
@@ -61,7 +63,11 @@ export function HomeHero() {
             </span>
             <span className={styles.chip}>
               <ShieldCheck size={14} color="var(--red)" />
-              Warranty
+              1-Year Warranty
+            </span>
+            <span className={styles.authHeroChip}>
+              <Award size={14} color="#d97706" />
+              Authorized Xprinter Seller
             </span>
           </div>
         </div>
@@ -96,6 +102,7 @@ export function HomeHero() {
 }
 
 const trustItems = [
+  { icon: Award, title: "Authorized Xprinter Seller", text: "100% genuine units & 1-yr replacement warranty" },
   { icon: Banknote, title: "Cash on Delivery", text: "Pay the courier when it arrives" },
   { icon: Truck, title: "Island-wide delivery", text: "All 25 districts" },
   { icon: CalendarCheck, title: "7-day free trial", text: "Full software, no payment" },
@@ -190,6 +197,10 @@ export function FeaturedHardware() {
             <ArrowRight size={18} />
           </Link>
         </div>
+
+        {/* High-Impact Authorized Xprinter Seller Banner */}
+        <AuthorizedXprinterBanner />
+
         <div className={styles.scroller}>
           {featuredProducts.map((p) => (
             <div key={p.code} className={styles.scrollItem}>
