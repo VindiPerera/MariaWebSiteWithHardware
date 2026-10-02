@@ -1,6 +1,9 @@
 export type Location = {
   slug: string;
   name: string;
+  /** Tamil and Sinhala names, shown on the page for local-language searches. */
+  nameTa: string;
+  nameSi: string;
   district: string;
   province: string;
   /** Nearby towns also covered, used in copy and keywords. */
@@ -15,6 +18,8 @@ export const locations: Location[] = [
   {
     slug: "colombo",
     name: "Colombo",
+    nameTa: "கொழும்பு",
+    nameSi: "කොළඹ",
     district: "Colombo",
     province: "Western",
     nearby: ["Pettah", "Wellawatte", "Bambalapitiya", "Borella", "Maradana", "Kotahena", "Kollupitiya"],
@@ -24,6 +29,8 @@ export const locations: Location[] = [
   {
     slug: "dehiwala-mount-lavinia",
     name: "Dehiwala-Mount Lavinia",
+    nameTa: "தெஹிவளை-கல்கிசை",
+    nameSi: "දෙහිවල-ගල්කිස්ස",
     district: "Colombo",
     province: "Western",
     nearby: ["Dehiwala", "Mount Lavinia", "Ratmalana", "Kalubowila", "Attidiya"],
@@ -33,6 +40,8 @@ export const locations: Location[] = [
   {
     slug: "sri-jayawardenepura-kotte",
     name: "Sri Jayawardenepura Kotte",
+    nameTa: "ஸ்ரீ ஜயவர்தனபுர கோட்டை",
+    nameSi: "ශ්‍රී ජයවර්ධනපුර කෝට්ටේ",
     district: "Colombo",
     province: "Western",
     nearby: ["Rajagiriya", "Nugegoda", "Battaramulla", "Nawala", "Maharagama"],
@@ -42,6 +51,8 @@ export const locations: Location[] = [
   {
     slug: "moratuwa",
     name: "Moratuwa",
+    nameTa: "மொரட்டுவை",
+    nameSi: "මොරටුව",
     district: "Colombo",
     province: "Western",
     nearby: ["Katubedda", "Rawathawatte", "Angulana", "Egoda Uyana"],
@@ -51,6 +62,8 @@ export const locations: Location[] = [
   {
     slug: "homagama",
     name: "Homagama",
+    nameTa: "ஹோமாகம",
+    nameSi: "හෝමාගම",
     district: "Colombo",
     province: "Western",
     nearby: ["Kottawa", "Pannipitiya", "Padukka", "Meegoda", "Godagama"],
@@ -60,6 +73,8 @@ export const locations: Location[] = [
   {
     slug: "negombo",
     name: "Negombo",
+    nameTa: "நீர்கொழும்பு",
+    nameSi: "මීගමුව",
     district: "Gampaha",
     province: "Western",
     nearby: ["Katunayake", "Seeduwa", "Kochchikade", "Wattala", "Ja-Ela"],
@@ -69,6 +84,8 @@ export const locations: Location[] = [
   {
     slug: "gampaha",
     name: "Gampaha",
+    nameTa: "கம்பஹா",
+    nameSi: "ගම්පහ",
     district: "Gampaha",
     province: "Western",
     nearby: ["Kiribathgoda", "Kadawatha", "Ja-Ela", "Minuwangoda", "Veyangoda", "Nittambuwa"],
@@ -78,6 +95,8 @@ export const locations: Location[] = [
   {
     slug: "kalutara",
     name: "Kalutara",
+    nameTa: "களுத்துறை",
+    nameSi: "කළුතර",
     district: "Kalutara",
     province: "Western",
     nearby: ["Panadura", "Horana", "Beruwala", "Aluthgama", "Matugama", "Wadduwa"],
@@ -87,6 +106,8 @@ export const locations: Location[] = [
   {
     slug: "kandy",
     name: "Kandy",
+    nameTa: "கண்டி",
+    nameSi: "මහනුවර",
     district: "Kandy",
     province: "Central",
     nearby: ["Peradeniya", "Katugastota", "Gampola", "Kundasale", "Digana", "Akurana"],
@@ -96,6 +117,8 @@ export const locations: Location[] = [
   {
     slug: "matale",
     name: "Matale",
+    nameTa: "மாத்தளை",
+    nameSi: "මාතලේ",
     district: "Matale",
     province: "Central",
     nearby: ["Dambulla", "Galewela", "Ukuwela", "Rattota"],
@@ -105,6 +128,8 @@ export const locations: Location[] = [
   {
     slug: "nuwara-eliya",
     name: "Nuwara Eliya",
+    nameTa: "நுவரெலியா",
+    nameSi: "නුවරඑළිය",
     district: "Nuwara Eliya",
     province: "Central",
     nearby: ["Hatton", "Talawakele", "Ragala", "Welimada"],
@@ -114,6 +139,8 @@ export const locations: Location[] = [
   {
     slug: "galle",
     name: "Galle",
+    nameTa: "காலி",
+    nameSi: "ගාල්ල",
     district: "Galle",
     province: "Southern",
     nearby: ["Hikkaduwa", "Ambalangoda", "Karapitiya", "Unawatuna", "Baddegama", "Elpitiya"],
@@ -123,6 +150,8 @@ export const locations: Location[] = [
   {
     slug: "matara",
     name: "Matara",
+    nameTa: "மாத்தறை",
+    nameSi: "මාතර",
     district: "Matara",
     province: "Southern",
     nearby: ["Weligama", "Akuressa", "Dikwella", "Kamburupitiya", "Hakmana"],
@@ -132,6 +161,8 @@ export const locations: Location[] = [
   {
     slug: "hambantota",
     name: "Hambantota",
+    nameTa: "அம்பாந்தோட்டை",
+    nameSi: "හම්බන්තොට",
     district: "Hambantota",
     province: "Southern",
     nearby: ["Tangalle", "Tissamaharama", "Ambalantota", "Beliatta"],
@@ -141,6 +172,8 @@ export const locations: Location[] = [
   {
     slug: "jaffna",
     name: "Jaffna",
+    nameTa: "யாழ்ப்பாணம்",
+    nameSi: "යාපනය",
     district: "Jaffna",
     province: "Northern",
     nearby: ["Nallur", "Chunnakam", "Point Pedro", "Chavakachcheri", "Kopay", "Manipay"],
@@ -150,6 +183,8 @@ export const locations: Location[] = [
   {
     slug: "vavuniya",
     name: "Vavuniya",
+    nameTa: "வவுனியா",
+    nameSi: "වවුනියාව",
     district: "Vavuniya",
     province: "Northern",
     nearby: ["Cheddikulam", "Omanthai", "Nedunkerny"],
@@ -159,15 +194,30 @@ export const locations: Location[] = [
   {
     slug: "kilinochchi",
     name: "Kilinochchi",
+    nameTa: "கிளிநொச்சி",
+    nameSi: "කිලිනොච්චිය",
     district: "Kilinochchi",
     province: "Northern",
-    nearby: ["Paranthan", "Pallai", "Mullaitivu"],
+    nearby: ["Paranthan", "Pallai", "Poonakary", "Akkarayan"],
     note: "Growing town-centre shops in Kilinochchi and Mullaitivu need a POS that keeps billing when connectivity drops.",
     focus: ["supermarket-grocery", "hardware-store"],
   },
   {
+    slug: "mullaitivu",
+    name: "Mullaitivu",
+    nameTa: "முல்லைத்தீவு",
+    nameSi: "මුලතිව්",
+    district: "Mullaitivu",
+    province: "Northern",
+    nearby: ["Puthukkudiyiruppu", "Oddusuddan", "Mankulam", "Mallavi"],
+    note: "Mullaitivu's growing town centres and Puthukkudiyiruppu's markets are served by family-run groceries, pharmacies and hardware shops that need billing that works without a steady connection.",
+    focus: ["supermarket-grocery", "hardware-store", "pharmacy"],
+  },
+  {
     slug: "mannar",
     name: "Mannar",
+    nameTa: "மன்னார்",
+    nameSi: "මන්නාරම",
     district: "Mannar",
     province: "Northern",
     nearby: ["Pesalai", "Madhu", "Murunkan"],
@@ -177,6 +227,8 @@ export const locations: Location[] = [
   {
     slug: "trincomalee",
     name: "Trincomalee",
+    nameTa: "திருகோணமலை",
+    nameSi: "ත්‍රිකුණාමලය",
     district: "Trincomalee",
     province: "Eastern",
     nearby: ["Kinniya", "Muttur", "Nilaveli", "Kantale"],
@@ -186,6 +238,8 @@ export const locations: Location[] = [
   {
     slug: "batticaloa",
     name: "Batticaloa",
+    nameTa: "மட்டக்களப்பு",
+    nameSi: "මඩකලපුව",
     district: "Batticaloa",
     province: "Eastern",
     nearby: ["Kattankudy", "Eravur", "Valaichchenai", "Kaluwanchikudy"],
@@ -195,6 +249,8 @@ export const locations: Location[] = [
   {
     slug: "ampara",
     name: "Ampara",
+    nameTa: "அம்பாறை",
+    nameSi: "අම්පාර",
     district: "Ampara",
     province: "Eastern",
     nearby: ["Kalmunai", "Akkaraipattu", "Sainthamaruthu", "Pottuvil", "Dehiattakandiya"],
@@ -204,6 +260,8 @@ export const locations: Location[] = [
   {
     slug: "kurunegala",
     name: "Kurunegala",
+    nameTa: "குருநாகல்",
+    nameSi: "කුරුණෑගල",
     district: "Kurunegala",
     province: "North Western",
     nearby: ["Kuliyapitiya", "Pannala", "Narammala", "Wariyapola", "Mawathagama", "Nikaweratiya"],
@@ -213,6 +271,8 @@ export const locations: Location[] = [
   {
     slug: "puttalam",
     name: "Puttalam",
+    nameTa: "புத்தளம்",
+    nameSi: "පුත්තලම",
     district: "Puttalam",
     province: "North Western",
     nearby: ["Chilaw", "Wennappuwa", "Marawila", "Nattandiya", "Anamaduwa"],
@@ -222,6 +282,8 @@ export const locations: Location[] = [
   {
     slug: "anuradhapura",
     name: "Anuradhapura",
+    nameTa: "அனுராதபுரம்",
+    nameSi: "අනුරාධපුරය",
     district: "Anuradhapura",
     province: "North Central",
     nearby: ["Kekirawa", "Medawachchiya", "Eppawala", "Tambuttegama", "Thalawa"],
@@ -231,6 +293,8 @@ export const locations: Location[] = [
   {
     slug: "polonnaruwa",
     name: "Polonnaruwa",
+    nameTa: "பொலன்னறுவை",
+    nameSi: "පොළොන්නරුව",
     district: "Polonnaruwa",
     province: "North Central",
     nearby: ["Hingurakgoda", "Kaduruwela", "Medirigiriya", "Aralaganwila"],
@@ -240,6 +304,8 @@ export const locations: Location[] = [
   {
     slug: "badulla",
     name: "Badulla",
+    nameTa: "பதுளை",
+    nameSi: "බදුල්ල",
     district: "Badulla",
     province: "Uva",
     nearby: ["Bandarawela", "Welimada", "Haputale", "Mahiyanganaya", "Passara", "Ella"],
@@ -249,6 +315,8 @@ export const locations: Location[] = [
   {
     slug: "monaragala",
     name: "Monaragala",
+    nameTa: "மொணராகலை",
+    nameSi: "මොණරාගල",
     district: "Monaragala",
     province: "Uva",
     nearby: ["Wellawaya", "Buttala", "Bibile", "Siyambalanduwa"],
@@ -258,6 +326,8 @@ export const locations: Location[] = [
   {
     slug: "ratnapura",
     name: "Ratnapura",
+    nameTa: "இரத்தினபுரி",
+    nameSi: "රත්නපුර",
     district: "Ratnapura",
     province: "Sabaragamuwa",
     nearby: ["Embilipitiya", "Balangoda", "Pelmadulla", "Eheliyagoda", "Kuruwita"],
@@ -267,6 +337,8 @@ export const locations: Location[] = [
   {
     slug: "kegalle",
     name: "Kegalle",
+    nameTa: "கேகாலை",
+    nameSi: "කෑගල්ල",
     district: "Kegalle",
     province: "Sabaragamuwa",
     nearby: ["Mawanella", "Warakapola", "Rambukkana", "Ruwanwella", "Yatiyantota"],

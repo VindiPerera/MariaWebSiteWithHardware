@@ -8,9 +8,11 @@ type Props = {
   title: string;
   intro: string;
   crumbs: { name: string; path: string }[];
+  /** Same heading in local languages, e.g. Tamil and Sinhala, for native-script searches. */
+  localTitles?: { lang: string; text: string }[];
 };
 
-export function LandingHero({ eyebrow, title, intro, crumbs }: Props) {
+export function LandingHero({ eyebrow, title, intro, crumbs, localTitles }: Props) {
   return (
     <section className={styles.hero}>
       <div className={styles.heroInner}>
@@ -28,6 +30,11 @@ export function LandingHero({ eyebrow, title, intro, crumbs }: Props) {
         </nav>
         <span className="eyebrow">{eyebrow}</span>
         <h1 className={styles.title}>{title}</h1>
+        {localTitles?.map(({ lang, text }) => (
+          <p key={lang} lang={lang} className={styles.localTitle}>
+            {text}
+          </p>
+        ))}
         <p className={styles.intro}>{intro}</p>
         <div className={styles.actions}>
           <a href="#trial" className={styles.primary}>

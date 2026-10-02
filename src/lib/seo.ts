@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { locations } from "./locations";
 import { coreKeywords, site } from "./site";
 
 type PageSeo = {
@@ -23,7 +24,7 @@ export function pageMetadata({ title, description, path, keywords = [], absolute
     openGraph: {
       type: "website",
       siteName: site.name,
-      locale: "en",
+      locale: "en_LK",
       url: path,
       title,
       description,
@@ -58,19 +59,23 @@ export const organizationSchema = {
     addressCountry: site.country,
   },
   geo: { "@type": "GeoCoordinates", latitude: site.geo.latitude, longitude: site.geo.longitude },
-  areaServed: { "@type": "AdministrativeArea", name: "Worldwide" },
+  areaServed: [
+    { "@type": "Country", name: "Sri Lanka", identifier: "LK" },
+    ...locations.map((l) => ({ "@type": "City", name: l.name, alternateName: [l.nameTa, l.nameSi] })),
+    { "@type": "AdministrativeArea", name: "Worldwide" },
+  ],
   contactPoint: [
     {
       "@type": "ContactPoint",
       telephone: site.phoneIntl,
       contactType: "sales",
-      availableLanguage: ["English"],
+      availableLanguage: ["English", "Tamil", "Sinhala"],
     },
     {
       "@type": "ContactPoint",
       telephone: site.phoneIntl,
       contactType: "technical support",
-      availableLanguage: ["English"],
+      availableLanguage: ["English", "Tamil", "Sinhala"],
     },
   ],
 };

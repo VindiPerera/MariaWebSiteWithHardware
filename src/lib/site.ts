@@ -1,5 +1,5 @@
 // Canonical origin used for metadata, sitemap and structured data. Set NEXT_PUBLIC_SITE_URL in production.
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://mariapos-hardware.jaan.lk").replace(/\/+$/, "");
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://mariapos-hardware.jaan.lk").replace(/\/+$/, "");
 
 export const site = {
   name: "MariaPoS & Hardware",
@@ -48,6 +48,22 @@ export const coreKeywords = [
   "cashier machine",
   "SMS bill receipt POS",
   "FIFO stock management software",
+  "POS machine Sri Lanka",
+  "cashier machine price in Sri Lanka",
+  "billing system Sri Lanka",
+  "billing machine for shop",
+  "POS system Colombo",
+  "POS system Kandy",
+  "POS system Jaffna",
+  "POS system Galle",
+  "POS system Kurunegala",
+  "POS system Batticaloa",
+  "POS system Trincomalee",
+  "POS system Vavuniya",
+  "பில்லிங் மென்பொருள்",
+  "POS இயந்திரம்",
+  "බිල්පත් මෘදුකාංග",
+  "POS යන්ත්‍ර",
   "MariaPoS",
   "JAAN Network",
 ];

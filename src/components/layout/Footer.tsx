@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -19,37 +19,16 @@ import {
 } from "lucide-react";
 import { FacebookIcon } from "@/components/ui/FacebookIcon";
 import { waGeneral, waLink } from "@/lib/shop";
+import { locations } from "@/lib/locations";
 import { legalLinks, site } from "@/lib/site";
 import logo from "@/assets/images/logo-cropped.jpg";
 import styles from "./Footer.module.css";
 
-const sriLankaDistricts = [
-  "Colombo",
-  "Gampaha",
-  "Kalutara",
-  "Kandy",
-  "Matale",
-  "Nuwara Eliya",
-  "Galle",
-  "Matara",
-  "Hambantota",
-  "Jaffna",
-  "Kilinochchi",
-  "Mannar",
-  "Vavuniya",
-  "Mullaittivu",
-  "Batticaloa",
-  "Ampara",
-  "Trincomalee",
-  "Kurunegala",
-  "Puttalam",
-  "Anuradhapura",
-  "Polonnaruwa",
-  "Badulla",
-  "Monaragala",
-  "Ratnapura",
-  "Kegalle",
-];
+/** Each district links to its local POS page (the district's main town, or its first listed town). */
+const districtPages = Array.from(new Set(locations.map((l) => l.district))).map((district) => {
+  const page = locations.find((l) => l.name === district) ?? locations.find((l) => l.district === district)!;
+  return { district, href: `/pos-system/sri-lanka/${page.slug}` };
+});
 
 const hardwareColumns = [
   { label: "Touch POS Terminals", href: "/hardware?cat=touch-pos" },
@@ -70,8 +49,6 @@ const softwareColumns = [
 ];
 
 export function Footer() {
-  const [selectedDistrict, setSelectedDistrict] = useState("Colombo");
-
   return (
     <>
       <footer className={styles.footer}>
@@ -162,22 +139,14 @@ export function Footer() {
           <div className={styles.districtsBar}>
             <div className={styles.districtsTitleRow}>
               <Truck size={16} color="#38bdf8" />
-              <span>Island-wide Cash on Delivery available in all 25 Districts:</span>
+              <span>POS systems &amp; hardware with Cash on Delivery in all 25 Districts:</span>
             </div>
             <div className={styles.districtsList}>
-              {sriLankaDistricts.map((district) => (
-                <button
-                  key={district}
-                  type="button"
-                  onClick={() => setSelectedDistrict(district)}
-                  className={`${styles.districtPill} ${
-                    selectedDistrict === district ? styles.districtPillActive : ""
-                  }`}
-                  title={`COD delivery available in ${district}`}
-                >
+              {districtPages.map(({ district, href }) => (
+                <Link key={district} href={href} className={styles.districtPill} title={`POS system in ${district}`}>
                   <CheckCircle2 size={12} color="#1faa55" />
                   <span>{district}</span>
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -229,6 +198,12 @@ export function Footer() {
                 </Link>
                 <Link href="/industries" className={styles.navLink}>
                   View All Industries →
+                </Link>
+                <Link href="/pos-system/sri-lanka" className={styles.navLink}>
+                  POS System Sri Lanka
+                </Link>
+                <Link href="/pos-system" className={styles.navLink}>
+                  POS System Worldwide
                 </Link>
               </div>
             </div>

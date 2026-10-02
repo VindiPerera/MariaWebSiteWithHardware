@@ -29,10 +29,11 @@ import {
   Zap,
 } from "lucide-react";
 import { waGeneral, formatLkr } from "@/lib/shop";
-import pri2915 from "@/assets/images/products/PRI2915.jpg";
-import pri2124 from "@/assets/images/products/PRI2124.jpg";
-import sca2127 from "@/assets/images/products/SCA2127.jpg";
-import acc1639 from "@/assets/images/products/ACC1639.jpg";
+import { AuthorizedXprinterBadge } from "@/components/common/AuthorizedXprinterBadge";
+import acc1639 from "@/assets/images/products/ACC1639.png";
+import pri2124 from "@/assets/images/products/PRI2124-main.png";
+import pri2915 from "@/assets/images/products/PRI2915.png";
+import sca2127 from "@/assets/images/products/SCA2127.png";
 import styles from "./InteractiveCounterHero.module.css";
 
 type CartItem = {
@@ -149,12 +150,9 @@ export function InteractiveCounterHero() {
       <div className={styles.container}>
         {/* Left Column: High-Impact Copy & Actions */}
         <div className={styles.leftCol}>
-          {/* Eyebrow Badge */}
-          <div className={styles.eyebrowWrapper}>
-            <span className={styles.livePulseDot} />
-            <span className={styles.eyebrowText}>
-              JAAN CERTIFIED · POS SOFTWARE + HARDWARE · SRI LANKA
-            </span>
+          {/* Highlighted Official Partner Trust Pill */}
+          <div className={styles.heroBadgeRow}>
+            <AuthorizedXprinterBadge />
           </div>
 
           {/* Main Animated Headline */}
