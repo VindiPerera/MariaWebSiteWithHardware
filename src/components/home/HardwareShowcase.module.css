@@ -1,0 +1,401 @@
+/* HardwareShowcase.module.css */
+
+.section {
+  padding: clamp(64px, 8vw, 108px) 0;
+  background: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.headingBlock {
+  max-width: 680px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+
+.eyebrow {
+  font-family: var(--font-code);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #dc2626;
+  margin-bottom: 12px;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.6;
+  color: #475569;
+}
+
+.showcaseGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+/* Image Card & Hotspots */
+.imageColumn {
+  position: relative;
+}
+
+.imageCard {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 24px 60px -15px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(220, 38, 38, 0.04);
+}
+
+.workstationImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageCard:hover .workstationImg {
+  transform: scale(1.02);
+}
+
+/* Hotspots */
+.hotspot {
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.hotspotTerminal {
+  top: 35%;
+  left: 48%;
+}
+
+.hotspotPrinter {
+  bottom: 28%;
+  right: 22%;
+}
+
+.hotspotMobile {
+  bottom: 12%;
+  right: 28%;
+}
+
+.hotspotPin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.pingAnim {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #dc2626;
+  opacity: 0.6;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.pinDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #dc2626;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.hotspotTooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hotspotTooltip strong {
+  font-weight: 700;
+}
+
+.hotspotTooltip span {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.hotspot:hover .hotspotTooltip,
+.hotspotActive .hotspotTooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.liveStationBadge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  max-width: 280px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.stationBadgeHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.liveStationBadge p {
+  margin: 0;
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* Right Details Column */
+.detailsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.featureItem:hover,
+.featureItemActive {
+  background: #ffffff;
+  border-color: #dc2626;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.08);
+  transform: translateX(4px);
+}
+
+.featureIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.featureItem:hover .featureIconWrap,
+.featureItemActive .featureIconWrap {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+}
+
+.featureCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featureTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.featureDesc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/* Package Card */
+.packageCard {
+  background: #090d16;
+  border-radius: 18px;
+  padding: 24px;
+  color: #ffffff;
+  box-shadow: 0 16px 40px rgba(9, 13, 22, 0.16);
+}
+
+.packageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.packageEyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  font-family: var(--font-code);
+}
+
+.packagePrice {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.packagePrice span {
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.packagePrice strong {
+  font-size: 24px;
+  color: #ffffff;
+  font-family: var(--font-display);
+}
+
+.authBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.packagePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: #cbd5e1;
+  margin-bottom: 20px;
+}
+
+.packageActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.waPackageBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #1faa55;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.waPackageBtn:hover {
+  background: #169347;
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.specLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.specLink:hover {
+  color: #ffffff;
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .showcaseGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .liveStationBadge {
+    position: static;
+    margin: 12px;
+    max-width: none;
+  }
+}

@@ -7,19 +7,29 @@ import {
   SoftwareBento,
   TrustStrip,
 } from "@/components/home/HomeSections";
-import { InteractiveCounterHero } from "@/components/home/InteractiveCounterHero";
+import { PromotionHero } from "@/components/home/PromotionHero";
+import { HardwareShowcase } from "@/components/home/HardwareShowcase";
+import { VisualExperienceRow } from "@/components/home/VisualExperienceRow";
 import { ReceiptShowcase } from "@/components/home/ReceiptShowcase";
 import { HomeFaq } from "@/components/home/HomeFaq";
 
 export default function HomePage() {
   return (
     <main id="top" data-screen-label="Home">
-      <InteractiveCounterHero />
+      {/* World-Class Animated Hero featuring MariaPOS Promotion Ambassador */}
+      <PromotionHero />
       <TrustStrip />
-      <BuyingPaths />
+
+      {/* Complete POS Counter Workstation 3D Showcase */}
+      <HardwareShowcase />
+
+      {/* Real-World Retail Operations (Customer SMS Checkout & Warehouse FIFO) */}
+      <VisualExperienceRow />
+
       <FeaturedHardware />
       <ReceiptShowcase />
       <SoftwareBento />
+      <BuyingPaths />
       <IndustriesRow />
       <HowOrdering />
       <HomeFaq />
