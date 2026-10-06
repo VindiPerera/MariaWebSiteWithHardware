@@ -14,7 +14,7 @@ import {
   Truck,
   Zap,
 } from "lucide-react";
-import salesGirlCounterImg from "@/assets/images/sales-girl-counter-pos.jpg";
+import salesGirlCounterImg from "@/assets/images/sales-girl-counter-pos-v3.jpg";
 import { waGeneral } from "@/lib/shop";
 import styles from "./PromotionHero.module.css";
 
