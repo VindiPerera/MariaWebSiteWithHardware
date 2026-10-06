@@ -1,0 +1,575 @@
+/* PromotionHero.module.css - Complete POS System in Sri Lanka */
+
+.heroSection {
+  padding: 16px 0 24px;
+  background: #ffffff;
+  position: relative;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Master Rounded Hero Card Canvas */
+.heroCard {
+  position: relative;
+  border-radius: 36px;
+  background: linear-gradient(135deg, #f9fafb 0%, #fef2f2 38%, #fff5f5 65%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 24px 60px -15px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(220, 38, 38, 0.03);
+  overflow: hidden;
+  padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 48px);
+}
+
+/* Ambient Backdrops */
+.cardBackdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.ambientGlowRed {
+  position: absolute;
+  top: -120px;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.15) 0%, transparent 70%);
+  filter: blur(50px);
+  animation: pulseGlow 7s ease-in-out infinite alternate;
+}
+
+.ambientGlowBlue {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.06) 0%, transparent 65%);
+  filter: blur(40px);
+}
+
+.gridCanvasPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+}
+
+/* Grid Layout */
+.heroCardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 52px);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Column: Copy & Actions */
+.copyCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrowPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1px solid #fee2e2;
+  border-radius: 999px;
+  width: fit-content;
+  font-size: 13px;
+  color: #334155;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.06);
+  margin-bottom: 20px;
+}
+
+.livePulseDot {
+  position: relative;
+  display: inline-flex;
+  width: 9px;
+  height: 9px;
+}
+
+.pulsePing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #16a34a;
+  animation: pingDot 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.pulseDotCore {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+.eyebrowText strong {
+  color: #0f172a;
+}
+
+/* Big Bold Headline */
+.headline {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #090d16;
+  text-wrap: balance;
+}
+
+.accentText {
+  color: #dc2626;
+  display: inline-block;
+}
+
+.subheadline {
+  margin: 0 0 28px;
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.6;
+  color: #52525b;
+  max-width: 520px;
+}
+
+/* Action Buttons */
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.primaryPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  background: #1faa55;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(31, 170, 85, 0.3);
+  transition: all 0.22s ease;
+}
+
+.primaryPillBtn:hover {
+  background: #169347;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(31, 170, 85, 0.4);
+  color: #ffffff;
+}
+
+.arrowIcon {
+  transition: transform 0.2s ease;
+}
+
+.primaryPillBtn:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+.secondaryPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.secondaryPillBtn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* 3 Horizontal Trust Badges */
+.trustBadgesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2vw, 24px);
+  padding-top: 24px;
+  border-top: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.trustBadgeItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trustIconWrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+}
+
+.trustIcon {
+  color: #dc2626;
+}
+
+.trustTexts {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.trustTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.trustSub {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Right Column: Prominent Sales Girl at POS Counter Photo Card */
+.salesGirlCol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.photoCardFrame {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow:
+    0 25px 60px -15px rgba(220, 38, 38, 0.2),
+    0 10px 30px -10px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(220, 38, 38, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.photoCardFrame:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 35px 70px -15px rgba(220, 38, 38, 0.28),
+    0 15px 35px -10px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(220, 38, 38, 0.12);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.heroSceneImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photoCardFrame:hover .heroSceneImg {
+  transform: scale(1.06);
+}
+
+/* Floating Circular Promo Badge (Up to 70% Paper Saved) */
+.circularPromoBadge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 4;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 55%, #be123c 100%);
+  box-shadow:
+    0 12px 28px -4px rgba(225, 29, 72, 0.45),
+    0 0 0 4px rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  animation: floatBadge 4.5s ease-in-out infinite alternate;
+}
+
+.badgeTopSub {
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.92;
+  line-height: 1;
+}
+
+.badgeBigVal {
+  font-size: 24px;
+  font-weight: 900;
+  font-family: var(--font-display);
+  line-height: 1.05;
+  margin: 1px 0;
+}
+
+.badgeBotSub {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.95;
+  line-height: 1;
+}
+
+/* Live Till Pill (Top Right) */
+.liveTillPill {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  animation: floatSubtle 5s ease-in-out infinite alternate 0.5s;
+}
+
+.liveRadarDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+/* Interactive Test Pill (Bottom Left) */
+.interactiveTestPill {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.3);
+  transition: all 0.2s ease;
+}
+
+.interactiveTestPill:hover:not(:disabled) {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+.spinAnim {
+  animation: spin 1s linear infinite;
+  color: #fbbf24;
+}
+
+/* Official Hardware Certification Pill (Bottom Right) */
+.officialHostBadge {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Keyframes */
+@keyframes floatBadge {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+
+@keyframes floatSubtle {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pingDot {
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .heroCardGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .copyCol {
+    align-items: center;
+    text-align: center;
+  }
+
+  .subheadline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actionRow {
+    justify-content: center;
+  }
+
+  .trustBadgesRow {
+    justify-content: center;
+  }
+
+  .photoCardFrame {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroCard {
+    border-radius: 24px;
+    padding: 28px 16px;
+  }
+
+  .headline {
+    font-size: 30px;
+  }
+
+  .primaryPillBtn,
+  .secondaryPillBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .trustBadgesRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .circularPromoBadge {
+    width: 76px;
+    height: 76px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .badgeBigVal {
+    font-size: 20px;
+  }
+
+  .liveTillPill {
+    top: 10px;
+    right: 10px;
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .interactiveTestPill {
+    left: 10px;
+    bottom: 10px;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .officialHostBadge {
+    right: 10px;
+    bottom: 10px;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
