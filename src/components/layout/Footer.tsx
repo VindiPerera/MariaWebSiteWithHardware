@@ -80,11 +80,11 @@ export function Footer() {
               </h2>
 
               <p className={styles.showcaseLead}>
-                {lang !== "ta" && t("Developed and supported by ", "කොළඹදී ")}
+                {lang === "en" && t("Developed and supported by ")}
                 <strong>{site.company}</strong>
                 {t(
                   " in Colombo. Built specifically for retail supermarkets, pharmacies, hardware shops, and restaurants across all 25 districts.",
-                  " විසින් develop කර support කරයි. දිස්ත්‍රික්ක 25ටම ඇති supermarkets, pharmacies, hardware shops සහ restaurants සඳහාම විශේෂයෙන් සාදන ලදී.",
+                  " විසින් කොළඹදී develop කර support කරනු ලැබේ. දිස්ත්‍රික්ක 25ටම ඇති supermarkets, pharmacies, hardware shops සහ restaurants සඳහාම විශේෂයෙන් හදපු එකක්.",
                 )}
               </p>
 
@@ -94,7 +94,7 @@ export function Footer() {
                   <Banknote size={18} color="#1faa55" />
                   <div>
                     <strong>Cash on Delivery</strong>
-                    <span>{t("Pay cash to the courier when goods arrive", "බඩු ලැබුණාම courier එකට cash ගෙවන්න")}</span>
+                    <span>{t("Pay cash to the courier when goods arrive", "භාණ්ඩ ලැබුණාම courier එකට cash ගෙවන්න")}</span>
                   </div>
                 </div>
 
@@ -276,7 +276,7 @@ export function Footer() {
             </div>
 
             <div className={styles.madeWithTag}>
-              <span>{t("Made to Bill · Engineered for Sri Lanka", "Made to Bill · ශ්‍රී ලංකාව වෙනුවෙන් engineer කළ")}</span>
+              <span>{t("Made to Bill · Engineered for Sri Lanka", "Made to Bill · ශ්‍රී ලංකාව වෙනුවෙන් නිර්මාණය කළ")}</span>
             </div>
           </div>
         </div>
