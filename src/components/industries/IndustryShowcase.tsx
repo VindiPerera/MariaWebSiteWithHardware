@@ -147,7 +147,13 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
   const { t, lang } = useLang();
   const base = tradeScenarios[slug] || defaultScenario;
   const siCopy = scenarioSi[tradeScenarios[slug] ? slug : "default"];
-  const scenario = lang === "si" ? { ...base, ...siCopy } : base;
+  const scenario = {
+    ...base,
+    modeTitle: t(base.modeTitle, siCopy.modeTitle),
+    description: t(base.description, siCopy.description),
+    hotkeyDesc: t(base.hotkeyDesc, siCopy.hotkeyDesc),
+    receiptSummary: t(base.receiptSummary, siCopy.receiptSummary),
+  };
   const [items, setItems] = useState<TradeItem[]>(scenario.items);
   const [billCompleted, setBillCompleted] = useState(false);
 
@@ -164,9 +170,9 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
         <div data-reveal="up" className={styles.headingWrap}>
           <div className={styles.badgePill}>
             <Sparkles size={14} color="var(--red)" />
-            <span>{lang === "si" ? `Interactive ${short} Counter Simulator` : `Interactive ${short} Counter Simulator`}</span>
+            <span>{`${t("Interactive", "Interactive", "Interactive")} ${short} ${t("Counter Simulator", "Counter Simulator", "Counter Simulator")}`}</span>
           </div>
-          <h2 className="section-title">{lang === "si" ? `${short} සඳහා MariaPoS වැඩ කරන හැටි අත්විඳින්න` : `Experience MariaPoS in action for ${short.toLowerCase()}`}</h2>
+          <h2 className="section-title">{lang === "si" ? `${short} සඳහා MariaPoS වැඩ කරන හැටි අත්විඳින්න` : lang === "ta" ? `${short}-க்கு MariaPoS செயல்படும் விதத்தை அனுபவியுங்கள்` : `Experience MariaPoS in action for ${short.toLowerCase()}`}</h2>
           <p className="lead">{scenario.description}</p>
         </div>
 

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, JetBrains_Mono, Noto_Sans_Sinhala, Poppins } from "next/font/google";
+import { Figtree, JetBrains_Mono, Noto_Sans_Sinhala, Noto_Sans_Tamil, Poppins } from "next/font/google";
 import { AppClientWrapper } from "@/components/providers/AppClientWrapper";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { coreKeywords, site } from "@/lib/site";
@@ -9,6 +9,7 @@ import "./globals.css";
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-poppins" });
 const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-figtree" });
 const notoSinhala = Noto_Sans_Sinhala({ subsets: ["sinhala"], weight: ["400", "500", "600", "700"], variable: "--font-sinhala" });
+const notoTamil = Noto_Sans_Tamil({ subsets: ["tamil"], weight: ["400", "500", "600", "700"], variable: "--font-tamil" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-jetbrains" });
 
 const defaultTitle = "POS System Sri Lanka — POS Machines, Billing Software & Hardware | MariaPoS";
@@ -65,7 +66,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${figtree.variable} ${jetbrains.variable} ${notoSinhala.variable}`}
+      className={`${poppins.variable} ${figtree.variable} ${jetbrains.variable} ${notoSinhala.variable} ${notoTamil.variable}`}
       suppressHydrationWarning
     >
       <head>

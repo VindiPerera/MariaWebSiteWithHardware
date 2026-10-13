@@ -84,7 +84,11 @@ export function ContactSection() {
           </div>
 
           <h1 className={styles.title}>
-            {lang === "si" ? (
+            {lang === "ta" ? (
+              <>
+                <span className={styles.highlightText}>MariaPoS</span> engineering team-ஐத் தொடர்பு கொள்ளுங்கள்
+              </>
+            ) : lang === "si" ? (
               <>
                 <span className={styles.highlightText}>MariaPoS</span> engineering team එකට කතා කරන්න
               </>

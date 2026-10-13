@@ -50,7 +50,7 @@ const softwareColumns = [
 ];
 
 export function Footer() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <>
       <footer className={styles.footer}>
@@ -80,7 +80,7 @@ export function Footer() {
               </h2>
 
               <p className={styles.showcaseLead}>
-                {t("Developed and supported by ", "කොළඹදී ")}
+                {lang !== "ta" && t("Developed and supported by ", "කොළඹදී ")}
                 <strong>{site.company}</strong>
                 {t(
                   " in Colombo. Built specifically for retail supermarkets, pharmacies, hardware shops, and restaurants across all 25 districts.",

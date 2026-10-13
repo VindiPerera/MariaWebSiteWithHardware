@@ -235,7 +235,7 @@ export function Header() {
               }}
             >
               <ShoppingBag size={18} />
-              <span>{t(`Quote Cart (${totalCount} items)`, `Quote Cart (අයිතම ${totalCount})`)}</span>
+              <span>{t(`Quote Cart (${totalCount} items)`, `Quote Cart (අයිතම ${totalCount})`, `Quote Cart (${totalCount} items)`)}</span>
             </button>
 
             <a

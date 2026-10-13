@@ -27,7 +27,12 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
   const [inStockOnly, setInStockOnly] = useState(false);
   const { openDrawer, totalCount } = useCart();
   const { lang } = useLang();
-  const intro = lang === "si" ? categoryIntrosSi[activeCategory] : categoryIntros[activeCategory];
+  const introEn = categoryIntros[activeCategory];
+  const introSi = categoryIntrosSi[activeCategory];
+  const intro = {
+    title: t(introEn.title, introSi.title),
+    paragraphs: introEn.paragraphs.map((p, i) => t(p, introSi.paragraphs[i])),
+  };
   const catLabel = (id: HardwareCategory, en: string) => t(en, categoryLabelSi[id]);
 
   const filteredItems = useMemo(() => {
@@ -174,7 +179,11 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
         <div className={styles.catalogContainer}>
           <div className={styles.resultsInfo}>
             <span>
-              {lang === "si" ? (
+              {lang === "ta" ? (
+                <>
+                  <strong>{filteredItems.length}</strong> certified hardware devices காட்டப்படுகின்றன
+                </>
+              ) : lang === "si" ? (
                 <>
                   Certified hardware devices <strong>{filteredItems.length}</strong>ක් පෙන්වනවා
                 </>
