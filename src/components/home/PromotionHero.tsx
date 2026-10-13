@@ -146,7 +146,7 @@ export function PromotionHero() {
 
                 {/* Floating Circular Promo Badge (Up to 70% Paper Saved) */}
                 <div className={styles.circularPromoBadge}>
-                  <span className={styles.badgeTopSub}>{t("Up to", "වැඩිම")}</span>
+                  <span className={styles.badgeTopSub}>{t("Up to", "උපරිම")}</span>
                   <strong className={styles.badgeBigVal}>70%</strong>
                   <span className={styles.badgeBotSub}>{t("Paper Saved", "කඩදාසි ඉතිරියි")}</span>
                 </div>

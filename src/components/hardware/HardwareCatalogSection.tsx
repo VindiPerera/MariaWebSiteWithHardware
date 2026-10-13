@@ -4,9 +4,11 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { Search, ShoppingBag, Sparkles, ArrowRight, PackageCheck } from "lucide-react";
 import { hardwareCatalog, hardwareCategories, categoryIntros, HardwareCategory } from "@/lib/hardwareCatalog";
+import { categoryIntrosSi, categoryLabelSi } from "@/lib/hardwareCatalogSi";
 import { HardwareCard } from "./HardwareCard";
 import { useCart } from "@/lib/cartContext";
 import styles from "./HardwareCatalogSection.module.css";
+import { useLang } from "@/lib/i18n";
 
 type Props = {
   initialCategory?: HardwareCategory;
@@ -17,12 +19,16 @@ type Props = {
 const pureHardwareCategories = hardwareCategories.filter((cat) => cat.id !== "bundles");
 
 export function HardwareCatalogSection({ initialCategory = "all", showTitle = true }: Props) {
+  const { t } = useLang();
   const [activeCategory, setActiveCategory] = useState<HardwareCategory>(
     initialCategory === "bundles" ? "all" : initialCategory
   );
   const [searchQuery, setSearchQuery] = useState("");
   const [inStockOnly, setInStockOnly] = useState(false);
   const { openDrawer, totalCount } = useCart();
+  const { lang } = useLang();
+  const intro = lang === "si" ? categoryIntrosSi[activeCategory] : categoryIntros[activeCategory];
+  const catLabel = (id: HardwareCategory, en: string) => t(en, categoryLabelSi[id]);
 
   const filteredItems = useMemo(() => {
     return hardwareCatalog.filter((item) => {
@@ -54,12 +60,14 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
           <div data-reveal="up" className="section-intro">
             <span className="eyebrow">
               <Sparkles size={13} />
-              Certified POS Hardware Catalog
+              {t("Certified POS Hardware Catalog", "Certified POS Hardware Catalog එක")}
             </span>
-            <h2 className="section-title">Tested, driver-configured and ready to bill</h2>
+            <h2 className="section-title">{t("Tested, driver-configured and ready to bill", "Test කරලා, driver configure කරලා, bill කරන්න ready")}</h2>
             <p className="lead">
-              Every device is verified for seamless plug-and-play operation with MariaPoS Windows software. 1-year JAAN
-              warranty and islandwide delivery across all 25 districts.
+              {t(
+                "Every device is verified for seamless plug-and-play operation with MariaPoS Windows software. 1-year JAAN warranty and islandwide delivery across all 25 districts.",
+                "හැම device එකක්ම MariaPoS Windows software එක්ක plug-and-play ලෙස හොඳින් වැඩ කරන බව තහවුරු කරලා තියෙනවා. අවුරුදු 1ක JAAN warranty එකක් සහ දිස්ත්‍රික්ක 25ටම delivery.",
+              )}
             </p>
           </div>
         )}
@@ -69,17 +77,20 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
           <div className={styles.nudgeLeft}>
             <span className={styles.nudgeBadge}>
               <PackageCheck size={14} color="var(--red)" />
-              Complete Solution Bundles
+              {t("Complete Solution Bundles", "සම්පූර්ණ Solution Bundles")}
             </span>
             <strong className={styles.nudgeTitle}>
-              Looking for MariaPoS Software Licenses?
+              {t("Looking for MariaPoS Software Licenses?", "MariaPoS Software Licenses හොයනවද?")}
             </strong>
             <span className={styles.nudgeDesc}>
-              Activate full 1-Year, 2-Year or 3-Year MariaPoS software licenses with offline billing, FIFO inventory, Telegram alerts &amp; cloud sync.
+              {t(
+                "Activate full 1-Year, 2-Year or 3-Year MariaPoS software licenses with offline billing, FIFO inventory, Telegram alerts & cloud sync.",
+                "Offline billing, FIFO inventory, Telegram alerts සහ cloud sync සහිත සම්පූර්ණ අවුරුදු 1, 2 හෝ 3 MariaPoS software licenses activate කරන්න.",
+              )}
             </span>
           </div>
           <Link href="/pricing" className={styles.nudgeBtn}>
-            <span>View Software Plans &amp; Pricing</span>
+            <span>{t("View Software Plans & Pricing", "Software Plans සහ Pricing බලන්න")}</span>
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -97,7 +108,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                   className={`${styles.tabBtn} ${isActive ? styles.tabBtnActive : ""}`}
                   onClick={() => setActiveCategory(cat.id)}
                 >
-                  <span>{cat.label}</span>
+                  <span>{catLabel(cat.id, cat.label)}</span>
                 </button>
               );
             })}
@@ -109,7 +120,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
               <Search size={16} className={styles.searchIcon} />
               <input
                 type="text"
-                placeholder="Search by item code (e.g. PRI2915, ACC1639) or model..."
+                placeholder={t("Search by item code (e.g. PRI2915, ACC1639) or model...", "Item code (උදා: PRI2915, ACC1639) හෝ model එකෙන් search කරන්න...")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={styles.searchInput}
@@ -119,7 +130,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                   type="button"
                   className={styles.clearSearchBtn}
                   onClick={() => setSearchQuery("")}
-                  aria-label="Clear search"
+                  aria-label={t("Clear search", "Search එක clear කරන්න")}
                 >
                   ✕
                 </button>
@@ -134,12 +145,12 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                 className={styles.hiddenCheck}
               />
               <span className={`${styles.toggleSwitch} ${inStockOnly ? styles.toggleOn : ""}`} />
-              <span className={styles.toggleLabel}>In Stock Only</span>
+              <span className={styles.toggleLabel}>{t("In Stock Only", "Stock එකේ ඇති ඒවා පමණයි")}</span>
             </label>
 
             <button type="button" className={styles.cartFloatBtn} onClick={openDrawer}>
               <ShoppingBag size={17} />
-              <span>Quote Cart</span>
+              <span>{t("Quote Cart", "Quote Cart")}</span>
               {totalCount > 0 && <span className={styles.cartCountBadge}>{totalCount}</span>}
             </button>
           </div>
@@ -149,11 +160,11 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
         <div key={activeCategory} data-reveal="up" className={styles.categoryIntro}>
           <span className={styles.categoryIntroEyebrow}>
             <Sparkles size={13} />
-            {hardwareCategories.find((c) => c.id === activeCategory)?.label ?? "All Hardware"}
+            {catLabel(activeCategory, hardwareCategories.find((c) => c.id === activeCategory)?.label ?? "All Hardware")}
           </span>
-          <h3 className={styles.categoryIntroTitle}>{categoryIntros[activeCategory].title}</h3>
+          <h3 className={styles.categoryIntroTitle}>{intro.title}</h3>
           <div className={styles.categoryIntroBody}>
-            {categoryIntros[activeCategory].paragraphs.map((p, i) => (
+            {intro.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
@@ -163,7 +174,15 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
         <div className={styles.catalogContainer}>
           <div className={styles.resultsInfo}>
             <span>
-              Showing <strong>{filteredItems.length}</strong> certified hardware devices
+              {lang === "si" ? (
+                <>
+                  Certified hardware devices <strong>{filteredItems.length}</strong>ක් පෙන්වනවා
+                </>
+              ) : (
+                <>
+                  Showing <strong>{filteredItems.length}</strong> certified hardware devices
+                </>
+              )}
             </span>
             {activeCategory !== "all" && (
               <button
@@ -174,14 +193,14 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                   setInStockOnly(false);
                 }}
               >
-                Reset filter (Show all)
+                {t("Reset filter (Show all)", "Filter reset කරන්න (සියල්ල පෙන්වන්න)")}
               </button>
             )}
           </div>
 
           {filteredItems.length === 0 ? (
             <div className={styles.emptyState}>
-              <p>No hardware found matching your criteria.</p>
+              <p>{t("No hardware found matching your criteria.", "ඔබේ නිර්ණායකවලට ගැලපෙන hardware කිසිවක් හමු වුණේ නෑ.")}</p>
               <button
                 type="button"
                 className="btn-secondary"
@@ -191,7 +210,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                   setInStockOnly(false);
                 }}
               >
-                Clear all filters
+                {t("Clear all filters", "සියලුම filters clear කරන්න")}
               </button>
             </div>
           ) : (

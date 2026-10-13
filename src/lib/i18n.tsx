@@ -30,6 +30,12 @@ const listeners = new Set<() => void>();
 
 function readLang(): Lang {
   try {
+    // A shared link such as /?lang=si wins over (and updates) the saved choice.
+    const fromUrl = new URLSearchParams(window.location.search).get("lang");
+    if (fromUrl === "si" || fromUrl === "en") {
+      localStorage.setItem(STORAGE_KEY, fromUrl);
+      return fromUrl;
+    }
     const saved = localStorage.getItem(STORAGE_KEY);
     return saved === "si" ? "si" : "en";
   } catch {
@@ -71,3 +77,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 }
 
 export const useLang = () => useContext(LangContext);
+
+/** Inline translated text for server components: <T en="Hello" si="ආයුබෝවන්" /> */
+export function T({ en, si }: { en: string; si?: string }) {
+  const { t } = useLang();
+  return <>{t(en, si)}</>;
+}

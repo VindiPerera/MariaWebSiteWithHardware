@@ -11,7 +11,9 @@ import {
   Zap,
 } from "lucide-react";
 import { industries, type Industry } from "@/lib/industries";
+import { industriesSi, industryPowerSi, industryTabSi } from "@/lib/industriesSi";
 import styles from "./IndustryCatalog.module.css";
+import { useLang } from "@/lib/i18n";
 
 // Taglines / superpowers for each industry
 const industrySuperpowers: Record<string, { tag: string; metric: string; highlight: string }> = {
@@ -77,7 +79,9 @@ const filterTabs = [
 ];
 
 export function IndustryCatalog() {
+  const { t } = useLang();
   const [activeTab, setActiveTab] = useState("all");
+  const { lang } = useLang();
 
   const filtered = industries.filter((ind) => {
     if (activeTab === "all") return true;
@@ -101,7 +105,7 @@ export function IndustryCatalog() {
               onClick={() => setActiveTab(tab.id)}
               className={`${styles.filterPill} ${activeTab === tab.id ? styles.filterPillActive : ""}`}
             >
-              {tab.label}
+              {t(tab.label, industryTabSi[tab.label])}
             </button>
           ))}
         </div>
@@ -110,7 +114,9 @@ export function IndustryCatalog() {
       {/* Grid of Elevated Industry Cards */}
       <div className={styles.grid}>
         {filtered.map(({ slug, name, icon: Icon, intro, keyword }) => {
-          const power = industrySuperpowers[slug] || {
+          const si = lang === "si" ? industriesSi[slug] : undefined;
+          const base = industrySuperpowers[slug];
+          const power = (lang === "si" ? industryPowerSi[slug] : undefined) ?? base ?? {
             tag: "Counter Optimized",
             metric: "⚡ Zero-Lag Billing",
             highlight: "Full FIFO stock ledger & shift control",
@@ -128,8 +134,8 @@ export function IndustryCatalog() {
                 </div>
               </div>
 
-              <h2 className={styles.cardTitle}>{name}</h2>
-              <p className={styles.cardBody}>{intro}</p>
+              <h2 className={styles.cardTitle}>{si?.name ?? name}</h2>
+              <p className={styles.cardBody}>{si?.intro ?? intro}</p>
 
               <div className={styles.highlightRow}>
                 <CheckCircle2 size={15} color="var(--red)" />
@@ -138,7 +144,7 @@ export function IndustryCatalog() {
 
               <div className={styles.cardFooter}>
                 <span className={styles.cardLink}>
-                  Explore {name.split(" ")[0]} Guide
+                  {lang === "si" ? `${(si?.name ?? name).split(" ")[0]} Guide එක බලන්න` : `Explore ${name.split(" ")[0]} Guide`}
                 </span>
                 <span className={styles.arrowCircle}>
                   <ArrowRight size={14} />

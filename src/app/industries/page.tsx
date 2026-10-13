@@ -19,8 +19,11 @@ export default function IndustriesPage() {
       <JsonLd data={breadcrumbSchema([{ name: "Industries", path: "/industries" }])} />
       <LandingHero
         eyebrow="Specialized Retail Engineering"
+        eyebrowSi="විශේෂිත Retail Engineering"
         title="A POS system tailored for every kind of retail counter"
+        titleSi="හැම වර්ගයකම retail counter එකකටම ගැලපෙන POS system එකක්"
         intro="MariaPoS includes every feature in a single licence, but each trade operates with distinct workflows. Discover how it accelerates your counter."
+        introSi="MariaPoS එක licence එකකට සියලුම features ඇතුළත්. නමුත් හැම ව්‍යාපාරයකම වැඩ කරන විදිහ වෙනස්. ඔබේ counter එක MariaPoS වේගවත් කරන හැටි බලන්න."
         crumbs={[{ name: "Industries", path: "/industries" }]}
       />
 

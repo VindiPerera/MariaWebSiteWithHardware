@@ -20,6 +20,7 @@ import {
   Zap,
 } from "lucide-react";
 import styles from "./IndustryShowcase.module.css";
+import { useLang } from "@/lib/i18n";
 
 interface IndustryShowcaseProps {
   slug: string;
@@ -119,6 +120,17 @@ const tradeScenarios: Record<
   },
 };
 
+/** Sinhala + English text for the scenario copy, keyed by slug ("default" for the fallback). */
+const scenarioSi: Record<string, { modeTitle: string; description: string; hotkeyDesc: string; receiptSummary: string }> = {
+  pharmacy: { modeTitle: "Pharmacy Batch සහ Expiry Mode", description: "Bill කරන හැම item එකක්ම distributor traceability සමඟ කල් ඉකුත් නොවූ පරණම batch එක automatically භාවිතා කරනවා.", hotkeyDesc: "Strip එකේ සහ box එකේ මිල එකවරම බලන්න", receiptSummary: "Distributor traceability සමඟ Invoice #004921 යැව්වා" },
+  "supermarket-grocery": { modeTitle: "Supermarket Rapid Checkout Mode", description: "Decimal weights, loose produce pricing සහ peak rush hours වල barcode queue එක ඉක්මනින් ඉවර කිරීම.", hotkeyDesc: "Customer ගේ mobile එකට digital receipt එක යවන්න", receiptSummary: "eBill SMS එක customer ගේ mobile එකට යැව්වා" },
+  "hardware-store": { modeTitle: "Hardware සහ Contractor Trade Mode", description: "මීටර, box හෝ kg අනුව විකුණන්න, retail සහ trade contractor මිල අතර එක key එකකින් මාරු වෙන්න.", hotkeyDesc: "මුළු cart එකම contractor discount එකට මාරු කරයි", receiptSummary: "Trade Credit: Metro Contractors ට $250.00ක් add කළා" },
+  "clothing-textile": { modeTitle: "Fashion සහ Retail Seasonal Rush Mode", description: "Promo coupon validation, invoice-based garment exchanges සහ customer loyalty reward points.", hotkeyDesc: "Verify කළ discount එක bill එකට යොදයි", receiptSummary: "SMS receipt සමඟ දින 14ක exchange එකට Invoice එක stamp කළා" },
+  "bakery-cafe": { modeTitle: "Quick-Service Counter Rush Mode", description: "High-speed on-screen keypad, blind shift changeover සහ instant cash drawer triggers.", hotkeyDesc: "Cash drawer එක open වෙනවා, change ගණනය වෙනවා", receiptSummary: "Shift #42 ගණන් කළ cash එක expected till float එකට ගැලපෙනවා" },
+  "auto-parts": { modeTitle: "Auto Spare Parts සහ Workshop Mode", description: "OEM part number එකෙන් search කරන්න හෝ barcode එක scan කරන්න, mechanics ලාට credit එකට trade invoices assign කරන්න.", hotkeyDesc: "වාහන අතරේ interchange numbers බලන්න", receiptSummary: "Express Auto Care සඳහා trade account ledger එක update කළා" },
+  default: { modeTitle: "Multi-Trade Retail Counter Mode", description: "High-speed barcode scanning, FIFO stock deduction සහ offline instant receipts.", hotkeyDesc: "Thermal receipt එක print කර SMS eBill එක යවන්න", receiptSummary: "100% offline database එක ගැටලුවක් නැතුව sync වුණා" },
+};
+
 const defaultScenario = {
   modeTitle: "Multi-Trade Retail Counter Mode",
   description: "High-speed barcode scanning, FIFO stock deduction, and instant receipts offline.",
@@ -132,7 +144,10 @@ const defaultScenario = {
 };
 
 export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
-  const scenario = tradeScenarios[slug] || defaultScenario;
+  const { t, lang } = useLang();
+  const base = tradeScenarios[slug] || defaultScenario;
+  const siCopy = scenarioSi[tradeScenarios[slug] ? slug : "default"];
+  const scenario = lang === "si" ? { ...base, ...siCopy } : base;
   const [items, setItems] = useState<TradeItem[]>(scenario.items);
   const [billCompleted, setBillCompleted] = useState(false);
 
@@ -149,9 +164,9 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
         <div data-reveal="up" className={styles.headingWrap}>
           <div className={styles.badgePill}>
             <Sparkles size={14} color="var(--red)" />
-            <span>Interactive {short} Counter Simulator</span>
+            <span>{lang === "si" ? `Interactive ${short} Counter Simulator` : `Interactive ${short} Counter Simulator`}</span>
           </div>
-          <h2 className="section-title">Experience MariaPoS in action for {short.toLowerCase()}</h2>
+          <h2 className="section-title">{lang === "si" ? `${short} සඳහා MariaPoS වැඩ කරන හැටි අත්විඳින්න` : `Experience MariaPoS in action for ${short.toLowerCase()}`}</h2>
           <p className="lead">{scenario.description}</p>
         </div>
 
@@ -169,7 +184,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
             </div>
             <div className={styles.statusOffline}>
               <ShieldCheck size={13} color="#1faa55" />
-              <span>Offline Database · Zero Lag</span>
+              <span>{t("Offline Database · Zero Lag", "Offline Database · Lag නෑ")}</span>
             </div>
           </div>
 
@@ -178,7 +193,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
             {/* Left Column: Interactive Cart */}
             <div className={styles.cartColumn}>
               <div className={styles.cartHead}>
-                <span className={styles.cartTitle}>Counter Bill #2026-{short.slice(0, 3).toUpperCase()}</span>
+                <span className={styles.cartTitle}>{t("Counter Bill", "Counter Bill")} #2026-{short.slice(0, 3).toUpperCase()}</span>
                 <span className={styles.hotkeyChip}>{scenario.actionHotkey}</span>
               </div>
 
@@ -205,7 +220,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
 
               <div className={styles.cartFooter}>
                 <div className={styles.totalRow}>
-                  <span className={styles.totalLabel}>Grand Total (Net)</span>
+                  <span className={styles.totalLabel}>{t("Grand Total (Net)", "මුළු මුදල (Net)")}</span>
                   <span className={styles.grandTotal}>${total.toFixed(2)}</span>
                 </div>
 
@@ -216,7 +231,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
                     className={styles.checkoutBtn}
                   >
                     <Check size={16} />
-                    <span>{billCompleted ? "Bill Completed & Synced!" : "Simulate Instant Checkout [F12]"}</span>
+                    <span>{billCompleted ? t("Bill Completed & Synced!", "Bill එක සම්පූර්ණයි, Sync වුණා!") : t("Simulate Instant Checkout [F12]", "Instant Checkout Simulate කරන්න [F12]")}</span>
                   </button>
                 </div>
               </div>
@@ -224,9 +239,9 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
 
             {/* Right Column: Key Capabilities for this Trade */}
             <div className={styles.infoColumn}>
-              <span className={styles.infoTitle}>Trade Counter Highlights</span>
+              <span className={styles.infoTitle}>{t("Trade Counter Highlights", "Trade Counter විශේෂාංග")}</span>
               <p className={styles.infoDesc}>
-                Every transaction automatically runs deep bookkeeping in the background:
+                {t("Every transaction automatically runs deep bookkeeping in the background:", "හැම transaction එකකම background එකේ ගැඹුරු bookkeeping automatically සිදුවෙනවා:")}
               </p>
 
               <div className={styles.perkCards}>
@@ -235,8 +250,8 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
                     <Package size={16} color="var(--red)" />
                   </div>
                   <div>
-                    <h4 className={styles.perkName}>True FIFO Deduction</h4>
-                    <p className={styles.perkText}>Oldest batch deducted with accurate gross margin.</p>
+                    <h4 className={styles.perkName}>{t("True FIFO Deduction", "සැබෑ FIFO Deduction")}</h4>
+                    <p className={styles.perkText}>{t("Oldest batch deducted with accurate gross margin.", "නිවැරදි gross margin එක්ක පරණම batch එක අඩු වෙනවා.")}</p>
                   </div>
                 </div>
 
@@ -245,8 +260,8 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
                     <Send size={16} color="#229ed9" />
                   </div>
                   <div>
-                    <h4 className={styles.perkName}>Owner Phone Alerts</h4>
-                    <p className={styles.perkText}>Telegram alert dispatched to owner the instant bill prints.</p>
+                    <h4 className={styles.perkName}>{t("Owner Phone Alerts", "අයිතිකරුගේ Phone Alerts")}</h4>
+                    <p className={styles.perkText}>{t("Telegram alert dispatched to owner the instant bill prints.", "Bill එක print වුණු ගමන්ම අයිතිකරුට Telegram alert එකක් යනවා.")}</p>
                   </div>
                 </div>
 
@@ -255,8 +270,8 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
                     <Clock size={16} color="#1faa55" />
                   </div>
                   <div>
-                    <h4 className={styles.perkName}>Shift Audit Lock</h4>
-                    <p className={styles.perkText}>Cashier blind count compared to actual drawer float.</p>
+                    <h4 className={styles.perkName}>{t("Shift Audit Lock", "Shift Audit Lock")}</h4>
+                    <p className={styles.perkText}>{t("Cashier blind count compared to actual drawer float.", "Cashier ගේ blind count එක drawer එකේ සැබෑ float එක සමඟ සැසඳෙනවා.")}</p>
                   </div>
                 </div>
               </div>

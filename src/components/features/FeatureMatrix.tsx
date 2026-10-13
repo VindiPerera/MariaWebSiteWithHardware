@@ -16,7 +16,7 @@ const comparisonRows = [
     feature: "Stock Deduction Accuracy",
     mariapos: "True FIFO batch tracking with exact cost valuation",
     traditional: "Crude simple averages or no batch tracking",
-    si: ["Stock අඩු කිරීමේ නිවැරදිභාවය", "නිවැරදි cost valuation එක්ක සැබෑ FIFO batch tracking", "ගණනය කරන සරල averages හෝ batch tracking නැහැ"],
+    si: ["Stock අඩු කිරීමේ නිවැරදිභාවය", "නිවැරදි cost valuation එක්ක සැබෑ FIFO batch tracking", "අසම්පූර්ණ සරල averages, නැත්නම් batch tracking නැහැ"],
     highlight: true,
   },
   {

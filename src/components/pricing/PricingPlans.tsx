@@ -23,14 +23,23 @@ import { PosBundleCard } from "@/components/hardware/PosBundleCard";
 import { waLink } from "@/lib/shop";
 import ownerMobileAlerts from "@/assets/images/owner-mobile-alerts.jpg";
 import styles from "./PricingPlans.module.css";
+import { useLang } from "@/lib/i18n";
 
 const includedSoftware = [
-  "Every billing, inventory & report feature",
-  "Cloud sync & Telegram sales alerts",
-  "SMS receipts (prepaid credits)",
-  "Free software updates for full term",
-  "Priority technical & WhatsApp support",
+  { en: "Every billing, inventory & report feature", si: "හැම billing, inventory සහ report feature එකක්ම" },
+  { en: "Cloud sync & Telegram sales alerts", si: "Cloud sync සහ Telegram sales alerts" },
+  { en: "SMS receipts (prepaid credits)", si: "SMS receipts (prepaid credits)" },
+  { en: "Free software updates for full term", si: "මුළු කාලය පුරාම නොමිලේ software updates" },
+  { en: "Priority technical & WhatsApp support", si: "Priority technical සහ WhatsApp support" },
 ];
+
+/** Sinhala + English text for the software plan cards, keyed by plan id. */
+const planSi: Record<string, { name: string; per: string; note: string; badge?: string; cta: string }> = {
+  trial: { name: "දින 7ක Free Trial", per: "Rs. 0 · Card එකක් ඕන නෑ", note: "Instant activation. ඔබේ සියලුම counters සඳහා full feature suite එක.", badge: "අවදානම් රහිත Trial", cta: "දින 7ක Free Trial එක පටන් ගන්න" },
+  "1y": { name: "අවුරුදු 1ක License", per: "Rs. 44,000 / අවුරුද්දකට ($147.00)", note: "එක් ගෙවීමක්. මාස 12ක් full features.", cta: "අවුරුදු 1ක License එක තෝරන්න" },
+  "2y": { name: "අවුරුදු 2ක License", per: "Rs. 35,250 / අවුරුද්දකට ($117.60/yr)", note: "අවුරුදු පතා renew කරනවාට වඩා 20%ක් ඉතිරියි.", badge: "20%ක් ඉතිරි", cta: "අවුරුදු 2ක License එක තෝරන්න" },
+  "3y": { name: "අවුරුදු 3ක License", per: "Rs. 28,667 / අවුරුද්දකට ($95.55/yr)", note: "Best value. මාසයකට Rs. 2,388ක් ($7.96) විතරයි. අපේ වැඩිපුරම විකිණෙන plan එක.", badge: "Best Seller · නිර්දේශිතයි", cta: "අවුරුදු 3ක License එක තෝරන්න" },
+};
 
 type SoftwarePlan = {
   id: string;
@@ -106,8 +115,10 @@ const softwarePlans: SoftwarePlan[] = [
 ];
 
 export function PricingPlans() {
+  const { t, lang } = useLang();
   const [activeTab, setActiveTab] = useState<"both" | "bundles" | "software">("both");
   const [selectedSoftPlan, setSelectedSoftPlan] = useState<string>("3y");
+  const tp = (id: string) => (lang === "si" ? planSi[id] : undefined);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -131,12 +142,21 @@ export function PricingPlans() {
         <div data-reveal="up" className={`section-intro ${styles.intro}`}>
           <div className={styles.pillBadge}>
             <Sparkles size={14} color="var(--red)" />
-            <span>Sri Lanka Pricing &amp; Solutions</span>
+            <span>{t("Sri Lanka Pricing & Solutions", "ශ්‍රී ලංකා Pricing සහ Solutions")}</span>
           </div>
-          <h1 className="section-title">Pick the setup that fits your shop.</h1>
+          <h1 className="section-title">{t("Pick the setup that fits your shop.", "ඔබේ කඩයට ගැලපෙන setup එක තෝරන්න.")}</h1>
           <p className="lead">
-            Choose between turnkey <strong>hardware bundles with software included</strong>, or activate a{" "}
-            <strong>software-only license</strong> for your existing Windows PC. Both options available below.
+            {lang === "si" ? (
+              <>
+                <strong>Software ඇතුළත් hardware bundles</strong> (turnkey), නැත්නම් ඔබේ දැනට තියෙන Windows PC එකට{" "}
+                <strong>software-only license</strong> එකක් activate කිරීම අතරින් තෝරන්න. Options දෙකම පහළ තියෙනවා.
+              </>
+            ) : (
+              <>
+                Choose between turnkey <strong>hardware bundles with software included</strong>, or activate a{" "}
+                <strong>software-only license</strong> for your existing Windows PC. Both options available below.
+              </>
+            )}
           </p>
 
           {/* Segmented Switcher */}
@@ -147,8 +167,8 @@ export function PricingPlans() {
               onClick={() => setActiveTab("both")}
             >
               <Sparkles size={16} />
-              <span>All Plans (Both)</span>
-              <span className={styles.miniPill}>Full Overview</span>
+              <span>{t("All Plans (Both)", "සියලුම Plans (දෙකම)")}</span>
+              <span className={styles.miniPill}>{t("Full Overview", "සම්පූර්ණ දළ විශ්ලේෂණය")}</span>
             </button>
 
             <button
@@ -157,8 +177,8 @@ export function PricingPlans() {
               onClick={() => setActiveTab("bundles")}
             >
               <PackageCheck size={16} />
-              <span>Hardware Bundles with Software</span>
-              <span className={styles.miniPill}>Turnkey Setup</span>
+              <span>{t("Hardware Bundles with Software", "Software සමඟ Hardware Bundles")}</span>
+              <span className={styles.miniPill}>{t("Turnkey Setup", "Turnkey Setup")}</span>
             </button>
 
             <button
@@ -167,8 +187,8 @@ export function PricingPlans() {
               onClick={() => setActiveTab("software")}
             >
               <Laptop size={16} />
-              <span>Software-Only Plans</span>
-              <span className={styles.miniPill}>For Existing PC</span>
+              <span>{t("Software-Only Plans", "Software-Only Plans")}</span>
+              <span className={styles.miniPill}>{t("For Existing PC", "දැනට ඇති PC එකට")}</span>
             </button>
           </div>
         </div>
@@ -178,11 +198,13 @@ export function PricingPlans() {
           <div id="bundles" className={styles.tabSection}>
             <div className={styles.sectionSubHeader}>
               <div className={styles.subHeaderLeft}>
-                <span className={styles.subHeaderEyebrow}>Turnkey Solution Packs</span>
-                <h2 className={styles.subHeaderTitle}>Complete Hardware Bundles (Software Included)</h2>
+                <span className={styles.subHeaderEyebrow}>{t("Turnkey Solution Packs", "Turnkey Solution Packs")}</span>
+                <h2 className={styles.subHeaderTitle}>{t("Complete Hardware Bundles (Software Included)", "සම්පූර්ණ Hardware Bundles (Software ඇතුළත්)")}</h2>
                 <p className={styles.subHeaderDesc}>
-                  Everything you need to start cashier billing on day one. Includes touch terminal, receipt printer,
-                  barcode scanner, heavy-duty cash drawer, thermal paper rolls + official MariaPoS full license.
+                  {t(
+                    "Everything you need to start cashier billing on day one. Includes touch terminal, receipt printer, barcode scanner, heavy-duty cash drawer, thermal paper rolls + official MariaPoS full license.",
+                    "පළමු දවසේම cashier billing පටන් ගන්න ඕන හැමදේම. Touch terminal, receipt printer, barcode scanner, heavy-duty cash drawer, thermal paper rolls + නිල MariaPoS full license ඇතුළත්.",
+                  )}
                 </p>
               </div>
               {activeTab === "both" && (
@@ -190,9 +212,9 @@ export function PricingPlans() {
                   type="button"
                   onClick={() => setActiveTab("bundles")}
                   className={styles.filterOnlyBtn}
-                  title="Filter to show only bundles"
+                  title={t("Filter to show only bundles", "Bundles පමණක් පෙන්වන්න")}
                 >
-                  Focus Bundles Only
+                  {t("Focus Bundles Only", "Bundles පමණයි")}
                 </button>
               )}
             </div>
@@ -211,32 +233,32 @@ export function PricingPlans() {
             <div className={styles.bundleTrustRibbon}>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
-                <span>Zero Card / Hidden Fees</span>
+                <span>{t("Zero Card / Hidden Fees", "Card / හැංගුණු ගාස්තු කිසිවක් නෑ")}</span>
               </div>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
-                <span>Free Remote Setup &amp; Training</span>
+                <span>{t("Free Remote Setup & Training", "නොමිලේ Remote Setup සහ Training")}</span>
               </div>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
-                <span>1-Year Direct JAAN Warranty</span>
+                <span>{t("1-Year Direct JAAN Warranty", "අවුරුදු 1ක Direct JAAN Warranty")}</span>
               </div>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
-                <span>Cash on Delivery (All 25 Districts)</span>
+                <span>{t("Cash on Delivery (All 25 Districts)", "Cash on Delivery (දිස්ත්‍රික්ක 25ම)")}</span>
               </div>
             </div>
 
             {/* Nudge to Software Only when in bundles-only mode */}
             {activeTab === "bundles" && (
               <div className={styles.tabNudge}>
-                <span>Already have a Windows PC, laptop, or tablet?</span>
+                <span>{t("Already have a Windows PC, laptop, or tablet?", "දැනටමත් Windows PC, laptop හෝ tablet එකක් තියෙනවද?")}</span>
                 <button
                   type="button"
                   onClick={() => setActiveTab("software")}
                   className={styles.tabNudgeLink}
                 >
-                  <span>View Software-Only License Plans (from Rs. 44,000)</span>
+                  <span>{t("View Software-Only License Plans (from Rs. 44,000)", "Software-Only License Plans බලන්න (Rs. 44,000 සිට)")}</span>
                   <ArrowRight size={15} />
                 </button>
               </div>
@@ -252,11 +274,13 @@ export function PricingPlans() {
           <div id="software" className={styles.tabSection}>
             <div className={styles.sectionSubHeader}>
               <div className={styles.subHeaderLeft}>
-                <span className={styles.subHeaderEyebrow}>Independent Software Licenses</span>
-                <h2 className={styles.subHeaderTitle}>Software-Only Plans: One Simple License. Every Feature.</h2>
+                <span className={styles.subHeaderEyebrow}>{t("Independent Software Licenses", "ස්වාධීන Software Licenses")}</span>
+                <h2 className={styles.subHeaderTitle}>{t("Software-Only Plans: One Simple License. Every Feature.", "Software-Only Plans: එක සරල License එකක්. හැම Feature එකක්ම.")}</h2>
                 <p className={styles.subHeaderDesc}>
-                  Install on any Windows 10 or 11 PC or laptop. Full offline POS billing, FIFO inventory ledger,
-                  Telegram sales alerts, SMS e-receipts, and cloud sync. Longer terms save up to 35%.
+                  {t(
+                    "Install on any Windows 10 or 11 PC or laptop. Full offline POS billing, FIFO inventory ledger, Telegram sales alerts, SMS e-receipts, and cloud sync. Longer terms save up to 35%.",
+                    "ඕනෑම Windows 10 හෝ 11 PC එකක හෝ laptop එකක install කරන්න. Full offline POS billing, FIFO inventory ledger, Telegram sales alerts, SMS e-receipts සහ cloud sync. දිගු කාලයක් තෝරාගත්තොත් 35%ක් දක්වා ඉතිරියි.",
+                  )}
                 </p>
               </div>
               {activeTab === "both" && (
@@ -264,9 +288,9 @@ export function PricingPlans() {
                   type="button"
                   onClick={() => setActiveTab("software")}
                   className={styles.filterOnlyBtn}
-                  title="Filter to show only software"
+                  title={t("Filter to show only software", "Software පමණක් පෙන්වන්න")}
                 >
-                  Focus Software Only
+                  {t("Focus Software Only", "Software පමණයි")}
                 </button>
               )}
             </div>
@@ -287,7 +311,7 @@ export function PricingPlans() {
                       isDark ? styles.cardDark : isTrial ? styles.cardTrial : styles.cardLight
                     } ${plan.popular ? styles.cardPopular : ""} ${isSelected ? styles.cardSelected : ""}`}
                   >
-                    {plan.recommended && <div className={styles.recommendedRibbon}>Recommended</div>}
+                    {plan.recommended && <div className={styles.recommendedRibbon}>{t("Recommended", "නිර්දේශිතයි")}</div>}
 
                     {plan.badge && (
                       <div className={styles.badgeWrapper}>
@@ -300,15 +324,15 @@ export function PricingPlans() {
                               : styles.badgeRed
                           }
                         >
-                          {plan.badge}
+                          {tp(plan.id)?.badge ?? plan.badge}
                         </span>
                       </div>
                     )}
 
                     <div className={styles.cardTop}>
-                      <h3 className={isDark ? styles.planNameDark : styles.planName}>{plan.name}</h3>
+                      <h3 className={isDark ? styles.planNameDark : styles.planName}>{tp(plan.id)?.name ?? plan.name}</h3>
                       <div className={styles.priceRow}>
-                        <span className={isDark ? styles.priceDark : styles.price}>{plan.priceLkr}</span>
+                        <span className={isDark ? styles.priceDark : styles.price}>{plan.priceLkr === "Free" ? t("Free", "නොමිලේ") : plan.priceLkr}</span>
                         {plan.wasLkr && <span className={isDark ? styles.wasDark : styles.was}>{plan.wasLkr}</span>}
                       </div>
                       <span
@@ -316,19 +340,19 @@ export function PricingPlans() {
                           isDark ? styles.rateDark : isTrial ? styles.rateGreen : styles.rate
                         }
                       >
-                        {plan.pricePerYear}
+                        {tp(plan.id)?.per ?? plan.pricePerYear}
                       </span>
-                      <p className={isDark ? styles.noteDark : styles.note}>{plan.note}</p>
+                      <p className={isDark ? styles.noteDark : styles.note}>{tp(plan.id)?.note ?? plan.note}</p>
                     </div>
 
                     <div className={isDark ? styles.dividerDark : styles.divider} />
 
                     <div className={styles.featureList}>
                       {includedSoftware.map((item) => (
-                        <div key={item} className={styles.featureRow}>
+                        <div key={item.en} className={styles.featureRow}>
                           <Check size={16} color={isDark ? "#ff8a80" : "var(--red)"} />
                           <span className={isDark ? styles.featureTextDark : styles.featureText}>
-                            {item}
+                            {t(item.en, item.si)}
                           </span>
                         </div>
                       ))}
@@ -343,7 +367,7 @@ export function PricingPlans() {
                           className={styles.ctaTrial}
                         >
                           <Zap size={16} />
-                          <span>{plan.ctaText}</span>
+                          <span>{tp(plan.id)?.cta ?? plan.ctaText}</span>
                         </a>
                       ) : (
                         <a
@@ -353,7 +377,7 @@ export function PricingPlans() {
                           className={isDark ? styles.ctaDark : styles.ctaRed}
                         >
                           <WhatsAppIcon size={16} />
-                          <span>Buy on WhatsApp</span>
+                          <span>{t("Buy on WhatsApp", "WhatsApp එකෙන් මිලදී ගන්න")}</span>
                         </a>
                       )}
                     </div>
@@ -365,13 +389,13 @@ export function PricingPlans() {
             {/* Nudge to Bundles when in software-only mode */}
             {activeTab === "software" && (
               <div className={styles.tabNudge}>
-                <span>Need the physical touch POS terminal, receipt printer &amp; barcode scanner too?</span>
+                <span>{t("Need the physical touch POS terminal, receipt printer & barcode scanner too?", "Touch POS terminal එක, receipt printer එක සහ barcode scanner එකත් ඕනද?")}</span>
                 <button
                   type="button"
                   onClick={() => setActiveTab("bundles")}
                   className={styles.tabNudgeLink}
                 >
-                  <span>View Complete Hardware Bundles with Software (from Rs. 72,500)</span>
+                  <span>{t("View Complete Hardware Bundles with Software (from Rs. 72,500)", "Software සමඟ සම්පූර්ණ Hardware Bundles බලන්න (Rs. 72,500 සිට)")}</span>
                   <ArrowRight size={15} />
                 </button>
               </div>
@@ -384,35 +408,37 @@ export function PricingPlans() {
           <div className={styles.ownerImgCol}>
             <Image
               src={ownerMobileAlerts}
-              alt="Store owner receiving Telegram sales notification anywhere"
+              alt={t("Store owner receiving Telegram sales notification anywhere", "ඕනෑම තැනක ඉඳන් Telegram sales notification එකක් ලබන කඩ අයිතිකරුවෙක්")}
               fill
               sizes="(max-width: 768px) 100vw, 420px"
               className={styles.ownerImg}
             />
             <div className={styles.ownerPill}>
               <Send size={12} color="#ffffff" />
-              <span>Instant Telegram Push</span>
+              <span>{t("Instant Telegram Push", "Instant Telegram Push")}</span>
             </div>
           </div>
           <div className={styles.ownerTextCol}>
-            <span className={styles.ownerEyebrow}>Included in Every Plan</span>
-            <h3 className={styles.ownerHeading}>Run your store from your pocket, wherever you are</h3>
+            <span className={styles.ownerEyebrow}>{t("Included in Every Plan", "හැම Plan එකකම ඇතුළත්")}</span>
+            <h3 className={styles.ownerHeading}>{t("Run your store from your pocket, wherever you are", "ඔබ කොහේ හිටියත්, සාක්කුවෙන්ම ඔබේ කඩය පවත්වන්න")}</h3>
             <p className={styles.ownerDesc}>
-              No monthly cloud fees or server maintenance charges. Every trial and multi-year license includes automated
-              cloud backup, multi-device web reports, and instant Telegram sales alerts pushed directly to your phone.
+              {t(
+                "No monthly cloud fees or server maintenance charges. Every trial and multi-year license includes automated cloud backup, multi-device web reports, and instant Telegram sales alerts pushed directly to your phone.",
+                "මාසික cloud ගාස්තු හෝ server maintenance ගාස්තු නෑ. හැම trial එකකටම සහ multi-year license එකකටම automated cloud backup, multi-device web reports සහ ඔබේ phone එකට කෙලින්ම එන instant Telegram sales alerts ඇතුළත්.",
+              )}
             </p>
             <div className={styles.ownerPerks}>
               <div className={styles.ownerPerk}>
                 <CheckCircle2 size={15} color="#16a34a" />
-                <span>Unlimited Telegram sale alerts</span>
+                <span>{t("Unlimited Telegram sale alerts", "Unlimited Telegram sale alerts")}</span>
               </div>
               <div className={styles.ownerPerk}>
                 <CheckCircle2 size={15} color="#16a34a" />
-                <span>Multi-branch comparison in browser</span>
+                <span>{t("Multi-branch comparison in browser", "Browser එකෙන් Multi-branch සැසඳීම")}</span>
               </div>
               <div className={styles.ownerPerk}>
                 <CheckCircle2 size={15} color="#16a34a" />
-                <span>Zero surprise cloud surcharges</span>
+                <span>{t("Zero surprise cloud surcharges", "හදිසි cloud අමතර ගාස්තු කිසිවක් නෑ")}</span>
               </div>
             </div>
           </div>
@@ -422,7 +448,7 @@ export function PricingPlans() {
         <div data-reveal="up" className={styles.securityBanner}>
           <div className={styles.securityLeft}>
             <ShieldCheck size={20} color="#1faa55" />
-            <span>Processed securely · Cash on Delivery across all 25 districts &amp; 1-Year JAAN hardware warranty</span>
+            <span>{t("Processed securely · Cash on Delivery across all 25 districts & 1-Year JAAN hardware warranty", "ආරක්ෂිතව process කරයි · දිස්ත්‍රික්ක 25ටම Cash on Delivery සහ අවුරුදු 1ක JAAN hardware warranty")}</span>
           </div>
           <div className={styles.linksRow}>
             <a
@@ -431,11 +457,11 @@ export function PricingPlans() {
               rel="noopener noreferrer"
               className={styles.footLink}
             >
-              Try 7 days free first →
+              {t("Try 7 days free first →", "මුලින් දින 7ක් free try කරන්න →")}
             </a>
             <span className={styles.dotSep}>•</span>
             <Link href="/contact" className={styles.footLink}>
-              Multi-till / Multi-branch pricing
+              {t("Multi-till / Multi-branch pricing", "Multi-till / Multi-branch pricing")}
             </Link>
           </div>
         </div>

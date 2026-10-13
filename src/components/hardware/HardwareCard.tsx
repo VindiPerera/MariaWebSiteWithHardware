@@ -7,9 +7,11 @@ import Link from "next/link";
 import { Plus, Check, ShieldCheck, Zap, ArrowRight, Info } from "lucide-react";
 import { HardwareItem, formatLkr } from "@/lib/hardwareCatalog";
 import { useCart } from "@/lib/cartContext";
+import { categoryLabelSi } from "@/lib/hardwareCatalogSi";
 import { getProductPhoto } from "@/lib/productImages";
 import { HardwareDeviceVisual } from "./HardwareDeviceVisual";
 import styles from "./HardwareCard.module.css";
+import { useLang } from "@/lib/i18n";
 
 type Props = {
   item: HardwareItem;
@@ -17,6 +19,7 @@ type Props = {
 };
 
 export function HardwareCard({ item, featured }: Props) {
+  const { t } = useLang();
   const { addItem, items } = useCart();
   const [showSpecsModal, setShowSpecsModal] = useState(false);
   const [addedAnim, setAddedAnim] = useState(false);
@@ -37,18 +40,18 @@ export function HardwareCard({ item, featured }: Props) {
         <div className={styles.cardHeader}>
           <div className={styles.codeGroup}>
             <span className={styles.itemCode}>{item.code}</span>
-            <span className={styles.categoryLabel}>{item.categoryLabel}</span>
+            <span className={styles.categoryLabel}>{t(item.categoryLabel, categoryLabelSi[item.category])}</span>
           </div>
 
           {item.inStock ? (
             <span className={styles.inStockBadge}>
               <span className={styles.inStockDot} />
-              In Stock
+              {t("In Stock", "Stock එකේ තියෙනවා")}
             </span>
           ) : (
             <span className={styles.preorderBadge}>
               <span className={styles.preorderDot} />
-              On Request
+              {t("On Request", "ඉල්ලීමට අනුව")}
             </span>
           )}
         </div>
@@ -90,14 +93,14 @@ export function HardwareCard({ item, featured }: Props) {
 
           <div className={styles.warrantyRow}>
             <ShieldCheck size={14} color="var(--red)" />
-            <span>{item.warranty} · MariaPoS Driver Verified</span>
+            <span>{item.warranty} · {t("MariaPoS Driver Verified", "MariaPoS Driver Verified")}</span>
           </div>
         </div>
 
         {/* Price & Action */}
         <div className={styles.cardFooter}>
           <div className={styles.priceContainer}>
-            <span className={styles.priceLabel}>Unit Price (LKR)</span>
+            <span className={styles.priceLabel}>{t("Unit Price (LKR)", "එකක මිල (LKR)")}</span>
             <strong className={styles.priceValue}>{formatLkr(item.price)}</strong>
           </div>
 
@@ -107,7 +110,7 @@ export function HardwareCard({ item, featured }: Props) {
               className={styles.detailsBtn}
               aria-label={`View details for ${item.name}`}
             >
-              Details
+              {t("Details", "විස්තර")}
             </Link>
 
             <button
@@ -119,17 +122,17 @@ export function HardwareCard({ item, featured }: Props) {
               {addedAnim ? (
                 <>
                   <Check size={16} />
-                  <span>Added!</span>
+                  <span>{t("Added!", "Add වුණා!")}</span>
                 </>
               ) : isInCart ? (
                 <>
                   <Check size={16} />
-                  <span>In Quote (+1)</span>
+                  <span>{t("In Quote (+1)", "Quote එකේ ඇත (+1)")}</span>
                 </>
               ) : (
                 <>
                   <Plus size={16} />
-                  <span>Add to Quote</span>
+                  <span>{t("Add to Quote", "Quote එකට Add කරන්න")}</span>
                 </>
               )}
             </button>
@@ -160,7 +163,7 @@ export function HardwareCard({ item, featured }: Props) {
             <div className={styles.modalBody}>
               <p className={styles.modalDesc}>{item.description}</p>
 
-              <h4 className={styles.modalSectionTitle}>Technical Specifications</h4>
+              <h4 className={styles.modalSectionTitle}>{t("Technical Specifications", "Technical Specifications")}</h4>
               <div className={styles.modalSpecsGrid}>
                 {item.specs.map((spec) => (
                   <div key={spec.label} className={styles.modalSpecRow}>
@@ -170,7 +173,7 @@ export function HardwareCard({ item, featured }: Props) {
                 ))}
               </div>
 
-              <h4 className={styles.modalSectionTitle}>Included Features</h4>
+              <h4 className={styles.modalSectionTitle}>{t("Included Features", "ඇතුළත් Features")}</h4>
               <ul className={styles.featuresList}>
                 {item.features.map((feat) => (
                   <li key={feat}>
@@ -182,14 +185,14 @@ export function HardwareCard({ item, featured }: Props) {
 
               {item.recommendedFor && (
                 <div className={styles.recommendedFor}>
-                  <strong>Recommended for:</strong> {item.recommendedFor.join(", ")}
+                  <strong>{t("Recommended for:", "නිර්දේශිත:")}</strong> {item.recommendedFor.join(", ")}
                 </div>
               )}
             </div>
 
             <div className={styles.modalFooter}>
               <div>
-                <span className={styles.priceLabel}>Price</span>
+                <span className={styles.priceLabel}>{t("Price", "මිල")}</span>
                 <strong className={styles.modalPrice}>{formatLkr(item.price)}</strong>
               </div>
               <button
@@ -200,7 +203,7 @@ export function HardwareCard({ item, featured }: Props) {
                   setShowSpecsModal(false);
                 }}
               >
-                <span>Add to Hardware Quote</span>
+                <span>{t("Add to Hardware Quote", "Hardware Quote එකට Add කරන්න")}</span>
                 <ArrowRight size={16} />
               </button>
             </div>
