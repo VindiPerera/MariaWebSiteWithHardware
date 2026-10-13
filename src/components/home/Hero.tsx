@@ -17,7 +17,7 @@ export function Hero() {
         <div className={styles.copy}>
           <div data-reveal="up" data-delay="0" className={styles.badge}>
             <span className={styles.badgeTag}>New</span>
-            SMS receipts and Telegram sales alerts
+            SMS receipts and push sales alerts
           </div>
           <h1 data-reveal="up" data-delay="80" className={styles.title}>
             Bill fast. Know exactly what&apos;s <span className={styles.titleAccent}>left on the shelf.</span>

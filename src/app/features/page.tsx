@@ -8,9 +8,9 @@ import { featureCategories } from "@/lib/featureCatalog";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "POS Software Features — Billing, FIFO Inventory, Shifts, Reports, SMS & Telegram",
+  title: "POS Software Features — Billing, FIFO Inventory, Shifts, Reports, SMS & Push Notifications",
   description:
-    "Full list of MariaPoS POS system features for retail stores worldwide: barcode billing, split payments, FIFO batch stock, GRN & supplier cheques, customer credit & loyalty, shift & till control, 13+ reports, SMS e-bills, Telegram alerts and cloud sync.",
+    "Full list of MariaPoS POS system features for retail stores worldwide: barcode billing, split payments, FIFO batch stock, GRN & supplier cheques, customer credit & loyalty, shift & till control, 13+ reports, SMS e-bills, push alerts and cloud sync.",
   path: "/features",
   keywords: [
     "POS features",

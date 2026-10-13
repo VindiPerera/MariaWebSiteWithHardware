@@ -89,8 +89,8 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
             </strong>
             <span className={styles.nudgeDesc}>
               {t(
-                "Activate full 1-Year, 2-Year or 3-Year MariaPoS software licenses with offline billing, FIFO inventory, Telegram alerts & cloud sync.",
-                "Offline billing, FIFO inventory, Telegram alerts සහ cloud sync සහිත සම්පූර්ණ අවුරුදු 1, 2 හෝ 3 MariaPoS software licenses activate කරන්න.",
+                "Activate full 1-Year, 2-Year or 3-Year MariaPoS software licenses with offline billing, FIFO inventory, push alerts & cloud sync.",
+                "Offline billing, FIFO inventory, push alerts සහ cloud sync සහිත සම්පූර්ණ අවුරුදු 1, 2 හෝ 3 MariaPoS software licenses activate කරන්න.",
               )}
             </span>
           </div>

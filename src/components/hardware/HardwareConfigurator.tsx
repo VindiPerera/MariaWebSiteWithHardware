@@ -479,7 +479,7 @@ export function HardwareConfigurator() {
                 <span className={styles.stepNumber}>5</span>
                 <div>
                   <h3 className={styles.stepTitle}>{t("Choose MariaPoS Software License", "MariaPoS Software License එක තෝරන්න")}</h3>
-                  <p className={styles.stepSubtitle}>{t("Offline-first POS, FIFO inventory, Telegram alerts & SMS e-bills", "Offline-first POS, FIFO inventory, Telegram alerts සහ SMS e-bills")}</p>
+                  <p className={styles.stepSubtitle}>{t("Offline-first POS, FIFO inventory, push alerts & SMS e-bills", "Offline-first POS, FIFO inventory, push alerts සහ SMS e-bills")}</p>
                 </div>
               </div>
               <div className={styles.optionsGrid}>

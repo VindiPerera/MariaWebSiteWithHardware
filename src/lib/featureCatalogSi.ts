@@ -112,13 +112,13 @@ export const featureCatalogSi: Record<string, FeatureCategorySi> = {
     ],
   },
   "cloud-alerts": {
-    title: "Cloud Panel, SMS සහ Telegram",
+    title: "Cloud Panel, SMS සහ Push Notifications",
     summary: "Counter එක offline දිගටම bill කරද්දී, phone එකෙන් වෙළඳසැල පාලනය කරන්න.",
     features: [
       ["Two-way cloud sync", "Internet තියෙන හැම වෙලාවකම sales, stock, customers සහ suppliers background එකේ MariaPoS cloud panel එකට sync වෙනවා.", "ඔබේ data off-site backup වෙනවා, ඕනෑම තැනක සිට බලන්න පුළුවන්."],
       ["Web back-office (cloud panel)", "ඕනෑම browser එකකින් login වී reports බලන්න, products, suppliers, GRNs, stock adjustments, customers, receivables, payables සහ expenses manage කරන්න.", "Counter එකට නොගොස් ගෙදර සිට හෝ වෙනත් branch එකකින් ව්‍යාපාරය manage කරන්න."],
       ["SMS e-bill receipts", "Invoice number, items, totals සහ balance සමඟ bill එක customer ගේ phone එකට SMS කරන්න. Prepaid SMS wallet එකක් use කරනවා, balance එක cashier ට පෙනෙනවා.", "Customers ලාට කවදාවත් මැකෙන්නේ නැති receipt එකක් තියෙනවා, ඔබට thermal paper ඉතිරි වෙනවා."],
-      ["Telegram sales alerts", "Cloud panel එකේ ඔබේ Telegram account එක link කරන්න. හැම අලුත් sale එකක්ම, items සමඟ, සිදුවෙන ගමන්ම ලැබෙනවා.", "වෙළඳසැලෙන් බැහැරව සිටියත්, හැම branch එකකම live activity අයිතිකරුට පේනවා."],
+      ["Push sales alerts", "Cloud panel එකේ ඔබේ phone එක link කරන්න. හැම අලුත් sale එකක්ම, items සමඟ, සිදුවෙන ගමන්ම ලැබෙනවා.", "වෙළඳසැලෙන් බැහැරව සිටියත්, හැම branch එකකම live activity අයිතිකරුට පේනවා."],
     ],
   },
   "security-users": {

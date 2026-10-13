@@ -4,7 +4,7 @@ export const alt = "MariaPoS — High-Speed POS & FIFO Inventory Software";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const tags = ["Works offline", "FIFO stock", "SMS e-bills", "Telegram alerts", "Cloud sync"];
+const tags = ["Works offline", "FIFO stock", "SMS e-bills", "Push alerts", "Cloud sync"];
 
 export default function OpengraphImage() {
   return new ImageResponse(

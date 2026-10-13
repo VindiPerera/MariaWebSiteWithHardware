@@ -45,7 +45,7 @@ const softwareColumns = [
   { label: "FIFO Inventory & Stock", si: "FIFO Inventory සහ Stock", href: "/features#inventory-stock" },
   { label: "Shift, Till & Cash Control", si: "Shift, Till සහ Cash Control", href: "/features#shifts-till" },
   { label: "Reports & Financials", si: "Reports සහ Financials", href: "/features#reports-analytics" },
-  { label: "Cloud Panel & Telegram Alerts", si: "Cloud Panel සහ Telegram Alerts", href: "/features#cloud-alerts" },
+  { label: "Cloud Panel & Push Alerts", si: "Cloud Panel සහ Push Alerts", href: "/features#cloud-alerts" },
   { label: "7-Day Free Software Trial", si: "දින 7ක Free Software Trial", href: "/sign-up" },
 ];
 

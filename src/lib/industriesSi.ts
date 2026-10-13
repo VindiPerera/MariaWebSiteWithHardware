@@ -142,7 +142,7 @@ export const industriesSi: Record<string, IndustrySi> = {
       ["Split payments", "එක bill එකක් කොටසක් cash, කොටසක් card හෝ transfer වලින් ගෙවන්න, references record වෙනවා."],
       ["Sales history සහ reprint", "Invoice හෝ customer අනුව ඕනෑම පරණ bill එකක් සොයාගෙන warranty claims සඳහා reprint කරන්න."],
       ["Discount permissions සහ PIN override", "අනුමත staff ට පමණක් මිල අඩු කරන්න පුළුවන්, counter එකේදී manager PIN approval සමඟ."],
-      ["Telegram alerts", "හැම sale එකක්ම සිදුවෙන මොහොතේම ඔබේ phone එකට ලබාගන්න."],
+      ["Push alerts", "හැම sale එකක්ම සිදුවෙන මොහොතේම ඔබේ phone එකට ලබාගන්න."],
     ],
     faqs: [
       ["Warranty claims සඳහා පරණ bills සොයාගන්න පුළුවන්ද?", "පුළුවන්. Sales history එකෙන් invoice, දිනය හෝ customer අනුව search කර bill එක reprint කරන්න පුළුවන්."],

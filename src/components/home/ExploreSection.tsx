@@ -10,7 +10,7 @@ import styles from "./ExploreSection.module.css";
 const cards: { title: string; sub: string; href: string; img: StaticImageData; alt: string; pos: string }[] = [
   {
     title: "Features",
-    sub: "SMS, Telegram, cloud sync & more",
+    sub: "SMS, push notifications, cloud sync & more",
     href: "/features",
     img: hwA,
     alt: "MariaPoS on a monitor with phone and receipt printer",

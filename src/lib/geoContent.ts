@@ -41,7 +41,7 @@ export function placeReasons(country: Country, place: string): Reason[] {
     },
     {
       title: "Live alerts & cloud panel",
-      body: "See every sale on Telegram and manage reports, products and credit from any browser, wherever you are.",
+      body: "See every sale as push notifications and manage reports, products and credit from any browser, wherever you are.",
       icon: Send,
     },
   ];
@@ -71,7 +71,7 @@ export function countryFaqs(country: Country) {
     },
     {
       q: "Are SMS e-bill receipts available?",
-      a: `SMS e-bills are available in Sri Lanka. Contact us to check SMS availability for ${country.name}. Printed receipts, Telegram alerts and every other feature work everywhere.`,
+      a: `SMS e-bills are available in Sri Lanka. Contact us to check SMS availability for ${country.name}. Printed receipts, push alerts and every other feature work everywhere.`,
     },
   ];
 }

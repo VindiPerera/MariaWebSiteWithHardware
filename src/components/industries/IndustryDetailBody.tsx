@@ -102,8 +102,8 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
             </h3>
             <p className={styles.cardBody}>
               {t(
-                "Shifts & till control, supplier GRN, 13+ reports, SMS e-bills, Telegram alerts and cloud sync.",
-                "Shifts සහ till control, supplier GRN, reports 13+, SMS e-bills, Telegram alerts සහ cloud sync.",
+                "Shifts & till control, supplier GRN, 13+ reports, SMS e-bills, push alerts and cloud sync.",
+                "Shifts සහ till control, supplier GRN, reports 13+, SMS e-bills, push alerts සහ cloud sync.",
               )}
             </p>
             <span className={styles.cardLink}>

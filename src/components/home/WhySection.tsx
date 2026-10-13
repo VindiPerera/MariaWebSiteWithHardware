@@ -24,7 +24,7 @@ const reasons: { title: string; body: string; icon: LucideIcon }[] = [
   },
   {
     title: "Every sale on your phone",
-    body: "Telegram alerts send the owner each new order with its items, from every branch.",
+    body: "Push alerts send the owner each new order with its items, from every branch.",
     icon: Send,
   },
   {

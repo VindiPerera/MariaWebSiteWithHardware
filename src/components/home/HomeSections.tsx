@@ -194,8 +194,8 @@ export function BuyingPaths() {
             <div className={styles.pathTitle}>{t("Counter Demo & Setup", "Counter Demo සහ Setup")}</div>
             <p className={styles.body}>
               {t(
-                "Visit our Colombo Experience Center or request a tailored counter walkthrough.",
-                "අපේ කොළඹ Experience Center එකට එන්න, නැත්නම් ඔබේ counter එකට ගැලපෙන walkthrough එකක් ඉල්ලන්න.",
+                "Visit our Colombo office or request a tailored counter walkthrough.",
+                "අපේ කොළඹ කාර්යාලයට එන්න, නැත්නම් ඔබේ counter එකට ගැලපෙන walkthrough එකක් ඉල්ලන්න.",
               )}
             </p>
             <span className={styles.pathLink}>

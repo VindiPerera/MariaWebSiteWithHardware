@@ -208,23 +208,23 @@ export function Showcase() {
         </div>
 
         <div className={styles.operationsGrid}>
-          {/* Card 1: Owner Telegram Alerts */}
+          {/* Card 1: Owner Push Alerts */}
           <div data-reveal="up" className={styles.opCard}>
             <div className={styles.opImageWrap}>
               <Image
                 src={ownerMobileAlerts}
-                alt="Owner receiving Telegram sales notification anywhere"
+                alt="Owner receiving push sales notification anywhere"
                 fill
                 sizes="(max-width: 768px) 100vw, 400px"
                 className={styles.opImg}
               />
               <div className={styles.opPill}>
                 <Send size={12} color="#38bdf8" />
-                <span>Telegram Bot Push</span>
+                <span>Push Notification</span>
               </div>
             </div>
             <div className={styles.opContent}>
-              <h3 className={styles.opTitle}>Instant Telegram Alerts &amp; Cloud Reports</h3>
+              <h3 className={styles.opTitle}>Instant Push Notifications &amp; Cloud Reports</h3>
               <p className={styles.opDesc}>
                 Receive order totals, items, and cashier shifts on your phone the instant each bill prints, even while away from your shop.
               </p>

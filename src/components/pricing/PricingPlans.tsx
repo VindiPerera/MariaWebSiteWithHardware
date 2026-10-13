@@ -27,7 +27,7 @@ import { useLang } from "@/lib/i18n";
 
 const includedSoftware = [
   { en: "Every billing, inventory & report feature", si: "හැම billing, inventory සහ report feature එකක්ම" },
-  { en: "Cloud sync & Telegram sales alerts", si: "Cloud sync සහ Telegram sales alerts" },
+  { en: "Cloud sync & push sales alerts", si: "Cloud sync සහ push sales alerts" },
   { en: "SMS receipts (prepaid credits)", si: "SMS receipts (prepaid credits)" },
   { en: "Free software updates for full term", si: "මුළු කාලය පුරාම නොමිලේ software updates" },
   { en: "Priority technical & WhatsApp support", si: "Priority technical සහ WhatsApp support" },
@@ -283,8 +283,8 @@ export function PricingPlans() {
                 <h2 className={styles.subHeaderTitle}>{t("Software-Only Plans: One Simple License. Every Feature.", "Software-Only Plans: එක සරල License එකක්. හැම Feature එකක්ම.")}</h2>
                 <p className={styles.subHeaderDesc}>
                   {t(
-                    "Install on any Windows 10 or 11 PC or laptop. Full offline POS billing, FIFO inventory ledger, Telegram sales alerts, SMS e-receipts, and cloud sync. Longer terms save up to 35%.",
-                    "ඕනෑම Windows 10 හෝ 11 PC එකක හෝ laptop එකක install කරන්න. Full offline POS billing, FIFO inventory ledger, Telegram sales alerts, SMS e-receipts සහ cloud sync. දිගු කාලයක් තෝරාගත්තොත් 35%ක් දක්වා ඉතිරියි.",
+                    "Install on any Windows 10 or 11 PC or laptop. Full offline POS billing, FIFO inventory ledger, push sales alerts, SMS e-receipts, and cloud sync. Longer terms save up to 35%.",
+                    "ඕනෑම Windows 10 හෝ 11 PC එකක හෝ laptop එකක install කරන්න. Full offline POS billing, FIFO inventory ledger, push sales alerts, SMS e-receipts සහ cloud sync. දිගු කාලයක් තෝරාගත්තොත් 35%ක් දක්වා ඉතිරියි.",
                   )}
                 </p>
               </div>
@@ -413,14 +413,14 @@ export function PricingPlans() {
           <div className={styles.ownerImgCol}>
             <Image
               src={ownerMobileAlerts}
-              alt={t("Store owner receiving Telegram sales notification anywhere", "ඕනෑම තැනක සිට Telegram sales notification එකක් ලබන වෙළඳසැල් අයිතිකරුවෙක්")}
+              alt={t("Store owner receiving push sales notification anywhere", "ඕනෑම තැනක සිට push sales notification එකක් ලබන වෙළඳසැල් අයිතිකරුවෙක්")}
               fill
               sizes="(max-width: 768px) 100vw, 420px"
               className={styles.ownerImg}
             />
             <div className={styles.ownerPill}>
               <Send size={12} color="#ffffff" />
-              <span>{t("Instant Telegram Push", "Instant Telegram Push")}</span>
+              <span>{t("Instant Push Notification", "Instant Push Notification")}</span>
             </div>
           </div>
           <div className={styles.ownerTextCol}>
@@ -428,14 +428,14 @@ export function PricingPlans() {
             <h3 className={styles.ownerHeading}>{t("Run your store from your pocket, wherever you are", "ඔබ කොහේ හිටියත්, සාක්කුවෙන්ම ඔබේ වෙළඳසැල පවත්වන්න")}</h3>
             <p className={styles.ownerDesc}>
               {t(
-                "No monthly cloud fees or server maintenance charges. Every trial and multi-year license includes automated cloud backup, multi-device web reports, and instant Telegram sales alerts pushed directly to your phone.",
-                "මාසික cloud ගාස්තු හෝ server maintenance ගාස්තු නැහැ. හැම trial එකකටම සහ multi-year license එකකටම automated cloud backup, multi-device web reports සහ ඔබේ phone එකට කෙලින්ම එන instant Telegram sales alerts ඇතුළත්.",
+                "No monthly cloud fees or server maintenance charges. Every trial and multi-year license includes automated cloud backup, multi-device web reports, and instant push sales alerts pushed directly to your phone.",
+                "මාසික cloud ගාස්තු හෝ server maintenance ගාස්තු නැහැ. හැම trial එකකටම සහ multi-year license එකකටම automated cloud backup, multi-device web reports සහ ඔබේ phone එකට කෙලින්ම එන instant push sales alerts ඇතුළත්.",
               )}
             </p>
             <div className={styles.ownerPerks}>
               <div className={styles.ownerPerk}>
                 <CheckCircle2 size={15} color="#16a34a" />
-                <span>{t("Unlimited Telegram sale alerts", "Unlimited Telegram sale alerts")}</span>
+                <span>{t("Unlimited push sale alerts", "Unlimited push sale alerts")}</span>
               </div>
               <div className={styles.ownerPerk}>
                 <CheckCircle2 size={15} color="#16a34a" />

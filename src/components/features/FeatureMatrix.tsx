@@ -28,9 +28,9 @@ const comparisonRows = [
   },
   {
     feature: "Owner Remote Alerts",
-    mariapos: "Instant real-time Telegram sales push notification",
+    mariapos: "Instant real-time sales push notification",
     traditional: "Manual end-of-day spreadsheet or none",
-    si: ["අයිතිකරුට Remote Alerts", "Instant real-time Telegram sales push notification", "දවස අවසානයේ අතින් හදන spreadsheet එකක්, නැත්නම් කිසිවක් නැහැ"],
+    si: ["අයිතිකරුට Remote Alerts", "Instant real-time sales push notification", "දවස අවසානයේ අතින් හදන spreadsheet එකක්, නැත්නම් කිසිවක් නැහැ"],
     highlight: true,
   },
   {

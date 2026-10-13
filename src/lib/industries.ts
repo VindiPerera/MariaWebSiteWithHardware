@@ -182,7 +182,7 @@ export const industries: Industry[] = [
       { title: "Split payments", body: "Take part cash, part card or transfer on one bill with references recorded." },
       { title: "Sales history & reprint", body: "Find any past bill by invoice or customer and reprint it for warranty claims." },
       { title: "Discount permissions & PIN override", body: "Only approved staff can reduce prices, with manager PIN approval at the counter." },
-      { title: "Telegram alerts", body: "Get every sale on your phone the moment it happens." },
+      { title: "Push alerts", body: "Get every sale on your phone the moment it happens." },
     ],
     faqs: [
       { q: "Can I find old bills for warranty claims?", a: "Yes. Sales history lets you search by invoice, date or customer and reprint the bill." },

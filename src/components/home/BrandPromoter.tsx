@@ -98,7 +98,7 @@ export function BrandPromoter() {
               </div>
               <div className={styles.highlightPill}>
                 <CheckCircle2 size={16} className={styles.checkIcon} />
-                <span>Real-time Telegram sale alerts to owner</span>
+                <span>Real-time push sale alerts to owner</span>
               </div>
               <div className={styles.highlightPill}>
                 <CheckCircle2 size={16} className={styles.checkIcon} />

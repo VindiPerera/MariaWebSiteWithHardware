@@ -267,7 +267,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
                   </div>
                   <div>
                     <h4 className={styles.perkName}>{t("Owner Phone Alerts", "අයිතිකරුගේ Phone Alerts")}</h4>
-                    <p className={styles.perkText}>{t("Telegram alert dispatched to owner the instant bill prints.", "Bill එක print වුණු ගමන්ම අයිතිකරුට Telegram alert එකක් යනවා.")}</p>
+                    <p className={styles.perkText}>{t("Push alert dispatched to owner the instant bill prints.", "Bill එක print වුණු ගමන්ම අයිතිකරුට push alert එකක් යනවා.")}</p>
                   </div>
                 </div>
 
