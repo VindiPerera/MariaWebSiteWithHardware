@@ -41,7 +41,7 @@ export function HomeHero() {
       <div className={styles.heroGrid}>
         <div className={styles.heroCopy}>
           <div className={styles.eyebrow}>{t("POS software + hardware · Sri Lanka", "POS software + hardware · ශ්‍රී ලංකාව")}</div>
-          <h1 className={styles.heroTitle}>{t("A complete POS setup for your shop.", "ඔබේ කඩයටම සම්පූර්ණ POS setup එකක්.")}</h1>
+          <h1 className={styles.heroTitle}>{t("A complete POS setup for your shop.", "ඔබේ වෙළඳසැලටම සම්පූර්ණ POS setup එකක්.")}</h1>
           <p className={styles.heroLead}>
             {t(
               "MariaPoS billing software with the touch screen, printer, scanner and cash drawer to run it. Order on WhatsApp and pay cash when it arrives.",
@@ -258,7 +258,7 @@ export function SoftwareBento() {
           <p className={styles.lead}>
             {t(
               "Windows software built for Sri Lankan retail. Here are six things shop owners use every day.",
-              "ශ්‍රී ලාංකික retail වලට හදපු Windows software එකක්. කඩ අයිතිකරුවන් හැමදාම පාවිච්චි කරන දේවල් හයක් මෙන්න.",
+              "ශ්‍රී ලාංකික retail වලට හදපු Windows software එකක්. වෙළඳසැල් අයිතිකරුවන් හැමදාම පාවිච්චි කරන දේවල් හයක් මෙන්න.",
             )}
           </p>
         </div>
@@ -320,7 +320,7 @@ export function IndustriesRow() {
   return (
     <section className={styles.sectionBottom}>
       <div className={styles.industries}>
-        <div className={styles.eyebrowMuted}>{t("Used by shops like yours", "ඔබ වගේ කඩ පාවිච්චි කරනවා")}</div>
+        <div className={styles.eyebrowMuted}>{t("Used by shops like yours", "ඔබ වගේ වෙළඳසැල් පාවිච්චි කරනවා")}</div>
         <div className={styles.industryRow}>
           {industryChips.map(({ name, icon: Icon, href }) => (
             <Link key={href} href={href} className={styles.industryChip}>
@@ -387,7 +387,7 @@ export function CtaBand() {
       <div className={styles.container}>
         <div className={styles.ctaBand}>
           <div className={styles.ctaText}>
-            <h2 className={styles.h2}>{t("Tell us about your shop.", "ඔබේ කඩය ගැන කියන්න.")}</h2>
+            <h2 className={styles.h2}>{t("Tell us about your shop.", "ඔබේ වෙළඳසැල ගැන කියන්න.")}</h2>
             <p className={styles.lead}>{t("We'll suggest the right setup and send you a price on WhatsApp.", "ගැලපෙන setup එක අපි suggest කරලා, WhatsApp එකෙන් මිල එවනවා.")}</p>
           </div>
           <div className={styles.ctaActions}>

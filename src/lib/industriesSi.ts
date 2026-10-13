@@ -14,11 +14,11 @@ export type IndustrySi = {
 
 export const industriesSi: Record<string, IndustrySi> = {
   "supermarket-grocery": {
-    name: "Supermarkets සහ Grocery කඩ",
+    name: "Supermarkets සහ Grocery වෙළඳසැල්",
     short: "Supermarket සහ grocery",
     headline: "කාර්යබහුල retail queues වලට හදපු supermarket සහ grocery POS system එක",
     intro:
-      "කොනේ තියෙන grocery කඩයේ සිට multi-till supermarket දක්වා, MariaPoS barcode එකෙන් හෝ බර අනුව වේගයෙන් bill කරනවා, items දහස් ගණනක් අතර FIFO stock නිවැරදිව තියාගන්නවා, network lag නැතුව 100% offline දුවනවා.",
+      "කොනේ තියෙන grocery වෙළඳසැලේ සිට multi-till supermarket දක්වා, MariaPoS barcode එකෙන් හෝ බර අනුව වේගයෙන් bill කරනවා, items දහස් ගණනක් අතර FIFO stock නිවැරදිව තියාගන්නවා, network lag නැතුව 100% offline දුවනවා.",
     challenges: [
       "Peak hours සහ සති අන්තයේ දිගු queues",
       "Barcode නැති හෝ loose විකුණන products දහස් ගණන",
@@ -39,7 +39,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     ],
   },
   pharmacy: {
-    name: "Pharmacies සහ Healthcare කඩ",
+    name: "Pharmacies සහ Healthcare වෙළඳසැල්",
     short: "Pharmacy",
     headline: "නවීන pharmacies සඳහා Pharmacy POS සහ inventory software",
     intro:
@@ -64,11 +64,11 @@ export const industriesSi: Record<string, IndustrySi> = {
     ],
   },
   "hardware-store": {
-    name: "Hardware සහ Building Material කඩ",
-    short: "Hardware කඩ",
+    name: "Hardware සහ Building Material වෙළඳසැල්",
+    short: "Hardware වෙළඳසැල්",
     headline: "මීටර, boxes සහ trade customers handle කරන Hardware shop POS system එක",
     intro:
-      "Hardware කඩ walk-in customers ලාටත්, credit එකට contractors ලාටත් piece, metre, box සහ bag අනුව විකුණනවා. MariaPoS හැම unit එකක්ම, retail සහ wholesale මිල සහ customer credit වෙනම පොතක් නැතුවම handle කරනවා.",
+      "Hardware වෙළඳසැල් walk-in customers ලාටත්, credit එකට contractors ලාටත් piece, metre, box සහ bag අනුව විකුණනවා. MariaPoS හැම unit එකක්ම, retail සහ wholesale මිල සහ customer credit වෙනම පොතක් නැතුවම handle කරනවා.",
     challenges: [
       "දිග, බර සහ pack අනුව විකුණන items",
       "Contractors ලාට සහ walk-ins ලාට වෙනස් මිල",
@@ -89,7 +89,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     ],
   },
   "clothing-textile": {
-    name: "Clothing, Textile සහ Fashion කඩ",
+    name: "Clothing, Textile සහ Fashion වෙළඳසැල්",
     short: "Clothing සහ textile",
     headline: "Clothing, textile සහ fashion shops සඳහා POS system එක",
     intro:
@@ -114,7 +114,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     ],
   },
   "bookshop-stationery": {
-    name: "Bookshops සහ Stationery කඩ",
+    name: "Bookshops සහ Stationery වෙළඳසැල්",
     short: "Bookshop සහ stationery",
     headline: "පාසල් ආරම්භයේ rush එකට Bookshop සහ stationery POS",
     intro:
@@ -132,7 +132,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     ],
   },
   "electronics-mobile": {
-    name: "Mobile Phone සහ Electronics කඩ",
+    name: "Mobile Phone සහ Electronics වෙළඳසැල්",
     short: "Mobile සහ electronics",
     headline: "Mobile phone, accessories සහ electronics shops සඳහා POS",
     intro:
@@ -150,7 +150,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     ],
   },
   "cosmetics-beauty": {
-    name: "Cosmetics සහ Beauty කඩ",
+    name: "Cosmetics සහ Beauty වෙළඳසැල්",
     short: "Cosmetics සහ beauty",
     headline: "Loyalty ඇතුළත් Cosmetics සහ beauty store POS",
     intro: "Beauty retail ක්‍රියාත්මක වෙන්නේ නැවත එන customers මතයි. MariaPoS හැම sale එකකටම loyalty points, customer history සහ SMS receipts එකතු කරනවා.",
@@ -184,17 +184,17 @@ export const industriesSi: Record<string, IndustrySi> = {
     short: "Wholesale සහ distribution",
     headline: "Distributors සඳහා Wholesale billing සහ stock software",
     intro: "විශාල orders, trade credit සහ cheques wholesalers ලාගේ දෛනික වැඩ. MariaPoS wholesale pricing, receivables සහ payables එක ledger එකකින් handle කරනවා.",
-    challenges: ["කඩ වලට credit එකට විකිණීම", "ඇතුළට සහ පිටතට යන post-dated cheques", "Bulk stock වල නිවැරදි cost", "Supplier සහ customer statements"],
+    challenges: ["වෙළඳසැල් වලට credit එකට විකිණීම", "ඇතුළට සහ පිටතට යන post-dated cheques", "Bulk stock වල නිවැරදි cost", "Supplier සහ customer statements"],
     highlights: [
       ["Wholesale pricing", "Product එකකට වෙන්වූ wholesale මිලක් සහ එක key එකකින් මාරු වීම."],
       ["Receivables සහ payables", "Customers ලා ඔබට ගෙවිය යුතු දේ සහ ඔබ suppliers ලාට ගෙවිය යුතු දේ track කරන්න."],
       ["Cheque tracking", "Cheque විස්තර record කර maturity reminders ලබාගන්න."],
       ["Statements සහ P&L", "Supplier statements, customer reports සහ FIFO මත පදනම් වූ profit."],
     ],
-    faqs: [["වෙනත් කඩ වලට credit එකට විකුණන්න පුළුවන්ද?", "පුළුවන්. Credit bills, කොටස් ගෙවීම් සහ outstanding balances customer කෙනෙකුට අනුව track වෙනවා."]],
+    faqs: [["වෙනත් වෙළඳසැල් වලට credit එකට විකුණන්න පුළුවන්ද?", "පුළුවන්. Credit bills, කොටස් ගෙවීම් සහ outstanding balances customer කෙනෙකුට අනුව track වෙනවා."]],
   },
   "auto-parts": {
-    name: "Auto Parts සහ Spare Parts කඩ",
+    name: "Auto Parts සහ Spare Parts වෙළඳසැල්",
     short: "Auto සහ spare parts",
     headline: "Auto parts සහ spare parts shops සඳහා POS",
     intro: "Part numbers දහස් ගණනක්, credit එකට ගන්න garages සහ supplier cheques. MariaPoS parts counter එකට search කළ හැකි stock, credit සහ supplier control ගෙනෙනවා.",

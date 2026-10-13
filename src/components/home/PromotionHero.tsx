@@ -68,7 +68,7 @@ export function PromotionHero() {
               <p className={styles.subheadline}>
                 {t(
                   "MariaPoS pairs robust 100% offline Windows software with heavy-duty touch screens, auto-cutter thermal printers, barcode scanners, and cash drawers. Built for intense retail rush hours — dispatched Cash on Delivery across all 25 districts.",
-                  "MariaPoS එකේ 100% offline වැඩ කරන Windows software එක, heavy-duty touch screen, auto-cutter thermal printer, barcode scanner සහ cash drawer එක්ක එනවා. Rush hour එකේ පවා කඩේ දිගටම දුවන්න හදපු එකක් — දිස්ත්‍රික්ක 25ටම Cash on Delivery විදිහට එවනවා.",
+                  "MariaPoS එකේ 100% offline වැඩ කරන Windows software එක, heavy-duty touch screen, auto-cutter thermal printer, barcode scanner සහ cash drawer එක්ක එනවා. Rush hour එකේ පවා වෙළඳසැලේ දිගටම දුවන්න හදපු එකක් — දිස්ත්‍රික්ක 25ටම Cash on Delivery විදිහට එවනවා.",
                 )}
               </p>
 

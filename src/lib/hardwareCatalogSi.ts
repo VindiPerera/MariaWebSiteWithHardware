@@ -18,7 +18,7 @@ export const categoryIntrosSi: Record<HardwareCategory, { title: string; paragra
     paragraphs: [
       "JAAN Network (PVT) Ltd එකෙන්, හැම MariaPoS counter එකක් පිටිපස්සේම ඇති hardware සියල්ල අපි සපයනවා: touch terminals, thermal printers, barcode scanners, cash drawers සහ bill counters. හැමදෙයක්ම දිනපතා වාණිජ භාවිතයට සුදුසු බව පරීක්ෂා කර ලබාගත් ඒවායි.",
       "මෙහි ඇති හැම device එකක්ම කොළඹ warehouse එකෙන් යැවීමට කලින් MariaPoS සමඟ driver-tested කරලා තියෙන නිසා, ඔබේ counter එකේ installation එක ඇත්තටම plug-and-play.",
-      "පහළ category අනුව බලන්න. නැත්නම් ඔබේ කඩේ ප්‍රමාණයට සහ transaction volume එකට ගැලපෙන නිර්දේශයක් සඳහා WhatsApp එකෙන් අපේ hardware desk එකට කතා කරන්න.",
+      "පහළ category අනුව බලන්න. නැත්නම් ඔබේ වෙළඳසැලේ ප්‍රමාණයට සහ transaction volume එකට ගැලපෙන නිර්දේශයක් සඳහා WhatsApp එකෙන් අපේ hardware desk එකට කතා කරන්න.",
     ],
   },
   "touch-pos": {

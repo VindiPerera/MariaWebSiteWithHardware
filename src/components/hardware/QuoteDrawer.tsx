@@ -132,7 +132,7 @@ export function QuoteDrawer() {
                 <div className={styles.formGrid}>
                   <input
                     type="text"
-                    placeholder={t("Your Name / Shop Name", "ඔබේ නම / කඩේ නම")}
+                    placeholder={t("Your Name / Shop Name", "ඔබේ නම / වෙළඳසැලේ නම")}
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     className={styles.input}

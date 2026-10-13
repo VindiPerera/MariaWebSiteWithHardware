@@ -51,7 +51,7 @@ export const featureCatalogSi: Record<string, FeatureCategorySi> = {
     summary: "රාක්කයේ තියෙන දේට ගැලපෙන stock එකක් සහ විශ්වාස කරන්න පුළුවන් cost figure එකක්.",
     features: [
       ["FIFO batch tracking", "හැම goods receipt එකකින්ම තමන්ගේම cost එකක් සහිත batch එකක් හැදෙනවා. Sales වලදී පරණම batch එක මුලින්ම use වෙනවා.", "Supplier මිල වෙනස් වුණත්, හැම sale එකකම නිවැරදි profit එක ලැබෙනවා, පරණ stock මුලින් විකිණෙනවා."],
-      ["Products, categories සහ units", "Barcode, category, unit, cost, retail සහ wholesale price සහ product image එක්ක products ප්‍රමාණයට සීමාවක් නෑ.", "මුළු කඩයම පාවිච්චි කරන පිරිසිදු, search කළ හැකි catalogue එකක්."],
+      ["Products, categories සහ units", "Barcode, category, unit, cost, retail සහ wholesale price සහ product image එක්ක products ප්‍රමාණයට සීමාවක් නෑ.", "මුළු වෙළඳසැලම පාවිච්චි කරන පිරිසිදු, search කළ හැකි catalogue එකක්."],
       ["Tax classes", "Tax classes define කර products වලට assign කරන්න, එවිට tax නිවැරදිව ගණනය වී report වෙනවා.", "Tax summary report එකෙන් ඔබේ tax filings සඳහා සූදානම් figures ලැබෙනවා."],
       ["Stock adjustments සහ shrinkage", "හේතුවක් සමඟ stock adjust කරන්න. ඉවත් කිරීම් wastage, damage හෝ theft ලෙස tag කරන්න පුළුවන්.", "Shrinkage report එකෙන් සැබෑ පාඩු සරල නිවැරදි කිරීම් වලින් වෙන්ව පෙනෙනවා."],
       ["Low-stock alerts", "Product එකකට අවම stock level එකක් set කරන්න. Items අඩු වුණාම login වෙද්දී alert එකක් ලැබෙනවා.", "රාක්ක හිස් වෙන්න කලින් reorder කරන්න, customers ලා ආපහු යන්න ඉඩ නොදී."],
@@ -113,12 +113,12 @@ export const featureCatalogSi: Record<string, FeatureCategorySi> = {
   },
   "cloud-alerts": {
     title: "Cloud Panel, SMS සහ Telegram",
-    summary: "Counter එක offline දිගටම bill කරද්දී, phone එකෙන් කඩය පාලනය කරන්න.",
+    summary: "Counter එක offline දිගටම bill කරද්දී, phone එකෙන් වෙළඳසැල පාලනය කරන්න.",
     features: [
       ["Two-way cloud sync", "Internet තියෙන හැම වෙලාවකම sales, stock, customers සහ suppliers background එකේ MariaPoS cloud panel එකට sync වෙනවා.", "ඔබේ data off-site backup වෙනවා, ඕනෑම තැනක ඉඳන් බලන්න පුළුවන්."],
       ["Web back-office (cloud panel)", "ඕනෑම browser එකකින් login වී reports බලන්න, products, suppliers, GRNs, stock adjustments, customers, receivables, payables සහ expenses manage කරන්න.", "Counter එකට නොගොස් ගෙදර ඉඳන් හෝ වෙනත් branch එකකින් ව්‍යාපාරය manage කරන්න."],
       ["SMS e-bill receipts", "Invoice number, items, totals සහ balance සමඟ bill එක customer ගේ phone එකට SMS කරන්න. Prepaid SMS wallet එකක් use කරනවා, balance එක cashier ට පෙනෙනවා.", "Customers ලාට කවදාවත් මැකෙන්නේ නැති receipt එකක් තියෙනවා, ඔබට thermal paper ඉතිරි වෙනවා."],
-      ["Telegram sales alerts", "Cloud panel එකේ ඔබේ Telegram account එක link කරන්න. හැම අලුත් sale එකක්ම, items සමඟ, සිදුවෙන ගමන්ම ලැබෙනවා.", "කඩයෙන් බැහැරව සිටියත්, හැම branch එකකම live activity අයිතිකරුට පේනවා."],
+      ["Telegram sales alerts", "Cloud panel එකේ ඔබේ Telegram account එක link කරන්න. හැම අලුත් sale එකක්ම, items සමඟ, සිදුවෙන ගමන්ම ලැබෙනවා.", "වෙළඳසැලෙන් බැහැරව සිටියත්, හැම branch එකකම live activity අයිතිකරුට පේනවා."],
     ],
   },
   "security-users": {
@@ -126,15 +126,15 @@ export const featureCatalogSi: Record<string, FeatureCategorySi> = {
     summary: "හැම staff member කෙනෙකුටම ඔවුන්ට අවශ්‍ය access එක පමණක් දෙන්න, වැඩි දෙයක් නෑ.",
     features: [
       ["Admin සහ cashier roles", "Admin ට සියල්ලම පේනවා. Cashier ට profits හෝ settings නැති, counter එකට අදාළ view එකක් ලැබෙනවා.", "සංවේදී business numbers අයිතිකරු ළඟම තියෙනවා."],
-      ["Granular permissions", "User කෙනෙකුට අනුව තනි තනි හිමිකම් on/off කරන්න: item discounts, bill discounts, price editing, returns, credit, reports, inventory, customers, expenses සහ users.", "Software එක ඔබේ කඩය පවත්වන ආකාරයට ගැලපෙනවා, ඒ අනිත් අතට නෙවෙයි."],
+      ["Granular permissions", "User කෙනෙකුට අනුව තනි තනි හිමිකම් on/off කරන්න: item discounts, bill discounts, price editing, returns, credit, reports, inventory, customers, expenses සහ users.", "Software එක ඔබේ වෙළඳසැල පවත්වන ආකාරයට ගැලපෙනවා, ඒ අනිත් අතට නෙවෙයි."],
       ["Manager PIN override", "Restricted actions වලට manager කෙනෙකුට තමන්ගේ PIN එක ඇතුළත් කර ස්ථානයේදීම අනුමත කරන්න පුළුවන්.", "Queue එක මන්දගාමී නොකර පාලනය තියාගන්න."],
       ["Audit log", "වැදගත් actions user සහ වෙලාව සමඟ record වෙනවා.", "මොනවද, කවුද, කවදාද වෙනස් කළේ කියලා දැනගන්න."],
-      ["Encrypted local database සහ auto-logout", "කඩයේ data ඔබේ PC එකේ encrypted database එකක ගබඩා වෙනවා, idle sessions automatically logout වෙනවා.", "Computer එක බලාගන්න කෙනෙක් නැති වුණත් ඔබේ business data ආරක්ෂිතයි."],
+      ["Encrypted local database සහ auto-logout", "වෙළඳසැලේ data ඔබේ PC එකේ encrypted database එකක ගබඩා වෙනවා, idle sessions automatically logout වෙනවා.", "Computer එක බලාගන්න කෙනෙක් නැති වුණත් ඔබේ business data ආරක්ෂිතයි."],
     ],
   },
   "hardware-printing": {
     title: "Hardware සහ Printing",
-    summary: "සාමාන්‍ය retail කඩ දැනටමත් පාවිච්චි කරන counter උපකරණ එක්ක වැඩ කරනවා.",
+    summary: "සාමාන්‍ය retail වෙළඳසැල් දැනටමත් පාවිච්චි කරන counter උපකරණ එක්ක වැඩ කරනවා.",
     features: [
       ["Thermal receipt printers", "ඔබේ logo, address සහ footer message එක්ක 58 mm සහ 80 mm thermal printers වලට print කරනවා.", "සාමාන්‍ය අඩු මිලේ printers වලින් වෘත්තීය, branded receipts."],
       ["USB barcode scanners", "Keyboard-mode ඕනෑම USB හෝ wireless barcode scanner එකක් කෙලින්ම වැඩ කරනවා.", "විශේෂ drivers හෝ configuration අවශ්‍ය නෑ."],
@@ -144,11 +144,11 @@ export const featureCatalogSi: Record<string, FeatureCategorySi> = {
   },
   "settings-customisation": {
     title: "Settings සහ Customisation",
-    summary: "MariaPoS ඔබේ කඩයට සමානව පෙනී, ඔබේ කඩය වගේම වැඩ කරන්න හදාගන්න.",
+    summary: "MariaPoS ඔබේ වෙළඳසැලට සමානව පෙනී, ඔබේ වෙළඳසැල වගේම වැඩ කරන්න හදාගන්න.",
     features: [
-      ["Bill layout settings", "කඩේ නම, logo, address, phone, bill header සහ footer text set කරන්න.", "හැම receipt එකකම ඔබේ brand එක තියෙනවා."],
+      ["Bill layout settings", "වෙළඳසැලේ නම, logo, address, phone, bill header සහ footer text set කරන්න.", "හැම receipt එකකම ඔබේ brand එක තියෙනවා."],
       ["Themes සහ appearance", "POS screens සඳහා accent, background සහ text colours තෝරන්න.", "දවස පුරා පාවිච්චි කරන cashier ලාට සුවපහසු screen එකක්."],
-      ["Currency සහ regional settings", "ඔබේ කඩයට currency symbol එක ($, £, €, හෝ local currency), code, decimal places සහ receipt width set කරන්න.", "ඔබේ customers ලාත් accountant ත් බලාපොරොත්තු වන ආකාරයට figures පෙනෙනවා."],
+      ["Currency සහ regional settings", "ඔබේ වෙළඳසැලට currency symbol එක ($, £, €, හෝ local currency), code, decimal places සහ receipt width set කරන්න.", "ඔබේ customers ලාත් accountant ත් බලාපොරොත්තු වන ආකාරයට figures පෙනෙනවා."],
       ["Licence management", "App එක ඇතුළෙන්ම ඔබේ licence එක activate කර, බලා, renew කරන්න. කල් ඉකුත් වෙන්න කලින් reminders ලැබෙනවා.", "හදිසියේ lock වීම් නෑ, renewal එක විනාඩි කීපයක වැඩක්."],
     ],
   },

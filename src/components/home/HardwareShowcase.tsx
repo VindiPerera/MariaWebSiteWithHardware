@@ -31,7 +31,7 @@ const hardwareFeatures = [
     title: "80mm High-Speed Thermal Printer",
     si: "80mm High-Speed Thermal Printer",
     desc: "Xprinter heavy-duty auto-cutter mechanism. Prints bilingual receipts with shop logo in under 0.8 seconds.",
-    descSi: "Xprinter heavy-duty auto-cutter එක. කඩේ logo එකත් එක්ක bilingual receipt එක තත්පර 0.8කට වඩා අඩු කාලයකින් print වෙනවා.",
+    descSi: "Xprinter heavy-duty auto-cutter එක. වෙළඳසැලේ logo එකත් එක්ක bilingual receipt එක තත්පර 0.8කට වඩා අඩු කාලයකින් print වෙනවා.",
   },
   {
     icon: Smartphone,

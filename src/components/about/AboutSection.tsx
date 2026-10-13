@@ -13,7 +13,7 @@ export function AboutSection() {
       <div className={styles.inner}>
         <div data-reveal="up" className={`section-intro ${styles.intro}`}>
           <span className="eyebrow">{t("About Us", "අප ගැන")}</span>
-          <h1 className="section-title">{t("Built in Colombo, for shops across Sri Lanka.", "කොළඹදී හදපු, ශ්‍රී ලංකාව පුරා ඇති කඩ වෙනුවෙන්.")}</h1>
+          <h1 className="section-title">{t("Built in Colombo, for shops across Sri Lanka.", "කොළඹදී හදපු, ශ්‍රී ලංකාව පුරා ඇති වෙළඳසැල් වෙනුවෙන්.")}</h1>
           <p className="lead">
             {t(
               "MariaPoS is an offline-first Windows point-of-sale system designed for supermarkets, pharmacies, hardware stores and retail shops that need fast billing, accurate FIFO stock and reliable service — with or without the internet.",
@@ -43,7 +43,7 @@ export function AboutSection() {
             <p className={styles.storyText}>
               {t(
                 "A single offline-first POS built for real shop counters: barcode billing, FIFO batch inventory, shift & till control, SMS e-bill receipts, Telegram sales alerts and two-way cloud sync.",
-                "සැබෑ කඩ counters වලට හදපු එකම offline-first POS එක: barcode billing, FIFO batch inventory, shift සහ till control, SMS e-bill receipts, Telegram sales alerts සහ two-way cloud sync.",
+                "සැබෑ වෙළඳසැල් counters වලට හදපු එකම offline-first POS එක: barcode billing, FIFO batch inventory, shift සහ till control, SMS e-bill receipts, Telegram sales alerts සහ two-way cloud sync.",
               )}
             </p>
           </div>
@@ -72,7 +72,7 @@ export function AboutSection() {
             <p className={styles.personText}>
               {t(
                 "MariaPoS is powered by Thejan Bathiya — the concept, product direction and engineering behind the system shop owners use every day to bill, track stock and close their till.",
-                "MariaPoS බලගන්වන්නේ Thejan Bathiya විසින්. කඩ අයිතිකරුවන් දිනපතා bill කරන්න, stock track කරන්න සහ till එක close කරන්න පාවිච්චි කරන system එකේ සංකල්පය, product direction එක සහ engineering එක ඔහුගේ.",
+                "MariaPoS බලගන්වන්නේ Thejan Bathiya විසින්. වෙළඳසැල් අයිතිකරුවන් දිනපතා bill කරන්න, stock track කරන්න සහ till එක close කරන්න පාවිච්චි කරන system එකේ සංකල්පය, product direction එක සහ engineering එක ඔහුගේ.",
               )}
             </p>
           </div>

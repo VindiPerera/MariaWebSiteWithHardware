@@ -144,7 +144,7 @@ export function PricingPlans() {
             <Sparkles size={14} color="var(--red)" />
             <span>{t("Sri Lanka Pricing & Solutions", "ශ්‍රී ලංකා Pricing සහ Solutions")}</span>
           </div>
-          <h1 className="section-title">{t("Pick the setup that fits your shop.", "ඔබේ කඩයට ගැලපෙන setup එක තෝරන්න.")}</h1>
+          <h1 className="section-title">{t("Pick the setup that fits your shop.", "ඔබේ වෙළඳසැලට ගැලපෙන setup එක තෝරන්න.")}</h1>
           <p className="lead">
             {lang === "si" ? (
               <>
@@ -408,7 +408,7 @@ export function PricingPlans() {
           <div className={styles.ownerImgCol}>
             <Image
               src={ownerMobileAlerts}
-              alt={t("Store owner receiving Telegram sales notification anywhere", "ඕනෑම තැනක ඉඳන් Telegram sales notification එකක් ලබන කඩ අයිතිකරුවෙක්")}
+              alt={t("Store owner receiving Telegram sales notification anywhere", "ඕනෑම තැනක ඉඳන් Telegram sales notification එකක් ලබන වෙළඳසැල් අයිතිකරුවෙක්")}
               fill
               sizes="(max-width: 768px) 100vw, 420px"
               className={styles.ownerImg}
@@ -420,7 +420,7 @@ export function PricingPlans() {
           </div>
           <div className={styles.ownerTextCol}>
             <span className={styles.ownerEyebrow}>{t("Included in Every Plan", "හැම Plan එකකම ඇතුළත්")}</span>
-            <h3 className={styles.ownerHeading}>{t("Run your store from your pocket, wherever you are", "ඔබ කොහේ හිටියත්, සාක්කුවෙන්ම ඔබේ කඩය පවත්වන්න")}</h3>
+            <h3 className={styles.ownerHeading}>{t("Run your store from your pocket, wherever you are", "ඔබ කොහේ හිටියත්, සාක්කුවෙන්ම ඔබේ වෙළඳසැල පවත්වන්න")}</h3>
             <p className={styles.ownerDesc}>
               {t(
                 "No monthly cloud fees or server maintenance charges. Every trial and multi-year license includes automated cloud backup, multi-device web reports, and instant Telegram sales alerts pushed directly to your phone.",

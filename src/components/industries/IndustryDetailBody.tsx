@@ -48,7 +48,7 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
             <p className={styles.text}>
               {t(
                 "Generic billing software treats every shop the same. MariaPoS is built around the real problems at a Sri Lankan counter, and every feature is included in one licence.",
-                "සාමාන්‍ය billing software හැම කඩයක්ම එක විදිහට සලකනවා. MariaPoS හදලා තියෙන්නේ ශ්‍රී ලාංකික counter එකක සැබෑ ගැටලු වටා, සියලුම features එක licence එකකට ඇතුළත්.",
+                "සාමාන්‍ය billing software හැම වෙළඳසැලක්ම එක විදිහට සලකනවා. MariaPoS හදලා තියෙන්නේ ශ්‍රී ලාංකික counter එකක සැබෑ ගැටලු වටා, සියලුම features එක licence එකකට ඇතුළත්.",
               )}
             </p>
           </div>

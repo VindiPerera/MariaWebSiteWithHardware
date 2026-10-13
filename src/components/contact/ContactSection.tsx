@@ -24,7 +24,7 @@ import { useLang } from "@/lib/i18n";
 
 const officeFaqs = [
   {
-    qSi: "කොළඹින් පිටත අපේ කඩයට on-site installation සඳහා ඔබේ technicians ලාට පැමිණිය හැකිද?",
+    qSi: "කොළඹින් පිටත අපේ වෙළඳසැලට on-site installation සඳහා ඔබේ technicians ලාට පැමිණිය හැකිද?",
     aSi: "ඔව්! ශ්‍රී ලංකාවේ දිස්ත්‍රික්ක 25ටම (මහනුවර, ගාල්ල, කුරුණෑගල, යාපනය සහ රත්නපුර ඇතුළුව) technicians යවනවා. ඔබේ counter එකේදීම touch terminals, receipt printers, barcode scanners සියල්ල set up කර, hands-on cashier training එකත් දෙනවා.",
     q: "Can your technicians visit our shop for on-site installation outside Colombo?",
     a: "Yes! We provide island-wide technician deployment across all 25 districts of Sri Lanka (including Kandy, Galle, Kurunegala, Jaffna, and Ratnapura). We set up all touch terminals, receipt printers, barcode scanners, and provide hands-on cashier training right on your counter.",

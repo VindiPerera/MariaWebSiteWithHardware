@@ -13,7 +13,7 @@ export function TrialCta() {
         <div aria-hidden="true" className={styles.glow} />
         <div aria-hidden="true" className={styles.dots} />
         <div className={styles.copy}>
-          <h2 className={styles.title}>{t("Run your shop on MariaPoS for 7 days, free.", "ඔබේ කඩය MariaPoS එකෙන් දින 7ක් free පවත්වන්න.")}</h2>
+          <h2 className={styles.title}>{t("Run your shop on MariaPoS for 7 days, free.", "MariaPoS සමඟ ඔබේ වෙළඳසැල දින 7ක් නොමිලේ පවත්වාගෙන යන්න.")}</h2>
           <p className={styles.subtitle}>{t("Full access, no credit card. One trial per business.", "Full access, credit card එකක් ඕන නෑ. ව්‍යාපාරයකට එක trial එකයි.")}</p>
           <div id="demo" className={styles.demo}>
             {t("Prefer a walkthrough?", "Walkthrough එකක් ඕනද?")}{" "}

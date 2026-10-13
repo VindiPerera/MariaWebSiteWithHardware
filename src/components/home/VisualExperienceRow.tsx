@@ -29,7 +29,7 @@ export function VisualExperienceRow() {
           <p className={styles.subtitle}>
             {t(
               "MariaPoS connects every touchpoint of your store. Fast contactless customer checkout at the counter, strict FIFO batch auditing in your warehouse, and instant Telegram sales alerts in your pocket.",
-              "MariaPoS මගින් ඔබේ කඩයේ හැම touchpoint එකම සම්බන්ධ කරනවා. Counter එකේ වේගවත් contactless checkout, ගබඩාවේ නිවැරදි FIFO batch auditing, සහ සාක්කුවේ ඇති phone එකට instant Telegram sales alerts.",
+              "MariaPoS මගින් ඔබේ වෙළඳසැලේ හැම touchpoint එකම සම්බන්ධ කරනවා. Counter එකේ වේගවත් contactless checkout, ගබඩාවේ නිවැරදි FIFO batch auditing, සහ සාක්කුවේ ඇති phone එකට instant Telegram sales alerts.",
             )}
           </p>
         </div>
@@ -123,7 +123,7 @@ export function VisualExperienceRow() {
               <div className={styles.featurePoints}>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />
-                  <span>{t("Branded SMS header with shop name", "කඩේ නමින් Branded SMS header එකක්")}</span>
+                  <span>{t("Branded SMS header with shop name", "වෙළඳසැලේ නමින් Branded SMS header එකක්")}</span>
                 </div>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />

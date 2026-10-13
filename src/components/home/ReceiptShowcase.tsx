@@ -23,7 +23,7 @@ const billHighlights = [
     title: "Branded Header & Contacts",
     desc: "Your shop logo, custom store name, address, and hotlines in any language or currency at the top of every bill.",
     si: "Branded Header සහ Contacts",
-    descSi: "හැම bill එකකම උඩින් ඔබේ කඩේ logo එක, නම, ලිපිනය සහ hotlines, ඕනෑම භාෂාවකින් හෝ currency එකකින්.",
+    descSi: "හැම bill එකකම උඩින් ඔබේ වෙළඳසැලේ logo එක, නම, ලිපිනය සහ hotlines, ඕනෑම භාෂාවකින් හෝ currency එකකින්.",
     icon: Store,
   },
   {

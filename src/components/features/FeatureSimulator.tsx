@@ -192,7 +192,7 @@ export function FeatureSimulator() {
                     <span>{t("Checkout Complete! Stock Deducted FIFO.", "Checkout සම්පූර්ණයි! Stock එක FIFO ලෙස අඩු කළා.")}</span>
                   </div>
                   <span className={styles.successMeta}>
-                    {t("Receipt eBill dispatched to customer phone & Telegram alert sent to store owner.", "Receipt eBill එක customer ගේ phone එකටත්, Telegram alert එක කඩේ අයිතිකරුටත් යැව්වා.")}
+                    {t("Receipt eBill dispatched to customer phone & Telegram alert sent to store owner.", "Receipt eBill එක customer ගේ phone එකටත්, Telegram alert එක වෙළඳසැලේ අයිතිකරුටත් යැව්වා.")}
                   </span>
                 </div>
               )}
