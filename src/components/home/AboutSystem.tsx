@@ -40,9 +40,9 @@ const purposes: { title: string; body: string; icon: LucideIcon; metric: string 
   },
   {
     title: "Run the business from anywhere",
-    body: "Reports, the cloud panel and Telegram alerts show the owner what is happening at every counter, live.",
+    body: "Reports, the cloud panel and push alerts show the owner what is happening at every counter, live.",
     icon: BarChart3,
-    metric: "Live Telegram Alerts",
+    metric: "Live Push Alerts",
   },
 ];
 
@@ -69,9 +69,9 @@ const flow: {
   },
   {
     title: "In your pocket",
-    body: "Cloud panel in any browser, live Telegram sale alerts and SMS e-bills to customers.",
+    body: "Cloud panel in any browser, live push sale alerts and SMS e-bills to customers.",
     icon: Smartphone,
-    status: "Instant Telegram Push",
+    status: "Instant Push Notification",
     badgeColor: "#ff8a80",
   },
 ];
@@ -94,8 +94,8 @@ export function AboutSystem() {
           </p>
           <p className={styles.body}>
             Cashiers use it to bill. Managers use it to receive stock, handle returns and close shifts. Owners use it to
-            see sales, profit and cash from anywhere, through reports, the MariaPoS cloud panel and instant Telegram
-            alerts.
+            see sales, profit and cash from anywhere, through reports, the MariaPoS cloud panel and instant push
+            notifications.
           </p>
           <Link href="/features" className={styles.link}>
             <span>See every feature explained</span>

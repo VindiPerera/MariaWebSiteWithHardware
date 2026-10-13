@@ -105,7 +105,7 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
       { label: "FIFO Inventory & Batches", href: "/features#inventory-stock" },
       { label: "Shifts & Cash Till Control", href: "/features#shifts-cash" },
       { label: "13+ Analytics & Reports", href: "/features#reports-analytics" },
-      { label: "SMS e-Bills & Telegram Alerts", href: "/features#cloud-alerts" },
+      { label: "SMS e-Bills & Push Alerts", href: "/features#cloud-alerts" },
       { label: "Cloud Back-Office Sync", href: "/features#cloud-sync" },
     ],
   },

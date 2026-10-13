@@ -16,11 +16,11 @@ const tabs: { title: string; icon: LucideIcon; body: string; si: string; bodySi:
     body: "The receipt goes to the customer's phone at checkout, ready for warranty or return lookups later. Messages draw from a prepaid SMS wallet on your license, and the cashier sees the live balance before every sale.",
   },
   {
-    title: "Telegram order alerts",
-    si: "Telegram order alerts",
-    bodySi: "සම්පූර්ණ වෙන හැම sale එකකටම items සහිත \"New Order\" message එකක් අයිතිකරුගේ Telegram එකට යනවා. POS එක හෝ dashboard එකක් open නොකර phone එකෙන් හැම branch එකක්ම බලන්න.",
+    title: "Push order alerts",
+    si: "Push order alerts",
+    bodySi: "සම්පූර්ණ වෙන හැම sale එකකටම items සහිත \"New Order\" message එකක් අයිතිකරුගේ phone එකට යනවා. POS එක හෝ dashboard එකක් open නොකර phone එකෙන් හැම branch එකක්ම බලන්න.",
     icon: Send,
-    body: 'Every completed sale sends a "New Order" message with the items to the owner\'s Telegram. Follow each branch from your phone without opening the POS or a dashboard.',
+    body: 'Every completed sale sends a "New Order" message with the items to the owner\'s phone. Follow each branch from your phone without opening the POS or a dashboard.',
   },
   {
     title: "Two-way cloud sync",

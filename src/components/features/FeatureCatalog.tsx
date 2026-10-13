@@ -141,7 +141,7 @@ export function FeatureCatalog() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t("Search all 63+ features (e.g. barcode, FIFO, discount, Telegram, reprint)...", "Features 63+ ම search කරන්න (උදා: barcode, FIFO, discount, Telegram, reprint)...")}
+              placeholder={t("Search all 63+ features (e.g. barcode, FIFO, discount, push notification, reprint)...", "Features 63+ ම search කරන්න (උදා: barcode, FIFO, discount, push notification, reprint)...")}
               className={styles.searchInput}
             />
             {searchQuery && (

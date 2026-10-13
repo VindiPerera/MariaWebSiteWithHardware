@@ -192,7 +192,7 @@ export function FeatureSimulator() {
                     <span>{t("Checkout Complete! Stock Deducted FIFO.", "Checkout සම්පූර්ණයි! Stock එක FIFO ලෙස අඩු කළා.")}</span>
                   </div>
                   <span className={styles.successMeta}>
-                    {t("Receipt eBill dispatched to customer phone & Telegram alert sent to store owner.", "Receipt eBill එක customer ගේ phone එකටත්, Telegram alert එක වෙළඳසැලේ අයිතිකරුටත් යැවුවා.")}
+                    {t("Receipt eBill dispatched to customer phone & push alert sent to store owner.", "Receipt eBill එක customer ගේ phone එකටත්, push alert එක වෙළඳසැලේ අයිතිකරුටත් යැවුවා.")}
                   </span>
                 </div>
               )}
@@ -216,7 +216,7 @@ export function FeatureSimulator() {
                 className={`${styles.toggleBtn} ${activePreview === "telegram" ? styles.toggleActive : ""}`}
               >
                 <Send size={14} />
-                <span>{t("Owner Telegram", "Owner Telegram")}</span>
+                <span>{t("Owner Phone", "Owner Phone")}</span>
               </button>
             </div>
 

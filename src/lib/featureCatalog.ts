@@ -336,7 +336,7 @@ export const featureCategories: FeatureCategory[] = [
   },
   {
     id: "cloud-alerts",
-    title: "Cloud Panel, SMS & Telegram",
+    title: "Cloud Panel, SMS & Push Notifications",
     icon: Cloud,
     summary: "Run the shop from your phone while the counter keeps billing offline.",
     features: [
@@ -356,8 +356,8 @@ export const featureCategories: FeatureCategory[] = [
         why: "Customers keep a receipt that never fades, and you save on thermal paper.",
       },
       {
-        name: "Telegram sales alerts",
-        what: "Link your Telegram account in the cloud panel to receive every new sale with its items as it happens.",
+        name: "Push sales alerts",
+        what: "Link your phone in the cloud panel to receive every new sale with its items as it happens.",
         why: "Owners see live activity from every branch, even when away from the shop.",
       },
     ],

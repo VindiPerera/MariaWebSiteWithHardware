@@ -100,9 +100,9 @@ const retailScenes: RetailScene[] = [
     tabSubtitle: "Live Cloud Push",
     icon: Smartphone,
     tag: "Remote Business Intelligence",
-    title: "Real-time Telegram sale alerts & cloud control anywhere",
+    title: "Real-time push sale alerts & cloud control anywhere",
     subtitle:
-      "Whether you are traveling or having coffee down the street, every completed sale pushes instantly to your Telegram with item details and profit margin.",
+      "Whether you are traveling or having coffee down the street, every completed sale pushes instantly to your phone with item details and profit margin.",
     statusBadge: {
       status: "Pushed 12s ago",
       sub: "Direct Bot Notification",
@@ -110,7 +110,7 @@ const retailScenes: RetailScene[] = [
     },
     features: [
       {
-        title: "Instant Telegram Bot Notifications",
+        title: "Instant Push Notifications",
         desc: "Receive real-time notifications with order total, cashier ID, payment method, and items the exact second the receipt prints.",
         icon: Send,
       },
@@ -324,7 +324,7 @@ function TelegramSimulator() {
           <span className={styles.simDotYellow} />
           <span className={styles.simDotGreen} />
         </div>
-        <span className={styles.simWindowTitle}>MariaPoS Cloud Telegram Bot</span>
+        <span className={styles.simWindowTitle}>MariaPoS Cloud Push Notifications</span>
         <span className={styles.simStatusPillBlue}>
           <span className={styles.pulseBlue} /> BOT ACTIVE
         </span>

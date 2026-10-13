@@ -7,7 +7,7 @@ const items: [string, LucideIcon][] = [
   ["Works offline", WifiOff],
   ["Cloud sync", Cloud],
   ["SMS receipts", MessageSquare],
-  ["Telegram alerts", Send],
+  ["Push alerts", Send],
 ];
 
 export function TrustBar() {

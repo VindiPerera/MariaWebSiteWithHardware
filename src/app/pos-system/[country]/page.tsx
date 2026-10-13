@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props) {
   const n = country.name;
   return pageMetadata({
     title: `POS System in ${n} — POS & Billing Software for ${n} Shops`,
-    description: `Best POS software for shops in ${n}: offline-first billing, ${country.currency} pricing, ${country.tax} reports, local payments like ${country.payments[0]}, FIFO stock and Telegram sales alerts. Available in ${cityList(country.cities, 3)} and across ${n}. Free 7-day trial.`,
+    description: `Best POS software for shops in ${n}: offline-first billing, ${country.currency} pricing, ${country.tax} reports, local payments like ${country.payments[0]}, FIFO stock and push sales alerts. Available in ${cityList(country.cities, 3)} and across ${n}. Free 7-day trial.`,
     path: `/pos-system/${country.slug}`,
     keywords: [
       `POS system ${n}`,

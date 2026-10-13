@@ -303,13 +303,13 @@ export function FeatureVisualPreview({ featureName }: Props) {
     );
   }
 
-  // 21. Telegram order alerts
-  if (name.includes("telegram")) {
+  // 21. Push order alerts
+  if (name.includes("push")) {
     return (
       <div className={styles.previewBox}>
         <div className={styles.tgAlert}>
           <Send size={12} color="#229ed9" />
-          <span>Telegram: New Sale $24.00</span>
+          <span>Push: New Sale $24.00</span>
         </div>
       </div>
     );

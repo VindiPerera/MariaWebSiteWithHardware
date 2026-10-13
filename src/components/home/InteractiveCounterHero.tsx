@@ -436,14 +436,14 @@ export function InteractiveCounterHero() {
               </div>
             )}
 
-            {/* Floating Telegram Push Alert Notification */}
+            {/* Floating Push Notifications Alert Notification */}
             {showTelegramAlert && (
               <div className={styles.floatingTelegramAlert}>
                 <div className={styles.telegramIcon}>
                   <Bell size={16} />
                 </div>
                 <div className={styles.telegramCopy}>
-                  <strong>Instant Telegram Alert</strong>
+                  <strong>Instant Push Notification</strong>
                   <span>Bill #LK-8429 paid in Cash: {formatLkr(subtotal)}</span>
                 </div>
               </div>

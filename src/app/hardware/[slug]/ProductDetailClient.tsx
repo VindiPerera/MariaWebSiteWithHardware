@@ -540,7 +540,7 @@ export function ProductDetailClient({ product }: Props) {
               <span className={styles.bundleBadge}>MariaPoS Software</span>
               <div className={styles.bundleTitle}>Pair with MariaPoS Software License</div>
               <p className={styles.bundleLead}>
-                Offline billing, FIFO batch stock, SMS e-bills, and Telegram sales alerts ready to run on this device.
+                Offline billing, FIFO batch stock, SMS e-bills, and push sales alerts ready to run on this device.
               </p>
               <span className={styles.bundleLinkText}>
                 View Software Plans

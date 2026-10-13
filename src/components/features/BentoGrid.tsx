@@ -87,10 +87,10 @@ const mainFeatures: MainFeature[] = [
     why: "Profit & loss reports reflect real operating costs, not just counter sales revenue.",
   },
   {
-    title: "SMS Receipts & Telegram Push",
+    title: "SMS Receipts & Push Notifications",
     icon: Send,
-    previewKey: "telegram order alerts",
-    desc: "Send paperless eBills to customer phones at checkout, and push real-time sales notifications with line items to the owner's Telegram.",
+    previewKey: "push order alerts",
+    desc: "Send paperless eBills to customer phones at checkout, and push real-time sales notifications with line items to the owner's phone.",
     why: "Customers keep permanent proof for returns, owners monitor branches live, and you save on thermal paper roll costs.",
   },
   {

@@ -7,7 +7,7 @@ const audiences: { role: string; headline: string; icon: LucideIcon; points: str
     headline: "Control without being at the counter",
     icon: Crown,
     points: [
-      "See every sale live on Telegram, from every branch",
+      "See every sale live as push notifications, from every branch",
       "True profit & loss using FIFO cost and real expenses",
       "Cash shortages traced to the exact shift and cashier",
       "Data backed up to the cloud automatically",

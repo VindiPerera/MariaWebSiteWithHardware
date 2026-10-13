@@ -44,8 +44,8 @@ export function AboutSection() {
             <h3 className={styles.storyTitle}>{t("What we do", "අපි කරන්නේ මොනවාද")}</h3>
             <p className={styles.storyText}>
               {t(
-                "A single offline-first POS built for real shop counters: barcode billing, FIFO batch inventory, shift & till control, SMS e-bill receipts, Telegram sales alerts and two-way cloud sync.",
-                "සැබෑ වෙළඳසැල් counters සඳහාම හදපු offline-first POS එකක්: barcode billing, FIFO batch inventory, shift සහ till control, SMS e-bill receipts, Telegram sales alerts සහ two-way cloud sync.",
+                "A single offline-first POS built for real shop counters: barcode billing, FIFO batch inventory, shift & till control, SMS e-bill receipts, push sales alerts and two-way cloud sync.",
+                "සැබෑ වෙළඳසැල් counters සඳහාම හදපු offline-first POS එකක්: barcode billing, FIFO batch inventory, shift සහ till control, SMS e-bill receipts, push sales alerts සහ two-way cloud sync.",
               )}
             </p>
           </div>

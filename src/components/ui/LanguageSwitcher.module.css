@@ -1,37 +1,129 @@
 .wrap {
   position: relative;
+  display: inline-block;
+}
+
+.trigger {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 999px;
   color: #1e293b;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.wrap:hover,
-.wrap:focus-within {
-  border-color: var(--red);
-  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.1);
-}
-
-.icon {
-  position: absolute;
-  left: 11px;
-  pointer-events: none;
-  color: var(--red);
-}
-
-.select {
-  appearance: none;
-  -webkit-appearance: none;
-  background: transparent;
-  border: 0;
-  outline: 0;
   cursor: pointer;
-  padding: 8px 14px 8px 32px;
   font-family: var(--font-body);
   font-size: 13.5px;
   font-weight: 600;
-  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trigger:hover,
+.trigger:focus-visible,
+.triggerOpen {
+  border-color: var(--red);
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.1);
+  outline: 0;
+}
+
+.icon {
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.current {
+  white-space: nowrap;
+}
+
+.chevron {
+  color: #64748b;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 60;
+  min-width: 170px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
+  animation: menuIn 0.15s ease;
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  color: #1e293b;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.option:hover,
+.option:focus-visible {
+  background: #f1f5f9;
+  outline: 0;
+}
+
+.optionSelected {
+  background: rgba(198, 40, 40, 0.07);
+  color: var(--red);
+  font-weight: 700;
+}
+
+.optionShort {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 2px 6px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.optionSelected .optionShort {
+  background: var(--red);
+  color: #fff;
+}
+
+.optionLabel {
+  flex: 1;
+}
+
+.check {
+  flex-shrink: 0;
 }

@@ -88,7 +88,7 @@ export const softwareSchema = {
   applicationSubCategory: "Point of Sale (POS) Software",
   operatingSystem: "Windows 10, Windows 11",
   description:
-    "Offline-first Windows POS and inventory system for retail and wholesale businesses: barcode billing, FIFO batch stock, shifts and till control, supplier GRN, customer credit, loyalty, SMS e-bills, Telegram sales alerts and cloud sync.",
+    "Offline-first Windows POS and inventory system for retail and wholesale businesses: barcode billing, FIFO batch stock, shifts and till control, supplier GRN, customer credit, loyalty, SMS e-bills, push sales alerts and cloud sync.",
   url: site.url,
   publisher: { "@id": organizationId },
   offers: {
@@ -107,7 +107,7 @@ export const softwareSchema = {
     "Supplier GRN and cheque reminders",
     "Customer credit and loyalty points",
     "SMS e-bill receipts",
-    "Telegram sales alerts",
+    "push sales alerts",
     "Cloud sync and web back-office",
     "13+ business reports with PDF & Excel export",
   ],

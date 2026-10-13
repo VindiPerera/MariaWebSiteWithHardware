@@ -31,9 +31,9 @@ const officeFaqs = [
   },
   {
     qSi: "මගේම barcodes අරන් ඇවිත් කොළඹ කාර්යාලයේ ඔබේ scanners වලින් test කරන්න පුළුවන්ද?",
-    aSi: "අනිවාර්යයෙන්ම! Retail සහ pharmacy අයිතිකරුවන්ට අමාරු barcodes, ගෙවී ගිය product packaging හෝ prescription labels කොළඹ Experience Center එකට ගෙනෙන්න අපි දිරිමත් කරනවා. මිලදී ගැනීමේ තීරණයට කලින් සැබෑ POS screens වල 1D laser scanners සහ 2D CMOS barcode scanners live test කරන්න පුළුවන්.",
+    aSi: "අනිවාර්යයෙන්ම! Retail සහ pharmacy අයිතිකරුවන්ට අමාරු barcodes, ගෙවී ගිය product packaging හෝ prescription labels කොළඹ කාර්යාලයට ගෙනෙන්න අපි දිරිමත් කරනවා. මිලදී ගැනීමේ තීරණයට කලින් සැබෑ POS screens වල 1D laser scanners සහ 2D CMOS barcode scanners live test කරන්න පුළුවන්.",
     q: "Can I bring my own barcodes and test them on your scanners at the Colombo office?",
-    a: "Absolutely! We encourage retail and pharmacy owners to bring difficult barcodes, weathered product packaging, or prescription labels to our Colombo Experience Center. You can test 1D laser scanners and 2D CMOS barcode scanners live on real POS screens before making a purchase decision.",
+    a: "Absolutely! We encourage retail and pharmacy owners to bring difficult barcodes, weathered product packaging, or prescription labels to our Colombo office. You can test 1D laser scanners and 2D CMOS barcode scanners live on real POS screens before making a purchase decision.",
   },
   {
     qSi: "MariaPoS hardware සමඟ ලැබෙන warranty සහ replacement support මොනවාද?",
@@ -79,7 +79,7 @@ export function ContactSection() {
               <span className={styles.beaconPing} />
             </span>
             <span className={styles.beaconText}>
-              {t("Colombo Tech Hub Online • Direct Hardware Support Active", "කොළඹ Tech Hub Online • Direct Hardware Support Active")}
+              {t("Colombo Office Online • Direct Hardware Support Active", "කොළඹ Office Online • Direct Hardware Support Active")}
             </span>
           </div>
 
@@ -118,7 +118,7 @@ export function ContactSection() {
             <div className={styles.heroStatDivider} />
             <div className={styles.heroStatItem}>
               <span className={styles.heroStatVal}>46 Hudson Rd</span>
-              <span className={styles.heroStatLbl}>{t("Colombo 03 Experience Hub", "කොළඹ 03 Experience Hub")}</span>
+              <span className={styles.heroStatLbl}>{t("Colombo 03 Head Office", "කොළඹ 03 ප්‍රධාන කාර්යාලය")}</span>
             </div>
           </div>
         </div>
@@ -258,7 +258,7 @@ export function ContactSection() {
                 <MapPin size={13} color="var(--red)" />
                 <span>{t("Interactive Colombo Office Map", "Interactive කොළඹ කාර්යාල Map එක")}</span>
               </div>
-              <h2 className={styles.mapShowcaseTitle}>{t("Visit our Colombo Experience Center", "අපේ කොළඹ Experience Center එකට එන්න")}</h2>
+              <h2 className={styles.mapShowcaseTitle}>{t("Visit our Colombo Office", "අපේ කොළඹ කාර්යාලයට එන්න")}</h2>
               <p className={styles.mapShowcaseSubtitle}>
                 {t("Test real touchscreens, thermal printers, barcode scanners, and cash drawers before ordering.", "Order කරන්න කලින් සැබෑ touchscreens, thermal printers, barcode scanners සහ cash drawers test කරන්න.")}
               </p>
@@ -396,7 +396,7 @@ export function ContactSection() {
                     <Truck size={16} />
                   </div>
                   <div>
-                    <strong>{t("Direct Dispatch Hub to All 25 Districts", "දිස්ත්‍රික්ක 25ටම Direct Dispatch Hub එක")}</strong>
+                    <strong>{t("Direct Dispatch to All 25 Districts", "දිස්ත්‍රික්ක 25ටම Direct Dispatch")}</strong>
                     <p>{t("Orders confirmed by 2:00 PM are dispatched same-day via express insured island-wide courier.", "ප.ව. 2:00ට පෙර තහවුරු කළ orders එදිනම, insured express courier එකෙන් මුළු රටටම dispatch කරනවා.")}</p>
                   </div>
                 </div>

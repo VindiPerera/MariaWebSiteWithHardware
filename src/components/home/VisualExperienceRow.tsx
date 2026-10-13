@@ -28,26 +28,26 @@ export function VisualExperienceRow() {
           <h2 className={styles.title}>{t("From the Front Till to the Owner's Phone.", "Front Till එකේ සිට අයිතිකරුගේ Phone එක දක්වා.")}</h2>
           <p className={styles.subtitle}>
             {t(
-              "MariaPoS connects every touchpoint of your store. Fast contactless customer checkout at the counter, strict FIFO batch auditing in your warehouse, and instant Telegram sales alerts in your pocket.",
-              "MariaPoS මගින් ඔබේ වෙළඳසැලේ හැම touchpoint එකම සම්බන්ධ කරනවා. Counter එකේ වේගවත් contactless checkout, ගබඩාවේ නිවැරදි FIFO batch auditing, සහ සාක්කුවේ ඇති phone එකට instant Telegram sales alerts.",
+              "MariaPoS connects every touchpoint of your store. Fast contactless customer checkout at the counter, strict FIFO batch auditing in your warehouse, and instant push sales alerts in your pocket.",
+              "MariaPoS මගින් ඔබේ වෙළඳසැලේ හැම touchpoint එකම සම්බන්ධ කරනවා. Counter එකේ වේගවත් contactless checkout, ගබඩාවේ නිවැරදි FIFO batch auditing, සහ සාක්කුවේ ඇති phone එකට instant push sales alerts.",
             )}
           </p>
         </div>
 
         {/* 3-Card Visual Feature Grid */}
         <div className={styles.cardsGrid}>
-          {/* Card 1: Owner Telegram Sale Alerts */}
+          {/* Card 1: Owner Phone Sale Alerts */}
           <div className={styles.experienceCard}>
             <div className={styles.imageWrapper}>
               <Image
                 src={ownerTelegramImg}
-                alt="Shop owner checking live Telegram sale alerts and revenue dashboard on smartphone at cafe"
+                alt="Shop owner checking live push sale alerts and revenue dashboard on smartphone at cafe"
                 className={styles.cardImg}
                 sizes="(max-width: 900px) 100vw, 400px"
               />
               <div className={styles.imageOverlayBadge}>
                 <span className={styles.badgePulseBlue} />
-                <span>{t("Pushed in <1s to Owner Telegram", "අයිතිකරුගේ Telegram එකට තත්පර 1ක් ඇතුළත push වෙනවා")}</span>
+                <span>{t("Pushed in <1s to Owner Phone", "අයිතිකරුගේ phone එකට තත්පර 1ක් ඇතුළත push වෙනවා")}</span>
               </div>
             </div>
 
@@ -57,12 +57,12 @@ export function VisualExperienceRow() {
                 <span>{t("Remote Business Control", "දුරින් සිට Business Control")}</span>
               </div>
 
-              <h3 className={styles.cardTitle}>{t("Owner in Pocket. Live Telegram Push.", "අයිතිකරු සාක්කුවේ. Live Telegram Push.")}</h3>
+              <h3 className={styles.cardTitle}>{t("Owner in Pocket. Live Push Notification.", "අයිතිකරු සාක්කුවේ. Live Push Notification.")}</h3>
 
               <p className={styles.cardDesc}>
                 {t(
-                  "Whether having tea or traveling, every completed sale pushes instantly to your Telegram with items, branch name, payment method, and gross profit margin.",
-                  "තේ එකක් බොන ගමන් හෝ ගමනක් යන ගමන්, සම්පූර්ණ වෙන හැම sale එකක්ම items, branch name, payment method සහ gross profit margin එක්ක ඔබේ Telegram එකට instant එනවා.",
+                  "Whether having tea or traveling, every completed sale pushes instantly to your phone with items, branch name, payment method, and gross profit margin.",
+                  "තේ එකක් බොන ගමන් හෝ ගමනක් යන ගමන්, සම්පූර්ණ වෙන හැම sale එකක්ම items, branch name, payment method සහ gross profit margin එක්ක ඔබේ phone එකට instant එනවා.",
                 )}
               </p>
 
