@@ -51,7 +51,7 @@ export function HardwareCard({ item, featured }: Props) {
           ) : (
             <span className={styles.preorderBadge}>
               <span className={styles.preorderDot} />
-              {t("On Request", "ඉල්ලීමට අනුව")}
+              {t("On Request", "ඉල්ලීම මත")}
             </span>
           )}
         </div>

@@ -18,7 +18,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     short: "Supermarket සහ grocery",
     headline: "කාර්යබහුල retail queues වලට හදපු supermarket සහ grocery POS system එක",
     intro:
-      "කොනේ තියෙන grocery වෙළඳසැලේ සිට multi-till supermarket දක්වා, MariaPoS barcode එකෙන් හෝ බර අනුව වේගයෙන් bill කරනවා, items දහස් ගණනක් අතර FIFO stock නිවැරදිව තියාගන්නවා, network lag නැතුව 100% offline දුවනවා.",
+      "ගමේ කුඩා grocery වෙළඳසැලක සිට multi-till supermarket දක්වා, MariaPoS barcode එකෙන් හෝ බර අනුව වේගයෙන් bill කරනවා, items දහස් ගණනක් අතර FIFO stock නිවැරදිව තියාගන්නවා, network lag නැතුව 100% offline ක්‍රියාත්මක වෙනවා.",
     challenges: [
       "Peak hours සහ සති අන්තයේ දිගු queues",
       "Barcode නැති හෝ loose විකුණන products දහස් ගණන",
@@ -34,8 +34,8 @@ export const industriesSi: Record<string, IndustrySi> = {
     ],
     faqs: [
       ["MariaPoS එකට බර අනුව items bill කරන්න පුළුවන්ද?", "පුළුවන්. Products වලට KG, g, L, ml සහ වෙනත් units තියෙනවා, counter එකේදී quantities decimals වලින් ඇතුළත් කරන්න පුළුවන්."],
-      ["Till එකකට වඩා දුවවන්න පුළුවන්ද?", "පුළුවන්. හැම till එකකම MariaPoS දුවනවා, ඒවා එකම cloud panel එකට sync වෙනවා, ඒ නිසා අයිතිකරුට සියලුම sales එකතුව පේනවා."],
-      ["Internet බාධා වෙලාවලත් වැඩ කරනවද?", "ඔව්. Billing, stock සහ shifts සම්පූර්ණයෙන්ම offline දුවනවා, connection එක ආපසු ආපු ගමන් automatically sync වෙනවා."],
+      ["Till එකකට වඩා භාවිතා කරන්න පුළුවන්ද?", "පුළුවන්. හැම till එකකම MariaPoS ක්‍රියාත්මක වෙනවා, ඒවා එකම cloud panel එකට sync වෙනවා, ඒ නිසා අයිතිකරුට සියලුම sales එකතුව පේනවා."],
+      ["Internet බාධා වෙලාවලත් වැඩ කරනවද?", "ඔව්. Billing, stock සහ shifts සම්පූර්ණයෙන්ම offline ක්‍රියාත්මක වෙනවා, connection එක ආපසු ආපු ගමන් automatically sync වෙනවා."],
     ],
   },
   pharmacy: {
@@ -93,7 +93,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     short: "Clothing සහ textile",
     headline: "Clothing, textile සහ fashion shops සඳහා POS system එක",
     intro:
-      "සෘතුමය rush එකේදී ජනතාව වැඩියි, discounts වැඩියි. MariaPoS එකෙන් promo codes, loyalty සහ returns පිළිවෙලට run කරන ගමන්, හැම cashier ගේම till වගවීමට ලක් කරන්න පුළුවන්.",
+      "උත්සව සෘතුවේ rush එකේදී සාප්පු යන අය වැඩියි, discounts ත් වැඩියි. MariaPoS එකෙන් promo codes, loyalty සහ returns පිළිවෙලට run කරන ගමන්, හැම cashier කෙනෙකුගේම till එකේ වගකීම තහවුරු කරගන්න පුළුවන්.",
     challenges: [
       "සෘතුමය සහ උත්සව කාලවල peak shopping",
       "පාලනය කිරීමට අමාරු discounts සහ offers",
@@ -109,7 +109,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     ],
     faqs: [
       ["උත්සව discount campaigns run කරන්න පුළුවන්ද?", "පුළුවන්. Promo codes සාදා item හෝ bill discounts යොදන්න, ඒවා භාවිතා කළ හැකි staff පාලනය කරන්න."],
-      ["Exchanges handle කරන්නේ කොහොමද?", "මුල් invoice එකට එරෙහිව item එක return කරන්න (එවිට එය restock වෙනවා), පසුව replacement item එක bill කරන්න."],
+      ["Exchanges handle කරන්නේ කොහොමද?", "මුල් invoice එක අනුව item එක return කරන්න (එවිට එය restock වෙනවා), පසුව replacement item එක bill කරන්න."],
       ["Customers ලාට bill එක SMS එකෙන් ලබාදෙන්න පුළුවන්ද?", "පුළුවන්. Checkout එකේදී prepaid SMS wallet එකකින් SMS e-bills යවනවා."],
     ],
   },
@@ -156,7 +156,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     intro: "Beauty retail ක්‍රියාත්මක වෙන්නේ නැවත එන customers මතයි. MariaPoS හැම sale එකකටම loyalty points, customer history සහ SMS receipts එකතු කරනවා.",
     challenges: ["Reward බලාපොරොත්තු වන නැවත එන customers", "ඉහළ margin සහිත කුඩා items රාශියක්", "සොරකම් සහ shrinkage"],
     highlights: [
-      ["Loyalty points", "වියදම් කරන හැම ඩොලරයකටම customers ලා points උපයා counter එකේදී redeem කරනවා."],
+      ["Loyalty points", "වියදම් කරන මුදලට අනුව customers ලා points උපයා counter එකේදී redeem කරනවා."],
       ["Shrinkage report", "ඉවත් කිරීම් damage හෝ theft ලෙස tag කර කාලය අනුව සැබෑ පාඩු බලන්න."],
       ["Customer profiles", "Phone number එකෙන් customers attach කර ඔවුන් මොනවාද ගන්නේ කියලා බලන්න."],
       ["Promo codes", "Track කළ හැකි codes සමඟ social-media offers run කරන්න."],
@@ -167,7 +167,7 @@ export const industriesSi: Record<string, IndustrySi> = {
     name: "Bakeries, Cafés සහ Takeaways",
     short: "Bakery සහ café",
     headline: "Bakeries, cafés සහ takeaways සඳහා Counter POS",
-    intro: "Quick-service counters වලට වඩාත්ම ඕන වේගය. MariaPoS keypad එකකින් හෝ touch screen එකකින් bill කරනවා, shift එකකට අනුව දෛනික cash track කරනවා, ඔබේ කාර්යබහුලම වෙලාවන් පෙන්වනවා.",
+    intro: "Quick-service counters වලට වඩාත්ම අවශ්‍ය වන්නේ වේගයයි. MariaPoS keypad එකකින් හෝ touch screen එකකින් bill කරනවා, shift එකකට අනුව දෛනික cash track කරනවා, ඔබේ කාර්යබහුලම වෙලාවන් පෙන්වනවා.",
     challenges: ["Rush-hour queues", "Cash transactions රාශියක්", "Piece සහ බර අනුව විකුණන items", "Staffing සඳහා peak hours දැනගැනීම"],
     highlights: [
       ["Touch keypad", "Touch terminals සඳහා ලොකු on-screen keypad එකක්."],
@@ -176,7 +176,7 @@ export const industriesSi: Record<string, IndustrySi> = {
       ["Expense tracking", "සැබෑ profit එක බලන්න පිටි, gas සහ වැටුප් record කරන්න."],
     ],
     faqs: [
-      ["MariaPoS table service සඳහා සුදුසුද?", "MariaPoS හදලා තියෙන්නේ bakeries, takeaways සහ self-service cafés වගේ counter-service billing සඳහා. Table service ඕන නම්, ඔබේ setup එක ගැන කතා කරන්න අපට කතා කරන්න."],
+      ["MariaPoS table service සඳහා සුදුසුද?", "MariaPoS හදලා තියෙන්නේ bakeries, takeaways සහ self-service cafés වගේ counter-service billing සඳහා. Table service අවශ්‍ය නම්, ඔබේ setup එක ගැන සාකච්ඡා කිරීමට අපව අමතන්න."],
     ],
   },
   "wholesale-distribution": {

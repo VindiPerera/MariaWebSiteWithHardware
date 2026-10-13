@@ -16,7 +16,7 @@ export function Faq() {
       <div data-reveal="up" className={styles.heading}>
         <h2 className={styles.title}>{t("Questions, answered", "ප්‍රශ්න වලට පිළිතුරු")}</h2>
         <p className={styles.text}>
-          {t("Something else? Email", "වෙන දෙයක් ඇහුවොත්? Email කරන්න")}{" "}
+          {t("Something else? Email", "වෙනත් දෙයක් අසන්නට තිබේද? Email කරන්න")}{" "}
           <a href={site.emailHref} className={styles.email}>
             {site.email}
           </a>
