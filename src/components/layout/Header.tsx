@@ -20,18 +20,20 @@ import {
 import { waGeneral } from "@/lib/shop";
 import { site } from "@/lib/site";
 import { useCart } from "@/lib/cartContext";
+import { useLang } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { ThermalReceiptBill } from "@/components/common/ThermalReceiptBill";
 import logo from "@/assets/images/logo-cropped.jpg";
 import styles from "./Header.module.css";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Features", href: "/features" },
-  { label: "Hardware", href: "/hardware", badge: "Store" },
-  { label: "Plans", href: "/pricing" },
-  { label: "Industries", href: "/industries" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", si: "මුල් පිටුව", href: "/" },
+  { label: "Features", si: "Features", href: "/features" },
+  { label: "Hardware", si: "Hardware", href: "/hardware", badge: "Store" },
+  { label: "Plans", si: "Plans", href: "/pricing" },
+  { label: "Industries", si: "Industries", href: "/industries" },
+  { label: "About", si: "අප ගැන", href: "/about" },
+  { label: "Contact", si: "අමතන්න", href: "/contact" },
 ];
 
 export function Header() {
@@ -40,6 +42,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [billModalOpen, setBillModalOpen] = useState(false);
   const { openDrawer, totalCount } = useCart();
+  const { t } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -96,7 +99,7 @@ export function Header() {
                   }`}
                   aria-current={active ? "page" : undefined}
                 >
-                  <span>{n.label}</span>
+                  <span>{t(n.label, n.si)}</span>
                   {n.badge && (
                     <span className={styles.navItemBadge}>{n.badge}</span>
                   )}
@@ -108,6 +111,8 @@ export function Header() {
 
           {/* Right Action Cluster */}
           <div className={styles.actionCluster}>
+            <LanguageSwitcher />
+
             {/* Sample Bill Quick Trigger */}
             <button
               type="button"
@@ -117,7 +122,7 @@ export function Header() {
               title="Preview actual Sri Lankan printed thermal bill"
             >
               <Receipt size={16} />
-              <span>Sample Bill</span>
+              <span>{t("Sample Bill", "Sample Bill බලන්න")}</span>
             </button>
 
             {/* Quote Cart Button */}
@@ -129,7 +134,7 @@ export function Header() {
               title="View your equipment quote cart"
             >
               <ShoppingBag size={17} />
-              <span className={styles.cartText}>Cart</span>
+              <span className={styles.cartText}>{t("Cart", "Cart")}</span>
               {totalCount > 0 && (
                 <span className={styles.cartBadge}>{totalCount}</span>
               )}
@@ -196,7 +201,7 @@ export function Header() {
                   }`}
                   onClick={() => setMenuOpen(false)}
                 >
-                  <span className={styles.drawerLinkLabel}>{n.label}</span>
+                  <span className={styles.drawerLinkLabel}>{t(n.label, n.si)}</span>
                   {n.badge && (
                     <span className={styles.drawerItemBadge}>{n.badge}</span>
                   )}
@@ -207,6 +212,8 @@ export function Header() {
           </div>
 
           <div className={styles.drawerExtras}>
+            <LanguageSwitcher />
+
             <button
               type="button"
               className={styles.drawerBillBtn}
@@ -216,7 +223,7 @@ export function Header() {
               }}
             >
               <Receipt size={18} color="var(--red)" />
-              <span>View Thermal Bill Sample</span>
+              <span>{t("View Thermal Bill Sample", "Thermal Bill Sample එක බලන්න")}</span>
             </button>
 
             <button
@@ -228,7 +235,7 @@ export function Header() {
               }}
             >
               <ShoppingBag size={18} />
-              <span>Quote Cart ({totalCount} items)</span>
+              <span>{t(`Quote Cart (${totalCount} items)`, `Quote Cart (අයිතම ${totalCount})`)}</span>
             </button>
 
             <a
@@ -238,15 +245,15 @@ export function Header() {
               className={styles.drawerWaBtn}
             >
               <MessageCircle size={18} />
-              <span>Chat on WhatsApp (076 593 3255)</span>
+              <span>{t("Chat on WhatsApp (076 593 3255)", "WhatsApp එකෙන් කතා කරන්න (076 593 3255)")}</span>
             </a>
 
             <div className={styles.drawerTrustRow}>
-              <span>Cash on Delivery</span>
+              <span>{t("Cash on Delivery", "Cash on Delivery")}</span>
               <span>·</span>
-              <span>All 25 Districts</span>
+              <span>{t("All 25 Districts", "දිස්ත්‍රික්ක 25ම")}</span>
               <span>·</span>
-              <span>1-Yr Warranty</span>
+              <span>{t("1-Yr Warranty", "අවුරුදු 1ක Warranty")}</span>
             </div>
           </div>
         </div>

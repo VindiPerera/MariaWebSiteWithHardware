@@ -15,35 +15,45 @@ import {
 } from "lucide-react";
 import logo from "@/assets/images/marialogo.png";
 import styles from "./ReceiptShowcase.module.css";
+import { useLang } from "@/lib/i18n";
 
 const billHighlights = [
   {
     id: "header",
     title: "Branded Header & Contacts",
     desc: "Your shop logo, custom store name, address, and hotlines in any language or currency at the top of every bill.",
+    si: "Branded Header සහ Contacts",
+    descSi: "හැම bill එකකම උඩින් ඔබේ කඩේ logo එක, නම, ලිපිනය සහ hotlines, ඕනෑම භාෂාවකින් හෝ currency එකකින්.",
     icon: Store,
   },
   {
     id: "items",
     title: "Accurate Line Itemization",
     desc: "Item names, decimal quantities (packs, kg, litres), unit prices, and instant line subtotaling with zero queue latency.",
+    si: "නිවැරදි Line Itemization",
+    descSi: "Item names, decimal quantities (packs, kg, litres), unit prices සහ instant line subtotal, queue එකේ delay එකක් නැතුව.",
     icon: Receipt,
   },
   {
     id: "payment",
     title: "Cash Tender & Balance Calculation",
     desc: "Explicit record of paid cash and change returned so cashiers never make counting errors during peak rush.",
+    si: "Cash Tender සහ Balance Calculation",
+    descSi: "ගෙවපු cash එකයි ආපසු දුන්න balance එකයි පැහැදිලිව record වෙනවා, rush hour එකේදී cashier ට ගණන් වැරදෙන්නේ නෑ.",
     icon: Wallet,
   },
   {
     id: "audit",
     title: "Audit Barcode for 2-Sec Returns",
     desc: "Scan the invoice barcode on customer returns to immediately pull the original sale and restock into the exact cost batch.",
+    si: "තත්පර 2කින් Returns සඳහා Audit Barcode",
+    descSi: "Return එකකදී invoice barcode එක scan කළ ගමන් original sale එක ගන්න පුළුවන්, නිවැරදි cost batch එකටම ආපසු restock වෙනවා.",
     icon: Barcode,
   },
 ];
 
 export function ReceiptShowcase() {
+  const { t } = useLang();
   const [paperWidth, setPaperWidth] = useState<"80mm" | "58mm">("80mm");
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
   const [isPrinting, setIsPrinting] = useState(false);
@@ -97,13 +107,15 @@ Total Balance:                    $ 1.00
 
         {/* Left Column: Context & Feature Highlights */}
         <div data-reveal="up" className={styles.copy}>
-          <span className="eyebrow">Counter Output &amp; Bill Design</span>
+          <span className="eyebrow">{t("Counter Output & Bill Design", "Counter Output සහ Bill Design")}</span>
           <h2 id="receipt-showcase-title" className={styles.title}>
-            Crisp, branded receipts engineered for your counter
+            {t("Crisp, branded receipts engineered for your counter", "ඔබේ counter එකටම හදපු පැහැදිලි, branded receipts")}
           </h2>
           <p className={styles.lead}>
-            Every MariaPoS transaction produces a clean, high-contrast thermal bill formatted for customer clarity and
-            cashier accountability. Compatible out of the box with standard 80mm and 58mm ESC/POS thermal printers.
+            {t(
+              "Every MariaPoS transaction produces a clean, high-contrast thermal bill formatted for customer clarity and cashier accountability. Compatible out of the box with standard 80mm and 58mm ESC/POS thermal printers.",
+              "MariaPoS හි හැම transaction එකකටම customer ට පැහැදිලිව පෙනෙන, cashier ගේ වගවීම තහවුරු කරන, high-contrast thermal bill එකක් ලැබෙනවා. සාමාන්‍ය 80mm සහ 58mm ESC/POS thermal printers එක්ක කෙලින්ම වැඩ කරනවා.",
+            )}
           </p>
 
           <div className={styles.featuresGrid}>
@@ -121,8 +133,8 @@ Total Balance:                    $ 1.00
                     <Icon size={18} color="var(--red)" />
                   </div>
                   <div className={styles.featureText}>
-                    <span className={styles.featureTitle}>{feat.title}</span>
-                    <span className={styles.featureDesc}>{feat.desc}</span>
+                    <span className={styles.featureTitle}>{t(feat.title, feat.si)}</span>
+                    <span className={styles.featureDesc}>{t(feat.desc, feat.descSi)}</span>
                   </div>
                 </div>
               );
@@ -132,13 +144,13 @@ Total Balance:                    $ 1.00
           <div className={styles.actionRow}>
             <Link href="/hardware?cat=printers" className={styles.ctaBtn}>
               <Printer size={16} />
-              <span>Explore Hardware Support</span>
+              <span>{t("Explore Hardware Support", "Hardware Support බලන්න")}</span>
               <ArrowRight size={14} />
             </Link>
 
             <span className={styles.specsBadge}>
               <CheckCircle2 size={15} color="#1faa55" />
-              <span>58mm &amp; 80mm ESC/POS Native</span>
+              <span>{t("58mm & 80mm ESC/POS Native", "58mm සහ 80mm ESC/POS Native")}</span>
             </span>
           </div>
         </div>
@@ -153,14 +165,14 @@ Total Balance:                    $ 1.00
                 onClick={() => setPaperWidth("80mm")}
                 className={`${styles.toggleBtn} ${paperWidth === "80mm" ? styles.toggleBtnActive : ""}`}
               >
-                80mm Standard
+                {t("80mm Standard", "80mm Standard")}
               </button>
               <button
                 type="button"
                 onClick={() => setPaperWidth("58mm")}
                 className={`${styles.toggleBtn} ${paperWidth === "58mm" ? styles.toggleBtnActive : ""}`}
               >
-                58mm Compact
+                {t("58mm Compact", "58mm Compact")}
               </button>
             </div>
 
@@ -169,19 +181,19 @@ Total Balance:                    $ 1.00
                 type="button"
                 onClick={handleCopyBill}
                 className={styles.simulateCutBtn}
-                title="Copy receipt text to clipboard"
+                title={t("Copy receipt text to clipboard", "Receipt text එක clipboard එකට copy කරන්න")}
               >
                 <Copy size={13} />
-                <span>{copied ? "Copied!" : "Copy"}</span>
+                <span>{copied ? t("Copied!", "Copy වුණා!") : t("Copy", "Copy")}</span>
               </button>
               <button
                 type="button"
                 onClick={handleSimulatePrint}
                 className={styles.simulateCutBtn}
-                title="Simulate thermal printer feeding and cutting"
+                title={t("Simulate thermal printer feeding and cutting", "Thermal printer එකේ feed සහ cut වෙන හැටි simulate කරන්න")}
               >
                 <Printer size={13} />
-                <span>Simulate Print</span>
+                <span>{t("Simulate Print", "Print Simulate කරන්න")}</span>
               </button>
             </div>
           </div>

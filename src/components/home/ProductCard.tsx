@@ -1,10 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Banknote, MessageCircle, Truck } from "lucide-react";
 import { formatLkr, type ShopProduct } from "@/lib/shop";
 import styles from "./ProductCard.module.css";
+import { useLang } from "@/lib/i18n";
 
 export function ProductCard({ product }: { product: ShopProduct }) {
+  const { t } = useLang();
   const stockClass = product.inStock ? styles.inStock : styles.onOrder;
   return (
     <article className={styles.card}>
@@ -12,7 +16,7 @@ export function ProductCard({ product }: { product: ShopProduct }) {
         <Image src={product.img} alt={product.name} className={styles.img} sizes="260px" />
         <span className={`${styles.stock} ${stockClass}`}>
           <span className={styles.dot} />
-          {product.inStock ? "In stock" : "Available on order"}
+          {product.inStock ? t("In stock", "Stock එකේ තියෙනවා") : t("Available on order", "Order කළාම ලබාගත හැක")}
         </span>
       </Link>
 
@@ -29,7 +33,7 @@ export function ProductCard({ product }: { product: ShopProduct }) {
           </span>
           <span className={styles.tag}>
             <Truck size={13} color="var(--red)" />
-            Island-wide
+            {t("Island-wide", "මුළු රටටම")}
           </span>
         </div>
         <div className={styles.price}>{formatLkr(product.price)}</div>
@@ -37,11 +41,11 @@ export function ProductCard({ product }: { product: ShopProduct }) {
 
       <div className={styles.actions}>
         <Link href={product.href} className={styles.details}>
-          View details
+          {t("View details", "විස්තර බලන්න")}
         </Link>
         <a href={product.waOrder} target="_blank" rel="noopener" className={styles.order}>
           <MessageCircle size={16} />
-          Order
+          {t("Order", "Order කරන්න")}
         </a>
       </div>
     </article>

@@ -4,8 +4,10 @@ import { useState, type FormEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { site } from "@/lib/site";
 import styles from "./TrialCta.module.css";
+import { useLang } from "@/lib/i18n";
 
 export function TrialForm() {
+  const { t } = useLang();
   const [submitted, setSubmitted] = useState(false);
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,16 +25,19 @@ export function TrialForm() {
     <form onSubmit={handleSubmit} className={styles.form}>
       {submitted ? (
         <p className={styles.thanks}>
-          Thanks — we&apos;ll send your trial login and the Windows installer to {email}.
+          {t(
+            `Thanks — we'll send your trial login and the Windows installer to ${email}.`,
+            `ස්තූතියි — ඔබේ trial login එකයි Windows installer එකයි ${email} වෙත එවනවා.`,
+          )}
         </p>
       ) : (
         <>
-          <span className={styles.formTitle}>Start your free trial</span>
+          <span className={styles.formTitle}>{t("Start your free trial", "ඔබේ free trial එක පටන් ගන්න")}</span>
           <input
             required
             name="business"
-            aria-label="Business name"
-            placeholder="Business name"
+            aria-label={t("Business name", "ව්‍යාපාරයේ නම")}
+            placeholder={t("Business name", "ව්‍යාපාරයේ නම")}
             value={businessName}
             onChange={(e) => setBusinessName(e.target.value)}
             className={styles.input}
@@ -51,13 +56,13 @@ export function TrialForm() {
             type="tel"
             name="phone"
             aria-label="Phone"
-            placeholder="Phone (optional)"
+            placeholder={t("Phone (optional)", "Phone (අවශ්‍ය නම් පමණක්)")}
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             className={styles.input}
           />
           <button type="submit" className={styles.submit}>
-            Start 7-Day Free Trial
+            {t("Start 7-Day Free Trial", "දින 7ක Free Trial එක පටන් ගන්න")}
             <ArrowRight size={18} />
           </button>
         </>

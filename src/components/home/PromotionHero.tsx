@@ -17,8 +17,10 @@ import {
 import salesGirlCounterImg from "@/assets/images/sales-girl-counter-pos-v3.jpg";
 import { waGeneral } from "@/lib/shop";
 import styles from "./PromotionHero.module.css";
+import { useLang } from "@/lib/i18n";
 
 export function PromotionHero() {
+  const { t } = useLang();
   const [billSimulated, setBillSimulated] = useState(false);
   const [simCounter, setSimCounter] = useState(3284);
 
@@ -52,21 +54,22 @@ export function PromotionHero() {
                   <span className={styles.pulseDotCore} />
                 </span>
                 <span className={styles.eyebrowText}>
-                  <strong>#1 POS System in Sri Lanka</strong> · 3,200+ Active Counters
+                  <strong>{t("#1 POS System in Sri Lanka", "ශ්‍රී ලංකාවේ #1 POS System එක")}</strong> · {t("3,200+ Active Counters", "Active Counters 3,200+")}
                 </span>
               </div>
 
               {/* Big Bold Headline featuring POS System in Sri Lanka */}
               <h1 className={styles.headline}>
-                A Complete POS System in Sri Lanka. <br />
-                <span className={styles.accentText}>Fast Billing.</span> Never Freeze.
+                {t("A Complete POS System in Sri Lanka.", "ශ්‍රී ලංකාවටම සම්පූර්ණ POS System එකක්.")} <br />
+                <span className={styles.accentText}>{t("Fast Billing.", "වේගවත් Billing.")}</span> {t("Never Freeze.", "කිසිදා Freeze වෙන්නෑ.")}
               </h1>
 
               {/* Lead Subtitle */}
               <p className={styles.subheadline}>
-                MariaPoS pairs robust 100% offline Windows software with heavy-duty touch screens, auto-cutter thermal
-                printers, barcode scanners, and cash drawers. Built for intense retail rush hours — dispatched Cash on
-                Delivery across all 25 districts.
+                {t(
+                  "MariaPoS pairs robust 100% offline Windows software with heavy-duty touch screens, auto-cutter thermal printers, barcode scanners, and cash drawers. Built for intense retail rush hours — dispatched Cash on Delivery across all 25 districts.",
+                  "MariaPoS එකේ 100% offline වැඩ කරන Windows software එක, heavy-duty touch screen, auto-cutter thermal printer, barcode scanner සහ cash drawer එක්ක එනවා. Rush hour එකේ පවා කඩේ දිගටම දුවන්න හදපු එකක් — දිස්ත්‍රික්ක 25ටම Cash on Delivery විදිහට එවනවා.",
+                )}
               </p>
 
               {/* Dual Action Buttons */}
@@ -76,15 +79,15 @@ export function PromotionHero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.primaryPillBtn}
-                  title="Order on WhatsApp"
+                  title={t("Order on WhatsApp", "WhatsApp එකෙන් Order කරන්න")}
                 >
                   <MessageCircle size={19} className={styles.waBtnIcon} />
-                  <span>Order on WhatsApp</span>
+                  <span>{t("Order on WhatsApp", "WhatsApp එකෙන් Order කරන්න")}</span>
                   <ArrowRight size={17} className={styles.arrowIcon} />
                 </a>
 
                 <Link href="/hardware" className={styles.secondaryPillBtn}>
-                  <span>Explore Hardware Packages</span>
+                  <span>{t("Explore Hardware Packages", "Hardware Packages බලන්න")}</span>
                   <ChevronRight size={16} />
                 </Link>
               </div>
@@ -97,8 +100,8 @@ export function PromotionHero() {
                     <Truck size={18} className={styles.trustIcon} />
                   </div>
                   <div className={styles.trustTexts}>
-                    <strong className={styles.trustTitle}>Island-Wide COD</strong>
-                    <span className={styles.trustSub}>All 25 districts in 24-48h</span>
+                    <strong className={styles.trustTitle}>{t("Island-Wide COD", "මුළු රටටම COD")}</strong>
+                    <span className={styles.trustSub}>{t("All 25 districts in 24-48h", "දිස්ත්‍රික්ක 25ටම පැය 24-48ක් ඇතුළත")}</span>
                   </div>
                 </div>
 
@@ -108,8 +111,8 @@ export function PromotionHero() {
                     <ShieldCheck size={18} className={styles.trustIcon} />
                   </div>
                   <div className={styles.trustTexts}>
-                    <strong className={styles.trustTitle}>1-Year Warranty</strong>
-                    <span className={styles.trustSub}>100% genuine replacement</span>
+                    <strong className={styles.trustTitle}>{t("1-Year Warranty", "අවුරුදු 1ක Warranty")}</strong>
+                    <span className={styles.trustSub}>{t("100% genuine replacement", "100% genuine replacement")}</span>
                   </div>
                 </div>
 
@@ -119,8 +122,8 @@ export function PromotionHero() {
                     <Zap size={18} className={styles.trustIcon} />
                   </div>
                   <div className={styles.trustTexts}>
-                    <strong className={styles.trustTitle}>100% Offline Ready</strong>
-                    <span className={styles.trustSub}>Zero internet lag at counter</span>
+                    <strong className={styles.trustTitle}>{t("100% Offline Ready", "100% Offline Ready")}</strong>
+                    <span className={styles.trustSub}>{t("Zero internet lag at counter", "Counter එකේ internet lag එකක් නෑ")}</span>
                   </div>
                 </div>
               </div>
@@ -143,15 +146,15 @@ export function PromotionHero() {
 
                 {/* Floating Circular Promo Badge (Up to 70% Paper Saved) */}
                 <div className={styles.circularPromoBadge}>
-                  <span className={styles.badgeTopSub}>Up to</span>
+                  <span className={styles.badgeTopSub}>{t("Up to", "වැඩිම")}</span>
                   <strong className={styles.badgeBigVal}>70%</strong>
-                  <span className={styles.badgeBotSub}>Paper Saved</span>
+                  <span className={styles.badgeBotSub}>{t("Paper Saved", "කඩදාසි ඉතිරියි")}</span>
                 </div>
 
                 {/* Floating Micro Live Radar Pill (Top-Right) */}
                 <div className={styles.liveTillPill}>
                   <span className={styles.liveRadarDot} />
-                  <span>Till #01 Active · 0.8s Bill Speed</span>
+                  <span>{t("Till #01 Active · 0.8s Bill Speed", "Till #01 Active · Bill වේගය 0.8s")}</span>
                 </div>
 
                 {/* Floating Interactive Bill Simulator Pill (Bottom-Left) */}
@@ -160,16 +163,16 @@ export function PromotionHero() {
                   onClick={handleSimulate}
                   disabled={billSimulated}
                   className={styles.interactiveTestPill}
-                  title="Test bill simulation"
+                  title={t("Test bill simulation", "Bill simulation එක test කරන්න")}
                 >
                   <Sparkles size={14} className={billSimulated ? styles.spinAnim : ""} />
-                  <span>{billSimulated ? `Bill #${simCounter} Tendered!` : "Tap to Test 0.8s Bill"}</span>
+                  <span>{billSimulated ? t(`Bill #${simCounter} Tendered!`, `Bill #${simCounter} ගෙවා අවසන්!`) : t("Tap to Test 0.8s Bill", "0.8s Bill එක Test කරන්න Tap කරන්න")}</span>
                 </button>
 
                 {/* Official Hardware Certification Pill (Bottom-Right) */}
                 <div className={styles.officialHostBadge}>
                   <Award size={14} color="#f59e0b" />
-                  <span>Complete 4-Piece Setup Ready</span>
+                  <span>{t("Complete 4-Piece Setup Ready", "සම්පූර්ණ 4-Piece Setup එක Ready")}</span>
                 </div>
               </div>
             </div>

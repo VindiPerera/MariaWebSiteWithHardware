@@ -5,20 +5,27 @@ import { useState } from "react";
 import { Cloud, MessageSquare, Send, type LucideIcon } from "lucide-react";
 import smsEbill from "@/assets/images/sms-ebill.jpeg";
 import styles from "./ConnectedSection.module.css";
+import { useLang } from "@/lib/i18n";
 
-const tabs: { title: string; icon: LucideIcon; body: string }[] = [
+const tabs: { title: string; icon: LucideIcon; body: string; si: string; bodySi: string }[] = [
   {
     title: "SMS bill receipts",
+    si: "SMS bill receipts",
+    bodySi: "Checkout එකේදීම receipt එක customer ගේ phone එකට යනවා, පසුව warranty හෝ return lookups වලට ready. Messages ඔබේ licence එකේ prepaid SMS wallet එකෙන් අඩු වෙනවා, හැම sale එකකටම කලින් cashier ට live balance එක පේනවා.",
     icon: MessageSquare,
     body: "The receipt goes to the customer's phone at checkout, ready for warranty or return lookups later. Messages draw from a prepaid SMS wallet on your license, and the cashier sees the live balance before every sale.",
   },
   {
     title: "Telegram order alerts",
+    si: "Telegram order alerts",
+    bodySi: "සම්පූර්ණ වෙන හැම sale එකකටම items සහිත \"New Order\" message එකක් අයිතිකරුගේ Telegram එකට යනවා. POS එක හෝ dashboard එකක් open නොකර phone එකෙන් හැම branch එකක්ම බලන්න.",
     icon: Send,
     body: 'Every completed sale sends a "New Order" message with the items to the owner\'s Telegram. Follow each branch from your phone without opening the POS or a dashboard.',
   },
   {
     title: "Two-way cloud sync",
+    si: "Two-way cloud sync",
+    bodySi: "Sales වලට internet එක බලාගෙන ඉන්න ඕන නෑ. Till එක නැවත connect වුණාම sales, stock, suppliers, customers, credit සහ expenses cloud panel එකට sync වෙනවා, ඒ නිසා ඔබේ data එක machine එකකට සීමා වෙන්නේ නෑ.",
     icon: Cloud,
     body: "Sales never wait on the internet. When the till reconnects, sales, stock, suppliers, customers, credit and expenses sync to your cloud panel, so your data isn't stuck on one machine.",
   },
@@ -118,6 +125,7 @@ function CloudDemo() {
 }
 
 export function ConnectedSection() {
+  const { t } = useLang();
   const [active, setActive] = useState(0);
 
   return (
@@ -127,15 +135,15 @@ export function ConnectedSection() {
 
       <div className={styles.inner}>
         <div data-reveal="up" className={styles.heading}>
-          <span className={styles.eyebrow}>Connected beyond the counter</span>
+          <span className={styles.eyebrow}>{t("Connected beyond the counter", "Counter එකෙන් එපිටටත් සම්බන්ධයි")}</span>
           <h2 className={styles.title}>
-            Your receipt, your owner&apos;s phone and your cloud panel, all updated at checkout.
+            {t("Your receipt, your owner's phone and your cloud panel, all updated at checkout.", "ඔබේ receipt එක, අයිතිකරුගේ phone එක සහ cloud panel එක, සියල්ලම checkout එකේදී update වෙනවා.")}
           </h2>
         </div>
 
         <div data-reveal="up" className={styles.layout}>
           <div role="tablist" className={styles.tabs}>
-            {tabs.map(({ title, icon: Icon, body }, i) => {
+            {tabs.map(({ title, icon: Icon, body, si, bodySi }, i) => {
               const selected = active === i;
               return (
                 <button
@@ -150,9 +158,9 @@ export function ConnectedSection() {
                     <span className={styles.tabIcon}>
                       <Icon size={17} color="#ffffff" />
                     </span>
-                    {title}
+                    {t(title, si)}
                   </span>
-                  {selected && <span className={styles.tabBody}>{body}</span>}
+                  {selected && <span className={styles.tabBody}>{t(body, bodySi)}</span>}
                 </button>
               );
             })}

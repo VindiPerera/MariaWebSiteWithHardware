@@ -12,15 +12,20 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
-import { featureCategories, featureCount } from "@/lib/featureCatalog";
+import { featureCategories as baseCategories, featureCount } from "@/lib/featureCatalog";
+import { localizeCategories } from "@/lib/featureCatalogSi";
 import { waGeneral } from "@/lib/shop";
 import posBilling from "@/assets/images/pos-billing.png";
 import reportsImg from "@/assets/images/reports.png";
 import styles from "./FeatureCatalog.module.css";
+import { useLang } from "@/lib/i18n";
 
 export function FeatureCatalog() {
+  const { lang } = useLang();
+  const featureCategories = useMemo(() => localizeCategories(baseCategories, lang), [lang]);
+  const { t } = useLang();
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategoryId, setActiveCategoryId] = useState<string>(featureCategories[0].id);
+  const [activeCategoryId, setActiveCategoryId] = useState<string>(baseCategories[0].id);
 
   // Filter features by search query
   const filteredCategories = useMemo(() => {
@@ -46,7 +51,7 @@ export function FeatureCatalog() {
         return null;
       })
       .filter(Boolean) as typeof featureCategories;
-  }, [searchQuery]);
+  }, [searchQuery, featureCategories]);
 
   const totalVisibleFeatures = filteredCategories.reduce((acc, cat) => acc + cat.features.length, 0);
 
@@ -54,7 +59,7 @@ export function FeatureCatalog() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      for (const cat of featureCategories) {
+      for (const cat of baseCategories) {
         const el = document.getElementById(cat.id);
         if (el) {
           const top = el.offsetTop - 140;
@@ -91,20 +96,22 @@ export function FeatureCatalog() {
             <div className={styles.heroCopy}>
               <div className={styles.eyebrow}>
                 <Sparkles size={14} />
-                <span>Enterprise POS Architecture</span>
+                <span>{t("Enterprise POS Architecture", "Enterprise POS Architecture")}</span>
               </div>
-              <h1 className={styles.heroTitle}>Everything a Sri Lankan counter needs.</h1>
+              <h1 className={styles.heroTitle}>{t("Everything a Sri Lankan counter needs.", "ශ්‍රී ලාංකික counter එකකට ඕන හැමදේම.")}</h1>
               <p className={styles.heroLead}>
-                Billing, FIFO stock, supplier cheques, cash till control and reports in one Windows app. Works offline
-                and syncs to the cloud.
+                {t(
+                  "Billing, FIFO stock, supplier cheques, cash till control and reports in one Windows app. Works offline and syncs to the cloud.",
+                  "Billing, FIFO stock, supplier cheques, cash till control සහ reports, සියල්ලම එක Windows app එකක. Offline වැඩ කරනවා, cloud එකට sync වෙනවා.",
+                )}
               </p>
               <div className={styles.heroActions}>
                 <Link href="/sign-up" className={styles.trialBtn}>
-                  Start 7-day free trial
+                  {t("Start 7-day free trial", "දින 7ක free trial එක පටන් ගන්න")}
                 </Link>
                 <a href={waGeneral} target="_blank" rel="noopener noreferrer" className={styles.waAskBtn}>
                   <MessageCircle size={18} />
-                  <span>Ask on WhatsApp</span>
+                  <span>{t("Ask on WhatsApp", "WhatsApp එකෙන් අහන්න")}</span>
                 </a>
               </div>
             </div>
@@ -135,7 +142,7 @@ export function FeatureCatalog() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search all 63+ features (e.g. barcode, FIFO, discount, Telegram, reprint)..."
+              placeholder={t("Search all 63+ features (e.g. barcode, FIFO, discount, Telegram, reprint)...", "Features 63+ ම search කරන්න (උදා: barcode, FIFO, discount, Telegram, reprint)...")}
               className={styles.searchInput}
             />
             {searchQuery && (
@@ -143,7 +150,7 @@ export function FeatureCatalog() {
                 type="button"
                 onClick={() => setSearchQuery("")}
                 className={styles.clearBtn}
-                aria-label="Clear search"
+                aria-label={t("Clear search", "Search එක clear කරන්න")}
               >
                 <X size={16} />
               </button>
@@ -153,8 +160,16 @@ export function FeatureCatalog() {
           <div className={styles.countBadge}>
             <Layers size={15} color="var(--red)" />
             <span>
-              Showing <strong>{totalVisibleFeatures}</strong> of {featureCount} features across{" "}
-              {filteredCategories.length} modules
+              {lang === "si" ? (
+                <>
+                  Modules {filteredCategories.length} ක features {featureCount} න් <strong>{totalVisibleFeatures}</strong> ක් පෙන්වනවා
+                </>
+              ) : (
+                <>
+                  Showing <strong>{totalVisibleFeatures}</strong> of {featureCount} features across{" "}
+                  {filteredCategories.length} modules
+                </>
+              )}
             </span>
           </div>
         </div>
@@ -182,7 +197,7 @@ export function FeatureCatalog() {
         <div className={styles.catalogLayout}>
           {/* Sticky Left Sidebar Navigation */}
           <aside className={styles.stickySidebar}>
-            <div className={styles.sidebarHeader}>13 Integrated Modules</div>
+            <div className={styles.sidebarHeader}>{t("13 Integrated Modules", "Integrated Modules 13ක්")}</div>
             {featureCategories.map((cat, idx) => {
               const isActive = activeCategoryId === cat.id;
               const Icon = cat.icon;
@@ -216,14 +231,14 @@ export function FeatureCatalog() {
                         <Icon size={22} />
                       </div>
                       <div>
-                        <span className={styles.moduleIndex}>Module {String(idx + 1).padStart(2, "0")}</span>
+                        <span className={styles.moduleIndex}>{t("Module", "Module")} {String(idx + 1).padStart(2, "0")}</span>
                         <h2 className={styles.moduleTitle}>{cat.title}</h2>
                       </div>
                     </div>
 
                     {isHardware && (
                       <Link href="/hardware" className={styles.hardwareShopLink}>
-                        <span>Shop Hardware Catalog</span>
+                        <span>{t("Shop Hardware Catalog", "Hardware Catalog එක බලන්න")}</span>
                         <ArrowRight size={14} />
                       </Link>
                     )}
@@ -240,7 +255,7 @@ export function FeatureCatalog() {
                         <div className={styles.featureWhy}>
                           <CheckCircle2 size={15} color="#15803d" style={{ flexShrink: 0, marginTop: 2 }} />
                           <span>
-                            <strong>Why it matters:</strong> {f.why}
+                            <strong>{t("Why it matters:", "ඇයි වැදගත්:")}</strong> {f.why}
                           </span>
                         </div>
                       </div>
@@ -264,18 +279,18 @@ export function FeatureCatalog() {
             {/* Bottom Call to Action Card */}
             <div className={styles.bottomCtaCard}>
               <div>
-                <div className={styles.bottomCtaTitle}>Try every single feature free for 7 days.</div>
+                <div className={styles.bottomCtaTitle}>{t("Try every single feature free for 7 days.", "හැම feature එකක්ම දින 7ක් free try කරන්න.")}</div>
                 <p style={{ margin: "6px 0 0", color: "#a1a1aa", fontSize: 15, fontFamily: "var(--font-figtree)" }}>
-                  Instant cloud activation. No credit card required. Works with your existing hardware.
+                  {t("Instant cloud activation. No credit card required. Works with your existing hardware.", "Cloud activation එක instant. Credit card එකක් ඕන නෑ. ඔබේ දැනට තියෙන hardware එක්ක වැඩ කරනවා.")}
                 </p>
               </div>
 
               <div className={styles.bottomCtaButtons}>
                 <Link href="/sign-up" className={styles.ctaLightBtn}>
-                  Start Free Trial
+                  {t("Start Free Trial", "Free Trial එක පටන් ගන්න")}
                 </Link>
                 <Link href="/pricing" className={styles.ctaRedBtn}>
-                  <span>See Plans &amp; Pricing</span>
+                  <span>{t("See Plans & Pricing", "Plans සහ Pricing බලන්න")}</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>

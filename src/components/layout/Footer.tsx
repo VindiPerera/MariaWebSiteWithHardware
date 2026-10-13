@@ -21,6 +21,7 @@ import { FacebookIcon } from "@/components/ui/FacebookIcon";
 import { waGeneral, waLink } from "@/lib/shop";
 import { locations } from "@/lib/locations";
 import { legalLinks, site } from "@/lib/site";
+import { useLang } from "@/lib/i18n";
 import logo from "@/assets/images/logo-cropped.jpg";
 import styles from "./Footer.module.css";
 
@@ -31,24 +32,25 @@ const districtPages = Array.from(new Set(locations.map((l) => l.district))).map(
 });
 
 const hardwareColumns = [
-  { label: "Touch POS Terminals", href: "/hardware?cat=touch-pos" },
-  { label: "Thermal Receipt Printers (80mm)", href: "/hardware?cat=printers" },
-  { label: "Barcode Scanners (1D/2D)", href: "/hardware?cat=scanners" },
-  { label: "Heavy Duty Cash Drawers", href: "/hardware?cat=cash-drawers" },
-  { label: "Thermal Paper & Label Rolls", href: "/hardware?cat=consumables" },
-  { label: "All Certified Hardware", href: "/hardware" },
+  { label: "Touch POS Terminals", si: "Touch POS Terminals", href: "/hardware?cat=touch-pos" },
+  { label: "Thermal Receipt Printers (80mm)", si: "Thermal Receipt Printers (80mm)", href: "/hardware?cat=printers" },
+  { label: "Barcode Scanners (1D/2D)", si: "Barcode Scanners (1D/2D)", href: "/hardware?cat=scanners" },
+  { label: "Heavy Duty Cash Drawers", si: "Heavy Duty Cash Drawers", href: "/hardware?cat=cash-drawers" },
+  { label: "Thermal Paper & Label Rolls", si: "Thermal Paper සහ Label Rolls", href: "/hardware?cat=consumables" },
+  { label: "All Certified Hardware", si: "සියලුම Certified Hardware", href: "/hardware" },
 ];
 
 const softwareColumns = [
-  { label: "POS Billing & Checkout", href: "/features#billing-checkout" },
-  { label: "FIFO Inventory & Stock", href: "/features#inventory-stock" },
-  { label: "Shift, Till & Cash Control", href: "/features#shifts-till" },
-  { label: "Reports & Financials", href: "/features#reports-analytics" },
-  { label: "Cloud Panel & Telegram Alerts", href: "/features#cloud-alerts" },
-  { label: "7-Day Free Software Trial", href: "/sign-up" },
+  { label: "POS Billing & Checkout", si: "POS Billing සහ Checkout", href: "/features#billing-checkout" },
+  { label: "FIFO Inventory & Stock", si: "FIFO Inventory සහ Stock", href: "/features#inventory-stock" },
+  { label: "Shift, Till & Cash Control", si: "Shift, Till සහ Cash Control", href: "/features#shifts-till" },
+  { label: "Reports & Financials", si: "Reports සහ Financials", href: "/features#reports-analytics" },
+  { label: "Cloud Panel & Telegram Alerts", si: "Cloud Panel සහ Telegram Alerts", href: "/features#cloud-alerts" },
+  { label: "7-Day Free Software Trial", si: "දින 7ක Free Software Trial", href: "/sign-up" },
 ];
 
 export function Footer() {
+  const { t } = useLang();
   return (
     <>
       <footer className={styles.footer}>
@@ -60,7 +62,7 @@ export function Footer() {
             <div className={styles.showcaseLeft}>
               <div className={styles.brandBadge}>
                 <Sparkles size={14} color="var(--red)" />
-                <span>JAAN Certified Hardware &amp; Software</span>
+                <span>{t("JAAN Certified Hardware & Software", "JAAN Certified Hardware සහ Software")}</span>
               </div>
 
               <div className={styles.brandRow}>
@@ -72,13 +74,16 @@ export function Footer() {
               </div>
 
               <h2 className={styles.showcaseHeading}>
-                The Complete Sri Lankan POS Platform.
+                {t("The Complete Sri Lankan POS Platform.", "සම්පූර්ණ ශ්‍රී ලාංකික POS Platform එක.")}
               </h2>
 
               <p className={styles.showcaseLead}>
-                Developed and supported by <strong>{site.company}</strong> in
-                Colombo. Built specifically for retail supermarkets, pharmacies,
-                hardware shops, and restaurants across all 25 districts.
+                {t("Developed and supported by ", "කොළඹදී ")}
+                <strong>{site.company}</strong>
+                {t(
+                  " in Colombo. Built specifically for retail supermarkets, pharmacies, hardware shops, and restaurants across all 25 districts.",
+                  " විසින් develop කර support කරයි. දිස්ත්‍රික්ක 25ටම ඇති supermarkets, pharmacies, hardware shops සහ restaurants සඳහාම විශේෂයෙන් සාදන ලදී.",
+                )}
               </p>
 
               {/* Trust Pillar Badges */}
@@ -87,31 +92,31 @@ export function Footer() {
                   <Banknote size={18} color="#1faa55" />
                   <div>
                     <strong>Cash on Delivery</strong>
-                    <span>Pay cash to the courier when goods arrive</span>
+                    <span>{t("Pay cash to the courier when goods arrive", "බඩු ලැබුණාම courier එකට cash ගෙවන්න")}</span>
                   </div>
                 </div>
 
                 <div className={styles.trustBadgeCard}>
                   <Truck size={18} color="#38bdf8" />
                   <div>
-                    <strong>All 25 Districts</strong>
-                    <span>Fast island-wide courier dispatch from Colombo</span>
+                    <strong>{t("All 25 Districts", "දිස්ත්‍රික්ක 25ම")}</strong>
+                    <span>{t("Fast island-wide courier dispatch from Colombo", "කොළඹ සිට මුළු ලංකාවටම ඉක්මන් courier delivery")}</span>
                   </div>
                 </div>
 
                 <div className={styles.trustBadgeCard}>
                   <ShieldCheck size={18} color="#f59e0b" />
                   <div>
-                    <strong>1-Year Warranty</strong>
-                    <span>Direct commercial hardware replacement</span>
+                    <strong>{t("1-Year Warranty", "අවුරුදු 1ක Warranty")}</strong>
+                    <span>{t("Direct commercial hardware replacement", "Hardware වෙනුවට කෙලින්ම replacement")}</span>
                   </div>
                 </div>
 
                 <div className={styles.trustBadgeCard}>
                   <Phone size={18} color="#ec4899" />
                   <div>
-                    <strong>Colombo Direct Support</strong>
-                    <span>WhatsApp and hotline support: 076 593 3255</span>
+                    <strong>{t("Colombo Direct Support", "කොළඹ Direct Support")}</strong>
+                    <span>{t("WhatsApp and hotline support: 076 593 3255", "WhatsApp සහ hotline support: 076 593 3255")}</span>
                   </div>
                 </div>
               </div>
@@ -119,8 +124,8 @@ export function Footer() {
               {/* Direct WhatsApp Callout Banner */}
               <div className={styles.directOrderCard}>
                 <div className={styles.directOrderText}>
-                  <strong>Ready to set up your counter?</strong>
-                  <span>Message our Colombo engineers on WhatsApp today.</span>
+                  <strong>{t("Ready to set up your counter?", "ඔබේ counter එක set up කරන්න ready ද?")}</strong>
+                  <span>{t("Message our Colombo engineers on WhatsApp today.", "අදම WhatsApp එකෙන් අපේ කොළඹ engineers ට message කරන්න.")}</span>
                 </div>
                 <a
                   href={waGeneral}
@@ -129,7 +134,7 @@ export function Footer() {
                   className={styles.directOrderBtn}
                 >
                   <MessageCircle size={17} />
-                  <span>Chat on WhatsApp</span>
+                  <span>{t("Chat on WhatsApp", "WhatsApp එකෙන් කතා කරන්න")}</span>
                 </a>
               </div>
             </div>
@@ -139,7 +144,7 @@ export function Footer() {
           <div className={styles.districtsBar}>
             <div className={styles.districtsTitleRow}>
               <Truck size={16} color="#38bdf8" />
-              <span>POS systems &amp; hardware with Cash on Delivery in all 25 Districts:</span>
+              <span>{t("POS systems & hardware with Cash on Delivery in all 25 Districts:", "දිස්ත්‍රික්ක 25ටම Cash on Delivery සහිත POS systems සහ hardware:")}</span>
             </div>
             <div className={styles.districtsList}>
               {districtPages.map(({ district, href }) => (
@@ -159,7 +164,7 @@ export function Footer() {
               <div className={styles.navColLinks}>
                 {hardwareColumns.map((col) => (
                   <Link key={col.label} href={col.href} className={styles.navLink}>
-                    {col.label}
+                    {t(col.label, col.si)}
                   </Link>
                 ))}
               </div>
@@ -171,7 +176,7 @@ export function Footer() {
               <div className={styles.navColLinks}>
                 {softwareColumns.map((col) => (
                   <Link key={col.label} href={col.href} className={styles.navLink}>
-                    {col.label}
+                    {t(col.label, col.si)}
                   </Link>
                 ))}
               </div>
@@ -182,35 +187,35 @@ export function Footer() {
               <span className={styles.navColHeading}>Industries</span>
               <div className={styles.navColLinks}>
                 <Link href="/industries#supermarkets" className={styles.navLink}>
-                  Supermarkets &amp; Grocery
+                  {t("Supermarkets & Grocery", "Supermarkets සහ Grocery")}
                 </Link>
                 <Link href="/industries#pharmacies" className={styles.navLink}>
-                  Pharmacies &amp; Health
+                  {t("Pharmacies & Health", "Pharmacies සහ Health")}
                 </Link>
                 <Link href="/industries#hardware-shops" className={styles.navLink}>
-                  Hardware &amp; Electrical
+                  {t("Hardware & Electrical", "Hardware සහ Electrical")}
                 </Link>
                 <Link href="/industries#clothing" className={styles.navLink}>
-                  Clothing &amp; Textile
+                  {t("Clothing & Textile", "Clothing සහ Textile")}
                 </Link>
                 <Link href="/industries#restaurants" className={styles.navLink}>
-                  Restaurants &amp; Bakeries
+                  {t("Restaurants & Bakeries", "Restaurants සහ Bakeries")}
                 </Link>
                 <Link href="/industries" className={styles.navLink}>
-                  View All Industries →
+                  {t("View All Industries →", "සියලුම Industries බලන්න →")}
                 </Link>
                 <Link href="/pos-system/sri-lanka" className={styles.navLink}>
-                  POS System Sri Lanka
+                  {t("POS System Sri Lanka", "ශ්‍රී ලංකාවේ POS System")}
                 </Link>
                 <Link href="/pos-system" className={styles.navLink}>
-                  POS System Worldwide
+                  {t("POS System Worldwide", "ලොව පුරා POS System")}
                 </Link>
               </div>
             </div>
 
             {/* Column 4: Contact & Office */}
             <div className={styles.navCol}>
-              <span className={styles.navColHeading}>Colombo Office</span>
+              <span className={styles.navColHeading}>{t("Colombo Office", "කොළඹ කාර්යාලය")}</span>
               <div className={styles.contactItems}>
                 <a
                   href={waGeneral}
@@ -248,7 +253,7 @@ export function Footer() {
                   className={styles.contactRow}
                 >
                   <FacebookIcon size={15} color="#94a3b8" />
-                  <span>Official Facebook Page</span>
+                  <span>{t("Official Facebook Page", "නිල Facebook Page එක")}</span>
                 </a>
               </div>
             </div>
@@ -257,7 +262,7 @@ export function Footer() {
           {/* Bottom Legal & Copyright Bar */}
           <div className={styles.bottomBar}>
             <div className={styles.copyright}>
-              © 2026 {site.company}. All rights reserved. Registered in Colombo, Sri Lanka.
+              © 2026 {site.company}. {t("All rights reserved. Registered in Colombo, Sri Lanka.", "සියලුම හිමිකම් ඇවිරිණි. කොළඹ, ශ්‍රී ලංකාවේ ලියාපදිංචි.")}
             </div>
 
             <div className={styles.legalLinks}>
@@ -269,7 +274,7 @@ export function Footer() {
             </div>
 
             <div className={styles.madeWithTag}>
-              <span>Made to Bill · Engineered for Sri Lanka</span>
+              <span>{t("Made to Bill · Engineered for Sri Lanka", "Made to Bill · ශ්‍රී ලංකාව වෙනුවෙන් engineer කළ")}</span>
             </div>
           </div>
         </div>
