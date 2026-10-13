@@ -122,8 +122,8 @@ const tradeScenarios: Record<
 
 /** Sinhala + English text for the scenario copy, keyed by slug ("default" for the fallback). */
 const scenarioSi: Record<string, { modeTitle: string; description: string; hotkeyDesc: string; receiptSummary: string }> = {
-  pharmacy: { modeTitle: "Pharmacy Batch සහ Expiry Mode", description: "Bill කරන හැම item එකක්ම distributor traceability සමඟ කල් ඉකුත් නොවූ පරණම batch එක automatically භාවිතා කරනවා.", hotkeyDesc: "Strip එකේ සහ box එකේ මිල එකවරම බලන්න", receiptSummary: "Distributor traceability සමඟ Invoice #004921 යැව්වා" },
-  "supermarket-grocery": { modeTitle: "Supermarket Rapid Checkout Mode", description: "Decimal weights, loose produce pricing සහ peak rush hours වල barcode queue එක ඉක්මනින් ඉවර කිරීම.", hotkeyDesc: "Customer ගේ mobile එකට digital receipt එක යවන්න", receiptSummary: "eBill SMS එක customer ගේ mobile එකට යැව්වා" },
+  pharmacy: { modeTitle: "Pharmacy Batch සහ Expiry Mode", description: "Bill කරන හැම item එකක්ම distributor traceability සමඟ කල් ඉකුත් නොවූ පරණම batch එක automatically භාවිතා කරනවා.", hotkeyDesc: "Strip එකේ සහ box එකේ මිල එකවරම බලන්න", receiptSummary: "Distributor traceability සමඟ Invoice #004921 යැවුවා" },
+  "supermarket-grocery": { modeTitle: "Supermarket Rapid Checkout Mode", description: "Decimal weights, loose produce pricing සහ peak rush hours වල barcode queue එක ඉක්මනින් ඉවර කිරීම.", hotkeyDesc: "Customer ගේ mobile එකට digital receipt එක යවන්න", receiptSummary: "eBill SMS එක customer ගේ mobile එකට යැවුවා" },
   "hardware-store": { modeTitle: "Hardware සහ Contractor Trade Mode", description: "මීටර, box හෝ kg අනුව විකුණන්න, retail සහ trade contractor මිල අතර එක key එකකින් මාරු වෙන්න.", hotkeyDesc: "මුළු cart එකම contractor discount එකට මාරු කරයි", receiptSummary: "Trade Credit: Metro Contractors ට $250.00ක් add කළා" },
   "clothing-textile": { modeTitle: "Fashion සහ Retail Seasonal Rush Mode", description: "Promo coupon validation, invoice-based garment exchanges සහ customer loyalty reward points.", hotkeyDesc: "Verify කළ discount එක bill එකට යොදයි", receiptSummary: "SMS receipt සමඟ දින 14ක exchange එකට Invoice එක stamp කළා" },
   "bakery-cafe": { modeTitle: "Quick-Service Counter Rush Mode", description: "High-speed on-screen keypad, blind shift changeover සහ instant cash drawer triggers.", hotkeyDesc: "Cash drawer එක open වෙනවා, change ගණනය වෙනවා", receiptSummary: "Shift #42 ගණන් කළ cash එක expected till float එකට ගැලපෙනවා" },
@@ -190,7 +190,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
             </div>
             <div className={styles.statusOffline}>
               <ShieldCheck size={13} color="#1faa55" />
-              <span>{t("Offline Database · Zero Lag", "Offline Database · Lag නෑ")}</span>
+              <span>{t("Offline Database · Zero Lag", "Offline Database · Lag නැහැ")}</span>
             </div>
           </div>
 

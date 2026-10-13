@@ -171,8 +171,8 @@ const softwareOptions: SoftwareOption[] = [
 /** Sinhala + English text for configurator option names and notes (product model names stay English). */
 const optionSi: Record<string, string> = {
   "I have my own Windows PC / Laptop": "මට මගේම Windows PC / Laptop එකක් තියෙනවා",
-  "No printer needed": "Printer එකක් ඕන නෑ",
-  "No barcode scanner": "Barcode scanner එකක් ඕන නෑ",
+  "No printer needed": "Printer එකක් අවශ්‍ය නැහැ",
+  "No barcode scanner": "Barcode scanner එකක් අවශ්‍ය නැහැ",
   "7-Day Free Trial": "දින 7ක Free Trial",
   "1-Year Full License": "අවුරුදු 1ක Full License",
   "2-Year Full License": "අවුරුදු 2ක Full License",
@@ -186,7 +186,7 @@ const optionSi: Record<string, string> = {
   "200mm/s auto-cutter receipt printer": "200mm/s auto-cutter receipt printer",
   "Wireless receipt printing over WiFi": "WiFi හරහා wireless receipt printing",
   "2-in-1 adhesive stickers and bill receipts": "Adhesive stickers සහ bill receipts, දෙකම එකම printer එකෙන්",
-  "In Stock · Battery powered for van sales": "Stock එකේ ඇත · Van sales සඳහා battery එකෙන් දුවනවා",
+  "In Stock · Battery powered for van sales": "Stock එකේ ඇත · Van sales සඳහා battery එකෙන් ක්‍රියාත්මක වෙනවා",
   "Use SMS e-bills directly to customers": "Customers ලාට කෙලින්ම SMS e-bills යවන්න",
   "In Stock · High sensitivity USB laser scanner": "Stock එකේ ඇත · High sensitivity USB laser scanner",
   "Scans phone screens and damaged barcodes": "Phone screens සහ හානි වුණු barcodes පවා scan කරනවා",
@@ -436,7 +436,7 @@ export function HardwareConfigurator() {
                   <div className={styles.checkboxBox}>{addBillCounter && <Check size={14} color="#ffffff" />}</div>
                   <div className={styles.checkContent}>
                     <strong>P80 Heavy Duty Bill Counter (CAS2449)</strong>
-                    <span>{t("Banking-grade UV/MG counterfeit detection (In Stock)", "Banking-grade UV/MG counterfeit (ව්‍යාජ) detection (Stock එකේ ඇත)")}</span>
+                    <span>{t("Banking-grade UV/MG counterfeit detection (In Stock)", "Banking-grade UV/MG ව්‍යාජ නෝට්ටු හඳුනාගැනීම (Stock එකේ ඇත)")}</span>
                   </div>
                   <span className={styles.checkPrice}>+ Rs. 71,000.00</span>
                 </label>

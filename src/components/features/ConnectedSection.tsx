@@ -11,7 +11,7 @@ const tabs: { title: string; icon: LucideIcon; body: string; si: string; bodySi:
   {
     title: "SMS bill receipts",
     si: "SMS bill receipts",
-    bodySi: "Checkout එකේදීම receipt එක customer ගේ phone එකට යනවා, පසුව warranty හෝ return lookups වලට ready. Messages ඔබේ licence එකේ prepaid SMS wallet එකෙන් අඩු වෙනවා, හැම sale එකකටම කලින් cashier ට live balance එක පේනවා.",
+    bodySi: "Checkout එකේදීම receipt එක customer ගේ phone එකට යනවා, පසුව warranty හෝ return සඳහා බැලීමට සූදානම්. Messages ඔබේ licence එකේ prepaid SMS wallet එකෙන් අඩු වෙනවා, හැම sale එකකටම කලින් cashier ට live balance එක පේනවා.",
     icon: MessageSquare,
     body: "The receipt goes to the customer's phone at checkout, ready for warranty or return lookups later. Messages draw from a prepaid SMS wallet on your license, and the cashier sees the live balance before every sale.",
   },
@@ -25,7 +25,7 @@ const tabs: { title: string; icon: LucideIcon; body: string; si: string; bodySi:
   {
     title: "Two-way cloud sync",
     si: "Two-way cloud sync",
-    bodySi: "Sales වලට internet එක බලාගෙන ඉන්න ඕන නෑ. Till එක නැවත connect වුණාම sales, stock, suppliers, customers, credit සහ expenses cloud panel එකට sync වෙනවා, ඒ නිසා ඔබේ data එක machine එකකට සීමා වෙන්නේ නෑ.",
+    bodySi: "Sales වලට internet එක බලාගෙන ඉන්න අවශ්‍ය නැහැ. Till එක නැවත connect වුණාම sales, stock, suppliers, customers, credit සහ expenses cloud panel එකට sync වෙනවා, ඒ නිසා ඔබේ data එක machine එකකට සීමා වෙන්නේ නැහැ.",
     icon: Cloud,
     body: "Sales never wait on the internet. When the till reconnects, sales, stock, suppliers, customers, credit and expenses sync to your cloud panel, so your data isn't stuck on one machine.",
   },
@@ -135,7 +135,7 @@ export function ConnectedSection() {
 
       <div className={styles.inner}>
         <div data-reveal="up" className={styles.heading}>
-          <span className={styles.eyebrow}>{t("Connected beyond the counter", "Counter එකෙන් එපිටටත් සම්බන්ධයි")}</span>
+          <span className={styles.eyebrow}>{t("Connected beyond the counter", "Counter එකෙන් ඔබ්බටත් සම්බන්ධයි")}</span>
           <h2 className={styles.title}>
             {t("Your receipt, your owner's phone and your cloud panel, all updated at checkout.", "ඔබේ receipt එක, අයිතිකරුගේ phone එක සහ cloud panel එක, සියල්ලම checkout එකේදී update වෙනවා.")}
           </h2>

@@ -29,7 +29,7 @@ const bundleSi: Record<string, { name: string; badge: string; tagline: string; s
   },
   "bundle-mobile": {
     name: "Van Sales & Mobile Delivery POS Pack",
-    badge: "පාරේ යන්න Ready",
+    badge: "ගමනට සූදානම්",
     tagline: "Delivery trucks සහ field reps ලාට portable Bluetooth billing pack එකක්",
     softwareLicense: "අවුරුදු 1ක MariaPoS Full License ($147 ඇතුළත්)",
     highlight: "Rs. 7,400ක් ඉතිරියි + ඕනෑම laptop/tablet හෝ mobile device එකකට connect වෙනවා",

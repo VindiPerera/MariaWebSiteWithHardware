@@ -39,7 +39,7 @@ const billHighlights = [
     title: "Cash Tender & Balance Calculation",
     desc: "Explicit record of paid cash and change returned so cashiers never make counting errors during peak rush.",
     si: "Cash Tender සහ Balance Calculation",
-    descSi: "ගෙවපු cash එකයි ආපසු දුන්න balance එකයි පැහැදිලිව record වෙනවා, rush hour එකේදී cashier ට ගණන් වැරදෙන්නේ නෑ.",
+    descSi: "ගෙවූ cash එකත්, ආපසු දුන් balance එකත් පැහැදිලිව record වෙනවා, rush hour එකේදී cashier ට ගණන් වැරදෙන්නේ නැහැ.",
     icon: Wallet,
   },
   {
@@ -47,7 +47,7 @@ const billHighlights = [
     title: "Audit Barcode for 2-Sec Returns",
     desc: "Scan the invoice barcode on customer returns to immediately pull the original sale and restock into the exact cost batch.",
     si: "තත්පර 2කින් Returns සඳහා Audit Barcode",
-    descSi: "Return එකකදී invoice barcode එක scan කළ ගමන් original sale එක ගන්න පුළුවන්, නිවැරදි cost batch එකටම ආපසු restock වෙනවා.",
+    descSi: "Return එකකදී invoice barcode එක scan කළ ගමන් original sale එක ලැබෙනවා, නිවැරදි cost batch එකටම ආපසු restock වෙනවා.",
     icon: Barcode,
   },
 ];
