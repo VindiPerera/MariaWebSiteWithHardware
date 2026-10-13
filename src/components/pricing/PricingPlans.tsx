@@ -35,7 +35,7 @@ const includedSoftware = [
 
 /** Sinhala + English text for the software plan cards, keyed by plan id. */
 const planSi: Record<string, { name: string; per: string; note: string; badge?: string; cta: string }> = {
-  trial: { name: "දින 7ක Free Trial", per: "Rs. 0 · Card එකක් ඕන නෑ", note: "Instant activation. ඔබේ සියලුම counters සඳහා full feature suite එක.", badge: "අවදානම් රහිත Trial", cta: "දින 7ක Free Trial එක පටන් ගන්න" },
+  trial: { name: "දින 7ක Free Trial", per: "Rs. 0 · Card එකක් අවශ්‍ය නැහැ", note: "Instant activation. ඔබේ සියලුම counters සඳහා full feature suite එක.", badge: "අවදානම් රහිත Trial", cta: "දින 7ක Free Trial එක පටන් ගන්න" },
   "1y": { name: "අවුරුදු 1ක License", per: "Rs. 44,000 / අවුරුද්දකට ($147.00)", note: "එක් ගෙවීමක්. මාස 12ක් full features.", cta: "අවුරුදු 1ක License එක තෝරන්න" },
   "2y": { name: "අවුරුදු 2ක License", per: "Rs. 35,250 / අවුරුද්දකට ($117.60/yr)", note: "අවුරුදු පතා renew කරනවාට වඩා 20%ක් ඉතිරියි.", badge: "20%ක් ඉතිරි", cta: "අවුරුදු 2ක License එක තෝරන්න" },
   "3y": { name: "අවුරුදු 3ක License", per: "Rs. 28,667 / අවුරුද්දකට ($95.55/yr)", note: "Best value. මාසයකට Rs. 2,388ක් ($7.96) විතරයි. අපේ වැඩිපුරම විකිණෙන plan එක.", badge: "Best Seller · නිර්දේශිතයි", cta: "අවුරුදු 3ක License එක තෝරන්න" },
@@ -208,7 +208,7 @@ export function PricingPlans() {
                 <p className={styles.subHeaderDesc}>
                   {t(
                     "Everything you need to start cashier billing on day one. Includes touch terminal, receipt printer, barcode scanner, heavy-duty cash drawer, thermal paper rolls + official MariaPoS full license.",
-                    "පළමු දවසේම cashier billing පටන් ගන්න ඕන හැමදේම. Touch terminal, receipt printer, barcode scanner, heavy-duty cash drawer, thermal paper rolls + නිල MariaPoS full license ඇතුළත්.",
+                    "පළමු දවසේම cashier billing පටන් ගන්න අවශ්‍ය හැමදේම. Touch terminal, receipt printer, barcode scanner, heavy-duty cash drawer, thermal paper rolls + නිල MariaPoS full license ඇතුළත්.",
                   )}
                 </p>
               </div>
@@ -238,7 +238,7 @@ export function PricingPlans() {
             <div className={styles.bundleTrustRibbon}>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
-                <span>{t("Zero Card / Hidden Fees", "Card / හැංගුණු ගාස්තු කිසිවක් නෑ")}</span>
+                <span>{t("Zero Card / Hidden Fees", "Card / සැඟවුණු ගාස්තු කිසිවක් නැහැ")}</span>
               </div>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
@@ -413,7 +413,7 @@ export function PricingPlans() {
           <div className={styles.ownerImgCol}>
             <Image
               src={ownerMobileAlerts}
-              alt={t("Store owner receiving Telegram sales notification anywhere", "ඕනෑම තැනක ඉඳන් Telegram sales notification එකක් ලබන වෙළඳසැල් අයිතිකරුවෙක්")}
+              alt={t("Store owner receiving Telegram sales notification anywhere", "ඕනෑම තැනක සිට Telegram sales notification එකක් ලබන වෙළඳසැල් අයිතිකරුවෙක්")}
               fill
               sizes="(max-width: 768px) 100vw, 420px"
               className={styles.ownerImg}
@@ -429,7 +429,7 @@ export function PricingPlans() {
             <p className={styles.ownerDesc}>
               {t(
                 "No monthly cloud fees or server maintenance charges. Every trial and multi-year license includes automated cloud backup, multi-device web reports, and instant Telegram sales alerts pushed directly to your phone.",
-                "මාසික cloud ගාස්තු හෝ server maintenance ගාස්තු නෑ. හැම trial එකකටම සහ multi-year license එකකටම automated cloud backup, multi-device web reports සහ ඔබේ phone එකට කෙලින්ම එන instant Telegram sales alerts ඇතුළත්.",
+                "මාසික cloud ගාස්තු හෝ server maintenance ගාස්තු නැහැ. හැම trial එකකටම සහ multi-year license එකකටම automated cloud backup, multi-device web reports සහ ඔබේ phone එකට කෙලින්ම එන instant Telegram sales alerts ඇතුළත්.",
               )}
             </p>
             <div className={styles.ownerPerks}>
@@ -443,7 +443,7 @@ export function PricingPlans() {
               </div>
               <div className={styles.ownerPerk}>
                 <CheckCircle2 size={15} color="#16a34a" />
-                <span>{t("Zero surprise cloud surcharges", "හදිසි cloud අමතර ගාස්තු කිසිවක් නෑ")}</span>
+                <span>{t("Zero surprise cloud surcharges", "අනපේක්ෂිත cloud අමතර ගාස්තු කිසිවක් නැහැ")}</span>
               </div>
             </div>
           </div>

@@ -24,14 +24,14 @@ const hardwareFeatures = [
     title: "15.6\" Capacitive Touch Monitor",
     si: "15.6\" Capacitive Touch Monitor",
     desc: "Vibrant anti-glare display running MariaPOS with rapid item selection, full-screen keypad, and zero touch lag.",
-    descSi: "MariaPOS දුවන anti-glare display එක. Item ඉක්මනින් select කරන්න, full-screen keypad එකක් තියෙනවා, touch lag එකක් නෑ.",
+    descSi: "MariaPOS ක්‍රියාත්මක වන anti-glare display එක. Item ඉක්මනින් select කරන්න, full-screen keypad එකක් තියෙනවා, touch lag එකක් නැහැ.",
   },
   {
     icon: Printer,
     title: "80mm High-Speed Thermal Printer",
     si: "80mm High-Speed Thermal Printer",
     desc: "Xprinter heavy-duty auto-cutter mechanism. Prints bilingual receipts with shop logo in under 0.8 seconds.",
-    descSi: "Xprinter heavy-duty auto-cutter එක. වෙළඳසැලේ logo එකත් එක්ක bilingual receipt එක තත්පර 0.8කට වඩා අඩු කාලයකින් print වෙනවා.",
+    descSi: "Xprinter heavy-duty auto-cutter එක. වෙළඳසැලේ logo එකත් එක්ක bilingual receipt එක තත්පර 0.8කටත් අඩු කාලයකින් print වෙනවා.",
   },
   {
     icon: Smartphone,
@@ -60,7 +60,7 @@ export function HardwareShowcase() {
         <div className={styles.headingBlock}>
           <div className={styles.eyebrow}>{t("Complete POS Hardware Ecosystem", "සම්පූර්ණ POS Hardware Ecosystem එක")}</div>
           <h2 id="hardware-showcase-title" className={styles.title}>
-            {t("Engineered for 12-Hour Non-Stop Shifts.", "පැය 12ක් නොනවත්වා වැඩ කරන්න engineer කළ.")}
+            {t("Engineered for 12-Hour Non-Stop Shifts.", "පැය 12ක් නොනවත්වා වැඩ කිරීමට නිර්මාණය කළ.")}
           </h2>
           <p className={styles.subtitle}>
             {t(
@@ -136,7 +136,7 @@ export function HardwareShowcase() {
               <div className={styles.liveStationBadge}>
                 <div className={styles.stationBadgeHeader}>
                   <Zap size={14} color="#dc2626" />
-                  <strong>{t("Zero Setup Hassle", "Setup කරන්න කරදරයක් නෑ")}</strong>
+                  <strong>{t("Zero Setup Hassle", "Setup කරන්න කරදරයක් නැහැ")}</strong>
                 </div>
                 <p>{t("Pre-installed drivers & database. Plug into power and begin scanning.", "Drivers සහ database කලින්ම install කරලා. Power එකට plug කරලා scan කරන්න පටන් ගන්න.")}</p>
               </div>

@@ -385,7 +385,7 @@ export function ContactSection() {
                     <p>
                       {t(
                         "Touch screens, 80mm high-speed thermal printers, and 2D barcode scanners set up for hands-on trial.",
-                        "Touch screens, 80mm high-speed thermal printers සහ 2D barcode scanners, අතින් අල්ලලා try කරන්න set up කරලා.",
+                        "Touch screens, 80mm high-speed thermal printers සහ 2D barcode scanners, ඔබටම අත්හදා බලන්න පුළුවන් විදිහට set up කර ඇත.",
                       )}
                     </p>
                   </div>

@@ -7,7 +7,7 @@ export const categoryLabelSi: Record<HardwareCategory, string> = {
   printers: "Receipt සහ Label Printers",
   scanners: "Barcode Scanners",
   "cash-drawers": "Cash Drawers",
-  "bill-counters": "Bill Counters (සල්ලි ගණන් කරන යන්ත්‍ර)",
+  "bill-counters": "Bill Counters (මුදල් ගණන් කරන යන්ත්‍ර)",
   consumables: "Paper සහ Sticker Rolls",
   bundles: "සම්පූර්ණ POS Bundles",
 };
@@ -56,7 +56,7 @@ export const categoryIntrosSi: Record<HardwareCategory, { title: string; paragra
   "bill-counters": {
     title: "Bill Counters",
     paragraphs: [
-      "JAAN Network (PVT) Ltd ගේ Bill Counters මගින් cash handle කිරීමේ අනුමාන සහ අවදානම අඩු වෙනවා. විනාඩියකට නෝට්ටු සිය ගණනක් ගණන් කරමින්, UV, magnetic සහ infrared detection වලින් counterfeit (ව්‍යාජ) නෝට්ටු පරීක්ෂා කරනවා.",
+      "JAAN Network (PVT) Ltd ගේ Bill Counters මගින් cash handle කිරීමේ අනුමාන කිරීම් සහ අවදානම අඩු වෙනවා. විනාඩියකට නෝට්ටු සිය ගණනක් ගණන් කරමින්, UV, magnetic සහ infrared detection වලින් counterfeit (ව්‍යාජ) නෝට්ටු පරීක්ෂා කරනවා.",
       "දෛනික භාවිතයේ කුඩා counters සිට, high-capacity hoppers සහිත banking-grade machines දක්වා, supermarkets, wholesale desks සහ finance offices වලට ගැලපෙන නිරවද්‍යතාවයකුත් වේගයකුත් අපි සපයනවා.",
       "පැහැදිලි digital displays සහ automatic error alerts නිසා, discrepancies counter එකෙන් එළියට යන්න කලින්ම අල්ලගන්න පුළුවන්.",
     ],
@@ -66,14 +66,14 @@ export const categoryIntrosSi: Record<HardwareCategory, { title: string; paragra
     paragraphs: [
       "JAAN Network (PVT) Ltd ගේ thermal paper සහ barcode sticker rolls නිෂ්පාදනය කරන්නේ ස්ථාවර, high-density standard එකකට. ඒ නිසා හැම receipt එකක්ම සහ price tag එකක්ම තද, පැහැදිලි, scan කරන්න ready විදිහට print වෙනවා.",
       "ශ්‍රී ලාංකික retail printers පාවිච්චි කරන සම්මත ප්‍රමාණවලින් BPA-free receipt rolls සහ ශක්තිමත් self-adhesive label stock අපි තියාගන්නවා, ඒ නිසා reorder කිරීම ඉක්මන්, කරදර නැති වැඩක්.",
-      "මුළු රටටම ඉක්මනින් යවන්න stock එකේ තියෙන මේ consumables, හැම counter එකක්ම බාධාවක් නැතුව දිගටම දුවවන දෛනික අත්‍යවශ්‍ය දේවල්.",
+      "මුළු රටටම ඉක්මනින් යැවීමට stock එකේ තියෙන මේ consumables, හැම counter එකක්ම බාධාවකින් තොරව ක්‍රියාත්මක කරවන දෛනික අත්‍යවශ්‍ය දේවල්.",
     ],
   },
   bundles: {
     title: "සම්පූර්ණ POS Bundles",
     paragraphs: [
       "JAAN Network (PVT) Ltd ගේ සම්පූර්ණ POS Bundles වල, ගැලපෙන hardware එක්ක MariaPoS software licence එකක් එකතු වෙලා තියෙනවා. ඒ නිසා ඔබේ counter එක පළමු දවසේම bill කරන්න ready.",
-      "හැම bundle එකක්ම හදලා තියෙන්නේ එකට හොඳට වැඩ කරනවා කියලා අපි දැනටමත් දන්න devices වලින්. ඒ නිසා terminal එකක්, printer එකක්, scanner එකක් සහ cash drawer එකක් වෙන වෙනම ගැලපෙනවාදැයි අනුමාන කරන්න ඕන නෑ.",
+      "හැම bundle එකක්ම හදලා තියෙන්නේ එකට හොඳට වැඩ කරනවා කියලා අපි දැනටමත් දන්න devices වලින්. ඒ නිසා terminal එකක්, printer එකක්, scanner එකක් සහ cash drawer එකක් වෙන වෙනම ගැලපෙනවාදැයි අනුමාන කරන්න අවශ්‍ය නැහැ.",
     ],
   },
 };

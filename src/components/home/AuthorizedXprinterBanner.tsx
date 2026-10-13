@@ -87,7 +87,7 @@ export function AuthorizedXprinterBanner() {
               <p className={styles.guaranteeText}>
                 {t(
                   "Avoid counterfeit or gray-market units without warranty. Every printer shipped by MariaPoS includes official factory firmware, high-durability printheads (150km+ rating), and local technical support.",
-                  "Warranty නැති counterfeit හෝ gray-market units වලින් ඈත් වෙන්න. MariaPoS එවන හැම printer එකකටම official factory firmware, high-durability printheads (150km+ rating) සහ local technical support ඇතුළත්.",
+                  "Warranty නැති counterfeit හෝ gray-market units වලින් ඉවත්ව සිටින්න. MariaPoS එවන හැම printer එකකටම official factory firmware, high-durability printheads (150km+ rating) සහ local technical support ඇතුළත්.",
                 )}
               </p>
 
@@ -103,7 +103,7 @@ export function AuthorizedXprinterBanner() {
                   className={styles.btnWhatsapp}
                 >
                   <WhatsAppIcon size={16} />
-                  <span>{t("Verify / Inquire on WhatsApp", "WhatsApp එකෙන් Verify / විමසන්න")}</span>
+                  <span>{t("Verify / Inquire on WhatsApp", "WhatsApp එකෙන් තහවුරු කරගන්න / විමසන්න")}</span>
                 </a>
               </div>
             </div>
