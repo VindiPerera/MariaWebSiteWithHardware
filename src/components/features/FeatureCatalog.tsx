@@ -21,9 +21,8 @@ import styles from "./FeatureCatalog.module.css";
 import { useLang } from "@/lib/i18n";
 
 export function FeatureCatalog() {
-  const { lang } = useLang();
-  const featureCategories = useMemo(() => localizeCategories(baseCategories, lang), [lang]);
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const featureCategories = useMemo(() => localizeCategories(baseCategories, t), [t]);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategoryId, setActiveCategoryId] = useState<string>(baseCategories[0].id);
 
@@ -160,7 +159,11 @@ export function FeatureCatalog() {
           <div className={styles.countBadge}>
             <Layers size={15} color="var(--red)" />
             <span>
-              {lang === "si" ? (
+              {lang === "ta" ? (
+                <>
+                  {filteredCategories.length} modules-இல் உள்ள {featureCount} features-ல் <strong>{totalVisibleFeatures}</strong> காட்டப்படுகின்றன
+                </>
+              ) : lang === "si" ? (
                 <>
                   Modules {filteredCategories.length} ක features {featureCount} න් <strong>{totalVisibleFeatures}</strong> ක් පෙන්වනවා
                 </>

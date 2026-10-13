@@ -47,8 +47,8 @@
   --wa-dark: #178f47;
 
   /* Fonts */
-  --font-display: var(--font-poppins), "Poppins", var(--font-sinhala), "Noto Sans Sinhala", system-ui, sans-serif;
-  --font-body: var(--font-figtree), "Figtree", var(--font-sinhala), "Noto Sans Sinhala", system-ui, sans-serif;
+  --font-display: var(--font-poppins), "Poppins", var(--font-sinhala), "Noto Sans Sinhala", var(--font-tamil), "Noto Sans Tamil", system-ui, sans-serif;
+  --font-body: var(--font-figtree), "Figtree", var(--font-sinhala), "Noto Sans Sinhala", var(--font-tamil), "Noto Sans Tamil", system-ui, sans-serif;
   --font-code: var(--font-jetbrains), "JetBrains Mono", monospace;
 
   /* Layout */
@@ -274,4 +274,11 @@ html.motion [data-reveal][data-shown] {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px -6px rgba(37, 211, 102, 0.65);
   color: #ffffff;
+}
+
+/* Tamil glyphs run wider than Latin, so tighten the desktop nav to keep the header on one row. */
+html[lang="ta"] nav[aria-label="Primary navigation"] a {
+  padding: 8px 8px;
+  font-size: 14px;
+  white-space: nowrap;
 }

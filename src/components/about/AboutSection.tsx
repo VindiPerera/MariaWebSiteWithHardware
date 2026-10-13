@@ -29,7 +29,9 @@ export function AboutSection() {
             </span>
             <h3 className={styles.storyTitle}>{t("Who we are", "අපි කවුද")}</h3>
             <p className={styles.storyText}>
-              {lang === "si"
+              {lang === "ta"
+                ? `MariaPoS-ஐ ${site.address} முகவரியில் உள்ள ${site.company} உருவாக்கி, ஆதரவும் வழங்குகிறது. Software-ஐ நாங்களே உருவாக்கி, நாங்களே support செய்கிறோம். இடையில் resellers யாரும் இல்லை.`
+                : lang === "si"
                 ? `MariaPoS develop කර support කරන්නේ ${site.address} හි පිහිටි ${site.company} විසින්. Software එක අපිම හදලා, අපිම support කරනවා, අතරමැදි resellers නෑ.`
                 : `MariaPoS is developed and supported by ${site.company}, based at ${site.address}. We build and support the software directly — no resellers in between.`}
             </p>
@@ -84,7 +86,9 @@ export function AboutSection() {
               <div className={styles.personRoleLight}>{t("Company", "සමාගම")}</div>
             </div>
             <p className={styles.personTextLight}>
-              {lang === "si"
+              {lang === "ta"
+                ? `MariaPoS-ஐ ${site.company} தொடக்கம் முதல் இறுதி வரை நிர்வகிக்கிறது. Development, sales, installation முதல் இலங்கையில் உள்ள ஒவ்வொரு customer-க்கும் வழங்கும் தொடர்ச்சியான support வரை எல்லாமே இவர்களே.`
+                : lang === "si"
                 ? `${site.company} MariaPoS මුල සිට අග දක්වා අයිති කර පවත්වාගෙන යනවා. Development සිට sales, installation සහ ශ්‍රී ලංකාවේ හැම customer කෙනෙකුටම සිදුකරන ongoing support දක්වා.`
                 : `${site.company} owns and operates MariaPoS end-to-end — from development to sales, installation and ongoing support for every customer in Sri Lanka.`}
             </p>

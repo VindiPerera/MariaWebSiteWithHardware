@@ -114,9 +114,9 @@ export function IndustryCatalog() {
       {/* Grid of Elevated Industry Cards */}
       <div className={styles.grid}>
         {filtered.map(({ slug, name, icon: Icon, intro, keyword }) => {
-          const si = lang === "si" ? industriesSi[slug] : undefined;
+          const si = industriesSi[slug];
           const base = industrySuperpowers[slug];
-          const power = (lang === "si" ? industryPowerSi[slug] : undefined) ?? base ?? {
+          const power = base ?? {
             tag: "Counter Optimized",
             metric: "⚡ Zero-Lag Billing",
             highlight: "Full FIFO stock ledger & shift control",
@@ -129,22 +129,22 @@ export function IndustryCatalog() {
                   <Icon size={24} color="#ffffff" />
                 </div>
                 <div className={styles.badgesCol}>
-                  <span className={styles.tradeTag}>{power.tag}</span>
-                  <span className={styles.metricPill}>{power.metric}</span>
+                  <span className={styles.tradeTag}>{t(power.tag, industryPowerSi[slug]?.tag)}</span>
+                  <span className={styles.metricPill}>{t(power.metric, industryPowerSi[slug]?.metric)}</span>
                 </div>
               </div>
 
-              <h2 className={styles.cardTitle}>{si?.name ?? name}</h2>
-              <p className={styles.cardBody}>{si?.intro ?? intro}</p>
+              <h2 className={styles.cardTitle}>{t(name, si?.name)}</h2>
+              <p className={styles.cardBody}>{t(intro, si?.intro)}</p>
 
               <div className={styles.highlightRow}>
                 <CheckCircle2 size={15} color="var(--red)" />
-                <span className={styles.highlightText}>{power.highlight}</span>
+                <span className={styles.highlightText}>{t(power.highlight, industryPowerSi[slug]?.highlight)}</span>
               </div>
 
               <div className={styles.cardFooter}>
                 <span className={styles.cardLink}>
-                  {lang === "si" ? `${(si?.name ?? name).split(" ")[0]} Guide එක බලන්න` : `Explore ${name.split(" ")[0]} Guide`}
+                  {lang === "si" ? `${t(name, si?.name).split(" ")[0]} Guide එක බලන්න` : lang === "ta" ? `${t(name).split(" ")[0]} Guide-ஐப் பாருங்கள்` : `Explore ${name.split(" ")[0]} Guide`}
                 </span>
                 <span className={styles.arrowCircle}>
                   <ArrowRight size={14} />
