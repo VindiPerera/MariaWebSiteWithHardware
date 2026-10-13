@@ -149,7 +149,7 @@ export function Header() {
             >
               <span className={styles.pulsePing} />
               <MessageCircle size={17} />
-              <span>WhatsApp</span>
+              <span className={styles.whatsappText}>WhatsApp</span>
             </a>
 
             {/* Mobile Hamburger Button */}

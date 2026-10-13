@@ -14,6 +14,16 @@
   padding: 8px 20px;
 }
 
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 12px;
+  }
+
+  .scrolled {
+    padding: 6px 12px;
+  }
+}
+
 .navContainer {
   max-width: 1260px;
   margin: 0 auto;
@@ -33,6 +43,14 @@
     0 2px 6px rgba(0, 0, 0, 0.02);
   pointer-events: auto;
   transition: all 0.25s ease;
+}
+
+@media (max-width: 480px) {
+  .navContainer {
+    height: 56px;
+    padding: 0 10px 0 14px;
+    gap: 8px;
+  }
 }
 
 .scrolled .navContainer {
@@ -84,6 +102,16 @@
   height: 6px;
   border-radius: 50%;
   background: var(--red);
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 30px;
+  }
+
+  .brandTag {
+    display: none;
+  }
 }
 
 /* Desktop Nav */
@@ -142,6 +170,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .actionCluster {
+    gap: 6px;
+  }
 }
 
 /* Sample Bill Quick Trigger */
@@ -209,6 +243,12 @@
   }
 }
 
+@media (max-width: 480px) {
+  .cartButton {
+    padding: 8px 10px;
+  }
+}
+
 .cartBadge {
   background: var(--red);
   color: #ffffff;
@@ -250,6 +290,16 @@
   box-shadow:
     0 8px 20px -4px rgba(31, 170, 85, 0.65),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 480px) {
+  .whatsappCta {
+    padding: 9px 11px;
+  }
+
+  .whatsappText {
+    display: none;
+  }
 }
 
 .pulsePing {
@@ -298,6 +348,13 @@
 @media (min-width: 960px) {
   .hamburgerBtn {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hamburgerBtn {
+    width: 34px;
+    height: 34px;
   }
 }
 

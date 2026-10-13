@@ -1,5 +1,5 @@
 .hero {
-  padding: 80px 24px 48px;
+  padding: clamp(100px, 12vw, 130px) 24px 48px;
   background: radial-gradient(circle at 50% 20%, rgba(198, 40, 40, 0.08) 0%, rgba(251, 252, 254, 1) 75%);
   border-bottom: 1px solid var(--border);
 }

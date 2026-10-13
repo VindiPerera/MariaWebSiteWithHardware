@@ -34,4 +34,16 @@
   font-size: 13.5px;
   font-weight: 600;
   color: inherit;
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .select {
+    padding: 7px 8px 7px 28px;
+    font-size: 12px;
+  }
+
+  .icon {
+    left: 8px;
+  }
 }
