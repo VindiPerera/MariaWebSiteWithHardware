@@ -47,14 +47,14 @@ export function VisualExperienceRow() {
               />
               <div className={styles.imageOverlayBadge}>
                 <span className={styles.badgePulseBlue} />
-                <span>{t("Pushed in <1s to Owner Telegram", "අයිතිකරුගේ Telegram එකට තත්පර 1කට වඩා අඩුවෙන් push වෙනවා")}</span>
+                <span>{t("Pushed in <1s to Owner Telegram", "අයිතිකරුගේ Telegram එකට තත්පර 1ක් ඇතුළත push වෙනවා")}</span>
               </div>
             </div>
 
             <div className={styles.cardContent}>
               <div className={styles.cardCategory}>
                 <Send size={16} color="#0284c7" />
-                <span>{t("Remote Business Control", "දුරින් ඉඳන් Business Control")}</span>
+                <span>{t("Remote Business Control", "දුරින් සිට Business Control")}</span>
               </div>
 
               <h3 className={styles.cardTitle}>{t("Owner in Pocket. Live Telegram Push.", "අයිතිකරු සාක්කුවේ. Live Telegram Push.")}</h3>

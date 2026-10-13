@@ -11,7 +11,7 @@ const faqs = [
     q: "Do you really accept cash on delivery?",
     a: "Yes. You pay the courier in cash when your order arrives. No card or online payment is needed.",
     qSi: "ඇත්තටම Cash on Delivery ගන්නවද?",
-    aSi: "ඔව්. Order එක ලැබුණාම courier එකට cash ගෙවන්න. Card එකක් හෝ online payment එකක් ඕන නෑ.",
+    aSi: "ඔව්. Order එක ලැබුණාම courier එකට cash ගෙවන්න. Card එකක් හෝ online payment එකක් අවශ්‍ය නැහැ.",
   },
   {
     q: "Do you deliver to my district?",

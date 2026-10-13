@@ -61,14 +61,14 @@ export function PromotionHero() {
               {/* Big Bold Headline featuring POS System in Sri Lanka */}
               <h1 className={styles.headline}>
                 {t("A Complete POS System in Sri Lanka.", "ශ්‍රී ලංකාවටම සම්පූර්ණ POS System එකක්.")} <br />
-                <span className={styles.accentText}>{t("Fast Billing.", "වේගවත් Billing.")}</span> {t("Never Freeze.", "කිසිදා Freeze වෙන්නෑ.")}
+                <span className={styles.accentText}>{t("Fast Billing.", "වේගවත් Billing.")}</span> {t("Never Freeze.", "කිසිදා Freeze වෙන්නේ නැහැ.")}
               </h1>
 
               {/* Lead Subtitle */}
               <p className={styles.subheadline}>
                 {t(
                   "MariaPoS pairs robust 100% offline Windows software with heavy-duty touch screens, auto-cutter thermal printers, barcode scanners, and cash drawers. Built for intense retail rush hours — dispatched Cash on Delivery across all 25 districts.",
-                  "MariaPoS එකේ 100% offline වැඩ කරන Windows software එක, heavy-duty touch screen, auto-cutter thermal printer, barcode scanner සහ cash drawer එක්ක එනවා. Rush hour එකේ පවා වෙළඳසැලේ දිගටම දුවන්න හදපු එකක් — දිස්ත්‍රික්ක 25ටම Cash on Delivery විදිහට එවනවා.",
+                  "MariaPoS එකේ 100% offline වැඩ කරන Windows software එක, heavy-duty touch screen, auto-cutter thermal printer, barcode scanner සහ cash drawer සමඟ පැමිණේ. Rush hour එකේදීවත් වෙළඳසැල නොනැවතී ක්‍රියාත්මක වීමට නිර්මාණය කළ එකක් — දිස්ත්‍රික්ක 25ටම Cash on Delivery ලෙස එවනවා.",
                 )}
               </p>
 
@@ -123,7 +123,7 @@ export function PromotionHero() {
                   </div>
                   <div className={styles.trustTexts}>
                     <strong className={styles.trustTitle}>{t("100% Offline Ready", "100% Offline Ready")}</strong>
-                    <span className={styles.trustSub}>{t("Zero internet lag at counter", "Counter එකේ internet lag එකක් නෑ")}</span>
+                    <span className={styles.trustSub}>{t("Zero internet lag at counter", "Counter එකේ internet lag එකක් නැහැ")}</span>
                   </div>
                 </div>
               </div>

@@ -85,7 +85,7 @@ export default function HardwarePage() {
             <p className={styles.heroLead}>
               <T
                 en="Elevate your checkout counter with commercial-grade touch terminals, high-speed thermal printers, 1D/2D barcode scanners, and heavy-duty cash drawers. Tested and pre-configured for MariaPoS."
-                si="Commercial-grade touch terminals, high-speed thermal printers, 1D/2D barcode scanners සහ heavy-duty cash drawers වලින් ඔබේ checkout counter එක ඉහළට ගන්න. MariaPoS සඳහා test කර pre-configure කරලා."
+                si="Commercial-grade touch terminals, high-speed thermal printers, 1D/2D barcode scanners සහ heavy-duty cash drawers වලින් ඔබේ checkout counter එක තවත් දියුණු කරන්න. MariaPoS සඳහා test කර pre-configure කරලා."
               />
             </p>
 

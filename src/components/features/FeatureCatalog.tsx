@@ -97,7 +97,7 @@ export function FeatureCatalog() {
                 <Sparkles size={14} />
                 <span>{t("Enterprise POS Architecture", "Enterprise POS Architecture")}</span>
               </div>
-              <h1 className={styles.heroTitle}>{t("Everything a Sri Lankan counter needs.", "ශ්‍රී ලාංකික counter එකකට ඕන හැමදේම.")}</h1>
+              <h1 className={styles.heroTitle}>{t("Everything a Sri Lankan counter needs.", "ශ්‍රී ලාංකික counter එකකට අවශ්‍ය හැමදේම.")}</h1>
               <p className={styles.heroLead}>
                 {t(
                   "Billing, FIFO stock, supplier cheques, cash till control and reports in one Windows app. Works offline and syncs to the cloud.",
@@ -258,7 +258,7 @@ export function FeatureCatalog() {
                         <div className={styles.featureWhy}>
                           <CheckCircle2 size={15} color="#15803d" style={{ flexShrink: 0, marginTop: 2 }} />
                           <span>
-                            <strong>{t("Why it matters:", "ඇයි වැදගත්:")}</strong> {f.why}
+                            <strong>{t("Why it matters:", "වැදගත් වන්නේ ඇයි:")}</strong> {f.why}
                           </span>
                         </div>
                       </div>
@@ -284,7 +284,7 @@ export function FeatureCatalog() {
               <div>
                 <div className={styles.bottomCtaTitle}>{t("Try every single feature free for 7 days.", "හැම feature එකක්ම දින 7ක් free try කරන්න.")}</div>
                 <p style={{ margin: "6px 0 0", color: "#a1a1aa", fontSize: 15, fontFamily: "var(--font-figtree)" }}>
-                  {t("Instant cloud activation. No credit card required. Works with your existing hardware.", "Cloud activation එක instant. Credit card එකක් ඕන නෑ. ඔබේ දැනට තියෙන hardware එක්ක වැඩ කරනවා.")}
+                  {t("Instant cloud activation. No credit card required. Works with your existing hardware.", "Cloud activation එක instant. Credit card එකක් අවශ්‍ය නැහැ. ඔබේ දැනට තියෙන hardware එක්ක වැඩ කරනවා.")}
                 </p>
               </div>
 

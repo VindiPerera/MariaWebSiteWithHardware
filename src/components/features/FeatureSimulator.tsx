@@ -88,7 +88,7 @@ export function FeatureSimulator() {
           <div className={styles.catalogPanel}>
             <div className={styles.panelHeader}>
               <span className={styles.panelTitle}>{t("Quick Products (Barcode / Tap)", "Quick Products (Barcode / Tap)")}</span>
-              <span className={styles.panelHint}>{t("Click to add to billing cart", "Billing cart එකට add කරන්න click කරන්න")}</span>
+              <span className={styles.panelHint}>{t("Click to add to billing cart", "Billing cart එකට add කිරීමට click කරන්න")}</span>
             </div>
 
             <div className={styles.productGrid}>
@@ -143,7 +143,7 @@ export function FeatureSimulator() {
             <div className={styles.cartList}>
               {cart.length === 0 ? (
                 <div className={styles.emptyCart}>
-                  <span>{t("Cart is empty. Tap any product on the left to start billing.", "Cart එක හිස්. Billing පටන් ගන්න වම් පැත්තේ ඕනෑම product එකක් tap කරන්න.")}</span>
+                  <span>{t("Cart is empty. Tap any product on the left to start billing.", "Cart එක හිස්ය. Billing පටන් ගන්න වම් පැත්තේ ඕනෑම product එකක් tap කරන්න.")}</span>
                 </div>
               ) : (
                 cart.map(({ product, qty }) => (
@@ -192,7 +192,7 @@ export function FeatureSimulator() {
                     <span>{t("Checkout Complete! Stock Deducted FIFO.", "Checkout සම්පූර්ණයි! Stock එක FIFO ලෙස අඩු කළා.")}</span>
                   </div>
                   <span className={styles.successMeta}>
-                    {t("Receipt eBill dispatched to customer phone & Telegram alert sent to store owner.", "Receipt eBill එක customer ගේ phone එකටත්, Telegram alert එක වෙළඳසැලේ අයිතිකරුටත් යැව්වා.")}
+                    {t("Receipt eBill dispatched to customer phone & Telegram alert sent to store owner.", "Receipt eBill එක customer ගේ phone එකටත්, Telegram alert එක වෙළඳසැලේ අයිතිකරුටත් යැවුවා.")}
                   </span>
                 </div>
               )}

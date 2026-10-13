@@ -209,7 +209,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
 
           {filteredItems.length === 0 ? (
             <div className={styles.emptyState}>
-              <p>{t("No hardware found matching your criteria.", "ඔබේ නිර්ණායකවලට ගැලපෙන hardware කිසිවක් හමු වුණේ නෑ.")}</p>
+              <p>{t("No hardware found matching your criteria.", "ඔබේ නිර්ණායකවලට ගැලපෙන hardware කිසිවක් හමු වුණේ නැහැ.")}</p>
               <button
                 type="button"
                 className="btn-secondary"
