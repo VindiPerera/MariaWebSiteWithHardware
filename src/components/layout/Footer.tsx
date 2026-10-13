@@ -66,11 +66,13 @@ export function Footer() {
               </div>
 
               <div className={styles.brandRow}>
-                <Image
-                  src={logo}
-                  alt="MariaPoS"
-                  className={styles.brandLogo}
-                />
+                <div className={styles.brandLogoWrap}>
+                  <Image
+                    src={logo}
+                    alt="MariaPoS"
+                    className={styles.brandLogo}
+                  />
+                </div>
               </div>
 
               <h2 className={styles.showcaseHeading}>
