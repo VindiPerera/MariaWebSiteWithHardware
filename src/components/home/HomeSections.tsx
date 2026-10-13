@@ -254,7 +254,7 @@ export function SoftwareBento() {
       <div className={styles.container}>
         <div className={styles.heading}>
           <div className={styles.eyebrow}>{t("Software", "Software")}</div>
-          <h2 className={styles.h2}>{t("Billing that keeps up with a busy counter.", "කාර්යබහුල counter එකක වේගයටම Billing.")}</h2>
+          <h2 className={styles.h2}>{t("Billing that keeps up with a busy counter.", "ඔබේ වෙළඳසැලට වේගවත්, පහසු බිල්පත්කරණයක්!")}</h2>
           <p className={styles.lead}>
             {t(
               "Windows software built for Sri Lankan retail. Here are six things shop owners use every day.",
