@@ -176,7 +176,7 @@ Total Balance:                    $ 1.00
               </button>
             </div>
 
-            <div style={{ display: "flex", gap: "6px" }}>
+            <div className={styles.toolbarActions}>
               <button
                 type="button"
                 onClick={handleCopyBill}

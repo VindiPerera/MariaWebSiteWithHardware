@@ -45,6 +45,7 @@
   flex-direction: column;
   gap: 20px;
   z-index: 1;
+  min-width: 0;
 }
 
 .title {
@@ -53,6 +54,7 @@
   line-height: 1.15;
   letter-spacing: -0.025em;
   color: var(--ink);
+  overflow-wrap: break-word;
 }
 
 .lead {
@@ -60,6 +62,7 @@
   font-size: 16px;
   line-height: 1.6;
   color: #4b5563;
+  overflow-wrap: break-word;
 }
 
 /* Features checklist grid */
@@ -117,6 +120,7 @@
   font-size: 13px;
   color: #6b7280;
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 /* Action bar under copy */
@@ -170,6 +174,8 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  min-width: 0;
+  width: 100%;
 }
 
 /* Controller Toolbar above receipt */
@@ -177,6 +183,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 8px;
   width: 100%;
   max-width: 380px;
   margin-bottom: 18px;
@@ -188,10 +196,17 @@
 
 .rollToggleGroup {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
   background: #e2e5e9;
   padding: 3px;
   border-radius: 10px;
+}
+
+.toolbarActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .toggleBtn {
@@ -370,15 +385,21 @@
 .metaRow {
   display: flex;
   justify-content: space-between;
+  gap: 8px;
 }
 
 .metaLabel {
   color: #4b5563;
+  min-width: 0;
+  flex-shrink: 0;
 }
 
 .metaValue {
   font-weight: 600;
   color: #111827;
+  min-width: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
 /* Items Table */
@@ -406,6 +427,7 @@
 
 .colItem {
   flex: 1.8;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -441,12 +463,16 @@
 .totalRow {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 8px;
   font-size: 11.5px;
 }
 
 .grandTotalRow {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 8px;
   font-size: 13.5px;
   font-weight: 800;
   padding: 4px 0;
@@ -456,6 +482,8 @@
 .paymentRow {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 8px;
   font-size: 11.5px;
   color: #1f2937;
 }
@@ -545,5 +573,53 @@
   .colTotal {
     width: 60px;
     font-size: 10.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .receiptToolbar {
+    padding: 8px 10px;
+  }
+
+  .toggleBtn {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .simulateCutBtn {
+    padding: 6px 9px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 24px 14px;
+  }
+
+  .receiptCard {
+    padding: 16px 12px;
+    font-size: 10.5px;
+  }
+
+  .logoImage {
+    width: 120px;
+  }
+
+  .metaRow,
+  .totalRow,
+  .grandTotalRow,
+  .paymentRow {
+    font-size: 10.5px;
+  }
+
+  .colPrice {
+    width: 46px;
+    font-size: 9.5px;
+  }
+
+  .colTotal {
+    width: 50px;
+    font-size: 10px;
   }
 }
