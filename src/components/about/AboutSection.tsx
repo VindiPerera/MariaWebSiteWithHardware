@@ -17,7 +17,7 @@ export function AboutSection() {
           <p className="lead">
             {t(
               "MariaPoS is an offline-first Windows point-of-sale system designed for supermarkets, pharmacies, hardware stores and retail shops that need fast billing, accurate FIFO stock and reliable service — with or without the internet.",
-              "MariaPoS යනු offline-first Windows point-of-sale system එකක්. වේගවත් billing, නිවැරදි FIFO stock සහ විශ්වාසවන්ත සේවයක් අවශ්‍ය supermarkets, pharmacies, hardware stores සහ retail shops සඳහා හදපු, internet තිබුණත් නැතත් වැඩ කරන එකක්.",
+              "MariaPoS යනු වේගවත් billing, නිවැරදි FIFO stock සහ විශ්වාසවන්ත සේවයක් අවශ්‍ය supermarkets, pharmacies, hardware stores සහ retail වෙළඳසැල් සඳහා නිර්මාණය කළ offline-first Windows POS system එකකි. Internet තිබුණත් නැතත් එය නොනැවතී ක්‍රියාත්මක වේ.",
             )}
           </p>
         </div>
@@ -32,7 +32,7 @@ export function AboutSection() {
               {lang === "ta"
                 ? `MariaPoS-ஐ ${site.address} முகவரியில் உள்ள ${site.company} உருவாக்கி, ஆதரவும் வழங்குகிறது. Software-ஐ நாங்களே உருவாக்கி, நாங்களே support செய்கிறோம். இடையில் resellers யாரும் இல்லை.`
                 : lang === "si"
-                ? `MariaPoS develop කර support කරන්නේ ${site.address} හි පිහිටි ${site.company} විසින්. Software එක අපිම හදලා, අපිම support කරනවා, අතරමැදි resellers නෑ.`
+                ? `MariaPoS develop කර support කරන්නේ ${site.address} හි පිහිටි ${site.company} විසින්. Software එක අපිම හදලා, අපිම support කරනවා, අතරමැදි resellers නැහැ.`
                 : `MariaPoS is developed and supported by ${site.company}, based at ${site.address}. We build and support the software directly — no resellers in between.`}
             </p>
           </div>
@@ -45,7 +45,7 @@ export function AboutSection() {
             <p className={styles.storyText}>
               {t(
                 "A single offline-first POS built for real shop counters: barcode billing, FIFO batch inventory, shift & till control, SMS e-bill receipts, Telegram sales alerts and two-way cloud sync.",
-                "සැබෑ වෙළඳසැල් counters වලට හදපු එකම offline-first POS එක: barcode billing, FIFO batch inventory, shift සහ till control, SMS e-bill receipts, Telegram sales alerts සහ two-way cloud sync.",
+                "සැබෑ වෙළඳසැල් counters සඳහාම හදපු offline-first POS එකක්: barcode billing, FIFO batch inventory, shift සහ till control, SMS e-bill receipts, Telegram sales alerts සහ two-way cloud sync.",
               )}
             </p>
           </div>
@@ -89,7 +89,7 @@ export function AboutSection() {
               {lang === "ta"
                 ? `MariaPoS-ஐ ${site.company} தொடக்கம் முதல் இறுதி வரை நிர்வகிக்கிறது. Development, sales, installation முதல் இலங்கையில் உள்ள ஒவ்வொரு customer-க்கும் வழங்கும் தொடர்ச்சியான support வரை எல்லாமே இவர்களே.`
                 : lang === "si"
-                ? `${site.company} MariaPoS මුල සිට අග දක්වා අයිති කර පවත්වාගෙන යනවා. Development සිට sales, installation සහ ශ්‍රී ලංකාවේ හැම customer කෙනෙකුටම සිදුකරන ongoing support දක්වා.`
+                ? `${site.company} විසින් MariaPoS මුල සිට අග දක්වාම හිමිකරගෙන ක්‍රියාත්මක කරයි. Development සිට sales, installation සහ ශ්‍රී ලංකාවේ හැම customer කෙනෙකුටම දෙන ongoing support දක්වාම.`
                 : `${site.company} owns and operates MariaPoS end-to-end — from development to sales, installation and ongoing support for every customer in Sri Lanka.`}
             </p>
           </div>

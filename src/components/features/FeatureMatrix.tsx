@@ -16,7 +16,7 @@ const comparisonRows = [
     feature: "Stock Deduction Accuracy",
     mariapos: "True FIFO batch tracking with exact cost valuation",
     traditional: "Crude simple averages or no batch tracking",
-    si: ["Stock අඩු කිරීමේ නිවැරදිභාවය", "නිවැරදි cost valuation එක්ක සැබෑ FIFO batch tracking", "අසම්පූර්ණ සරල averages, නැත්නම් batch tracking නැහැ"],
+    si: ["Stock අඩු කිරීමේ නිරවද්‍යතාව", "නිවැරදි cost valuation එක්ක සැබෑ FIFO batch tracking", "අසම්පූර්ණ සරල averages, නැත්නම් batch tracking නැහැ"],
     highlight: true,
   },
   {
@@ -30,7 +30,7 @@ const comparisonRows = [
     feature: "Owner Remote Alerts",
     mariapos: "Instant real-time Telegram sales push notification",
     traditional: "Manual end-of-day spreadsheet or none",
-    si: ["අයිතිකරුට Remote Alerts", "Instant real-time Telegram sales push notification", "දවස අවසානයේ අතින් හදන spreadsheet එකක්, නැත්නම් කිසිවක් නෑ"],
+    si: ["අයිතිකරුට Remote Alerts", "Instant real-time Telegram sales push notification", "දවස අවසානයේ අතින් හදන spreadsheet එකක්, නැත්නම් කිසිවක් නැහැ"],
     highlight: true,
   },
   {
@@ -56,7 +56,7 @@ export function FeatureMatrix() {
       <div className={styles.container}>
         <div data-reveal="up" className={styles.header}>
           <span className="eyebrow">{t("Direct Comparison", "සෘජු සැසඳීම")}</span>
-          <h2 className="section-title">{t("Built differently from old, clunky retail software", "පරණ, අමාරු retail software වලට වඩා වෙනස් විදිහට හදපු")}</h2>
+          <h2 className="section-title">{t("Built differently from old, clunky retail software", "පරණ, අපහසු retail software වලට වඩා වෙනස්ව නිර්මාණය කළ")}</h2>
           <p className="lead">
             {t("See why retail, pharmacy, and grocery counters worldwide choose MariaPoS for peak hours.", "Peak hours වලට retail, pharmacy සහ grocery counters ලොව පුරා MariaPoS තෝරාගන්නේ ඇයිද බලන්න.")}
           </p>
@@ -71,7 +71,7 @@ export function FeatureMatrix() {
                 <span>MariaPoS</span>
               </div>
             </div>
-            <div className={styles.colTrad}>{t("Traditional Clunky POS", "සාම්ප්‍රදායික අමාරු POS")}</div>
+            <div className={styles.colTrad}>{t("Traditional Clunky POS", "සාම්ප්‍රදායික, අපහසු POS")}</div>
           </div>
 
           <div className={styles.tableBody}>

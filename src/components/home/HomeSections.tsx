@@ -45,7 +45,7 @@ export function HomeHero() {
           <p className={styles.heroLead}>
             {t(
               "MariaPoS billing software with the touch screen, printer, scanner and cash drawer to run it. Order on WhatsApp and pay cash when it arrives.",
-              "MariaPoS billing software එක, ඒක දුවන්න touch screen, printer, scanner සහ cash drawer එකත් එක්ක. WhatsApp එකෙන් order කරලා, ලැබුණාම cash ගෙවන්න.",
+              "MariaPoS billing software එකත්, ඒක ක්‍රියාත්මක කරන්න අවශ්‍ය touch screen, printer, scanner සහ cash drawer එකත් එකට. WhatsApp එකෙන් order කරලා, භාණ්ඩ ලැබුණාම cash ගෙවන්න.",
             )}
           </p>
           <div className={styles.actions}>
@@ -124,7 +124,7 @@ const trustItems = [
   { icon: Award, title: "Authorized Xprinter Seller", text: "100% genuine units & 1-yr replacement warranty", si: "Authorized Xprinter Seller", textSi: "100% genuine units සහ අවුරුදු 1ක replacement warranty" },
   { icon: Banknote, title: "Cash on Delivery", text: "Pay the courier when it arrives", si: "Cash on Delivery", textSi: "ලැබුණාම courier එකට ගෙවන්න" },
   { icon: Truck, title: "Island-wide delivery", text: "All 25 districts", si: "මුළු රටටම delivery", textSi: "දිස්ත්‍රික්ක 25ම" },
-  { icon: CalendarCheck, title: "7-day free trial", text: "Full software, no payment", si: "දින 7ක free trial", textSi: "Full software එක, ගෙවීමක් නෑ" },
+  { icon: CalendarCheck, title: "7-day free trial", text: "Full software, no payment", si: "දින 7ක free trial", textSi: "Full software එක, ගෙවීමක් නැහැ" },
   { icon: Headset, title: "Local support", text: "Colombo team, on WhatsApp", si: "Local support", textSi: "කොළඹ team එක, WhatsApp එකෙන්" },
 ];
 
@@ -156,7 +156,7 @@ export function BuyingPaths() {
       <div className={styles.container}>
         <div className={styles.heading}>
           <div className={styles.eyebrow}>{t("Three ways to buy", "ගන්න ක්‍රම තුනක්")}</div>
-          <h2 className={styles.h2}>{t("Buy what you need. Nothing more.", "ඕන දේ විතරක් ගන්න. වැඩිපුර නෑ.")}</h2>
+          <h2 className={styles.h2}>{t("Buy what you need. Nothing more.", "ඔබට අවශ්‍ය දේ පමණක් ගන්න. වැඩිපුර ගෙවන්න එපා.")}</h2>
           <p className={styles.lead}>
             {t(
               "Already have a computer? Get the software. Already have software? Get the hardware. Starting fresh? Get the full set.",
@@ -244,7 +244,7 @@ const smallFeatures = [
   { icon: Layers, title: "FIFO stock", text: "Every batch tracked at its own cost, sold oldest first.", si: "FIFO stock", textSi: "හැම batch එකක්ම එහි මිලට track වෙනවා, පරණම එක මුලින්ම විකිණෙනවා." },
   { icon: MessageSquareText, title: "SMS e-bill receipts", text: "Send the bill to the customer's phone. Save paper.", si: "SMS e-bill receipts", textSi: "Bill එක customer ගේ phone එකටම යවන්න. කඩදාසි ඉතිරියි." },
   { icon: ChartColumn, title: "Reports", text: "Sales, profit & loss, stock value. Export to PDF or Excel.", si: "Reports", textSi: "Sales, profit & loss, stock value. PDF හෝ Excel වලට export කරන්න." },
-  { icon: Cloud, title: "Cloud panel", text: "Check today's sales from anywhere, on your phone.", si: "Cloud panel", textSi: "අද sales ඕනෑම තැනක ඉඳන් phone එකෙන් බලන්න." },
+  { icon: Cloud, title: "Cloud panel", text: "Check today's sales from anywhere, on your phone.", si: "Cloud panel", textSi: "අද sales ඕනෑම තැනක සිට phone එකෙන් බලන්න." },
 ];
 
 export function SoftwareBento() {
@@ -299,7 +299,7 @@ export function SoftwareBento() {
                 <p className={styles.body}>
                   {t(
                     "Keep billing during power or internet cuts. It syncs when you're back online.",
-                    "Current හෝ internet නැති වෙලාවලත් billing කරගෙන යන්න. Online ආපු ගමන් sync වෙනවා.",
+                    "විදුලිය හෝ internet නැති වෙලාවලත් billing කරගෙන යන්න. නැවත online වුණු ගමන් sync වෙනවා.",
                   )}
                 </p>
               </div>
@@ -361,7 +361,7 @@ export function HowOrdering() {
       <div className={styles.container}>
         <div className={styles.heading}>
           <div className={styles.eyebrow}>{t("How ordering works", "Order කරන හැටි")}</div>
-          <h2 className={styles.h2}>{t("Three steps. No card needed.", "පියවර තුනයි. Card එකක් ඕන නෑ.")}</h2>
+          <h2 className={styles.h2}>{t("Three steps. No card needed.", "පියවර තුනයි. Card එකක් අවශ්‍ය නැහැ.")}</h2>
         </div>
         <div className={styles.steps}>
           {steps.map(({ icon: Icon, color, title, text, si, textSi }, i) => (
