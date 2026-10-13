@@ -156,19 +156,20 @@ export const featureCatalogSi: Record<string, FeatureCategorySi> = {
 
 import type { FeatureCategory } from "./featureCatalog";
 
-/** Returns the catalogue with Sinhala + English text applied when `si` is selected. */
-export function localizeCategories(categories: FeatureCategory[], lang: "en" | "si"): FeatureCategory[] {
-  if (lang !== "si") return categories;
+/** Returns the catalogue with the selected language applied (Sinhala from this file, Tamil from the dictionary). */
+export function localizeCategories(
+  categories: FeatureCategory[],
+  t: (en: string, si?: string) => string,
+): FeatureCategory[] {
   return categories.map((cat) => {
     const si = featureCatalogSi[cat.id];
-    if (!si) return cat;
     return {
       ...cat,
-      title: si.title,
-      summary: si.summary,
+      title: t(cat.title, si?.title),
+      summary: t(cat.summary, si?.summary),
       features: cat.features.map((f, i) => {
-        const row = si.features[i];
-        return row ? { name: row[0], what: row[1], why: row[2] } : f;
+        const row = si?.features[i];
+        return { name: t(f.name, row?.[0]), what: t(f.what, row?.[1]), why: t(f.why, row?.[2]) };
       }),
     };
   });

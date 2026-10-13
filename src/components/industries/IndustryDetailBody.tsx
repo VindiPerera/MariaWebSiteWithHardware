@@ -18,9 +18,9 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
   const industry = getIndustry(slug);
   if (!industry) return null;
 
-  const si = lang === "si" ? industriesSi[slug] : undefined;
-  const name = si?.name ?? industry.name;
-  const short = si?.short ?? industry.short;
+  const si = industriesSi[slug];
+  const name = t(industry.name, si?.name);
+  const short = t(industry.short, si?.short);
   const path = `/industries/${industry.slug}`;
   const others = industries.filter((i) => i.slug !== industry.slug).slice(0, 6);
 
@@ -28,8 +28,10 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
     <>
       <LandingHero
         eyebrow={industry.keyword}
-        title={si?.headline ?? industry.headline}
-        intro={si?.intro ?? industry.intro}
+        title={industry.headline}
+        titleSi={si?.headline}
+        intro={industry.intro}
+        introSi={si?.intro}
         crumbs={[
           { name: t("Industries", "Industries"), path: "/industries" },
           { name, path },
@@ -43,7 +45,11 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
           <div className={styles.sectionHead}>
             <span className="eyebrow">{t("The challenge", "ගැටලුව")}</span>
             <h2 className={styles.h2}>
-              {lang === "si" ? `${name} දිනපතා මුහුණ දෙන දේවල්` : `What ${industry.name.toLowerCase()} deal with every day`}
+              {lang === "si"
+                ? `${name} දිනපතා මුහුණ දෙන දේවල්`
+                : lang === "ta"
+                  ? `${name} தினமும் எதிர்கொள்ளும் சவால்கள்`
+                  : `What ${industry.name.toLowerCase()} deal with every day`}
             </h2>
             <p className={styles.text}>
               {t(
@@ -54,10 +60,10 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
           </div>
           <ul className={styles.challenges} data-reveal="up">
             <li className={styles.challengesTitle}>{t("Common problems", "සාමාන්‍ය ගැටලු")}</li>
-            {(si?.challenges ?? industry.challenges).map((c) => (
+            {industry.challenges.map((c, ci) => (
               <li key={c}>
                 <TriangleAlert size={16} />
-                <span>{c}</span>
+                <span>{t(c, si?.challenges[ci])}</span>
               </li>
             ))}
           </ul>
@@ -70,7 +76,9 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
           <h2 className={styles.h2}>
             {lang === "si"
               ? `${short} සඳහා වඩාත්ම වැදගත් MariaPoS features`
-              : `MariaPoS features that matter most for ${industry.short.toLowerCase()}`}
+              : lang === "ta"
+                ? `${short}-க்கு மிக முக்கியமான MariaPoS features`
+                : `MariaPoS features that matter most for ${industry.short.toLowerCase()}`}
           </h2>
         </div>
         <div className={styles.cards3}>
@@ -79,8 +87,8 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
             return (
               <article key={h.title} data-reveal="up" data-delay={(i % 3) * 70} className={styles.card}>
                 <CheckCircle2 size={22} color="var(--red)" />
-                <h3 className={styles.cardTitle}>{row ? row[0] : h.title}</h3>
-                <p className={styles.cardBody}>{row ? row[1] : h.body}</p>
+                <h3 className={styles.cardTitle}>{t(h.title, row?.[0])}</h3>
+                <p className={styles.cardBody}>{t(h.body, row?.[1])}</p>
               </article>
             );
           })}
@@ -88,7 +96,9 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
             <h3 className={styles.cardTitle}>
               {lang === "si"
                 ? `තවත් features ${featureCount - industry.highlights.length}ක්`
-                : `Plus ${featureCount - industry.highlights.length} more features`}
+                : lang === "ta"
+                  ? `மேலும் ${featureCount - industry.highlights.length} features`
+                  : `Plus ${featureCount - industry.highlights.length} more features`}
             </h3>
             <p className={styles.cardBody}>
               {t(

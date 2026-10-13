@@ -45,7 +45,7 @@ export function LandingHero({ eyebrow, eyebrowSi, title, titleSi, intro, introSi
         <p className={styles.intro}>{t(intro, introSi)}</p>
         <div className={styles.actions}>
           <a href="#trial" className={styles.primary}>
-            {t(`Start ${site.trialDays}-day free trial`, `දින ${site.trialDays}ක free trial එක පටන් ගන්න`)} <ArrowRight size={16} />
+            {t(`Start ${site.trialDays}-day free trial`, `දින ${site.trialDays}ක free trial එක පටන් ගන්න`, `${site.trialDays} நாள் free trial-ஐத் தொடங்குங்கள்`)} <ArrowRight size={16} />
           </a>
           <a href={site.phoneHref} className={styles.secondary}>
             <Phone size={16} color="var(--red)" /> {t("Call", "අමතන්න")} {site.phone}

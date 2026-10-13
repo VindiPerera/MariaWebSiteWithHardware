@@ -118,7 +118,7 @@ export function PricingPlans() {
   const { t, lang } = useLang();
   const [activeTab, setActiveTab] = useState<"both" | "bundles" | "software">("both");
   const [selectedSoftPlan, setSelectedSoftPlan] = useState<string>("3y");
-  const tp = (id: string) => (lang === "si" ? planSi[id] : undefined);
+  const tp = (id: string) => planSi[id];
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -146,7 +146,12 @@ export function PricingPlans() {
           </div>
           <h1 className="section-title">{t("Pick the setup that fits your shop.", "ඔබේ වෙළඳසැලට ගැලපෙන setup එක තෝරන්න.")}</h1>
           <p className="lead">
-            {lang === "si" ? (
+            {lang === "ta" ? (
+              <>
+                <strong>software உடன் வரும் hardware bundles</strong> (turnkey) அல்லது உங்களிடம் ஏற்கனவே உள்ள Windows PC-க்கு{" "}
+                <strong>software-only license</strong> ஒன்றை activate செய்வது, இந்த இரண்டில் ஒன்றைத் தேர்ந்தெடுங்கள். இரண்டு option-களும் கீழே உள்ளன.
+              </>
+            ) : lang === "si" ? (
               <>
                 <strong>Software ඇතුළත් hardware bundles</strong> (turnkey), නැත්නම් ඔබේ දැනට තියෙන Windows PC එකට{" "}
                 <strong>software-only license</strong> එකක් activate කිරීම අතරින් තෝරන්න. Options දෙකම පහළ තියෙනවා.
@@ -324,13 +329,13 @@ export function PricingPlans() {
                               : styles.badgeRed
                           }
                         >
-                          {tp(plan.id)?.badge ?? plan.badge}
+                          {plan.badge ? t(plan.badge, tp(plan.id)?.badge) : null}
                         </span>
                       </div>
                     )}
 
                     <div className={styles.cardTop}>
-                      <h3 className={isDark ? styles.planNameDark : styles.planName}>{tp(plan.id)?.name ?? plan.name}</h3>
+                      <h3 className={isDark ? styles.planNameDark : styles.planName}>{t(plan.name, tp(plan.id)?.name)}</h3>
                       <div className={styles.priceRow}>
                         <span className={isDark ? styles.priceDark : styles.price}>{plan.priceLkr === "Free" ? t("Free", "නොමිලේ") : plan.priceLkr}</span>
                         {plan.wasLkr && <span className={isDark ? styles.wasDark : styles.was}>{plan.wasLkr}</span>}
@@ -340,9 +345,9 @@ export function PricingPlans() {
                           isDark ? styles.rateDark : isTrial ? styles.rateGreen : styles.rate
                         }
                       >
-                        {tp(plan.id)?.per ?? plan.pricePerYear}
+                        {t(plan.pricePerYear, tp(plan.id)?.per)}
                       </span>
-                      <p className={isDark ? styles.noteDark : styles.note}>{tp(plan.id)?.note ?? plan.note}</p>
+                      <p className={isDark ? styles.noteDark : styles.note}>{t(plan.note, tp(plan.id)?.note)}</p>
                     </div>
 
                     <div className={isDark ? styles.dividerDark : styles.divider} />
@@ -367,7 +372,7 @@ export function PricingPlans() {
                           className={styles.ctaTrial}
                         >
                           <Zap size={16} />
-                          <span>{tp(plan.id)?.cta ?? plan.ctaText}</span>
+                          <span>{plan.ctaText ? t(plan.ctaText, tp(plan.id)?.cta) : null}</span>
                         </a>
                       ) : (
                         <a
