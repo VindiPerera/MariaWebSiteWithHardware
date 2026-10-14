@@ -161,7 +161,7 @@ export function FeatureCatalog() {
             <span>
               {lang === "ta" ? (
                 <>
-                  {filteredCategories.length} modules-இல் உள்ள {featureCount} features-ல் <strong>{totalVisibleFeatures}</strong> காட்டப்படுகின்றன
+                  {filteredCategories.length} பிரிவுகளில் உள்ள {featureCount} வசதிகளில் <strong>{totalVisibleFeatures}</strong> காட்டப்படுகின்றன
                 </>
               ) : lang === "si" ? (
                 <>

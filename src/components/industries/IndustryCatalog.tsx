@@ -144,7 +144,7 @@ export function IndustryCatalog() {
 
               <div className={styles.cardFooter}>
                 <span className={styles.cardLink}>
-                  {lang === "si" ? `${t(name, si?.name).split(" ")[0]} Guide එක බලන්න` : lang === "ta" ? `${t(name).split(" ")[0]} Guide-ஐப் பாருங்கள்` : `Explore ${name.split(" ")[0]} Guide`}
+                  {lang === "si" ? `${t(name, si?.name).split(" ")[0]} Guide එක බලන්න` : lang === "ta" ? `${t(name).split(" ")[0]} வழிகாட்டியைப் பாருங்கள்` : `Explore ${name.split(" ")[0]} Guide`}
                 </span>
                 <span className={styles.arrowCircle}>
                   <ArrowRight size={14} />

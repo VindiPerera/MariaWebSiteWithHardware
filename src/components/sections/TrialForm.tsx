@@ -28,7 +28,7 @@ export function TrialForm() {
           {t(
             `Thanks — we'll send your trial login and the Windows installer to ${email}.`,
             `ස්තූතියි — ඔබේ trial login එකයි Windows installer එකයි ${email} වෙත එවනවා.`,
-            `நன்றி — உங்கள் trial login-ஐயும் Windows installer-ஐயும் ${email} முகவரிக்கு அனுப்புகிறோம்.`,
+            `நன்றி — உங்கள் சோதனை உள்நுழைவு விவரங்களையும் Windows நிறுவியையும் ${email} முகவரிக்கு அனுப்புகிறோம்.`,
           )}
         </p>
       ) : (

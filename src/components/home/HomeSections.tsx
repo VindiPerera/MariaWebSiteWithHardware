@@ -220,7 +220,7 @@ export function FeaturedHardware() {
             <h2 className={styles.h2}>{t("Tested with MariaPoS.", "MariaPoS සමඟ වැඩ කරන බව පරීක්ෂා කළ.")}</h2>
           </div>
           <Link href="/hardware" className={styles.allLink}>
-            {t(`All ${hardwareProductCount} products`, `Products ${hardwareProductCount}ම බලන්න`, `${hardwareProductCount} products அனைத்தையும் பாருங்கள்`)}
+            {t(`All ${hardwareProductCount} products`, `Products ${hardwareProductCount}ම බලන්න`, `${hardwareProductCount} பொருட்களையும் பாருங்கள்`)}
             <ArrowRight size={18} />
           </Link>
         </div>

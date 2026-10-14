@@ -77,7 +77,7 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
             {lang === "si"
               ? `${short} සඳහා වඩාත්ම වැදගත් MariaPoS විශේෂාංග`
               : lang === "ta"
-                ? `${short}-க்கு மிக முக்கியமான MariaPoS features`
+                ? `${short}-க்கு மிக முக்கியமான MariaPoS வசதிகள்`
                 : `MariaPoS features that matter most for ${industry.short.toLowerCase()}`}
           </h2>
         </div>
@@ -97,7 +97,7 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
               {lang === "si"
                 ? `තවත් විශේෂාංග ${featureCount - industry.highlights.length}ක්`
                 : lang === "ta"
-                  ? `மேலும் ${featureCount - industry.highlights.length} features`
+                  ? `மேலும் ${featureCount - industry.highlights.length} வசதிகள்`
                   : `Plus ${featureCount - industry.highlights.length} more features`}
             </h3>
             <p className={styles.cardBody}>

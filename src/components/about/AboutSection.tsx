@@ -30,7 +30,7 @@ export function AboutSection() {
             <h3 className={styles.storyTitle}>{t("Who we are", "අපි කවුද")}</h3>
             <p className={styles.storyText}>
               {lang === "ta"
-                ? `MariaPoS-ஐ ${site.address} முகவரியில் உள்ள ${site.company} உருவாக்கி, ஆதரவும் வழங்குகிறது. Software-ஐ நாங்களே உருவாக்கி, நாங்களே support செய்கிறோம். இடையில் resellers யாரும் இல்லை.`
+                ? `MariaPoS-ஐ ${site.address} முகவரியிலுள்ள ${site.company} உருவாக்கி, ஆதரவும் வழங்குகிறது. மென்பொருளை உருவாக்கியவர்களிடமிருந்தே நேரடியாக ஆதரவு கிடைக்கிறது; இடைத்தரகர்கள் இல்லை.`
                 : lang === "si"
                 ? `MariaPoS හදන්නෙත් support කරන්නෙත් ${site.address} හි පිහිටි ${site.company} විසින්. අතරමැදියන් නැතුව, software එක හැදූ අයගෙන්ම කෙලින්ම සහාය ලැබෙනවා.`
                 : `MariaPoS is developed and supported by ${site.company}, based at ${site.address}. We build and support the software directly — no resellers in between.`}
@@ -87,7 +87,7 @@ export function AboutSection() {
             </div>
             <p className={styles.personTextLight}>
               {lang === "ta"
-                ? `MariaPoS-ஐ ${site.company} தொடக்கம் முதல் இறுதி வரை நிர்வகிக்கிறது. Development, sales, installation முதல் இலங்கையில் உள்ள ஒவ்வொரு customer-க்கும் வழங்கும் தொடர்ச்சியான support வரை எல்லாமே இவர்களே.`
+                ? `MariaPoS-ஐ ${site.company} தொடக்கம் முதல் இறுதி வரை பொறுப்பேற்கிறது: உருவாக்கம், விற்பனை, நிறுவல் முதல் இலங்கையிலுள்ள ஒவ்வொரு வாடிக்கையாளருக்கும் தொடர்ந்து வழங்கும் ஆதரவு வரை.`
                 : lang === "si"
                 ? `${site.company} MariaPoS මුල සිට අග දක්වාම භාර ගනී: නිර්මාණයේ සිට විකිණීම, install කිරීම සහ ශ්‍රී ලංකාවේ හැම customer කෙනෙකුටම දිගටම දෙන support එක දක්වාම.`
                 : `${site.company} owns and operates MariaPoS end-to-end — from development to sales, installation and ongoing support for every customer in Sri Lanka.`}
