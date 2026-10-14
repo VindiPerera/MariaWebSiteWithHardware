@@ -277,7 +277,8 @@ html.motion [data-reveal][data-shown] {
 }
 
 /* Tamil glyphs run wider than Latin, so tighten the desktop nav to keep the header on one row. */
-html[lang="ta"] nav[aria-label="Primary navigation"] a {
+html[lang="ta"] nav[aria-label="Primary navigation"] a,
+html[lang="si"] nav[aria-label="Primary navigation"] a {
   padding: 8px 8px;
   font-size: 14px;
   white-space: nowrap;

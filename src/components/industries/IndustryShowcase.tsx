@@ -122,13 +122,13 @@ const tradeScenarios: Record<
 
 /** Sinhala + English text for the scenario copy, keyed by slug ("default" for the fallback). */
 const scenarioSi: Record<string, { modeTitle: string; description: string; hotkeyDesc: string; receiptSummary: string }> = {
-  pharmacy: { modeTitle: "Pharmacy Batch සහ Expiry Mode", description: "Bill කරන හැම item එකක්ම distributor traceability සමඟ කල් ඉකුත් නොවූ පරණම batch එක automatically භාවිතා කරනවා.", hotkeyDesc: "Strip එකේ සහ box එකේ මිල එකවරම බලන්න", receiptSummary: "Distributor traceability සමඟ Invoice #004921 යැවුවා" },
-  "supermarket-grocery": { modeTitle: "Supermarket Rapid Checkout Mode", description: "Decimal weights, loose produce pricing සහ peak rush hours වල barcode queue එක ඉක්මනින් ඉවර කිරීම.", hotkeyDesc: "Customer ගේ mobile එකට digital receipt එක යවන්න", receiptSummary: "eBill SMS එක customer ගේ mobile එකට යැවුවා" },
-  "hardware-store": { modeTitle: "Hardware සහ Contractor Trade Mode", description: "මීටර, box හෝ kg අනුව විකුණන්න, retail සහ trade contractor මිල අතර එක key එකකින් මාරු වෙන්න.", hotkeyDesc: "මුළු cart එකම contractor discount එකට මාරු කරයි", receiptSummary: "Trade Credit: Metro Contractors ට $250.00ක් add කළා" },
-  "clothing-textile": { modeTitle: "Fashion සහ Retail Seasonal Rush Mode", description: "Promo coupon validation, invoice-based garment exchanges සහ customer loyalty reward points.", hotkeyDesc: "Verify කළ discount එක bill එකට යොදයි", receiptSummary: "SMS receipt සමඟ දින 14ක exchange එකට Invoice එක stamp කළා" },
-  "bakery-cafe": { modeTitle: "Quick-Service Counter Rush Mode", description: "High-speed on-screen keypad, blind shift changeover සහ instant cash drawer triggers.", hotkeyDesc: "Cash drawer එක open වෙනවා, change ගණනය වෙනවා", receiptSummary: "Shift #42 ගණන් කළ cash එක expected till float එකට ගැලපෙනවා" },
-  "auto-parts": { modeTitle: "Auto Spare Parts සහ Workshop Mode", description: "OEM part number එකෙන් search කරන්න හෝ barcode එක scan කරන්න, mechanics ලාට credit එකට trade invoices assign කරන්න.", hotkeyDesc: "වාහන අතරේ interchange numbers බලන්න", receiptSummary: "Express Auto Care සඳහා trade account ledger එක update කළා" },
-  default: { modeTitle: "Multi-Trade Retail Counter Mode", description: "High-speed barcode scanning, FIFO stock deduction සහ offline instant receipts.", hotkeyDesc: "Thermal receipt එක print කර SMS eBill එක යවන්න", receiptSummary: "100% offline database එක ගැටලුවක් නැතුව sync වුණා" },
+  pharmacy: { modeTitle: "Pharmacy: Batch සහ කල් ඉකුත්වීම", description: "Bill කරන හැම item එකක්ම කල් ඉකුත් නොවූ පරණම batch එකෙන් ඉබේම අඩු වෙනවා, ඒ නිසා කල් ඉකුත්වීමෙන් වන පාඩුව අඩුයි.", hotkeyDesc: "Strip එකේ සහ box එකේ මිල එකවරම බලන්න", receiptSummary: "Invoice #004921 යැවුවා, distributor විස්තර සමඟ" },
+  "supermarket-grocery": { modeTitle: "Supermarket Rapid Checkout Mode", description: "බර අනුව සහ loose භාණ්ඩ වල මිල ගණන් කර, කාර්යබහුල වෙලාවල barcode එකෙන් queue එක ඉක්මනින් ඉවර කරන්න.", hotkeyDesc: "Customer ගේ mobile එකට digital receipt එක යවන්න", receiptSummary: "eBill SMS එක customer ගේ mobile එකට යැවුවා" },
+  "hardware-store": { modeTitle: "Hardware සහ Contractor Trade Mode", description: "මීටර, box හෝ kg අනුව විකුණන්න. එක key එකකින් සාමාන්‍ය මිලත් contractor මිලත් අතර මාරු වෙන්න.", hotkeyDesc: "මුළු cart එකම contractor discount එකට මාරු කරයි", receiptSummary: "Trade Credit: Metro Contractors ට $250.00ක් add කළා" },
+  "clothing-textile": { modeTitle: "Fashion සහ Retail Seasonal Rush Mode", description: "Promo coupon පරීක්ෂා කිරීම, invoice එක අනුව ඇඳුම් මාරු කිරීම සහ customer loyalty points.", hotkeyDesc: "Verify කළ discount එක bill එකට යොදයි", receiptSummary: "SMS receipt සමඟ දින 14ක exchange එකට Invoice එක stamp කළා" },
+  "bakery-cafe": { modeTitle: "Quick-Service Counter Rush Mode", description: "වේගවත් on-screen keypad, shift මාරුව සහ cash drawer එක එවෙලේම විවෘත වීම.", hotkeyDesc: "Cash drawer එක open වෙනවා, change ගණනය වෙනවා", receiptSummary: "Shift #42 ගණන් කළ cash එක expected till float එකට ගැලපෙනවා" },
+  "auto-parts": { modeTitle: "Auto Spare Parts සහ Workshop Mode", description: "OEM part number එකෙන් සොයන්න හෝ barcode එක scan කරන්න. Mechanics ලාට credit එකට invoices දෙන්න.", hotkeyDesc: "වාහන අතරේ interchange numbers බලන්න", receiptSummary: "Express Auto Care සඳහා trade account ledger එක update කළා" },
+  default: { modeTitle: "Multi-Trade Retail Counter Mode", description: "වේගවත් barcode scan කිරීම, stock ඉබේම අඩු වීම සහ internet නැතුවත් receipts.", hotkeyDesc: "Thermal receipt එක print කර SMS eBill එක යවන්න", receiptSummary: "100% offline database එක ගැටලුවක් නැතුව sync වුණා" },
 };
 
 const defaultScenario = {
@@ -247,7 +247,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
             <div className={styles.infoColumn}>
               <span className={styles.infoTitle}>{t("Trade Counter Highlights", "Trade Counter විශේෂාංග")}</span>
               <p className={styles.infoDesc}>
-                {t("Every transaction automatically runs deep bookkeeping in the background:", "හැම transaction එකකම background එකේ ගැඹුරු bookkeeping automatically සිදුවෙනවා:")}
+                {t("Every transaction automatically runs deep bookkeeping in the background:", "හැම ගනුදෙනුවක් සමඟම පිටිපස්සේ ගිණුම් කටයුතු ඉබේම සිදුවෙනවා:")}
               </p>
 
               <div className={styles.perkCards}>
@@ -256,8 +256,8 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
                     <Package size={16} color="var(--red)" />
                   </div>
                   <div>
-                    <h4 className={styles.perkName}>{t("True FIFO Deduction", "සැබෑ FIFO Deduction")}</h4>
-                    <p className={styles.perkText}>{t("Oldest batch deducted with accurate gross margin.", "නිවැරදි gross margin එක්ක පරණම batch එක අඩු වෙනවා.")}</p>
+                    <h4 className={styles.perkName}>{t("True FIFO Deduction", "පරණම stock මුලින්ම අඩු වෙනවා")}</h4>
+                    <p className={styles.perkText}>{t("Oldest batch deducted with accurate gross margin.", "නිවැරදි ලාභය ගණනය කරමින් පරණම batch එක අඩු වෙනවා.")}</p>
                   </div>
                 </div>
 
@@ -267,7 +267,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
                   </div>
                   <div>
                     <h4 className={styles.perkName}>{t("Owner Phone Alerts", "අයිතිකරුගේ Phone Alerts")}</h4>
-                    <p className={styles.perkText}>{t("Push alert dispatched to owner the instant bill prints.", "Bill එක print වුණු ගමන්ම අයිතිකරුට push alert එකක් යනවා.")}</p>
+                    <p className={styles.perkText}>{t("Push alert dispatched to owner the instant bill prints.", "Bill එක print වුණු ගමන්ම ඔබේ phone එකට alert එකක් එනවා.")}</p>
                   </div>
                 </div>
 
@@ -277,7 +277,7 @@ export function IndustryShowcase({ slug, name, short }: IndustryShowcaseProps) {
                   </div>
                   <div>
                     <h4 className={styles.perkName}>{t("Shift Audit Lock", "Shift Audit Lock")}</h4>
-                    <p className={styles.perkText}>{t("Cashier blind count compared to actual drawer float.", "Cashier ගේ blind count එක drawer එකේ සැබෑ float එක සමඟ සැසඳෙනවා.")}</p>
+                    <p className={styles.perkText}>{t("Cashier blind count compared to actual drawer float.", "Cashier ගේ ගණන් කළ මුදල drawer එකේ සැබෑ මුදල සමඟ සසඳනවා.")}</p>
                   </div>
                 </div>
               </div>

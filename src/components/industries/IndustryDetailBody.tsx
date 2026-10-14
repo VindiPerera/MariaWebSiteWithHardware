@@ -54,7 +54,7 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
             <p className={styles.text}>
               {t(
                 "Generic billing software treats every shop the same. MariaPoS is built around the real problems at a Sri Lankan counter, and every feature is included in one licence.",
-                "සාමාන්‍ය billing software හැම වෙළඳසැලක්ම එක විදිහට සලකනවා. MariaPoS හදලා තියෙන්නේ ශ්‍රී ලාංකික counter එකක සැබෑ ගැටලු වටා, සියලුම features එක licence එකකට ඇතුළත්.",
+                "සාමාන්‍ය billing software හැම වෙළඳසැලක්ම එකම විදිහට සලකනවා. MariaPoS හදලා තියෙන්නේ ශ්‍රී ලංකාවේ වෙළඳසැලක සැබෑ ගැටලු විසඳන්න, සියලුම විශේෂාංග එක licence එකකින්.",
               )}
             </p>
           </div>
@@ -75,7 +75,7 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
           <span className="eyebrow">{t("How MariaPoS helps", "MariaPoS උදව් වෙන්නේ කොහොමද")}</span>
           <h2 className={styles.h2}>
             {lang === "si"
-              ? `${short} සඳහා වඩාත්ම වැදගත් MariaPoS features`
+              ? `${short} සඳහා වඩාත්ම වැදගත් MariaPoS විශේෂාංග`
               : lang === "ta"
                 ? `${short}-க்கு மிக முக்கியமான MariaPoS features`
                 : `MariaPoS features that matter most for ${industry.short.toLowerCase()}`}
@@ -95,7 +95,7 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
           <Link href="/features" data-reveal="up" className={styles.card}>
             <h3 className={styles.cardTitle}>
               {lang === "si"
-                ? `තවත් features ${featureCount - industry.highlights.length}ක්`
+                ? `තවත් විශේෂාංග ${featureCount - industry.highlights.length}ක්`
                 : lang === "ta"
                   ? `மேலும் ${featureCount - industry.highlights.length} features`
                   : `Plus ${featureCount - industry.highlights.length} more features`}
@@ -103,11 +103,11 @@ export function IndustryDetailBody({ slug }: { slug: string }) {
             <p className={styles.cardBody}>
               {t(
                 "Shifts & till control, supplier GRN, 13+ reports, SMS e-bills, push alerts and cloud sync.",
-                "Shifts සහ till control, supplier GRN, reports 13+, SMS e-bills, push alerts සහ cloud sync.",
+                "Shift සහ till පාලනය, supplier භාණ්ඩ ලැබීම, reports 13+, SMS bills, phone alerts සහ cloud backup.",
               )}
             </p>
             <span className={styles.cardLink}>
-              {t("See all features", "සියලුම features බලන්න")} <ArrowRight size={14} />
+              {t("See all features", "සියලුම විශේෂාංග බලන්න")} <ArrowRight size={14} />
             </span>
           </Link>
         </div>

@@ -65,13 +65,13 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
           <div data-reveal="up" className="section-intro">
             <span className="eyebrow">
               <Sparkles size={13} />
-              {t("Certified POS Hardware Catalog", "Certified POS Hardware Catalog එක")}
+              {t("Certified POS Hardware Catalog", "පරීක්ෂා කළ POS Hardware")}
             </span>
-            <h2 className="section-title">{t("Tested, driver-configured and ready to bill", "Test කරලා, driver configure කරලා, bill කරන්න ready")}</h2>
+            <h2 className="section-title">{t("Tested, driver-configured and ready to bill", "පරීක්ෂා කර ඇත, ලැබුණු දවසේම bill කරන්න පුළුවන්")}</h2>
             <p className="lead">
               {t(
                 "Every device is verified for seamless plug-and-play operation with MariaPoS Windows software. 1-year JAAN warranty and islandwide delivery across all 25 districts.",
-                "හැම device එකක්ම MariaPoS Windows software එක්ක plug-and-play ලෙස හොඳින් වැඩ කරන බව තහවුරු කරලා තියෙනවා. අවුරුදු 1ක JAAN warranty එකක් සහ දිස්ත්‍රික්ක 25ටම delivery.",
+                "හැම device එකක්ම MariaPoS සමඟ හොඳින් වැඩ කරන බව අපි කලින්ම තහවුරු කර ඇත, ඒ නිසා ඔබට setup කරන්න කරදර වෙන්න අවශ්‍ය නැහැ. අවුරුදු 1ක JAAN warranty එකත්, දිස්ත්‍රික්ක 25ටම delivery එකත් සමඟ.",
               )}
             </p>
           </div>
@@ -82,20 +82,20 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
           <div className={styles.nudgeLeft}>
             <span className={styles.nudgeBadge}>
               <PackageCheck size={14} color="var(--red)" />
-              {t("Complete Solution Bundles", "සම්පූර්ණ Solution Bundles")}
+              {t("Complete Solution Bundles", "සියල්ල එකට ගන්න Bundles")}
             </span>
             <strong className={styles.nudgeTitle}>
-              {t("Looking for MariaPoS Software Licenses?", "MariaPoS Software Licenses හොයනවද?")}
+              {t("Looking for MariaPoS Software Licenses?", "MariaPoS licence එකක් සොයනවාද?")}
             </strong>
             <span className={styles.nudgeDesc}>
               {t(
                 "Activate full 1-Year, 2-Year or 3-Year MariaPoS software licenses with offline billing, FIFO inventory, push alerts & cloud sync.",
-                "Offline billing, FIFO inventory, push alerts සහ cloud sync සහිත සම්පූර්ණ අවුරුදු 1, 2 හෝ 3 MariaPoS software licenses activate කරන්න.",
+                "Internet නැති වෙලාවලත් bill කරන්න, stock නිවැරදිව තියාගන්න, sales ඔබේ phone එකට ගන්න, cloud backup එකත් සමඟ — අවුරුදු 1, 2 හෝ 3 MariaPoS licence එකක් ලබාගන්න.",
               )}
             </span>
           </div>
           <Link href="/pricing" className={styles.nudgeBtn}>
-            <span>{t("View Software Plans & Pricing", "Software Plans සහ Pricing බලන්න")}</span>
+            <span>{t("View Software Plans & Pricing", "Software Plans සහ මිල බලන්න")}</span>
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -125,7 +125,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
               <Search size={16} className={styles.searchIcon} />
               <input
                 type="text"
-                placeholder={t("Search by item code (e.g. PRI2915, ACC1639) or model...", "Item code (උදා: PRI2915, ACC1639) හෝ model එකෙන් search කරන්න...")}
+                placeholder={t("Search by item code (e.g. PRI2915, ACC1639) or model...", "Item code (උදා: PRI2915) හෝ model එකෙන් සොයන්න...")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={styles.searchInput}
@@ -135,7 +135,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                   type="button"
                   className={styles.clearSearchBtn}
                   onClick={() => setSearchQuery("")}
-                  aria-label={t("Clear search", "Search එක clear කරන්න")}
+                  aria-label={t("Clear search", "සෙවුම මකන්න")}
                 >
                   ✕
                 </button>
@@ -150,7 +150,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                 className={styles.hiddenCheck}
               />
               <span className={`${styles.toggleSwitch} ${inStockOnly ? styles.toggleOn : ""}`} />
-              <span className={styles.toggleLabel}>{t("In Stock Only", "Stock එකේ ඇති ඒවා පමණයි")}</span>
+              <span className={styles.toggleLabel}>{t("In Stock Only", "දැන්ම ලබාගත හැකි ඒවා පමණයි")}</span>
             </label>
 
             <button type="button" className={styles.cartFloatBtn} onClick={openDrawer}>
@@ -202,14 +202,14 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                   setInStockOnly(false);
                 }}
               >
-                {t("Reset filter (Show all)", "Filter reset කරන්න (සියල්ල පෙන්වන්න)")}
+                {t("Reset filter (Show all)", "සියල්ල පෙන්වන්න")}
               </button>
             )}
           </div>
 
           {filteredItems.length === 0 ? (
             <div className={styles.emptyState}>
-              <p>{t("No hardware found matching your criteria.", "ඔබේ නිර්ණායකවලට ගැලපෙන hardware කිසිවක් හමු වුණේ නැහැ.")}</p>
+              <p>{t("No hardware found matching your criteria.", "ඔබ සෙව්වාට ගැලපෙන hardware හමු වුණේ නැහැ.")}</p>
               <button
                 type="button"
                 className="btn-secondary"
@@ -219,7 +219,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
                   setInStockOnly(false);
                 }}
               >
-                {t("Clear all filters", "සියලුම filters clear කරන්න")}
+                {t("Clear all filters", "සියලුම filters ඉවත් කරන්න")}
               </button>
             </div>
           ) : (

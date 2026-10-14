@@ -46,12 +46,12 @@ export function HardwareCard({ item, featured }: Props) {
           {item.inStock ? (
             <span className={styles.inStockBadge}>
               <span className={styles.inStockDot} />
-              {t("In Stock", "Stock එකේ තියෙනවා")}
+              {t("In Stock", "දැන්ම ලබාගත හැක")}
             </span>
           ) : (
             <span className={styles.preorderBadge}>
               <span className={styles.preorderDot} />
-              {t("On Request", "ඉල්ලීම මත")}
+              {t("On Request", "Order කළාම ලැබේ")}
             </span>
           )}
         </div>
@@ -122,7 +122,7 @@ export function HardwareCard({ item, featured }: Props) {
               {addedAnim ? (
                 <>
                   <Check size={16} />
-                  <span>{t("Added!", "Add වුණා!")}</span>
+                  <span>{t("Added!", "එකතු වුණා!")}</span>
                 </>
               ) : isInCart ? (
                 <>
@@ -132,7 +132,7 @@ export function HardwareCard({ item, featured }: Props) {
               ) : (
                 <>
                   <Plus size={16} />
-                  <span>{t("Add to Quote", "Quote එකට Add කරන්න")}</span>
+                  <span>{t("Add to Quote", "Quote එකට එකතු කරන්න")}</span>
                 </>
               )}
             </button>
@@ -173,7 +173,7 @@ export function HardwareCard({ item, featured }: Props) {
                 ))}
               </div>
 
-              <h4 className={styles.modalSectionTitle}>{t("Included Features", "ඇතුළත් Features")}</h4>
+              <h4 className={styles.modalSectionTitle}>{t("Included Features", "ඇතුළත් විශේෂාංග")}</h4>
               <ul className={styles.featuresList}>
                 {item.features.map((feat) => (
                   <li key={feat}>
@@ -185,7 +185,7 @@ export function HardwareCard({ item, featured }: Props) {
 
               {item.recommendedFor && (
                 <div className={styles.recommendedFor}>
-                  <strong>{t("Recommended for:", "නිර්දේශිත:")}</strong> {item.recommendedFor.join(", ")}
+                  <strong>{t("Recommended for:", "ගැලපෙන්නේ:")}</strong> {item.recommendedFor.join(", ")}
                 </div>
               )}
             </div>
@@ -203,7 +203,7 @@ export function HardwareCard({ item, featured }: Props) {
                   setShowSpecsModal(false);
                 }}
               >
-                <span>{t("Add to Hardware Quote", "Hardware Quote එකට Add කරන්න")}</span>
+                <span>{t("Add to Hardware Quote", "Hardware Quote එකට එකතු කරන්න")}</span>
                 <ArrowRight size={16} />
               </button>
             </div>

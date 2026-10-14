@@ -9,14 +9,14 @@ const comparisonRows = [
     feature: "Offline Billing Architecture",
     mariapos: "100% Offline — local zero-latency database",
     traditional: "Stalls or locks up when internet drops",
-    si: ["Offline Billing Architecture", "100% Offline — local zero-latency database එකක්", "Internet නැති වුණාම නවතිනවා හෝ lock වෙනවා"],
+    si: ["Offline Billing Architecture", "100% Offline — internet නැතුවත් වේගවත් database එකක්", "Internet නැති වුණාම නවතිනවා හෝ lock වෙනවා"],
     highlight: true,
   },
   {
     feature: "Stock Deduction Accuracy",
     mariapos: "True FIFO batch tracking with exact cost valuation",
     traditional: "Crude simple averages or no batch tracking",
-    si: ["Stock අඩු කිරීමේ නිරවද්‍යතාව", "නිවැරදි cost valuation එක්ක සැබෑ FIFO batch tracking", "අසම්පූර්ණ සරල averages, නැත්නම් batch tracking නැහැ"],
+    si: ["Stock අඩු කිරීමේ නිරවද්‍යතාව", "නිවැරදි cost එක සමඟ FIFO batch tracking", "අසම්පූර්ණ සරල averages, නැත්නම් batch tracking නැහැ"],
     highlight: true,
   },
   {
@@ -37,7 +37,7 @@ const comparisonRows = [
     feature: "Cashier Till Control",
     mariapos: "Blind shift close with short/excess cash record",
     traditional: "Open till drawer with untracked float",
-    si: ["Cashier Till Control", "Short/excess cash record එක්ක Blind shift close", "Track නොකරන float එකක් සහිත open till drawer"],
+    si: ["Cashier Till Control", "Cashier ගේ මුදල් අඩු/වැඩි වුණාම record වෙන shift close එක", "Track නොකරන float එකක් සහිත open till drawer"],
     highlight: false,
   },
   {

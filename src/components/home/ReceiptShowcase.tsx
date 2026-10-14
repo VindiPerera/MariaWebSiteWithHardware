@@ -23,7 +23,7 @@ const billHighlights = [
     title: "Branded Header & Contacts",
     desc: "Your shop logo, custom store name, address, and hotlines in any language or currency at the top of every bill.",
     si: "Branded Header සහ Contacts",
-    descSi: "හැම bill එකකම උඩින් ඔබේ වෙළඳසැලේ logo එක, නම, ලිපිනය සහ hotlines, ඕනෑම භාෂාවකින් හෝ currency එකකින්.",
+    descSi: "හැම bill එකකම උඩින් ඔබේ වෙළඳසැලේ logo එක, නම, ලිපිනය සහ phone අංක, ඔබට කැමති භාෂාවකින්.",
     icon: Store,
   },
   {
@@ -31,7 +31,7 @@ const billHighlights = [
     title: "Accurate Line Itemization",
     desc: "Item names, decimal quantities (packs, kg, litres), unit prices, and instant line subtotaling with zero queue latency.",
     si: "නිවැරදි Line Itemization",
-    descSi: "Item names, decimal quantities (packs, kg, litres), unit prices සහ instant line subtotal, queue එකේ delay එකක් නැතුව.",
+    descSi: "Item නම්, ප්‍රමාණය (packs, kg, litres), මිල සහ එකතුව, queue එක නතර නොවී.",
     icon: Receipt,
   },
   {
@@ -39,15 +39,15 @@ const billHighlights = [
     title: "Cash Tender & Balance Calculation",
     desc: "Explicit record of paid cash and change returned so cashiers never make counting errors during peak rush.",
     si: "Cash Tender සහ Balance Calculation",
-    descSi: "ගෙවූ cash එකත්, ආපසු දුන් balance එකත් පැහැදිලිව record වෙනවා, rush hour එකේදී cashier ට ගණන් වැරදෙන්නේ නැහැ.",
+    descSi: "ගෙවූ මුදලත්, ආපසු දුන් ඉතිරියත් පැහැදිලිව record වෙනවා. කාර්යබහුල වෙලාවලත් cashier ට ගණන් වැරදෙන්නේ නැහැ.",
     icon: Wallet,
   },
   {
     id: "audit",
     title: "Audit Barcode for 2-Sec Returns",
     desc: "Scan the invoice barcode on customer returns to immediately pull the original sale and restock into the exact cost batch.",
-    si: "තත්පර 2කින් Returns සඳහා Audit Barcode",
-    descSi: "Return එකකදී invoice barcode එක scan කළ ගමන් original sale එක ලැබෙනවා, නිවැරදි cost batch එකටම ආපසු restock වෙනවා.",
+    si: "Returns තත්පර 2කින්",
+    descSi: "Return එකකදී bill එකේ barcode එක scan කළ ගමන් මුල් sale එක ලැබෙනවා, භාණ්ඩය නිවැරදි තැනටම ආපසු stock එකට එකතු වෙනවා.",
     icon: Barcode,
   },
 ];
@@ -114,7 +114,7 @@ Total Balance:                    $ 1.00
           <p className={styles.lead}>
             {t(
               "Every MariaPoS transaction produces a clean, high-contrast thermal bill formatted for customer clarity and cashier accountability. Compatible out of the box with standard 80mm and 58mm ESC/POS thermal printers.",
-              "MariaPoS හි හැම transaction එකකටම customer ට පැහැදිලිව පෙනෙන, cashier ගේ වගවීම තහවුරු කරන, high-contrast thermal bill එකක් ලැබෙනවා. සාමාන්‍ය 80mm සහ 58mm ESC/POS thermal printers එක්ක කෙලින්ම වැඩ කරනවා.",
+              "MariaPoS හි හැම bill එකක්ම customer ට පැහැදිලිව කියවන්න පුළුවන්, cashier ගේ වගකීම තහවුරු කරන, තද පැහැදිලි thermal bill එකක්. සාමාන්‍ය 80mm සහ 58mm printers සමඟ කෙලින්ම වැඩ කරනවා.",
             )}
           </p>
 

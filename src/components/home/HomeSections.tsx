@@ -124,7 +124,7 @@ const trustItems = [
   { icon: Award, title: "Authorized Xprinter Seller", text: "100% genuine units & 1-yr replacement warranty", si: "Authorized Xprinter Seller", textSi: "100% genuine units සහ අවුරුදු 1ක replacement warranty" },
   { icon: Banknote, title: "Cash on Delivery", text: "Pay the courier when it arrives", si: "Cash on Delivery", textSi: "ලැබුණාම courier එකට ගෙවන්න" },
   { icon: Truck, title: "Island-wide delivery", text: "All 25 districts", si: "මුළු රටටම delivery", textSi: "දිස්ත්‍රික්ක 25ම" },
-  { icon: CalendarCheck, title: "7-day free trial", text: "Full software, no payment", si: "දින 7ක free trial", textSi: "Full software එක, ගෙවීමක් නැහැ" },
+  { icon: CalendarCheck, title: "7-day free trial", text: "Full software, no payment", si: "දින 7ක free trial", textSi: "සම්පූර්ණ software එක, නොමිලේ" },
   { icon: Headset, title: "Local support", text: "Colombo team, on WhatsApp", si: "Local support", textSi: "කොළඹ team එක, WhatsApp එකෙන්" },
 ];
 
@@ -195,7 +195,7 @@ export function BuyingPaths() {
             <p className={styles.body}>
               {t(
                 "Visit our Colombo office or request a tailored counter walkthrough.",
-                "අපේ කොළඹ කාර්යාලයට එන්න, නැත්නම් ඔබේ counter එකට ගැලපෙන walkthrough එකක් ඉල්ලන්න.",
+                "අපේ කොළඹ කාර්යාලයට ඇවිත් counter එක බලන්න, නැත්නම් ඔබේ counter එකට ගැලපෙන විදිහට පෙන්වන්න කියලා අපෙන් ඉල්ලන්න.",
               )}
             </p>
             <span className={styles.pathLink}>
@@ -217,7 +217,7 @@ export function FeaturedHardware() {
         <div className={styles.rowHead}>
           <div className={styles.rowHeadText}>
             <div className={styles.eyebrow}>{t("Hardware", "Hardware")}</div>
-            <h2 className={styles.h2}>{t("Tested with MariaPoS.", "MariaPoS එක්ක test කරපු.")}</h2>
+            <h2 className={styles.h2}>{t("Tested with MariaPoS.", "MariaPoS සමඟ වැඩ කරන බව පරීක්ෂා කළ.")}</h2>
           </div>
           <Link href="/hardware" className={styles.allLink}>
             {t(`All ${hardwareProductCount} products`, `Products ${hardwareProductCount}ම බලන්න`, `${hardwareProductCount} products அனைத்தையும் பாருங்கள்`)}
@@ -241,9 +241,9 @@ export function FeaturedHardware() {
 }
 
 const smallFeatures = [
-  { icon: Layers, title: "FIFO stock", text: "Every batch tracked at its own cost, sold oldest first.", si: "FIFO stock", textSi: "හැම batch එකක්ම එහි මිලට track වෙනවා, පරණම එක මුලින්ම විකිණෙනවා." },
+  { icon: Layers, title: "FIFO stock", text: "Every batch tracked at its own cost, sold oldest first.", si: "FIFO stock", textSi: "බඩු ගත්ත හැම වතාවකම මිල වෙන වෙනම තියාගන්නවා, පරණම stock මුලින්ම විකිණෙනවා. ඒ නිසා ලාභය නිවැරදිව පෙනෙනවා." },
   { icon: MessageSquareText, title: "SMS e-bill receipts", text: "Send the bill to the customer's phone. Save paper.", si: "SMS e-bill receipts", textSi: "Bill එක customer ගේ phone එකටම යවන්න. කඩදාසි ඉතිරියි." },
-  { icon: ChartColumn, title: "Reports", text: "Sales, profit & loss, stock value. Export to PDF or Excel.", si: "Reports", textSi: "Sales, profit & loss, stock value. PDF හෝ Excel වලට export කරන්න." },
+  { icon: ChartColumn, title: "Reports", text: "Sales, profit & loss, stock value. Export to PDF or Excel.", si: "Reports", textSi: "Sales, ලාභ අලාභ, stock වටිනාකම බලන්න. PDF හෝ Excel එකකට ගන්න." },
   { icon: Cloud, title: "Cloud panel", text: "Check today's sales from anywhere, on your phone.", si: "Cloud panel", textSi: "අද sales ඕනෑම තැනක සිට phone එකෙන් බලන්න." },
 ];
 
@@ -258,7 +258,7 @@ export function SoftwareBento() {
           <p className={styles.lead}>
             {t(
               "Windows software built for Sri Lankan retail. Here are six things shop owners use every day.",
-              "ශ්‍රී ලාංකික retail වලට හදපු Windows software එකක්. වෙළඳසැල් අයිතිකරුවන් හැමදාම පාවිච්චි කරන දේවල් හයක් මෙන්න.",
+              "ශ්‍රී ලංකාවේ වෙළඳසැල් වලට හදපු Windows software එකක්. වෙළඳසැල් හිමියන් දිනපතා පාවිච්චි කරන දේවල් හයක් මෙන්න.",
             )}
           </p>
         </div>
@@ -269,7 +269,7 @@ export function SoftwareBento() {
             <p className={styles.body}>
               {t(
                 "Scan or search by name, use F1–F12 shortcuts or the touch keypad. Retail and wholesale prices.",
-                "Scan කරන්න, නමින් search කරන්න, F1–F12 shortcuts හෝ touch keypad එක පාවිච්චි කරන්න. Retail සහ wholesale මිල ගණන්.",
+                "Scan කරන්න, නමින් සොයන්න, F1–F12 shortcuts හෝ touch keypad එක පාවිච්චි කරන්න. සාමාන්‍ය සහ wholesale මිල දෙකම.",
               )}
             </p>
             <div className={styles.screenFrame}>
@@ -342,7 +342,7 @@ const steps = [
     title: "Message us on WhatsApp",
     text: "Tap Order. The message is ready. Add your delivery address and send.",
     si: "WhatsApp එකෙන් message කරන්න",
-    textSi: "Order tap කරන්න. Message එක ready. Delivery address එක දාලා send කරන්න.",
+    textSi: "Order බොත්තම ඔබන්න. Message එක සූදානම්. Delivery ලිපිනය එකතු කර යවන්න.",
   },
   {
     icon: Banknote,
@@ -388,7 +388,7 @@ export function CtaBand() {
         <div className={styles.ctaBand}>
           <div className={styles.ctaText}>
             <h2 className={styles.h2}>{t("Tell us about your shop.", "ඔබේ වෙළඳසැල ගැන කියන්න.")}</h2>
-            <p className={styles.lead}>{t("We'll suggest the right setup and send you a price on WhatsApp.", "ගැලපෙන setup එක අපි suggest කරලා, WhatsApp එකෙන් මිල එවනවා.")}</p>
+            <p className={styles.lead}>{t("We'll suggest the right setup and send you a price on WhatsApp.", "ඔබට ගැලපෙන setup එක අපි යෝජනා කර, WhatsApp එකෙන් මිල එවනවා.")}</p>
           </div>
           <div className={styles.ctaActions}>
             <a href={waGeneral} target="_blank" rel="noopener" className={styles.waButton}>

@@ -61,14 +61,14 @@ export function PromotionHero() {
               {/* Big Bold Headline featuring POS System in Sri Lanka */}
               <h1 className={styles.headline}>
                 {t("A Complete POS System in Sri Lanka.", "ශ්‍රී ලංකාවටම සම්පූර්ණ POS System එකක්.")} <br />
-                <span className={styles.accentText}>{t("Fast Billing.", "වේගවත් Billing.")}</span> {t("Never Freeze.", "කිසිදා Freeze වෙන්නේ නැහැ.")}
+                <span className={styles.accentText}>{t("Fast Billing.", "වේගවත් Billing.")}</span> {t("Never Freeze.", "කිසිදා නතර වෙන්නේ නැහැ.")}
               </h1>
 
               {/* Lead Subtitle */}
               <p className={styles.subheadline}>
                 {t(
                   "MariaPoS pairs robust 100% offline Windows software with heavy-duty touch screens, auto-cutter thermal printers, barcode scanners, and cash drawers. Built for intense retail rush hours — dispatched Cash on Delivery across all 25 districts.",
-                  "MariaPoS එකේ 100% offline වැඩ කරන Windows software එක, heavy-duty touch screen, auto-cutter thermal printer, barcode scanner සහ cash drawer සමඟ පැමිණේ. Rush hour එකේදීවත් වෙළඳසැල නොනැවතී ක්‍රියාත්මක වීමට නිර්මාණය කළ එකක් — දිස්ත්‍රික්ක 25ටම Cash on Delivery ලෙස එවනවා.",
+                  "MariaPoS එකේ internet නැතුවත් 100% වැඩ කරන software එක, ශක්තිමත් touch screen, bill එක ඉක්මනින් print කර කපන printer, barcode scanner සහ cash drawer එකත් සමඟ එනවා. කාර්යබහුලම වෙලාවලත් ඔබේ වෙළඳසැල නතර වෙන්නේ නැහැ. දිස්ත්‍රික්ක 25ටම Cash on Delivery ලෙස එවනවා.",
                 )}
               </p>
 
@@ -123,7 +123,7 @@ export function PromotionHero() {
                   </div>
                   <div className={styles.trustTexts}>
                     <strong className={styles.trustTitle}>{t("100% Offline Ready", "100% Offline Ready")}</strong>
-                    <span className={styles.trustSub}>{t("Zero internet lag at counter", "Counter එකේ internet lag එකක් නැහැ")}</span>
+                    <span className={styles.trustSub}>{t("Zero internet lag at counter", "Internet ප්‍රශ්න වලින් counter එක නතර වෙන්නේ නැහැ")}</span>
                   </div>
                 </div>
               </div>
@@ -154,7 +154,7 @@ export function PromotionHero() {
                 {/* Floating Micro Live Radar Pill (Top-Right) */}
                 <div className={styles.liveTillPill}>
                   <span className={styles.liveRadarDot} />
-                  <span>{t("Till #01 Active · 0.8s Bill Speed", "Till #01 Active · Bill වේගය 0.8s")}</span>
+                  <span>{t("Till #01 Active · 0.8s Bill Speed", "Till #01 · Bill එකකට තත්පර 0.8යි")}</span>
                 </div>
 
                 {/* Floating Interactive Bill Simulator Pill (Bottom-Left) */}
@@ -166,13 +166,13 @@ export function PromotionHero() {
                   title={t("Test bill simulation", "Bill simulation එක test කරන්න")}
                 >
                   <Sparkles size={14} className={billSimulated ? styles.spinAnim : ""} />
-                  <span>{billSimulated ? t(`Bill #${simCounter} Tendered!`, `Bill #${simCounter} ගෙවා අවසන්!`, `Bill #${simCounter} செலுத்தி முடிந்தது!`) : t("Tap to Test 0.8s Bill", "0.8s Bill එක Test කරන්න Tap කරන්න")}</span>
+                  <span>{billSimulated ? t(`Bill #${simCounter} Tendered!`, `Bill #${simCounter} ගෙවා අවසන්!`, `Bill #${simCounter} செலுத்தி முடிந்தது!`) : t("Tap to Test 0.8s Bill", "0.8s Bill එක බලන්න Tap කරන්න")}</span>
                 </button>
 
                 {/* Official Hardware Certification Pill (Bottom-Right) */}
                 <div className={styles.officialHostBadge}>
                   <Award size={14} color="#f59e0b" />
-                  <span>{t("Complete 4-Piece Setup Ready", "සම්පූර්ණ 4-Piece Setup එක Ready")}</span>
+                  <span>{t("Complete 4-Piece Setup Ready", "සම්පූර්ණ Setup එක සූදානම්")}</span>
                 </div>
               </div>
             </div>

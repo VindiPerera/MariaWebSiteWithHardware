@@ -24,26 +24,26 @@ import { useLang } from "@/lib/i18n";
 
 const officeFaqs = [
   {
-    qSi: "කොළඹින් පිටත අපේ වෙළඳසැලට on-site installation සඳහා ඔබේ technicians ලාට පැමිණිය හැකිද?",
-    aSi: "ඔව්! ශ්‍රී ලංකාවේ දිස්ත්‍රික්ක 25ටම (මහනුවර, ගාල්ල, කුරුණෑගල, යාපනය සහ රත්නපුර ඇතුළුව) technicians යවනවා. ඔබේ counter එකේදීම touch terminals, receipt printers, barcode scanners සියල්ල set up කර, hands-on cashier training එකත් දෙනවා.",
+    qSi: "කොළඹින් පිටත ඇති මගේ වෙළඳසැලට ඇවිත් install කරන්න ඔබේ technicians ලාට පුළුවන්ද?",
+    aSi: "ඔව්! දිස්ත්‍රික්ක 25ටම (මහනුවර, ගාල්ල, කුරුණෑගල, යාපනය, රත්නපුර ඇතුළුව) අපේ technicians ඔබේ වෙළඳසැලටම ඇවිත්, touch screen, printer, scanner සියල්ල set up කර, ඔබේ cashier ලාට counter එකේදීම පුහුණුව දෙනවා.",
     q: "Can your technicians visit our shop for on-site installation outside Colombo?",
     a: "Yes! We provide island-wide technician deployment across all 25 districts of Sri Lanka (including Kandy, Galle, Kurunegala, Jaffna, and Ratnapura). We set up all touch terminals, receipt printers, barcode scanners, and provide hands-on cashier training right on your counter.",
   },
   {
     qSi: "මගේම barcodes අරන් ඇවිත් කොළඹ කාර්යාලයේ ඔබේ scanners වලින් test කරන්න පුළුවන්ද?",
-    aSi: "අනිවාර්යයෙන්ම! Retail සහ pharmacy අයිතිකරුවන්ට අමාරු barcodes, ගෙවී ගිය product packaging හෝ prescription labels කොළඹ කාර්යාලයට ගෙනෙන්න අපි දිරිමත් කරනවා. මිලදී ගැනීමේ තීරණයට කලින් සැබෑ POS screens වල 1D laser scanners සහ 2D CMOS barcode scanners live test කරන්න පුළුවන්.",
+    aSi: "ඇත්තෙන්ම! කියවීමට අමාරු barcodes, ගෙවී ගිය packaging හෝ prescription labels ගෙනැවිත්, මිලදී ගැනීමට පෙර සැබෑ POS screens වල අපේ scanners වලින් අත්හදා බලන්න. හරි scanner එක තෝරාගන්න ඒක ඔබට උදව් වෙනවා.",
     q: "Can I bring my own barcodes and test them on your scanners at the Colombo office?",
     a: "Absolutely! We encourage retail and pharmacy owners to bring difficult barcodes, weathered product packaging, or prescription labels to our Colombo office. You can test 1D laser scanners and 2D CMOS barcode scanners live on real POS screens before making a purchase decision.",
   },
   {
-    qSi: "MariaPoS hardware සමඟ ලැබෙන warranty සහ replacement support මොනවාද?",
-    aSi: "හැම POS terminal එකකටම, thermal printer එකකටම, cash drawer එකකටම සහ barcode scanner එකකටම JAAN Network (PVT) Ltd විසින් කෙලින්ම දෙන සැබෑ අවුරුදු 1 සිට 2ක Hardware Warranty එකක් තියෙනවා. Device එකක ගැටලුවක් ආවොත්, ඔබේ billing නතර නොවෙන්න අපේ කොළඹ technical center එකෙන් වහාම diagnosis සහ standby replacement units ලබා දෙනවා.",
+    qSi: "Hardware සමඟ ලැබෙන warranty සහ replacement support මොනවාද?",
+    aSi: "හැම POS terminal, printer, cash drawer සහ scanner එකකටම JAAN Network (PVT) Ltd විසින් කෙලින්ම අවුරුදු 1 සිට 2ක warranty එකක් දෙනවා. ගැටලුවක් ආවොත් කොළඹ technical center එකෙන් වහාම පරීක්ෂා කර, අවශ්‍ය නම් තාවකාලික replacement එකක් දෙනවා, ඒ නිසා ඔබේ billing නතර වෙන්නේ නැහැ.",
     q: "What warranty and replacement support is provided with MariaPoS hardware?",
     a: "Every POS terminal, thermal printer, cash drawer, and barcode scanner carries a genuine 1 to 2-Year Hardware Warranty backed directly by JAAN Network (PVT) Ltd. If any device encounters an issue, our Colombo technical center provides immediate diagnosis and standby replacement units so your billing never stops.",
   },
   {
-    qSi: "MariaPoS එකට සිංහල සහ දෙමළ bilingual receipt printing support කරනවද?",
-    aSi: "ඔව්! Certified 80mm thermal receipt printers වල සිංහල සහ දෙමළ bill headers, item descriptions සහ footer notes සඳහා MariaPoS එකේ native Unicode rendering support එකක් තියෙනවා.",
+    qSi: "Bill එක සිංහල සහ දෙමළෙන් print කරන්න පුළුවන්ද?",
+    aSi: "ඔව්! Certified 80mm thermal printers වල ඔබේ bill එකේ header, item නම් සහ footer සිංහල සහ දෙමළෙන් print කරන්න MariaPoS එකට පුළුවන්.",
     q: "Does MariaPoS support bilingual Sinhala and Tamil receipt printing?",
     a: "Yes! MariaPoS has native Unicode rendering support for Sinhala and Tamil bill headers, item descriptions, and footer notes on certified 80mm thermal receipt printers.",
   },
@@ -101,7 +101,7 @@ export function ContactSection() {
           <p className={styles.subtitle}>
             {t(
               "Visit our Colombo 03 hardware showroom, speak directly with certified POS specialists, or request an on-site counter demo anywhere across Sri Lanka.",
-              "කොළඹ 03 හි අපේ hardware showroom එකට එන්න, certified POS specialists ලා එක්ක කෙලින්ම කතා කරන්න, නැත්නම් ශ්‍රී ලංකාවේ ඕනෑම තැනක on-site counter demo එකක් ඉල්ලන්න.",
+              "කොළඹ 03 හි අපේ hardware showroom එකට එන්න, POS විශේෂඥයන් සමඟ කෙලින්ම කතා කරන්න, නැත්නම් ශ්‍රී ලංකාවේ ඕනෑම තැනක ඔබේ counter එකටම ඇවිත් demo එකක් කරන්න ඉල්ලන්න.",
             )}
           </p>
 
@@ -136,7 +136,7 @@ export function ContactSection() {
             <div className={styles.cardBody}>
               <span className={styles.cardTitle}>{t("WhatsApp Instant Chat", "WhatsApp Instant Chat")}</span>
               <p className={styles.cardDescription}>
-                {t("Send counter photos, receive instant hardware quotations, and get remote screen assistance.", "Counter එකේ photos යවන්න, instant hardware quotations ලබාගන්න, remote screen assistance ලබාගන්න.")}
+                {t("Send counter photos, receive instant hardware quotations, and get remote screen assistance.", "Counter එකේ photos යවන්න, hardware quotation එකක් වහාම ලබාගන්න, අවශ්‍ය නම් remote ලෙස screen එකේ උදව් ලබාගන්න.")}
               </p>
               <div className={styles.numberRow}>
                 <span className={styles.whatsAppValue}>{site.phone}</span>
@@ -172,7 +172,7 @@ export function ContactSection() {
             <div className={styles.cardBody}>
               <span className={styles.cardTitle}>{t("Direct Phone Call", "කෙලින්ම Phone Call එකක්")}</span>
               <p className={styles.cardDescription}>
-                {t("Speak directly with senior POS specialists in Sinhala, Tamil, or English for immediate counter guidance.", "Counter එකට වහාම මග පෙන්වීමක් ලබාගන්න, සිංහල, දෙමළ හෝ English වලින් senior POS specialists ලා එක්ක කෙලින්ම කතා කරන්න.")}
+                {t("Speak directly with senior POS specialists in Sinhala, Tamil, or English for immediate counter guidance.", "ඔබේ counter එක ගැන වහාම මඟ පෙන්වීමක් ලබාගන්න. සිංහල, දෙමළ හෝ English වලින් POS විශේෂඥයන් සමඟ කෙලින්ම කතා කරන්න.")}
               </p>
               <div className={styles.numberRow}>
                 <span className={styles.cardValue}>{site.phone}</span>
@@ -203,7 +203,7 @@ export function ContactSection() {
             <div className={styles.cardBody}>
               <span className={styles.cardTitle}>{t("Sales & Tender Inquiries", "Sales සහ Tender විමසීම්")}</span>
               <p className={styles.cardDescription}>
-                {t("Request formal pro-forma invoices, corporate multi-branch proposals, and hardware specification sheets.", "නිල pro-forma invoices, corporate multi-branch proposals සහ hardware specification sheets ඉල්ලන්න.")}
+                {t("Request formal pro-forma invoices, corporate multi-branch proposals, and hardware specification sheets.", "නිල quotation, ශාඛා කිහිපයකට proposals සහ hardware විස්තර (specification sheets) ඉල්ලන්න.")}
               </p>
               <div className={styles.numberRow}>
                 <span className={styles.emailValue}>{site.email}</span>
@@ -260,7 +260,7 @@ export function ContactSection() {
               </div>
               <h2 className={styles.mapShowcaseTitle}>{t("Visit our Colombo Office", "අපේ කොළඹ කාර්යාලයට එන්න")}</h2>
               <p className={styles.mapShowcaseSubtitle}>
-                {t("Test real touchscreens, thermal printers, barcode scanners, and cash drawers before ordering.", "Order කරන්න කලින් සැබෑ touchscreens, thermal printers, barcode scanners සහ cash drawers test කරන්න.")}
+                {t("Test real touchscreens, thermal printers, barcode scanners, and cash drawers before ordering.", "Order කරන්න කලින් සැබෑ touchscreens, printers, scanners සහ cash drawers අතට අරන් බලන්න.")}
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export function ContactSection() {
                     <p>
                       {t(
                         "Touch screens, 80mm high-speed thermal printers, and 2D barcode scanners set up for hands-on trial.",
-                        "Touch screens, 80mm high-speed thermal printers සහ 2D barcode scanners, ඔබටම අත්හදා බලන්න පුළුවන් විදිහට set up කර ඇත.",
+                        "Touch screens, 80mm thermal printers සහ 2D barcode scanners ඔබටම අත්හදා බලන්න set up කර ඇත.",
                       )}
                     </p>
                   </div>
@@ -397,7 +397,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <strong>{t("Direct Dispatch to All 25 Districts", "දිස්ත්‍රික්ක 25ටම Direct Dispatch")}</strong>
-                    <p>{t("Orders confirmed by 2:00 PM are dispatched same-day via express insured island-wide courier.", "ප.ව. 2:00ට පෙර තහවුරු කළ orders එදිනම, insured express courier එකෙන් මුළු රටටම dispatch කරනවා.")}</p>
+                    <p>{t("Orders confirmed by 2:00 PM are dispatched same-day via express insured island-wide courier.", "ප.ව. 2:00ට පෙර තහවුරු කළ orders එදිනම, ආරක්ෂිත express courier එකෙන් මුළු රටටම යවනවා.")}</p>
                   </div>
                 </div>
               </div>
@@ -427,7 +427,7 @@ export function ContactSection() {
             <HelpCircle size={20} color="var(--red)" />
             <h3 className={styles.faqTitle}>{t("Frequently Asked Questions", "නිතර අසන ප්‍රශ්න")}</h3>
             <p className={styles.faqSubtitle}>
-              {t("Common questions about visiting our Colombo office and island-wide hardware setup.", "අපේ කොළඹ කාර්යාලයට පැමිණීම සහ මුළු රටේම hardware setup ගැන නිතර අසන ප්‍රශ්න.")}
+              {t("Common questions about visiting our Colombo office and island-wide hardware setup.", "අපේ කොළඹ කාර්යාලයට පැමිණීම සහ මුළු රටටම hardware setup කිරීම ගැන නිතර අසන ප්‍රශ්න.")}
             </p>
           </div>
 

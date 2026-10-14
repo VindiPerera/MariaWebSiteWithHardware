@@ -65,7 +65,7 @@ export function AuthorizedXprinterBanner() {
               </div>
               <div className={styles.pill}>
                 <Printer size={15} className={styles.pillIcon} />
-                <span>{t("Pre-Configured Plug & Play for MariaPoS", "MariaPoS සඳහා Pre-Configured Plug & Play")}</span>
+                <span>{t("Pre-Configured Plug & Play for MariaPoS", "MariaPoS සඳහා කලින්ම සකස් කර ඇත")}</span>
               </div>
               <div className={styles.pill}>
                 <Sparkles size={15} className={styles.pillIcon} />
@@ -87,7 +87,7 @@ export function AuthorizedXprinterBanner() {
               <p className={styles.guaranteeText}>
                 {t(
                   "Avoid counterfeit or gray-market units without warranty. Every printer shipped by MariaPoS includes official factory firmware, high-durability printheads (150km+ rating), and local technical support.",
-                  "Warranty නැති counterfeit හෝ gray-market units වලින් ඉවත්ව සිටින්න. MariaPoS එවන හැම printer එකකටම official factory firmware, high-durability printheads (150km+ rating) සහ local technical support ඇතුළත්.",
+                  "Warranty නැති ව්‍යාජ හෝ gray-market printers වලින් ඉවත්ව සිටින්න. MariaPoS එවන හැම printer එකකටම නිල factory firmware, කල් පවතින printhead (150km+) සහ දේශීය technical support ඇතුළත්.",
                 )}
               </p>
 

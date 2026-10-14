@@ -26,19 +26,19 @@ import styles from "./PricingPlans.module.css";
 import { useLang } from "@/lib/i18n";
 
 const includedSoftware = [
-  { en: "Every billing, inventory & report feature", si: "හැම billing, inventory සහ report feature එකක්ම" },
-  { en: "Cloud sync & push sales alerts", si: "Cloud sync සහ push sales alerts" },
+  { en: "Every billing, inventory & report feature", si: "සියලුම billing, stock සහ report විශේෂාංග" },
+  { en: "Cloud sync & push sales alerts", si: "Cloud sync සහ phone එකට sales alerts" },
   { en: "SMS receipts (prepaid credits)", si: "SMS receipts (prepaid credits)" },
-  { en: "Free software updates for full term", si: "මුළු කාලය පුරාම නොමිලේ software updates" },
-  { en: "Priority technical & WhatsApp support", si: "Priority technical සහ WhatsApp support" },
+  { en: "Free software updates for full term", si: "Licence කාලය පුරාම නොමිලේ updates" },
+  { en: "Priority technical & WhatsApp support", si: "ප්‍රමුඛතාවයෙන් technical සහ WhatsApp support" },
 ];
 
 /** Sinhala + English text for the software plan cards, keyed by plan id. */
 const planSi: Record<string, { name: string; per: string; note: string; badge?: string; cta: string }> = {
-  trial: { name: "දින 7ක Free Trial", per: "Rs. 0 · Card එකක් අවශ්‍ය නැහැ", note: "Instant activation. ඔබේ සියලුම counters සඳහා full feature suite එක.", badge: "අවදානම් රහිත Trial", cta: "දින 7ක Free Trial එක පටන් ගන්න" },
-  "1y": { name: "අවුරුදු 1ක License", per: "Rs. 44,000 / අවුරුද්දකට ($147.00)", note: "එක් ගෙවීමක්. මාස 12ක් full features.", cta: "අවුරුදු 1ක License එක තෝරන්න" },
+  trial: { name: "දින 7ක Free Trial", per: "Rs. 0 · Card එකක් අවශ්‍ය නැහැ", note: "තත්පර කීපයකින් activate වෙනවා. ඔබේ සියලුම counters සඳහා සම්පූර්ණ විශේෂාංග.", badge: "අවදානම් රහිත Trial", cta: "දින 7ක Free Trial එක පටන් ගන්න" },
+  "1y": { name: "අවුරුදු 1ක License", per: "Rs. 44,000 / අවුරුද්දකට ($147.00)", note: "එක් ගෙවීමක්. මාස 12ක් සම්පූර්ණ විශේෂාංග.", cta: "අවුරුදු 1ක License එක තෝරන්න" },
   "2y": { name: "අවුරුදු 2ක License", per: "Rs. 35,250 / අවුරුද්දකට ($117.60/yr)", note: "අවුරුදු පතා renew කරනවාට වඩා 20%ක් ඉතිරියි.", badge: "20%ක් ඉතිරි", cta: "අවුරුදු 2ක License එක තෝරන්න" },
-  "3y": { name: "අවුරුදු 3ක License", per: "Rs. 28,667 / අවුරුද්දකට ($95.55/yr)", note: "Best value. මාසයකට Rs. 2,388ක් ($7.96) විතරයි. අපේ වැඩිපුරම විකිණෙන plan එක.", badge: "Best Seller · නිර්දේශිතයි", cta: "අවුරුදු 3ක License එක තෝරන්න" },
+  "3y": { name: "අවුරුදු 3ක License", per: "Rs. 28,667 / අවුරුද්දකට ($95.55/yr)", note: "ඉතාම වටිනා plan එක. මාසයකට Rs. 2,388ක් ($7.96) පමණයි. අපේ වැඩිපුරම තෝරාගන්න plan එක.", badge: "Best Seller · නිර්දේශිතයි", cta: "අවුරුදු 3ක License එක තෝරන්න" },
 };
 
 type SoftwarePlan = {
@@ -142,7 +142,7 @@ export function PricingPlans() {
         <div data-reveal="up" className={`section-intro ${styles.intro}`}>
           <div className={styles.pillBadge}>
             <Sparkles size={14} color="var(--red)" />
-            <span>{t("Sri Lanka Pricing & Solutions", "ශ්‍රී ලංකා Pricing සහ Solutions")}</span>
+            <span>{t("Sri Lanka Pricing & Solutions", "ශ්‍රී ලංකාවේ මිල ගණන් සහ විසඳුම්")}</span>
           </div>
           <h1 className="section-title">{t("Pick the setup that fits your shop.", "ඔබේ වෙළඳසැලට ගැලපෙන setup එක තෝරන්න.")}</h1>
           <p className="lead">
@@ -173,7 +173,7 @@ export function PricingPlans() {
             >
               <Sparkles size={16} />
               <span>{t("All Plans (Both)", "සියලුම Plans (දෙකම)")}</span>
-              <span className={styles.miniPill}>{t("Full Overview", "සම්පූර්ණ දළ විශ්ලේෂණය")}</span>
+              <span className={styles.miniPill}>{t("Full Overview", "සියල්ල එකවර")}</span>
             </button>
 
             <button
@@ -208,7 +208,7 @@ export function PricingPlans() {
                 <p className={styles.subHeaderDesc}>
                   {t(
                     "Everything you need to start cashier billing on day one. Includes touch terminal, receipt printer, barcode scanner, heavy-duty cash drawer, thermal paper rolls + official MariaPoS full license.",
-                    "පළමු දවසේම cashier billing පටන් ගන්න අවශ්‍ය හැමදේම. Touch terminal, receipt printer, barcode scanner, heavy-duty cash drawer, thermal paper rolls + නිල MariaPoS full license ඇතුළත්.",
+                    "පළමු දවසේම bill කරන්න අවශ්‍ය හැමදේම එක package එකකින්: touch screen, receipt printer, barcode scanner, cash drawer, paper rolls සහ නිල MariaPoS licence එක.",
                   )}
                 </p>
               </div>
@@ -238,11 +238,11 @@ export function PricingPlans() {
             <div className={styles.bundleTrustRibbon}>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
-                <span>{t("Zero Card / Hidden Fees", "Card / සැඟවුණු ගාස්තු කිසිවක් නැහැ")}</span>
+                <span>{t("Zero Card / Hidden Fees", "Card එකක් හෝ සැඟවුණු ගාස්තු නැහැ")}</span>
               </div>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
-                <span>{t("Free Remote Setup & Training", "නොමිලේ Remote Setup සහ Training")}</span>
+                <span>{t("Free Remote Setup & Training", "නොමිලේ remote setup සහ පුහුණුව")}</span>
               </div>
               <div className={styles.ribbonItem}>
                 <CheckCircle2 size={16} color="#1faa55" />
@@ -279,12 +279,12 @@ export function PricingPlans() {
           <div id="software" className={styles.tabSection}>
             <div className={styles.sectionSubHeader}>
               <div className={styles.subHeaderLeft}>
-                <span className={styles.subHeaderEyebrow}>{t("Independent Software Licenses", "ස්වාධීන Software Licenses")}</span>
-                <h2 className={styles.subHeaderTitle}>{t("Software-Only Plans: One Simple License. Every Feature.", "Software-Only Plans: එක සරල License එකක්. හැම Feature එකක්ම.")}</h2>
+                <span className={styles.subHeaderEyebrow}>{t("Independent Software Licenses", "Software පමණක් ගන්න")}</span>
+                <h2 className={styles.subHeaderTitle}>{t("Software-Only Plans: One Simple License. Every Feature.", "Software-Only Plans: එක licence එකක්, සියලුම විශේෂාංග")}</h2>
                 <p className={styles.subHeaderDesc}>
                   {t(
                     "Install on any Windows 10 or 11 PC or laptop. Full offline POS billing, FIFO inventory ledger, push sales alerts, SMS e-receipts, and cloud sync. Longer terms save up to 35%.",
-                    "ඕනෑම Windows 10 හෝ 11 PC එකක හෝ laptop එකක install කරන්න. Full offline POS billing, FIFO inventory ledger, push sales alerts, SMS e-receipts සහ cloud sync. දිගු කාලයක් තෝරාගත්තොත් 35%ක් දක්වා ඉතිරියි.",
+                    "ඔබේ Windows 10 හෝ 11 PC/laptop එකක install කරන්න. Internet නැතත් bill කරන්න, stock නිවැරදිව තියාගන්න, phone එකට sales alerts, SMS bills සහ cloud backup — සියල්ලම එක licence එකකින්. දිගු කාලයක් තෝරාගත්තොත් 35%ක් දක්වා ඉතිරි කරගන්න.",
                   )}
                 </p>
               </div>
@@ -394,7 +394,7 @@ export function PricingPlans() {
             {/* Nudge to Bundles when in software-only mode */}
             {activeTab === "software" && (
               <div className={styles.tabNudge}>
-                <span>{t("Need the physical touch POS terminal, receipt printer & barcode scanner too?", "Touch POS terminal එක, receipt printer එක සහ barcode scanner එකත් ඕනද?")}</span>
+                <span>{t("Need the physical touch POS terminal, receipt printer & barcode scanner too?", "Touch POS terminal, receipt printer සහ barcode scanner එකත් අවශ්‍යද?")}</span>
                 <button
                   type="button"
                   onClick={() => setActiveTab("bundles")}
@@ -413,7 +413,7 @@ export function PricingPlans() {
           <div className={styles.ownerImgCol}>
             <Image
               src={ownerMobileAlerts}
-              alt={t("Store owner receiving push sales notification anywhere", "ඕනෑම තැනක සිට push sales notification එකක් ලබන වෙළඳසැල් අයිතිකරුවෙක්")}
+              alt={t("Store owner receiving push sales notification anywhere", "ඕනෑම තැනක සිට sales alert ලබන වෙළඳසැල් හිමිකරුවෙක්")}
               fill
               sizes="(max-width: 768px) 100vw, 420px"
               className={styles.ownerImg}
@@ -425,11 +425,11 @@ export function PricingPlans() {
           </div>
           <div className={styles.ownerTextCol}>
             <span className={styles.ownerEyebrow}>{t("Included in Every Plan", "හැම Plan එකකම ඇතුළත්")}</span>
-            <h3 className={styles.ownerHeading}>{t("Run your store from your pocket, wherever you are", "ඔබ කොහේ හිටියත්, සාක්කුවෙන්ම ඔබේ වෙළඳසැල පවත්වන්න")}</h3>
+            <h3 className={styles.ownerHeading}>{t("Run your store from your pocket, wherever you are", "ඔබ කොතැනක සිටියත්, ඔබේ ජංගම දුරකථනයෙන්ම වෙළඳසැල කළමනාකරණය කරන්න.")}</h3>
             <p className={styles.ownerDesc}>
               {t(
                 "No monthly cloud fees or server maintenance charges. Every trial and multi-year license includes automated cloud backup, multi-device web reports, and instant push sales alerts pushed directly to your phone.",
-                "මාසික cloud ගාස්තු හෝ server maintenance ගාස්තු නැහැ. හැම trial එකකටම සහ multi-year license එකකටම automated cloud backup, multi-device web reports සහ ඔබේ phone එකට කෙලින්ම එන instant push sales alerts ඇතුළත්.",
+                "මාසික cloud ගාස්තු හෝ server ගාස්තු නැහැ. හැම trial එකකටම සහ දිගු කාලීන licence එකකටම ස්වයංක්‍රීය cloud backup, ඕනෑම device එකකින් බලන reports සහ sale එකක් වූ සැණින් ඔබේ phone එකට එන alerts ඇතුළත්.",
               )}
             </p>
             <div className={styles.ownerPerks}>
@@ -439,11 +439,11 @@ export function PricingPlans() {
               </div>
               <div className={styles.ownerPerk}>
                 <CheckCircle2 size={15} color="#16a34a" />
-                <span>{t("Multi-branch comparison in browser", "Browser එකෙන් Multi-branch සැසඳීම")}</span>
+                <span>{t("Multi-branch comparison in browser", "Browser එකෙන් ශාඛා කිහිපයක් සසඳන්න")}</span>
               </div>
               <div className={styles.ownerPerk}>
                 <CheckCircle2 size={15} color="#16a34a" />
-                <span>{t("Zero surprise cloud surcharges", "අනපේක්ෂිත cloud අමතර ගාස්තු කිසිවක් නැහැ")}</span>
+                <span>{t("Zero surprise cloud surcharges", "හදිසි අමතර cloud ගාස්තු නැහැ")}</span>
               </div>
             </div>
           </div>
@@ -453,7 +453,7 @@ export function PricingPlans() {
         <div data-reveal="up" className={styles.securityBanner}>
           <div className={styles.securityLeft}>
             <ShieldCheck size={20} color="#1faa55" />
-            <span>{t("Processed securely · Cash on Delivery across all 25 districts & 1-Year JAAN hardware warranty", "ආරක්ෂිතව process කරයි · දිස්ත්‍රික්ක 25ටම Cash on Delivery සහ අවුරුදු 1ක JAAN hardware warranty")}</span>
+            <span>{t("Processed securely · Cash on Delivery across all 25 districts & 1-Year JAAN hardware warranty", "ආරක්ෂිත ගෙවීම් · දිස්ත්‍රික්ක 25ටම Cash on Delivery සහ අවුරුදු 1ක JAAN hardware warranty")}</span>
           </div>
           <div className={styles.linksRow}>
             <a
@@ -462,7 +462,7 @@ export function PricingPlans() {
               rel="noopener noreferrer"
               className={styles.footLink}
             >
-              {t("Try 7 days free first →", "මුලින් දින 7ක් free try කරන්න →")}
+              {t("Try 7 days free first →", "මුලින් දින 7ක් නොමිලේ try කරන්න →")}
             </a>
             <span className={styles.dotSep}>•</span>
             <Link href="/contact" className={styles.footLink}>

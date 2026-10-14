@@ -28,10 +28,10 @@ import styles from "./Header.module.css";
 
 const navItems = [
   { label: "Home", si: "මුල් පිටුව", href: "/" },
-  { label: "Features", si: "Features", href: "/features" },
+  { label: "Features", si: "විශේෂාංග", href: "/features" },
   { label: "Hardware", si: "Hardware", href: "/hardware", badge: "Store" },
-  { label: "Plans", si: "Plans", href: "/pricing" },
-  { label: "Industries", si: "Industries", href: "/industries" },
+  { label: "Plans", si: "මිල ගණන්", href: "/pricing" },
+  { label: "Industries", si: "ව්‍යාපාර", href: "/industries" },
   { label: "About", si: "අප ගැන", href: "/about" },
   { label: "Contact", si: "අමතන්න", href: "/contact" },
 ];

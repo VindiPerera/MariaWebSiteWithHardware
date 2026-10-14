@@ -13,11 +13,11 @@ export function AboutSection() {
       <div className={styles.inner}>
         <div data-reveal="up" className={`section-intro ${styles.intro}`}>
           <span className="eyebrow">{t("About Us", "අප ගැන")}</span>
-          <h1 className="section-title">{t("Built in Colombo, for shops across Sri Lanka.", "කොළඹදී හදපු, ශ්‍රී ලංකාව පුරා ඇති වෙළඳසැල් වෙනුවෙන්.")}</h1>
+          <h1 className="section-title">{t("Built in Colombo, for shops across Sri Lanka.", "ශ්‍රී ලංකාවේ වෙළඳසැල් වෙනුවෙන්, කොළඹදී හදපු POS.")}</h1>
           <p className="lead">
             {t(
               "MariaPoS is an offline-first Windows point-of-sale system designed for supermarkets, pharmacies, hardware stores and retail shops that need fast billing, accurate FIFO stock and reliable service — with or without the internet.",
-              "MariaPoS යනු වේගවත් billing, නිවැරදි FIFO stock සහ විශ්වාසවන්ත සේවයක් අවශ්‍ය supermarkets, pharmacies, hardware stores සහ retail වෙළඳසැල් සඳහා නිර්මාණය කළ offline-first Windows POS system එකකි. Internet තිබුණත් නැතත් එය නොනැවතී ක්‍රියාත්මක වේ.",
+              "MariaPoS යනු supermarket, pharmacy, hardware ඇතුළු වෙළඳසැල් වලට වේගවත් bill කිරීමක්, නිවැරදි stock ගණනක් සහ විශ්වාසදායක සේවයක් ලබා දෙන POS system එකකි. Internet තිබුණත් නැතත් එය නොනැවතී වැඩ කරන නිසා, ඔබේ ව්‍යාපාරය කිසිදා නවතින්නේ නැහැ.",
             )}
           </p>
         </div>
@@ -32,7 +32,7 @@ export function AboutSection() {
               {lang === "ta"
                 ? `MariaPoS-ஐ ${site.address} முகவரியில் உள்ள ${site.company} உருவாக்கி, ஆதரவும் வழங்குகிறது. Software-ஐ நாங்களே உருவாக்கி, நாங்களே support செய்கிறோம். இடையில் resellers யாரும் இல்லை.`
                 : lang === "si"
-                ? `MariaPoS develop කර support කරන්නේ ${site.address} හි පිහිටි ${site.company} විසින්. Software එක අපිම හදලා, අපිම support කරනවා, අතරමැදි resellers නැහැ.`
+                ? `MariaPoS හදන්නෙත් support කරන්නෙත් ${site.address} හි පිහිටි ${site.company} විසින්. අතරමැදියන් නැතුව, software එක හැදූ අයගෙන්ම කෙලින්ම සහාය ලැබෙනවා.`
                 : `MariaPoS is developed and supported by ${site.company}, based at ${site.address}. We build and support the software directly — no resellers in between.`}
             </p>
           </div>
@@ -45,7 +45,7 @@ export function AboutSection() {
             <p className={styles.storyText}>
               {t(
                 "A single offline-first POS built for real shop counters: barcode billing, FIFO batch inventory, shift & till control, SMS e-bill receipts, push sales alerts and two-way cloud sync.",
-                "සැබෑ වෙළඳසැල් counters සඳහාම හදපු offline-first POS එකක්: barcode billing, FIFO batch inventory, shift සහ till control, SMS e-bill receipts, push sales alerts සහ two-way cloud sync.",
+                "ඔබේ වෙළඳසැල් counter එකටම හදපු POS එකක්: barcode එකෙන් වේගයෙන් bill කිරීම, stock නිවැරදිව තබාගැනීම, cashier ගේ මුදල් පාලනය, SMS bills, phone එකට sales alerts සහ cloud backup.",
               )}
             </p>
           </div>
@@ -58,7 +58,7 @@ export function AboutSection() {
             <p className={styles.storyText}>
               {t(
                 "Every license includes direct phone, WhatsApp and email support from our own team — the people who build MariaPoS are the same people who answer when you call.",
-                "හැම license එකකටම අපේම team එකෙන් කෙලින්ම phone, WhatsApp සහ email support ඇතුළත්. MariaPoS හදන අයම තමයි ඔබ call කරද්දී උත්තර දෙන්නේ.",
+                "හැම licence එකකටම අපේම team එකෙන් phone, WhatsApp සහ email support ලැබෙනවා. MariaPoS හදන අයම තමයි ඔබ call කරද්දී උත්තර දෙන්නේ.",
               )}
             </p>
           </div>
@@ -74,7 +74,7 @@ export function AboutSection() {
             <p className={styles.personText}>
               {t(
                 "MariaPoS is powered by Thejan Bathiya — the concept, product direction and engineering behind the system shop owners use every day to bill, track stock and close their till.",
-                "MariaPoS බලගන්වන්නේ Thejan Bathiya විසින්. වෙළඳසැල් අයිතිකරුවන් දිනපතා bill කරන්න, stock track කරන්න සහ till එක close කරන්න පාවිච්චි කරන system එකේ සංකල්පය, product direction එක සහ engineering එක ඔහුගේ.",
+                "MariaPoS බලගන්වන්නේ Thejan Bathiya විසින්. වෙළඳසැල් හිමියන් දිනපතා bill කරන්න, stock බලාගන්න සහ දවස අවසන් කරන්න භාවිතා කරන system එකේ අදහස, දිශානතිය සහ තාක්ෂණය ඔහුගෙන්.",
               )}
             </p>
           </div>
@@ -89,7 +89,7 @@ export function AboutSection() {
               {lang === "ta"
                 ? `MariaPoS-ஐ ${site.company} தொடக்கம் முதல் இறுதி வரை நிர்வகிக்கிறது. Development, sales, installation முதல் இலங்கையில் உள்ள ஒவ்வொரு customer-க்கும் வழங்கும் தொடர்ச்சியான support வரை எல்லாமே இவர்களே.`
                 : lang === "si"
-                ? `${site.company} විසින් MariaPoS මුල සිට අග දක්වාම හිමිකරගෙන ක්‍රියාත්මක කරයි. Development සිට sales, installation සහ ශ්‍රී ලංකාවේ හැම customer කෙනෙකුටම දෙන ongoing support දක්වාම.`
+                ? `${site.company} MariaPoS මුල සිට අග දක්වාම භාර ගනී: නිර්මාණයේ සිට විකිණීම, install කිරීම සහ ශ්‍රී ලංකාවේ හැම customer කෙනෙකුටම දිගටම දෙන support එක දක්වාම.`
                 : `${site.company} owns and operates MariaPoS end-to-end — from development to sales, installation and ongoing support for every customer in Sri Lanka.`}
             </p>
           </div>

@@ -79,7 +79,7 @@ export function FeatureSimulator() {
           </div>
           <h2 className="section-title">{t("Test the MariaPoS checkout flow live", "MariaPoS checkout flow එක live test කරන්න")}</h2>
           <p className={`lead ${styles.lead}`}>
-            {t("Add products below to simulate real-time cashier billing, FIFO stock depletion, and instant eBill delivery.", "පහළ products add කර, real-time cashier billing, FIFO stock අඩුවීම සහ instant eBill delivery simulate කරන්න.")}
+            {t("Add products below to simulate real-time cashier billing, FIFO stock depletion, and instant eBill delivery.", "පහළ products එකතු කර, cashier ගේ billing, stock අඩුවීම සහ eBill යැවීම ඒ මොහොතේම බලන්න.")}
           </p>
         </div>
 
@@ -189,10 +189,10 @@ export function FeatureSimulator() {
                 <div className={styles.successBox}>
                   <div className={styles.successHeading}>
                     <CheckCircle2 size={18} color="#1faa55" />
-                    <span>{t("Checkout Complete! Stock Deducted FIFO.", "Checkout සම්පූර්ණයි! Stock එක FIFO ලෙස අඩු කළා.")}</span>
+                    <span>{t("Checkout Complete! Stock Deducted FIFO.", "Checkout සම්පූර්ණයි! Stock එක අඩු වුණා.")}</span>
                   </div>
                   <span className={styles.successMeta}>
-                    {t("Receipt eBill dispatched to customer phone & push alert sent to store owner.", "Receipt eBill එක customer ගේ phone එකටත්, push alert එක වෙළඳසැලේ අයිතිකරුටත් යැවුවා.")}
+                    {t("Receipt eBill dispatched to customer phone & push alert sent to store owner.", "Receipt එක customer ගේ phone එකටත්, alert එක ඔබේ phone එකටත් යැවුවා.")}
                   </span>
                 </div>
               )}

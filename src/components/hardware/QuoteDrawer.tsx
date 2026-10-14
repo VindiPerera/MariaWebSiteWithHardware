@@ -63,7 +63,7 @@ export function QuoteDrawer() {
               <p className={styles.emptyText}>
                 {t(
                   "Browse our certified POS terminals, receipt printers, barcode scanners, and cash drawers to build your custom counter setup.",
-                  "ඔබේම counter setup එක හදාගන්න, අපේ certified POS terminals, receipt printers, barcode scanners සහ cash drawers බලන්න.",
+                  "ඔබේ counter එකට අවශ්‍ය touch screen, printer, scanner සහ cash drawer තෝරා quote එකක් හදාගන්න.",
                 )}
               </p>
               <button type="button" className="btn-primary" onClick={closeDrawer}>
@@ -128,7 +128,7 @@ export function QuoteDrawer() {
 
               {/* Customer Details for Quote */}
               <div className={styles.customerForm}>
-                <h5 className={styles.formTitle}>{t("Quotation / Dispatch Info (Optional)", "Quotation / Dispatch තොරතුරු (අවශ්‍ය නම් පමණක්)")}</h5>
+                <h5 className={styles.formTitle}>{t("Quotation / Dispatch Info (Optional)", "Quote / Delivery තොරතුරු (අවශ්‍ය නම් පමණක්)")}</h5>
                 <div className={styles.formGrid}>
                   <input
                     type="text"
@@ -155,7 +155,7 @@ export function QuoteDrawer() {
                 </div>
                 <div className={styles.perk}>
                   <CheckCircle2 size={16} color="#16a34a" />
-                  <span>{t("Tested & Driver-Configured for MariaPoS", "MariaPoS සඳහා Test කර Driver-Configure කරලා")}</span>
+                  <span>{t("Tested & Driver-Configured for MariaPoS", "MariaPoS සමඟ වැඩ කරන බව පරීක්ෂා කර ඇත")}</span>
                 </div>
               </div>
             </>
@@ -168,7 +168,7 @@ export function QuoteDrawer() {
             <div className={styles.totalRow}>
               <div>
                 <span className={styles.totalLabel}>{t("Estimated Total", "ඇස්තමේන්තුගත මුළු මුදල")}</span>
-                <span className={styles.taxNote}>{t("Includes Driver Setup & VAT", "Driver Setup සහ VAT ඇතුළත්")}</span>
+                <span className={styles.taxNote}>{t("Includes Driver Setup & VAT", "Setup සහ VAT ඇතුළත්")}</span>
               </div>
               <strong className={styles.totalValue}>{formatLkr(totalAmount)}</strong>
             </div>

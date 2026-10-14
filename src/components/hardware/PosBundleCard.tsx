@@ -14,26 +14,26 @@ const bundleSi: Record<string, { name: string; badge: string; tagline: string; s
   "bundle-starter": {
     name: "Starter Retail Counter Pack",
     badge: "වැඩිපුරම තෝරාගන්නා Combo",
-    tagline: "Plug in කරලා bill කරන්න ready වන සම්පූර්ණ hardware + software setup එකක්",
+    tagline: "Plug in කර වහාම bill කරන්න පටන් ගත හැකි සම්පූර්ණ hardware + software set එකක්",
     softwareLicense: "අවුරුදු 1ක MariaPoS Full License ($147 ඇතුළත්)",
-    highlight: "Rs. 15,100ක් ඉතිරියි + නොමිලේ Remote Installation සහ Staff Training",
-    recommendedFor: "අලුතින් පටන් ගන්න grocery stores, pharmacies, boutique retail සහ bakery shops.",
+    highlight: "Rs. 15,100ක් ඉතිරියි + නොමිලේ remote setup සහ කාර්ය මණ්ඩලයට පුහුණුව",
+    recommendedFor: "අලුතින් පටන් ගන්න grocery, pharmacy, boutique සහ bakery වෙළඳසැල් සඳහා.",
   },
   "bundle-supermarket": {
     name: "Supermarket High-Speed Dual-Screen Pack",
     badge: "Flagship Heavy Duty",
-    tagline: "Hands-free desktop scanning සහ bill counter සහිත Dual screen customer experience එකක්",
+    tagline: "Customer ට පෙනෙන දෙවන screen එක, අත නොගෙන scan කරන scanner එක සහ මුදල් ගණන් කරන bill counter එක සමඟ",
     softwareLicense: "අවුරුදු 2ක MariaPoS Full License ($235.20 ඇතුළත්)",
-    highlight: "Rs. 28,500ක් ඉතිරියි + බස්නාහිර පළාතේ Priority On-Site Onboarding",
-    recommendedFor: "High-volume supermarkets, කාර්යබහුල retail hubs, wholesalers සහ marts.",
+    highlight: "Rs. 28,500ක් ඉතිරියි + බස්නාහිර පළාතේ ඔබේ වෙළඳසැලටම ඇවිත් setup කර දීම",
+    recommendedFor: "ගනුදෙනුකරුවන් වැඩි supermarkets, කාර්යබහුල වෙළඳසැල්, wholesalers සහ marts සඳහා.",
   },
   "bundle-mobile": {
     name: "Van Sales & Mobile Delivery POS Pack",
-    badge: "ගමනට සූදානම්",
-    tagline: "Delivery trucks සහ field reps ලාට portable Bluetooth billing pack එකක්",
+    badge: "ගමන් යන වැඩට සූදානම්",
+    tagline: "Delivery vehicles සහ field sales කණ්ඩායම් සඳහා ගෙනයාමට පහසු Bluetooth billing set එකක්",
     softwareLicense: "අවුරුදු 1ක MariaPoS Full License ($147 ඇතුළත්)",
-    highlight: "Rs. 7,400ක් ඉතිරියි + ඕනෑම laptop/tablet හෝ mobile device එකකට connect වෙනවා",
-    recommendedFor: "Distribution vans, delivery drivers, pop-up stalls සහ field sales teams.",
+    highlight: "Rs. 7,400ක් ඉතිරියි + ඕනෑම laptop, tablet හෝ phone එකකට සම්බන්ධ කළ හැක",
+    recommendedFor: "Distribution vans, delivery drivers, තාවකාලික stalls සහ field sales කණ්ඩායම් සඳහා.",
   },
 };
 
@@ -92,7 +92,7 @@ export function PosBundleCard({ bundle, featured }: Props) {
 
       {/* Included items */}
       <div className={styles.itemsList}>
-        <span className={styles.itemsTitle}>{t("Hardware Components Included:", "ඇතුළත් Hardware Components:")}</span>
+        <span className={styles.itemsTitle}>{t("Hardware Components Included:", "ඇතුළත් උපකරණ:")}</span>
         {bundle.items.map((item) => (
           <div key={item.code} className={styles.itemRow}>
             <span className={styles.itemQty}>{item.qty}×</span>
@@ -116,7 +116,7 @@ export function PosBundleCard({ bundle, featured }: Props) {
           {addedAnim ? (
             <>
               <Check size={16} />
-              <span>{t("Bundle Added!", "Bundle එක Add වුණා!")}</span>
+              <span>{t("Bundle Added!", "Bundle එක එකතු වුණා!")}</span>
             </>
           ) : isInCart ? (
             <>
@@ -125,7 +125,7 @@ export function PosBundleCard({ bundle, featured }: Props) {
             </>
           ) : (
             <>
-              <span>{t("Add Bundle to Quote", "Bundle එක Quote එකට Add කරන්න")}</span>
+              <span>{t("Add Bundle to Quote", "Bundle එක Quote එකට එකතු කරන්න")}</span>
               <ArrowRight size={15} />
             </>
           )}

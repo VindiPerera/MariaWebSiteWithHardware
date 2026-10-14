@@ -14,7 +14,7 @@ export function TrialCta() {
         <div aria-hidden="true" className={styles.dots} />
         <div className={styles.copy}>
           <h2 className={styles.title}>{t("Run your shop on MariaPoS for 7 days, free.", "MariaPoS සමඟ ඔබේ වෙළඳසැල දින 7ක් නොමිලේ පවත්වාගෙන යන්න.")}</h2>
-          <p className={styles.subtitle}>{t("Full access, no credit card. One trial per business.", "Full access, credit card එකක් අවශ්‍ය නැහැ. ව්‍යාපාරයකට එක trial එකයි.")}</p>
+          <p className={styles.subtitle}>{t("Full access, no credit card. One trial per business.", "සම්පූර්ණ access, credit card එකක් අවශ්‍ය නැහැ. ව්‍යාපාරයකට එක් trial එකක්.")}</p>
           <div id="demo" className={styles.demo}>
             {t("Prefer a walkthrough?", "Walkthrough එකක් ඕනද?")}{" "}
             <a href={site.demoHref} className={styles.demoLink}>

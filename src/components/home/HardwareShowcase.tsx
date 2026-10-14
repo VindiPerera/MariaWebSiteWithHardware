@@ -24,28 +24,28 @@ const hardwareFeatures = [
     title: "15.6\" Capacitive Touch Monitor",
     si: "15.6\" Capacitive Touch Monitor",
     desc: "Vibrant anti-glare display running MariaPOS with rapid item selection, full-screen keypad, and zero touch lag.",
-    descSi: "MariaPOS ක්‍රියාත්මක වන anti-glare display එක. Item ඉක්මනින් select කරන්න, full-screen keypad එකක් තියෙනවා, touch lag එකක් නැහැ.",
+    descSi: "MariaPoS ක්‍රියාත්මක වන, ආලෝකය පරාවර්තනය නොවන screen එක. Item ඉක්මනින් තෝරන්න, ලොකු keypad එකක් තියෙනවා, touch එකේ delay එකක් නැහැ.",
   },
   {
     icon: Printer,
     title: "80mm High-Speed Thermal Printer",
     si: "80mm High-Speed Thermal Printer",
     desc: "Xprinter heavy-duty auto-cutter mechanism. Prints bilingual receipts with shop logo in under 0.8 seconds.",
-    descSi: "Xprinter heavy-duty auto-cutter එක. වෙළඳසැලේ logo එකත් එක්ක bilingual receipt එක තත්පර 0.8කටත් අඩු කාලයකින් print වෙනවා.",
+    descSi: "Xprinter ශක්තිමත් auto-cutter printer එක. ඔබේ logo එකත් සමඟ bill එක තත්පර 0.8කටත් අඩු කාලයකින් print වෙනවා.",
   },
   {
     icon: Smartphone,
     title: "Mobile Sales & Companion Sync",
     si: "Mobile Sales සහ Companion Sync",
     desc: "Real-time sync to Android & iOS devices for queue busting, table orders, and owner live revenue alerts.",
-    descSi: "Android සහ iOS devices වලට real-time sync වෙනවා. Queue එක අඩු කරන්න, table orders ගන්න, අයිතිකරුට live revenue alerts ලැබෙනවා.",
+    descSi: "Android සහ iOS phones වලටත් වහාම sync වෙනවා. Queue එක අඩු කරන්න, table orders ගන්න, ඔබේ ආදායම live බලන්න.",
   },
   {
     icon: ScanBarcode,
     title: "Heavy-Duty Cash Drawer & Scanner",
     si: "Heavy-Duty Cash Drawer සහ Scanner",
     desc: "Auto-kick RJ11 all-steel cash drawer + fast omnidirectional hands-free barcode reader.",
-    descSi: "Auto-kick RJ11 all-steel cash drawer එකයි, වේගවත් omnidirectional hands-free barcode reader එකයි.",
+    descSi: "ශක්තිමත් steel cash drawer එකත්, අත නොගෙන වේගයෙන් scan කරන barcode reader එකත්.",
   },
 ];
 
@@ -65,7 +65,7 @@ export function HardwareShowcase() {
           <p className={styles.subtitle}>
             {t(
               "A synchronized counter workstation that eliminates queues. MariaPOS software configured out-of-the-box with genuine Xprinter hardware, delivered Cash on Delivery.",
-              "Queue එක නැති කරන synchronized counter workstation එකක්. MariaPOS software එක genuine Xprinter hardware එක්ක කලින්ම configure කරලා, Cash on Delivery විදිහට එවනවා.",
+              "Queue එක නැති කරන, එකට සම්බන්ධ counter එකක්. MariaPoS software එක genuine Xprinter hardware සමඟ කලින්ම සකස් කර, Cash on Delivery ලෙස එවනවා.",
             )}
           </p>
         </div>
@@ -138,7 +138,7 @@ export function HardwareShowcase() {
                   <Zap size={14} color="#dc2626" />
                   <strong>{t("Zero Setup Hassle", "Setup කරන්න කරදරයක් නැහැ")}</strong>
                 </div>
-                <p>{t("Pre-installed drivers & database. Plug into power and begin scanning.", "Drivers සහ database කලින්ම install කරලා. Power එකට plug කරලා scan කරන්න පටන් ගන්න.")}</p>
+                <p>{t("Pre-installed drivers & database. Plug into power and begin scanning.", "Drivers සහ database කලින්ම install කර ඇත. Power එකට plug කර scan කරන්න පටන් ගන්න.")}</p>
               </div>
             </div>
           </div>

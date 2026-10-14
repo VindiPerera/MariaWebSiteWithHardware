@@ -181,7 +181,7 @@ const optionSi: Record<string, string> = {
   "Save 20%": "20%ක් ඉතිරි",
   "Best Value · Save 35%": "Best Value · 35%ක් ඉතිරි",
   "In Stock · Best-selling single touch terminal": "Stock එකේ ඇත · වැඩිපුරම විකිණෙන single touch terminal",
-  "Dual screen with customer-facing display": "Customer ට පෙනෙන display එකත් සහිත dual screen",
+  "Dual screen with customer-facing display": "Customer ට bill එක පෙනෙන දෙවන screen එකත් සමඟ",
   "Compatible with any Windows 10/11 device": "ඕනෑම Windows 10/11 device එකක් සමඟ ගැලපෙනවා",
   "200mm/s auto-cutter receipt printer": "200mm/s auto-cutter receipt printer",
   "Wireless receipt printing over WiFi": "WiFi හරහා wireless receipt printing",
@@ -189,10 +189,10 @@ const optionSi: Record<string, string> = {
   "In Stock · Battery powered for van sales": "Stock එකේ ඇත · Van sales සඳහා battery එකෙන් ක්‍රියාත්මක වෙනවා",
   "Use SMS e-bills directly to customers": "Customers ලාට කෙලින්ම SMS e-bills යවන්න",
   "In Stock · High sensitivity USB laser scanner": "Stock එකේ ඇත · High sensitivity USB laser scanner",
-  "Scans phone screens and damaged barcodes": "Phone screens සහ හානි වුණු barcodes පවා scan කරනවා",
+  "Scans phone screens and damaged barcodes": "Phone screen එකේ පෙන්වන සහ හානි වුණු barcodes පවා scan කරනවා",
   "50m wireless freedom with internal memory": "Internal memory සහිත 50m wireless පරාසය",
-  "Hands-free swipe scanning for supermarkets": "Supermarkets සඳහා hands-free swipe scanning",
-  "Bill by item code or touch product grid": "Item code එකෙන් හෝ touch product grid එකෙන් bill කරන්න",
+  "Hands-free swipe scanning for supermarkets": "Supermarkets සඳහා අත නොගෙන scan කරන desktop scanner",
+  "Bill by item code or touch product grid": "Item code එකෙන් හෝ touch screen එකෙන් product තෝරා bill කරන්න",
   "Single payment · All features included": "එක් ගෙවීමක් · සියලුම features ඇතුළත්",
 };
 
@@ -292,7 +292,7 @@ export function HardwareConfigurator() {
           </span>
           <h2 className="section-title">{t("Build your counter setup in 60 seconds", "තත්පර 60කින් ඔබේ counter setup එක හදාගන්න")}</h2>
           <p className="lead">
-            {t("Select your screen, printer, scanner and accessories. See live pricing in LKR with software bundle options.", "ඔබේ screen එක, printer එක, scanner එක සහ accessories තෝරන්න. Software bundle options එක්ක LKR වලින් live pricing බලන්න.")}
+            {t("Select your screen, printer, scanner and accessories. See live pricing in LKR with software bundle options.", "ඔබේ screen එක, printer එක, scanner එක සහ අමතර උපකරණ තෝරන්න. මුළු මිල එවෙලේම රුපියල් වලින් පෙනෙනවා.")}
           </p>
         </div>
 
@@ -305,7 +305,7 @@ export function HardwareConfigurator() {
                 <span className={styles.stepNumber}>1</span>
                 <div>
                   <h3 className={styles.stepTitle}>{t("Select POS Screen & Terminal", "POS Screen සහ Terminal එක තෝරන්න")}</h3>
-                  <p className={styles.stepSubtitle}>{t("Touch terminals or bring your own Windows machine", "Touch terminals හෝ ඔබේම Windows machine එක")}</p>
+                  <p className={styles.stepSubtitle}>{t("Touch terminals or bring your own Windows machine", "Touch terminal එකක්, නැත්නම් ඔබේම Windows computer එකක්")}</p>
                 </div>
               </div>
               <div className={styles.optionsGrid}>
@@ -339,7 +339,7 @@ export function HardwareConfigurator() {
                 <span className={styles.stepNumber}>2</span>
                 <div>
                   <h3 className={styles.stepTitle}>{t("Select Receipt or Label Printer", "Receipt හෝ Label Printer එක තෝරන්න")}</h3>
-                  <p className={styles.stepSubtitle}>{t("High-speed auto-cut thermal printers with ESC/POS drivers", "ESC/POS drivers සහිත high-speed auto-cut thermal printers")}</p>
+                  <p className={styles.stepSubtitle}>{t("High-speed auto-cut thermal printers with ESC/POS drivers", "Bill එක ඉක්මනින් print කර ඉබේම කපන thermal printers")}</p>
                 </div>
               </div>
               <div className={styles.optionsGrid}>
@@ -373,7 +373,7 @@ export function HardwareConfigurator() {
                 <span className={styles.stepNumber}>3</span>
                 <div>
                   <h3 className={styles.stepTitle}>{t("Select Barcode Scanner", "Barcode Scanner එක තෝරන්න")}</h3>
-                  <p className={styles.stepSubtitle}>{t("1D laser, 2D QR mobile reader, or hands-free supermarket scanner", "1D laser, 2D QR mobile reader, හෝ hands-free supermarket scanner")}</p>
+                  <p className={styles.stepSubtitle}>{t("1D laser, 2D QR mobile reader, or hands-free supermarket scanner", "සාමාන්‍ය barcode, QR code, හෝ supermarket එකට hands-free scanner")}</p>
                 </div>
               </div>
               <div className={styles.optionsGrid}>
@@ -406,8 +406,8 @@ export function HardwareConfigurator() {
               <div className={styles.stepHeader}>
                 <span className={styles.stepNumber}>4</span>
                 <div>
-                  <h3 className={styles.stepTitle}>{t("Counter Accessories & Consumables", "Counter Accessories සහ Consumables")}</h3>
-                  <p className={styles.stepSubtitle}>{t("Auto-kick cash drawers, bill counters, and paper rolls", "Auto-kick cash drawers, bill counters සහ paper rolls")}</p>
+                  <h3 className={styles.stepTitle}>{t("Counter Accessories & Consumables", "Counter එකට අමතර උපකරණ සහ paper")}</h3>
+                  <p className={styles.stepSubtitle}>{t("Auto-kick cash drawers, bill counters, and paper rolls", "ඉබේම විවෘත වන cash drawer, bill counter සහ paper rolls")}</p>
                 </div>
               </div>
               <div className={styles.checkboxGrid}>
@@ -421,7 +421,7 @@ export function HardwareConfigurator() {
                   <div className={styles.checkboxBox}>{addCashDrawer && <Check size={14} color="#ffffff" />}</div>
                   <div className={styles.checkContent}>
                     <strong>Cash Drawer 5-Pin 8-Coin (ACC1639)</strong>
-                    <span>{t("Heavy duty rolled steel, auto-pops on invoice", "Heavy duty rolled steel, invoice එක print වුණාම automatically open වෙනවා")}</span>
+                    <span>{t("Heavy duty rolled steel, auto-pops on invoice", "ශක්තිමත් steel drawer එක, invoice එක print වුණාම ඉබේම විවෘත වෙනවා")}</span>
                   </div>
                   <span className={styles.checkPrice}>+ Rs. 9,450.00</span>
                 </label>
@@ -436,7 +436,7 @@ export function HardwareConfigurator() {
                   <div className={styles.checkboxBox}>{addBillCounter && <Check size={14} color="#ffffff" />}</div>
                   <div className={styles.checkContent}>
                     <strong>P80 Heavy Duty Bill Counter (CAS2449)</strong>
-                    <span>{t("Banking-grade UV/MG counterfeit detection (In Stock)", "Banking-grade UV/MG ව්‍යාජ නෝට්ටු හඳුනාගැනීම (Stock එකේ ඇත)")}</span>
+                    <span>{t("Banking-grade UV/MG counterfeit detection (In Stock)", "බැංකු තත්ත්වයේ ව්‍යාජ නෝට්ටු හඳුනාගැනීම (Stock එකේ ඇත)")}</span>
                   </div>
                   <span className={styles.checkPrice}>+ Rs. 71,000.00</span>
                 </label>
@@ -451,7 +451,7 @@ export function HardwareConfigurator() {
                   <div className={styles.checkboxBox}>{addPaperRolls && <Check size={14} color="#ffffff" />}</div>
                   <div className={styles.checkContent}>
                     <strong>10x Thermal Receipt Rolls (80*80mm)</strong>
-                    <span>{t("High sensitivity, dark print BPA-free paper", "High sensitivity, තද print එකක් දෙන BPA-free paper")}</span>
+                    <span>{t("High sensitivity, dark print BPA-free paper", "පැහැදිලිව, තදින් print වන BPA-free paper")}</span>
                   </div>
                   <span className={styles.checkPrice}>+ Rs. 2,250.00</span>
                 </label>
@@ -466,7 +466,7 @@ export function HardwareConfigurator() {
                   <div className={styles.checkboxBox}>{addBarcodeStickers && <Check size={14} color="#ffffff" />}</div>
                   <div className={styles.checkContent}>
                     <strong>5x Barcode Sticker Rolls (40*30mm)</strong>
-                    <span>{t("4,000 self-adhesive labels for price tagging", "මිල ලකුණු කිරීමට self-adhesive labels 4,000ක්")}</span>
+                    <span>{t("4,000 self-adhesive labels for price tagging", "මිල ලකුණු කිරීමට ඇලවිය හැකි labels 4,000ක්")}</span>
                   </div>
                   <span className={styles.checkPrice}>+ Rs. 1,050.00</span>
                 </label>
@@ -479,7 +479,7 @@ export function HardwareConfigurator() {
                 <span className={styles.stepNumber}>5</span>
                 <div>
                   <h3 className={styles.stepTitle}>{t("Choose MariaPoS Software License", "MariaPoS Software License එක තෝරන්න")}</h3>
-                  <p className={styles.stepSubtitle}>{t("Offline-first POS, FIFO inventory, push alerts & SMS e-bills", "Offline-first POS, FIFO inventory, push alerts සහ SMS e-bills")}</p>
+                  <p className={styles.stepSubtitle}>{t("Offline-first POS, FIFO inventory, push alerts & SMS e-bills", "Internet නැතිවත් bill කරන්න, stock නිවැරදිව තියාගන්න, phone එකට alerts සහ SMS bills")}</p>
                 </div>
               </div>
               <div className={styles.optionsGrid}>
@@ -515,7 +515,7 @@ export function HardwareConfigurator() {
           <div className={styles.summaryCol}>
             <div className={styles.summaryCard}>
               <div className={styles.summaryHeader}>
-                <span className={styles.summaryEyebrow}>{t("Configuration Summary", "Configuration සාරාංශය")}</span>
+                <span className={styles.summaryEyebrow}>{t("Configuration Summary", "ඔබේ තේරීම්")}</span>
                 <h3 className={styles.summaryTitle}>{t("Your Custom POS Counter", "ඔබේ Custom POS Counter එක")}</h3>
               </div>
 
@@ -598,7 +598,7 @@ export function HardwareConfigurator() {
               <div className={styles.commitments}>
                 <div className={styles.commitItem}>
                   <Shield size={14} color="#16a34a" />
-                  <span>{t("Tested & Driver-Configured by JAAN Network", "JAAN Network විසින් Test කර Driver-Configure කරලා")}</span>
+                  <span>{t("Tested & Driver-Configured by JAAN Network", "JAAN Network විසින් පරීක්ෂා කර ඇත")}</span>
                 </div>
                 <div className={styles.commitItem}>
                   <Sparkles size={14} color="var(--red)" />

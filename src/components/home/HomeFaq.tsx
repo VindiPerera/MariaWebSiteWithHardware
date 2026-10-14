@@ -23,13 +23,13 @@ const faqs = [
     q: "Can I try the software first?",
     a: "Yes. The 7-day free trial has the full software. Sign up, or message us on WhatsApp and we will help you install it.",
     qSi: "මුලින් software එක try කරලා බලන්න පුළුවන්ද?",
-    aSi: "පුළුවන්. දින 7ක free trial එකේ full software එකම තියෙනවා. Sign up වෙන්න, නැත්නම් WhatsApp එකෙන් message කරන්න, install කරන්න අපි උදව් කරනවා.",
+    aSi: "පුළුවන්. දින 7ක නොමිලේ trial එකේ සම්පූර්ණ software එකම ලැබෙනවා. Sign up වෙන්න, නැත්නම් WhatsApp එකෙන් message කරන්න, install කරන්න අපි උදව් කරනවා.",
   },
   {
     q: "Will you help me set it up?",
     a: "Full set orders include installation and setup. For other orders, message us and we will guide you.",
     qSi: "Set up කරන්න උදව් කරනවද?",
-    aSi: "Full set orders වලට installation සහ setup එකත් ඇතුළත්. වෙනත් orders වලට message කරන්න, අපි මග පෙන්වනවා.",
+    aSi: "සම්පූර්ණ set එකක් order කළොත් installation සහ setup එකත් ඇතුළත්. වෙනත් orders වලට message කරන්න, අපි මඟ පෙන්වනවා.",
   },
 ];
 

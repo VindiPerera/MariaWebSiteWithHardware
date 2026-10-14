@@ -29,7 +29,7 @@ export function VisualExperienceRow() {
           <p className={styles.subtitle}>
             {t(
               "MariaPoS connects every touchpoint of your store. Fast contactless customer checkout at the counter, strict FIFO batch auditing in your warehouse, and instant push sales alerts in your pocket.",
-              "MariaPoS මගින් ඔබේ වෙළඳසැලේ හැම touchpoint එකම සම්බන්ධ කරනවා. Counter එකේ වේගවත් contactless checkout, ගබඩාවේ නිවැරදි FIFO batch auditing, සහ සාක්කුවේ ඇති phone එකට instant push sales alerts.",
+              "MariaPoS ඔබේ වෙළඳසැලේ හැම තැනක්ම එකට සම්බන්ධ කරනවා: counter එකේ වේගවත් checkout, ගබඩාවේ නිවැරදි stock පාලනය, සාක්කුවේ ඇති phone එකට වහාම එන sales alerts.",
             )}
           </p>
         </div>
@@ -47,7 +47,7 @@ export function VisualExperienceRow() {
               />
               <div className={styles.imageOverlayBadge}>
                 <span className={styles.badgePulseBlue} />
-                <span>{t("Pushed in <1s to Owner Phone", "අයිතිකරුගේ phone එකට තත්පර 1ක් ඇතුළත push වෙනවා")}</span>
+                <span>{t("Pushed in <1s to Owner Phone", "අයිතිකරුගේ phone එකට තත්පර 1ක් ඇතුළත alert එක එනවා")}</span>
               </div>
             </div>
 
@@ -62,7 +62,7 @@ export function VisualExperienceRow() {
               <p className={styles.cardDesc}>
                 {t(
                   "Whether having tea or traveling, every completed sale pushes instantly to your phone with items, branch name, payment method, and gross profit margin.",
-                  "තේ එකක් බොන ගමන් හෝ ගමනක් යන ගමන්, සම්පූර්ණ වෙන හැම sale එකක්ම items, branch name, payment method සහ gross profit margin එක්ක ඔබේ phone එකට instant එනවා.",
+                  "තේ එකක් බොමින් හෝ ගමනක් යමින් වුණත්, අවසන් වන හැම sale එකක්ම items, branch එක, ගෙවීම් ක්‍රමය සහ ලාභය සමඟ ඔබේ phone එකට වහාම එනවා.",
                 )}
               </p>
 
@@ -73,11 +73,11 @@ export function VisualExperienceRow() {
                 </div>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />
-                  <span>{t("Discrepancy & blind cash drawer alerts", "Discrepancy සහ blind cash drawer alerts")}</span>
+                  <span>{t("Discrepancy & blind cash drawer alerts", "Cash අඩුවීම් සහ drawer එකේ වෙනස්කම් ගැන alerts")}</span>
                 </div>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />
-                  <span>{t("Cloud portal accessible from any phone", "ඕනෑම phone එකකින් Cloud portal එකට access කරන්න පුළුවන්")}</span>
+                  <span>{t("Cloud portal accessible from any phone", "ඕනෑම phone එකකින් cloud එකට ඇතුළු වෙන්න පුළුවන්")}</span>
                 </div>
               </div>
 
@@ -116,22 +116,22 @@ export function VisualExperienceRow() {
               <p className={styles.cardDesc}>
                 {t(
                   "Cut thermal paper roll purchases by up to 70%. When customers enter their phone number at checkout, MariaPOS automatically texts a branded digital receipt with items and hotlines.",
-                  "Thermal paper roll මිලදී ගැනීම 70%ක් දක්වා අඩු කරගන්න. Checkout එකේදී customer phone number එක දුන්නම, MariaPOS එක items සහ hotlines සහිත branded digital receipt එකක් automatically SMS කරනවා.",
+                  "Thermal paper මිලදී ගැනීම 70%ක් දක්වා අඩු කරගන්න. Checkout එකේදී customer ගේ phone number එක දුන්නම, items සහ ඔබේ contact විස්තර සමඟ bill එක ඉබේම SMS වෙනවා.",
                 )}
               </p>
 
               <div className={styles.featurePoints}>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />
-                  <span>{t("Branded SMS header with shop name", "වෙළඳසැලේ නමින් Branded SMS header එකක්")}</span>
+                  <span>{t("Branded SMS header with shop name", "වෙළඳසැලේ නමින් SMS bill එක")}</span>
                 </div>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />
-                  <span>{t("Permanent warranty proof on phone", "Phone එකේ ස්ථිර warranty proof එකක්")}</span>
+                  <span>{t("Permanent warranty proof on phone", "Phone එකේම warranty සාක්ෂියක්")}</span>
                 </div>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />
-                  <span>{t("Build customer database for promo SMS", "Promo SMS සඳහා customer database එකක් හදාගන්න")}</span>
+                  <span>{t("Build customer database for promo SMS", "Promo SMS යවන්න customer ලැයිස්තුවක් හදාගන්න")}</span>
                 </div>
               </div>
 
@@ -162,15 +162,15 @@ export function VisualExperienceRow() {
             <div className={styles.cardContent}>
               <div className={styles.cardCategory}>
                 <Boxes size={16} color="#d97706" />
-                <span>{t("Inventory & Backroom Auditing", "Inventory සහ Backroom Auditing")}</span>
+                <span>{t("Inventory & Backroom Auditing", "Stock සහ ගබඩා පරීක්ෂාව")}</span>
               </div>
 
-              <h3 className={styles.cardTitle}>{t("Strict FIFO Batching & Barcode Stocktake.", "නිවැරදි FIFO Batching සහ Barcode Stocktake.")}</h3>
+              <h3 className={styles.cardTitle}>{t("Strict FIFO Batching & Barcode Stocktake.", "පරණම stock මුලින්ම විකිණීම සහ barcode stocktake.")}</h3>
 
               <p className={styles.cardDesc}>
                 {t(
                   "Avoid dead stock and book discrepancies. Stock items purchased at different supplier costs are tracked chronologically. Perishables prompt proactive expiry alarms.",
-                  "Dead stock සහ book discrepancies වලින් ගැලවෙන්න. වෙනස් supplier costs වලට ගත්ත stock items කාලානුක්‍රමිකව track වෙනවා. Perishables වලට expiry alarms කලින්ම එනවා.",
+                  "විකිණෙන්නේ නැතුව ඉතිරි වෙන stock සහ ගණන් වැරදීම් වලින් ගැලවෙන්න. වෙනස් මිල වලට ගත්ත stock කාලානුක්‍රමයෙන් තියාගන්නවා. කල් ඉකුත් වෙන බඩු ගැන කලින්ම alerts එනවා.",
                 )}
               </p>
 
@@ -181,7 +181,7 @@ export function VisualExperienceRow() {
                 </div>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />
-                  <span>{t("Print custom barcode stickers in 1 click", "Custom barcode stickers එක click එකකින් print කරන්න")}</span>
+                  <span>{t("Print custom barcode stickers in 1 click", "Barcode stickers එක click එකකින් print කරන්න")}</span>
                 </div>
                 <div className={styles.pointItem}>
                   <CheckCircle2 size={16} className={styles.checkIcon} />

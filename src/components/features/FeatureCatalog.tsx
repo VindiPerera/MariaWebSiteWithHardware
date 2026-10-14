@@ -101,7 +101,7 @@ export function FeatureCatalog() {
               <p className={styles.heroLead}>
                 {t(
                   "Billing, FIFO stock, supplier cheques, cash till control and reports in one Windows app. Works offline and syncs to the cloud.",
-                  "Billing, FIFO stock, supplier cheques, cash till control සහ reports, සියල්ලම එක Windows app එකක. Offline වැඩ කරනවා, cloud එකට sync වෙනවා.",
+                  "Billing, stock, supplier cheques, cashier ගේ මුදල් පාලනය සහ reports, සියල්ලම එක Windows app එකක. Internet නැතුවත් වැඩ කරනවා, පසුව cloud එකට sync වෙනවා.",
                 )}
               </p>
               <div className={styles.heroActions}>
@@ -141,7 +141,7 @@ export function FeatureCatalog() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t("Search all 63+ features (e.g. barcode, FIFO, discount, push notification, reprint)...", "Features 63+ ම search කරන්න (උදා: barcode, FIFO, discount, push notification, reprint)...")}
+              placeholder={t("Search all 63+ features (e.g. barcode, FIFO, discount, push notification, reprint)...", "විශේෂාංග 63+ ම සොයන්න (උදා: barcode, discount, reprint, SMS)...")}
               className={styles.searchInput}
             />
             {searchQuery && (
@@ -282,9 +282,9 @@ export function FeatureCatalog() {
             {/* Bottom Call to Action Card */}
             <div className={styles.bottomCtaCard}>
               <div>
-                <div className={styles.bottomCtaTitle}>{t("Try every single feature free for 7 days.", "හැම feature එකක්ම දින 7ක් free try කරන්න.")}</div>
+                <div className={styles.bottomCtaTitle}>{t("Try every single feature free for 7 days.", "හැම විශේෂාංගයක්ම දින 7ක් නොමිලේ try කරන්න.")}</div>
                 <p style={{ margin: "6px 0 0", color: "#a1a1aa", fontSize: 15, fontFamily: "var(--font-figtree)" }}>
-                  {t("Instant cloud activation. No credit card required. Works with your existing hardware.", "Cloud activation එක instant. Credit card එකක් අවශ්‍ය නැහැ. ඔබේ දැනට තියෙන hardware එක්ක වැඩ කරනවා.")}
+                  {t("Instant cloud activation. No credit card required. Works with your existing hardware.", "ක්ෂණිකව activate වෙනවා. Credit card එකක් අවශ්‍ය නැහැ. ඔබේ දැනට තියෙන hardware එක්කත් වැඩ කරනවා.")}
                 </p>
               </div>
 
