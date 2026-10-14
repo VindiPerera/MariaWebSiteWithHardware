@@ -181,7 +181,7 @@ export function HardwareCatalogSection({ initialCategory = "all", showTitle = tr
             <span>
               {lang === "ta" ? (
                 <>
-                  <strong>{filteredItems.length}</strong> certified hardware devices காட்டப்படுகின்றன
+                  <strong>{filteredItems.length}</strong> சான்றளிக்கப்பட்ட ஹார்ட்வேர் சாதனங்கள் காட்டப்படுகின்றன
                 </>
               ) : lang === "si" ? (
                 <>

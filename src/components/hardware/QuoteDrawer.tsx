@@ -43,7 +43,7 @@ export function QuoteDrawer() {
             <div>
               <h3 className={styles.title}>{t("Hardware Quote & Order", "Hardware Quote සහ Order")}</h3>
               <p className={styles.subtitle}>
-                {lang === "ta" ? `${totalCount} devices தேர்ந்தெடுக்கப்பட்டுள்ளன` : lang === "si" ? `Devices ${totalCount}ක් තෝරාගෙන` : `${totalCount} ${totalCount === 1 ? "device" : "devices"} selected`}
+                {lang === "ta" ? `${totalCount} சாதனங்கள் தேர்ந்தெடுக்கப்பட்டுள்ளன` : lang === "si" ? `Devices ${totalCount}ක් තෝරාගෙන` : `${totalCount} ${totalCount === 1 ? "device" : "devices"} selected`}
               </p>
             </div>
           </div>

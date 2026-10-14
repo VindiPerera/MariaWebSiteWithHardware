@@ -148,8 +148,8 @@ export function PricingPlans() {
           <p className="lead">
             {lang === "ta" ? (
               <>
-                <strong>software உடன் வரும் hardware bundles</strong> (turnkey) அல்லது உங்களிடம் ஏற்கனவே உள்ள Windows PC-க்கு{" "}
-                <strong>software-only license</strong> ஒன்றை activate செய்வது, இந்த இரண்டில் ஒன்றைத் தேர்ந்தெடுங்கள். இரண்டு option-களும் கீழே உள்ளன.
+                <strong>மென்பொருளுடன் வரும் ஹார்ட்வேர் தொகுப்புகள்</strong>, அல்லது உங்களிடம் ஏற்கனவே உள்ள Windows கணினிக்கான{" "}
+                <strong>மென்பொருள் மட்டும் உரிமம்</strong> — இவற்றில் உங்களுக்குப் பொருந்துவதைத் தேர்ந்தெடுங்கள். இரண்டும் கீழே உள்ளன.
               </>
             ) : lang === "si" ? (
               <>

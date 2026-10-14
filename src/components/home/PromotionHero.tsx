@@ -166,7 +166,7 @@ export function PromotionHero() {
                   title={t("Test bill simulation", "Bill simulation එක test කරන්න")}
                 >
                   <Sparkles size={14} className={billSimulated ? styles.spinAnim : ""} />
-                  <span>{billSimulated ? t(`Bill #${simCounter} Tendered!`, `Bill #${simCounter} ගෙවා අවසන්!`, `Bill #${simCounter} செலுத்தி முடிந்தது!`) : t("Tap to Test 0.8s Bill", "0.8s Bill එක බලන්න Tap කරන්න")}</span>
+                  <span>{billSimulated ? t(`Bill #${simCounter} Tendered!`, `Bill #${simCounter} ගෙවා අවසන්!`, `பில் #${simCounter} செலுத்தி முடிந்தது!`) : t("Tap to Test 0.8s Bill", "0.8s Bill එක බලන්න Tap කරන්න")}</span>
                 </button>
 
                 {/* Official Hardware Certification Pill (Bottom-Right) */}

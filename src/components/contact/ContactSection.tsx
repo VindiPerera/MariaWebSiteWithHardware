@@ -86,7 +86,7 @@ export function ContactSection() {
           <h1 className={styles.title}>
             {lang === "ta" ? (
               <>
-                <span className={styles.highlightText}>MariaPoS</span> engineering team-ஐத் தொடர்பு கொள்ளுங்கள்
+                <span className={styles.highlightText}>MariaPoS</span> தொழில்நுட்பக் குழுவைத் தொடர்பு கொள்ளுங்கள்
               </>
             ) : lang === "si" ? (
               <>
