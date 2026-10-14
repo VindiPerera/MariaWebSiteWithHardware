@@ -25,7 +25,7 @@
 }
 
 .navContainer {
-  max-width: 1260px;
+  max-width: 1400px;
   margin: 0 auto;
   height: 64px;
   padding: 0 16px 0 20px;
@@ -132,7 +132,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
+  padding: 8px 11px;
+  white-space: nowrap;
   border-radius: 999px;
   font-family: var(--font-body);
   font-size: 14.5px;
@@ -167,6 +168,7 @@
 
 /* Action Cluster */
 .actionCluster {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -195,7 +197,7 @@
   transition: all 0.2s ease;
 }
 
-@media (min-width: 1140px) {
+@media (min-width: 1480px) {
   .sampleBillBtn {
     display: inline-flex;
   }
