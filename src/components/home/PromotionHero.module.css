@@ -1,7 +1,7 @@
 /* PromotionHero.module.css - Complete POS System in Sri Lanka */
 
 .heroSection {
-  padding: 16px 0 24px;
+  padding: clamp(104px, 15vw, 140px) 0 24px;
   background: #ffffff;
   position: relative;
 }
