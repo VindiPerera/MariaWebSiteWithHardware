@@ -632,3 +632,52 @@
   text-align: center;
   margin-bottom: 18px;
 }
+
+/* Uniform height + vertical centering for every control in the action cluster */
+.actionCluster > div {
+  display: inline-flex;
+  align-items: center;
+}
+
+.actionCluster > div > button,
+.sampleBillBtn,
+.cartButton,
+.whatsappCta {
+  box-sizing: border-box;
+  height: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.cartBadge {
+  line-height: 18px;
+}
+
+@media (max-width: 480px) {
+  .actionCluster > div > button,
+  .sampleBillBtn,
+  .cartButton,
+  .whatsappCta {
+    height: 34px;
+  }
+
+  .cartButton,
+  .whatsappCta {
+    width: 34px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .cartButton {
+    position: relative;
+  }
+
+  .cartBadge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+  }
+}
